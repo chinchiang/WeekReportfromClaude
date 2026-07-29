@@ -157,87 +157,166 @@
 
   main { min-width: 0; }
   .report-header {
-    background: var(--surface);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, var(--surface)), var(--surface) 55%);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-top: 4px solid var(--accent);
+    border-radius: 14px;
     box-shadow: var(--shadow);
-    padding: 1.5rem;
+    padding: 1.5rem 1.75rem;
     margin-bottom: 1.25rem;
   }
   .report-header .period {
+    display: inline-block;
+    background: var(--accent-soft);
     color: var(--accent);
     font-weight: 600;
-    font-size: .85rem;
-    letter-spacing: .05em;
+    font-size: .8rem;
+    letter-spacing: .04em;
+    padding: .25rem .8rem;
+    border-radius: 99px;
   }
-  .report-header h1 { font-size: 1.5rem; margin: .3rem 0 .6rem; line-height: 1.4; }
+  .report-header h1 { font-size: 1.5rem; margin: .7rem 0 .6rem; line-height: 1.4; }
   .report-header .summary { color: var(--text-2); font-size: .95rem; }
 
   .highlights {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-left: 4px solid var(--accent);
-    border-radius: 12px;
+    border-radius: 14px;
     box-shadow: var(--shadow);
     padding: 1.25rem 1.5rem;
     margin-bottom: 1.25rem;
   }
-  .highlights h2 { font-size: 1.05rem; margin-bottom: .6rem; }
-  .highlights ul { padding-left: 1.2rem; }
-  .highlights li { margin-bottom: .4rem; font-size: .93rem; }
+  .highlights h2 { font-size: 1.05rem; margin-bottom: .8rem; }
+  .highlights ol { list-style: none; counter-reset: hl; display: grid; gap: .5rem; }
+  .highlights li {
+    counter-increment: hl;
+    display: flex;
+    gap: .75rem;
+    align-items: flex-start;
+    font-size: .93rem;
+    background: var(--surface-2);
+    border-radius: 10px;
+    padding: .65rem .9rem;
+  }
+  .highlights li::before {
+    content: counter(hl);
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: .15rem;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   section.topic {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 14px;
     box-shadow: var(--shadow);
     margin-bottom: 1.25rem;
     overflow: hidden;
   }
   .topic-head {
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--border);
+    padding: .9rem 1.4rem;
+    background: color-mix(in srgb, var(--tc, var(--accent)) 9%, var(--surface));
+    border-bottom: 1px solid color-mix(in srgb, var(--tc, var(--accent)) 25%, var(--border));
+    border-left: 5px solid var(--tc, var(--accent));
     display: flex;
     align-items: center;
-    gap: .75rem;
+    gap: .7rem;
     flex-wrap: wrap;
   }
-  .topic-head .dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
-  .topic-head h2 { font-size: 1.15rem; }
+  .topic-head .dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; background: var(--tc); box-shadow: 0 0 0 4px color-mix(in srgb, var(--tc) 22%, transparent); }
+  .topic-head h2 { font-size: 1.12rem; }
   .topic-head .count {
     margin-left: auto;
-    background: var(--surface-2);
+    background: var(--surface);
+    border: 1px solid var(--border);
     color: var(--text-2);
-    font-size: .78rem;
-    padding: .15rem .6rem;
+    font-size: .76rem;
+    font-weight: 600;
+    padding: .15rem .7rem;
     border-radius: 99px;
   }
-  .item { padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border); }
-  .item:last-child { border-bottom: none; }
-  .item-meta { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; margin-bottom: .35rem; }
+  .topic-body { padding: 1rem 1.2rem; display: grid; gap: .9rem; }
+  .item {
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    transition: box-shadow .15s ease, transform .15s ease;
+  }
+  .item:hover { box-shadow: 0 4px 14px rgba(16, 24, 40, .10); transform: translateY(-1px); }
+  .item.imp-high   { border-left-color: var(--high);   background: linear-gradient(90deg, color-mix(in srgb, var(--high) 5%, var(--surface)), var(--surface) 30%); }
+  .item.imp-medium { border-left-color: var(--medium); background: linear-gradient(90deg, color-mix(in srgb, var(--medium) 5%, var(--surface)), var(--surface) 30%); }
+  .item.imp-low    { border-left-color: var(--low);    background: linear-gradient(90deg, color-mix(in srgb, var(--low) 5%, var(--surface)), var(--surface) 30%); }
+  .item-meta { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; margin-bottom: .45rem; }
   .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
     font-size: .72rem;
     font-weight: 700;
-    padding: .12rem .55rem;
+    padding: .16rem .65rem;
     border-radius: 99px;
     letter-spacing: .03em;
   }
+  .badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
   .badge.high { background: var(--high-soft); color: var(--high); }
   .badge.medium { background: var(--medium-soft); color: var(--medium); }
   .badge.low { background: var(--low-soft); color: var(--low); }
-  .item-date { font-size: .78rem; color: var(--text-2); }
-  .item h3 { font-size: 1rem; margin-bottom: .35rem; line-height: 1.5; }
-  .item .content { font-size: .92rem; color: var(--text); margin-bottom: .5rem; }
-  .action-box {
+  .item-date {
+    font-size: .76rem;
+    color: var(--text-2);
     background: var(--surface-2);
-    border-radius: 8px;
-    padding: .6rem .9rem;
-    font-size: .88rem;
-    margin-bottom: .5rem;
+    padding: .16rem .6rem;
+    border-radius: 99px;
   }
+  .item h3 { font-size: 1.02rem; margin-bottom: .4rem; line-height: 1.55; }
+  .item .content { font-size: .92rem; color: var(--text); margin-bottom: .65rem; }
+  .action-box {
+    background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
+    border-radius: 10px;
+    padding: .6rem .9rem .6rem .8rem;
+    font-size: .88rem;
+    margin-bottom: .65rem;
+    display: flex;
+    gap: .55rem;
+    align-items: flex-start;
+  }
+  .action-box .icon { flex-shrink: 0; margin-top: .05rem; }
   .action-box strong { color: var(--accent); }
-  .sources { font-size: .8rem; color: var(--text-2); }
-  .sources a { margin-right: .8rem; }
+  .sources { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; font-size: .78rem; color: var(--text-2); }
+  .sources .label { font-weight: 600; margin-right: .1rem; }
+  .sources a {
+    display: inline-block;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-2);
+    padding: .18rem .7rem;
+    border-radius: 99px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sources a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; background: var(--accent-soft); }
+  .no-update {
+    color: var(--text-2);
+    font-size: .9rem;
+    text-align: center;
+    padding: .9rem;
+    background: var(--surface-2);
+    border-radius: 10px;
+  }
 
   .empty-state, .loading {
     text-align: center;
@@ -378,8 +457,8 @@ function renderReport(r) {
     </div>`;
 
   if (r.highlights && r.highlights.length) {
-    html += `<div class="highlights" id="topic-highlights"><h2>⭐ 本週焦點</h2><ul>` +
-      r.highlights.map(h => `<li>${esc(h)}</li>`).join("") + `</ul></div>`;
+    html += `<div class="highlights" id="topic-highlights"><h2>⭐ 本週焦點</h2><ol>` +
+      r.highlights.map(h => `<li><span>${esc(h)}</span></li>`).join("") + `</ol></div>`;
   }
 
   const navItems = [];
@@ -389,33 +468,34 @@ function renderReport(r) {
     const meta = topicMeta(sec.topic);
     navItems.push(sec.topic);
     html += `
-    <section class="topic" id="topic-${esc(sec.topic)}">
+    <section class="topic" id="topic-${esc(sec.topic)}" style="--tc:${meta.color}">
       <div class="topic-head">
-        <span class="dot" style="background:${meta.color}"></span>
+        <span class="dot"></span>
         <h2>${esc(sec.name || meta.name)}</h2>
         <span class="count">${(sec.items || []).length} 則</span>
-      </div>`;
+      </div>
+      <div class="topic-body">`;
     if (!sec.items || sec.items.length === 0) {
-      html += `<div class="item"><p class="content" style="color:var(--text-2)">本週無重大更新。</p></div>`;
+      html += `<div class="no-update">✓ 本週無重大更新</div>`;
     } else {
       for (const it of sec.items) {
         const imp = IMPORTANCE[it.importance] ? it.importance : "low";
         html += `
-        <article class="item">
+        <article class="item imp-${imp}">
           <div class="item-meta">
             <span class="badge ${imp}">${IMPORTANCE[imp]}</span>
-            ${it.date ? `<span class="item-date">${esc(it.date)}</span>` : ""}
+            ${it.date ? `<span class="item-date">📅 ${esc(it.date)}</span>` : ""}
           </div>
           <h3>${esc(it.title)}</h3>
           <p class="content">${esc(it.content)}</p>
-          ${it.action ? `<div class="action-box"><strong>建議行動：</strong>${esc(it.action)}</div>` : ""}
-          ${(it.sources && it.sources.length) ? `<div class="sources">來源：` +
-            it.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}↗</a>`).join("") +
+          ${it.action ? `<div class="action-box"><span class="icon">💡</span><div><strong>建議行動：</strong>${esc(it.action)}</div></div>` : ""}
+          ${(it.sources && it.sources.length) ? `<div class="sources"><span class="label">來源</span>` +
+            it.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.title)}">${esc(s.title)} ↗</a>`).join("") +
             `</div>` : ""}
         </article>`;
       }
     }
-    html += `</section>`;
+    html += `</div></section>`;
   }
   main.innerHTML = html;
   renderTopicNav(navItems);
