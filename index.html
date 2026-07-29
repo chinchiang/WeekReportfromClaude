@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="auto">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>資安合規週報 | Security & Compliance Weekly</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --surface-2: #eef0f4;
+    --text: #1a1d23;
+    --text-2: #5b6472;
+    --border: #dde1e8;
+    --accent: #2563eb;
+    --accent-soft: #dbeafe;
+    --high: #dc2626;
+    --high-soft: #fee2e2;
+    --medium: #d97706;
+    --medium-soft: #fef3c7;
+    --low: #059669;
+    --low-soft: #d1fae5;
+    --shadow: 0 1px 3px rgba(16, 24, 40, .08), 0 1px 2px rgba(16, 24, 40, .04);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #111418;
+      --surface: #1a1f26;
+      --surface-2: #232a33;
+      --text: #e8eaee;
+      --text-2: #9aa4b2;
+      --border: #2e3742;
+      --accent: #5b95f5;
+      --accent-soft: #1e3a5f;
+      --high: #f47272;
+      --high-soft: #4a1d1d;
+      --medium: #f0a94b;
+      --medium-soft: #453317;
+      --low: #4fd1a5;
+      --low-soft: #123c2e;
+      --shadow: 0 1px 3px rgba(0, 0, 0, .4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #111418;
+    --surface: #1a1f26;
+    --surface-2: #232a33;
+    --text: #e8eaee;
+    --text-2: #9aa4b2;
+    --border: #2e3742;
+    --accent: #5b95f5;
+    --accent-soft: #1e3a5f;
+    --high: #f47272;
+    --high-soft: #4a1d1d;
+    --medium: #f0a94b;
+    --medium-soft: #453317;
+    --low: #4fd1a5;
+    --low-soft: #123c2e;
+    --shadow: 0 1px 3px rgba(0, 0, 0, .4);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header.site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    flex-wrap: wrap;
+  }
+  .logo { font-size: 1.25rem; font-weight: 700; letter-spacing: .02em; }
+  .logo .accent { color: var(--accent); }
+  .header-sub { color: var(--text-2); font-size: .85rem; }
+  .header-right { margin-left: auto; display: flex; gap: .5rem; align-items: center; }
+  .theme-btn {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    padding: .35rem .7rem;
+    cursor: pointer;
+    font-size: .85rem;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 1.5rem auto;
+    padding: 0 1.5rem;
+  }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }
+
+  aside.sidebar {
+    align-self: start;
+    position: sticky;
+    top: 5rem;
+  }
+  @media (max-width: 860px) { aside.sidebar { position: static; } }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .panel h3 {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--text-2);
+    margin-bottom: .6rem;
+  }
+  .week-list { list-style: none; }
+  .week-list li { margin-bottom: .25rem; }
+  .week-list button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    color: var(--text);
+    padding: .45rem .6rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: .9rem;
+    font-family: inherit;
+  }
+  .week-list button:hover { background: var(--surface-2); }
+  .week-list button.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .week-list .wk-date { display: block; font-size: .75rem; color: var(--text-2); }
+  .topic-nav { list-style: none; }
+  .topic-nav a {
+    display: block;
+    padding: .3rem .6rem;
+    border-radius: 8px;
+    font-size: .88rem;
+    color: var(--text);
+  }
+  .topic-nav a:hover { background: var(--surface-2); text-decoration: none; }
+  .topic-nav .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: .5rem; }
+
+  main { min-width: 0; }
+  .report-header {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .report-header .period {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: .85rem;
+    letter-spacing: .05em;
+  }
+  .report-header h1 { font-size: 1.5rem; margin: .3rem 0 .6rem; line-height: 1.4; }
+  .report-header .summary { color: var(--text-2); font-size: .95rem; }
+
+  .highlights {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .highlights h2 { font-size: 1.05rem; margin-bottom: .6rem; }
+  .highlights ul { padding-left: 1.2rem; }
+  .highlights li { margin-bottom: .4rem; font-size: .93rem; }
+
+  section.topic {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+  }
+  .topic-head {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    flex-wrap: wrap;
+  }
+  .topic-head .dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .topic-head h2 { font-size: 1.15rem; }
+  .topic-head .count {
+    margin-left: auto;
+    background: var(--surface-2);
+    color: var(--text-2);
+    font-size: .78rem;
+    padding: .15rem .6rem;
+    border-radius: 99px;
+  }
+  .item { padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border); }
+  .item:last-child { border-bottom: none; }
+  .item-meta { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; margin-bottom: .35rem; }
+  .badge {
+    font-size: .72rem;
+    font-weight: 700;
+    padding: .12rem .55rem;
+    border-radius: 99px;
+    letter-spacing: .03em;
+  }
+  .badge.high { background: var(--high-soft); color: var(--high); }
+  .badge.medium { background: var(--medium-soft); color: var(--medium); }
+  .badge.low { background: var(--low-soft); color: var(--low); }
+  .item-date { font-size: .78rem; color: var(--text-2); }
+  .item h3 { font-size: 1rem; margin-bottom: .35rem; line-height: 1.5; }
+  .item .content { font-size: .92rem; color: var(--text); margin-bottom: .5rem; }
+  .action-box {
+    background: var(--surface-2);
+    border-radius: 8px;
+    padding: .6rem .9rem;
+    font-size: .88rem;
+    margin-bottom: .5rem;
+  }
+  .action-box strong { color: var(--accent); }
+  .sources { font-size: .8rem; color: var(--text-2); }
+  .sources a { margin-right: .8rem; }
+
+  .empty-state, .loading {
+    text-align: center;
+    color: var(--text-2);
+    padding: 4rem 1rem;
+    font-size: .95rem;
+  }
+  footer {
+    text-align: center;
+    color: var(--text-2);
+    font-size: .8rem;
+    padding: 2rem 1rem 3rem;
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <span class="logo">🛡️ 資安合規<span class="accent">週報</span></span>
+  <span class="header-sub">EU AI Act · CRA · NIS2 · CMMC · ISO 27000 · ISO 42001</span>
+  <div class="header-right">
+    <button class="theme-btn" id="themeToggle" title="切換深淺色">🌓 主題</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="panel">
+      <h3>週報存檔</h3>
+      <ul class="week-list" id="weekList"><li class="loading" style="padding:.5rem">載入中…</li></ul>
+    </div>
+    <div class="panel">
+      <h3>追蹤主題</h3>
+      <ul class="topic-nav" id="topicNav"></ul>
+    </div>
+  </aside>
+
+  <main id="main">
+    <div class="loading">正在載入週報資料…</div>
+  </main>
+</div>
+
+<footer>
+  資安合規週報 — 每週一 08:00 自動更新 · 由 Claude 彙整公開資訊產生，重要決策請以官方原文為準
+</footer>
+
+<script>
+const TOPICS = [
+  { key: "highlights",  name: "本週焦點",      color: "#8b5cf6" },
+  { key: "eu-ai-act",   name: "EU AI Act",     color: "#2563eb" },
+  { key: "eu-cra",      name: "EU CRA",        color: "#0891b2" },
+  { key: "nis2",        name: "EU NIS2",       color: "#059669" },
+  { key: "cmmc",        name: "CMMC",          color: "#d97706" },
+  { key: "iso27000",    name: "ISO 27000 系列", color: "#dc2626" },
+  { key: "iso42001",    name: "ISO 42001",     color: "#db2777" },
+  { key: "incidents",   name: "重大資安事件",   color: "#64748b" }
+];
+const IMPORTANCE = { high: "高度關注", medium: "持續留意", low: "一般資訊" };
+
+let reportsIndex = [];
+let currentId = null;
+
+function topicMeta(key) {
+  return TOPICS.find(t => t.key === key) || { key, name: key, color: "#64748b" };
+}
+
+async function loadIndex() {
+  try {
+    const res = await fetch("reports/index.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(res.status);
+    reportsIndex = await res.json();
+  } catch (e) {
+    document.getElementById("main").innerHTML =
+      '<div class="empty-state">無法載入 reports/index.json。<br>若你是直接以 file:// 開啟本頁，請改用本機伺服器（例如 <code>python3 -m http.server</code>）或部署到 GitHub Pages 後瀏覽。</div>';
+    document.getElementById("weekList").innerHTML = "";
+    return;
+  }
+  renderWeekList();
+  if (reportsIndex.length > 0) {
+    const hash = location.hash.replace("#", "");
+    const target = reportsIndex.find(r => r.id === hash) || reportsIndex[0];
+    loadReport(target.id);
+  } else {
+    document.getElementById("main").innerHTML = '<div class="empty-state">尚無週報資料。</div>';
+  }
+}
+
+function renderWeekList() {
+  const ul = document.getElementById("weekList");
+  ul.innerHTML = "";
+  for (const r of reportsIndex) {
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.dataset.id = r.id;
+    btn.innerHTML = `${r.title || r.id}<span class="wk-date">${r.period || ""}</span>`;
+    btn.addEventListener("click", () => loadReport(r.id));
+    li.appendChild(btn);
+    ul.appendChild(li);
+  }
+}
+
+function markActiveWeek() {
+  document.querySelectorAll(".week-list button").forEach(b =>
+    b.classList.toggle("active", b.dataset.id === currentId));
+}
+
+async function loadReport(id) {
+  currentId = id;
+  location.hash = id;
+  markActiveWeek();
+  const main = document.getElementById("main");
+  main.innerHTML = '<div class="loading">載入週報中…</div>';
+  let report;
+  try {
+    const res = await fetch(`reports/${id}.json`, { cache: "no-store" });
+    if (!res.ok) throw new Error(res.status);
+    report = await res.json();
+  } catch (e) {
+    main.innerHTML = `<div class="empty-state">載入 ${id} 失敗。</div>`;
+    return;
+  }
+  renderReport(report);
+}
+
+function esc(s) {
+  const d = document.createElement("div");
+  d.textContent = s == null ? "" : String(s);
+  return d.innerHTML;
+}
+
+function renderReport(r) {
+  const main = document.getElementById("main");
+  let html = `
+    <div class="report-header">
+      <div class="period">📅 ${esc(r.period)}｜發布日期：${esc(r.publishedAt)}</div>
+      <h1>${esc(r.title)}</h1>
+      <p class="summary">${esc(r.summary)}</p>
+    </div>`;
+
+  if (r.highlights && r.highlights.length) {
+    html += `<div class="highlights" id="topic-highlights"><h2>⭐ 本週焦點</h2><ul>` +
+      r.highlights.map(h => `<li>${esc(h)}</li>`).join("") + `</ul></div>`;
+  }
+
+  const navItems = [];
+  if (r.highlights && r.highlights.length) navItems.push("highlights");
+
+  for (const sec of (r.sections || [])) {
+    const meta = topicMeta(sec.topic);
+    navItems.push(sec.topic);
+    html += `
+    <section class="topic" id="topic-${esc(sec.topic)}">
+      <div class="topic-head">
+        <span class="dot" style="background:${meta.color}"></span>
+        <h2>${esc(sec.name || meta.name)}</h2>
+        <span class="count">${(sec.items || []).length} 則</span>
+      </div>`;
+    if (!sec.items || sec.items.length === 0) {
+      html += `<div class="item"><p class="content" style="color:var(--text-2)">本週無重大更新。</p></div>`;
+    } else {
+      for (const it of sec.items) {
+        const imp = IMPORTANCE[it.importance] ? it.importance : "low";
+        html += `
+        <article class="item">
+          <div class="item-meta">
+            <span class="badge ${imp}">${IMPORTANCE[imp]}</span>
+            ${it.date ? `<span class="item-date">${esc(it.date)}</span>` : ""}
+          </div>
+          <h3>${esc(it.title)}</h3>
+          <p class="content">${esc(it.content)}</p>
+          ${it.action ? `<div class="action-box"><strong>建議行動：</strong>${esc(it.action)}</div>` : ""}
+          ${(it.sources && it.sources.length) ? `<div class="sources">來源：` +
+            it.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}↗</a>`).join("") +
+            `</div>` : ""}
+        </article>`;
+      }
+    }
+    html += `</section>`;
+  }
+  main.innerHTML = html;
+  renderTopicNav(navItems);
+}
+
+function renderTopicNav(keys) {
+  const ul = document.getElementById("topicNav");
+  ul.innerHTML = "";
+  for (const key of keys) {
+    const meta = topicMeta(key);
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="#topic-${meta.key}"><span class="dot" style="background:${meta.color}"></span>${meta.name}</a>`;
+    li.querySelector("a").addEventListener("click", ev => {
+      ev.preventDefault();
+      const el = document.getElementById(`topic-${meta.key}`);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    ul.appendChild(li);
+  }
+}
+
+document.getElementById("themeToggle").addEventListener("click", () => {
+  const root = document.documentElement;
+  const dark = getComputedStyle(document.body).backgroundColor !== "rgb(246, 247, 249)";
+  root.setAttribute("data-theme", dark ? "light" : "dark");
+});
+
+loadIndex();
+</script>
+</body>
+</html>
