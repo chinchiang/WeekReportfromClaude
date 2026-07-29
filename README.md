@@ -10,7 +10,8 @@
 4. **CMMC** — 美國國防部網路安全成熟度模型認證
 5. **ISO 27000 系列** — 資訊安全管理標準
 6. **ISO 42001** — 人工智慧管理系統標準
-7. 其他重大資安事件與新聞
+7. **TISAX** — 汽車產業資訊安全評鑑（VDA ISA）
+8. 其他重大資安事件與新聞
 
 ## 網站架構
 
@@ -39,7 +40,7 @@ reports/<id>.json     # 每週一份週報資料，id 格式：YYYY-Www（如 20
 1. 以網路搜尋彙整**過去一週**上述各主題的重大事件、新聞、法令動態
 2. 依現有 schema 新增 `reports/YYYY-Www.json`（參考既有檔案結構）：
    - `highlights`：本週 3–5 條焦點摘要
-   - `sections[].topic` 使用固定 key：`eu-ai-act`、`eu-cra`、`nis2`、`cmmc`、`iso27000`、`iso42001`、`incidents`
+   - `sections[].topic` 使用固定 key：`eu-ai-act`、`eu-cra`、`nis2`、`cmmc`、`iso27000`、`iso42001`、`tisax`、`incidents`
    - 每則 item 含 `title`、`date`、`importance`（high/medium/low）、`content`、`action`（建議行動）、`sources`（來源連結）
    - 某主題當週無重大更新時，`items` 留空陣列即可
 3. 在 `reports/index.json` **最前面**插入新週報的索引項目
