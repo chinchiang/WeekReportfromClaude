@@ -128,6 +128,61 @@
     color: var(--text-2);
     margin-bottom: .6rem;
   }
+  /* ===== 主理人 Sindy ===== */
+  .curator-panel { text-align: center; }
+  .curator-photo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 12px;
+    overflow: hidden;
+    background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 14%, var(--surface)), var(--surface-2));
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--border));
+    margin-bottom: .7rem;
+  }
+  .curator-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 12%;
+  }
+  .curator-photo svg.placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .curator-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+  }
+  .curator-name .accent { color: var(--accent); }
+  .curator-title { font-size: .78rem; color: var(--text-2); margin-top: .1rem; }
+  .curator-bio {
+    font-size: .8rem;
+    color: var(--text-2);
+    margin-top: .5rem;
+    padding-top: .5rem;
+    border-top: 1px dashed var(--border);
+    text-align: left;
+    line-height: 1.6;
+  }
+  .logo-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--accent);
+    background: var(--accent-soft);
+    flex-shrink: 0;
+    position: relative;
+  }
+  .logo-avatar img, .logo-avatar svg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 10%; }
+  header.site-header { align-items: center; }
+
   .week-list { list-style: none; }
   .week-list li { margin-bottom: .25rem; }
   .week-list button {
@@ -331,6 +386,15 @@
     aside.sidebar .panel { padding: .65rem .8rem; margin-bottom: .6rem; border-radius: 10px; }
     .panel h3 { margin-bottom: .45rem; font-size: .72rem; }
 
+    /* 主理人卡片 → 橫式緊湊版 */
+    .curator-panel { display: grid; grid-template-columns: 72px 1fr; gap: .3rem .8rem; text-align: left; align-items: center; }
+    .curator-panel h3 { grid-column: 1 / -1; margin-bottom: .2rem; }
+    .curator-photo { width: 72px; aspect-ratio: 1; border-radius: 50%; margin-bottom: 0; grid-row: span 3; }
+    .curator-photo img, .curator-photo svg.placeholder { object-position: 50% 10%; }
+    .curator-photo svg.placeholder { transform: scale(2.1); transform-origin: 50% 18%; }
+    .curator-name { font-size: .95rem; }
+    .curator-bio { margin-top: .25rem; padding-top: 0; border-top: none; font-size: .74rem; }
+
     /* 週報存檔 → 水平滑動膠囊列 */
     .week-list { display: flex; overflow-x: auto; gap: .45rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .week-list::-webkit-scrollbar { display: none; }
@@ -404,7 +468,45 @@
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="sindy-art" viewBox="0 0 300 400">
+      <g opacity=".35" stroke="#3b82f6" stroke-width="1" fill="none">
+        <path d="M20 330 h40 l14 -14 h30 M250 90 h-30 l-12 12 h-24"/>
+        <circle cx="20" cy="330" r="3" fill="#3b82f6"/><circle cx="250" cy="90" r="3" fill="#3b82f6"/>
+        <path d="M262 300 l14 8 v16 l-14 8 l-14 -8 v-16 z"/>
+      </g>
+      <path d="M150 20 C 95 20 72 65 74 120 C 60 200 52 290 68 380 L 105 380 C 92 300 90 240 96 190 L 204 190 C 210 240 208 300 195 380 L 232 380 C 248 290 240 200 226 120 C 228 65 205 20 150 20 Z" fill="#171a28"/>
+      <path d="M96 190 C 94 250 92 310 84 375 L 100 375 C 106 310 104 250 106 200 Z" fill="#2f56d9" opacity=".55"/>
+      <path d="M204 190 C 206 250 208 310 216 375 L 200 375 C 194 310 196 250 194 200 Z" fill="#2f56d9" opacity=".55"/>
+      <ellipse cx="150" cy="118" rx="46" ry="50" fill="#f6d7c3"/>
+      <path d="M150 30 C 100 30 96 78 100 96 C 116 88 132 84 150 84 C 168 84 184 88 200 96 C 204 78 200 30 150 30 Z" fill="#171a28"/>
+      <path d="M100 96 C 108 84 118 78 126 80 C 118 92 112 104 110 118 C 104 112 100 104 100 96 Z" fill="#171a28"/>
+      <path d="M200 96 C 192 84 182 78 174 80 C 182 92 188 104 190 118 C 196 112 200 104 200 96 Z" fill="#171a28"/>
+      <path d="M128 86 C 136 92 142 100 144 108 C 138 104 130 96 128 86 Z" fill="#2f56d9" opacity=".6"/>
+      <ellipse cx="131" cy="124" rx="8" ry="10" fill="#2563eb"/>
+      <ellipse cx="169" cy="124" rx="8" ry="10" fill="#2563eb"/>
+      <circle cx="133" cy="121" r="2.5" fill="#fff"/>
+      <circle cx="171" cy="121" r="2.5" fill="#fff"/>
+      <path d="M120 108 q 11 -6 22 0" stroke="#171a28" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M158 108 q 11 -6 22 0" stroke="#171a28" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M144 156 q 6 4 12 0" stroke="#c88" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M96 60 l 14 8 v 16 l -14 8 l -14 -8 v -16 z" fill="#1d4ed8" stroke="#60a5fa" stroke-width="2"/>
+      <circle cx="96" cy="76" r="4" fill="#93c5fd"/>
+      <path d="M138 168 L 162 168 L 160 190 L 140 190 Z" fill="#f0c9b2"/>
+      <path d="M150 186 C 95 186 68 210 60 250 C 90 238 120 232 150 232 C 180 232 210 238 240 250 C 232 210 205 186 150 186 Z" fill="#14161f" stroke="#3b82f6" stroke-width="2"/>
+      <path d="M126 186 L 174 186 L 168 206 L 132 206 Z" fill="#1c2030" stroke="#3b82f6" stroke-width="1.5"/>
+      <path d="M60 250 C 56 290 58 340 66 385 L 234 385 C 242 340 244 290 240 250 C 210 238 180 232 150 232 C 120 232 90 238 60 250 Z" fill="#191c29"/>
+      <path d="M66 385 C 60 340 58 295 61 255 M 234 385 C 240 340 242 295 239 255" stroke="#3b82f6" stroke-width="2" fill="none" opacity=".8"/>
+      <path d="M150 268 l 22 10 v 26 c 0 16 -10 26 -22 32 c -12 -6 -22 -16 -22 -32 v -26 z" fill="#101322" stroke="#60a5fa" stroke-width="2.5"/>
+      <path d="M150 280 l 12 6 v 16 c 0 9 -5 14 -12 18 c -7 -4 -12 -9 -12 -18 v -16 z" fill="#1d4ed8" opacity=".85"/>
+      <path d="M138 306 l 8 8 l 16 -18" stroke="#93c5fd" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
 <header class="site-header">
+  <span class="logo-avatar" title="Sindy"><svg viewBox="96 58 108 108"><use href="#sindy-art" width="300" height="400"/></svg><img src="assets/sindy.png" alt="Sindy" onerror="this.style.display='none'"></span>
   <span class="logo" id="siteLogo">🛡️ 資安合規<span class="accent">週報</span></span>
   <span class="header-sub">EU AI Act · CRA · NIS2 · CMMC · ISO 27000 · ISO 42001 · TISAX</span>
   <div class="header-right">
@@ -415,6 +517,16 @@
 
 <div class="layout">
   <aside class="sidebar">
+    <div class="panel curator-panel">
+      <h3 id="curatorTitle">主理人</h3>
+      <div class="curator-photo">
+        <svg class="placeholder" viewBox="0 0 300 400"><use href="#sindy-art" width="300" height="400"/></svg>
+        <img src="assets/sindy.png" alt="Sindy" onerror="this.style.display='none'">
+      </div>
+      <div class="curator-name">Sindy <span class="accent">🛡️</span></div>
+      <div class="curator-title" id="curatorRole">資安合規週報 主理人</div>
+      <div class="curator-bio" id="curatorBio">每週一 08:00 為你彙整八大資安合規動態，重要的事不漏接。</div>
+    </div>
     <div class="panel">
       <h3 id="archiveTitle">週報存檔</h3>
       <ul class="week-list" id="weekList"><li class="loading" style="padding:.5rem">載入中…</li></ul>
@@ -458,7 +570,10 @@ const UI = {
     noUpdate: "✓ 本週無重大更新", count: n => `${n} 則`,
     loading: "載入週報中…", loadFail: id => `載入 ${id} 失敗。`, noReports: "尚無週報資料。",
     indexFail: '無法載入 reports/index.json。<br>若你是直接以 file:// 開啟本頁，請改用本機伺服器（例如 <code>python3 -m http.server</code>）或部署到 GitHub Pages 後瀏覽。',
-    footer: "資安合規週報 — 每週一 08:00 自動更新 · 由 Claude 彙整公開資訊產生，重要決策請以官方原文為準",
+    footer: "資安合規週報 — 主理人 Sindy · 每週一 08:00 自動更新 · 彙整公開資訊產生，重要決策請以官方原文為準",
+    curator: "主理人", curatorRole: "資安合規週報 主理人",
+    curatorBio: "每週一 08:00 為你彙整八大資安合規動態，重要的事不漏接。",
+    curatorBy: "主理人 Sindy",
     langBtn: "EN", htmlLang: "zh-Hant"
   },
   en: {
@@ -468,7 +583,10 @@ const UI = {
     noUpdate: "✓ No major updates this week", count: n => `${n} item${n === 1 ? "" : "s"}`,
     loading: "Loading report…", loadFail: id => `Failed to load ${id}.`, noReports: "No reports yet.",
     indexFail: 'Could not load reports/index.json.<br>If you opened this page via file://, serve it locally (e.g. <code>python3 -m http.server</code>) or browse the deployed GitHub Pages site.',
-    footer: "Security & Compliance Weekly — auto-updated every Monday 08:00 (UTC+8) · Compiled by Claude from public sources; consult official texts for decisions",
+    footer: "Security & Compliance Weekly — curated by Sindy · auto-updated every Monday 08:00 (UTC+8) · Compiled from public sources; consult official texts for decisions",
+    curator: "Curator", curatorRole: "Curator, Security & Compliance Weekly",
+    curatorBio: "Every Monday at 08:00, Sindy rounds up eight security & compliance domains so nothing important slips by.",
+    curatorBy: "Curated by Sindy",
     langBtn: "中", htmlLang: "en"
   }
 };
@@ -496,6 +614,9 @@ function applyChrome() {
   document.getElementById("topicsTitle").textContent = t.topics;
   document.getElementById("siteFooter").textContent = t.footer;
   document.getElementById("langToggle").textContent = t.langBtn;
+  document.getElementById("curatorTitle").textContent = t.curator;
+  document.getElementById("curatorRole").textContent = t.curatorRole;
+  document.getElementById("curatorBio").textContent = t.curatorBio;
 }
 
 async function loadIndex() {
@@ -568,7 +689,7 @@ function renderReport(r) {
   const main = document.getElementById("main");
   let html = `
     <div class="report-header">
-      <div class="period">📅 ${esc(L(r.period))}｜${t.published}：${esc(r.publishedAt)}</div>
+      <div class="period">📅 ${esc(L(r.period))}｜${t.published}：${esc(r.publishedAt)}｜🛡️ ${t.curatorBy}</div>
       <h1>${esc(L(r.title))}</h1>
       <p class="summary">${esc(L(r.summary))}</p>
     </div>`;
