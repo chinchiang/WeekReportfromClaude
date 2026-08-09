@@ -39,6 +39,9 @@ reports/<id>.json     # 每週一份週報資料，id 格式：YYYY-Www（如 20
 
 1. 以網路搜尋彙整**過去一週**上述各主題的重大事件、新聞、法令動態
 2. 依現有 schema 新增 `reports/YYYY-Www.json`（參考既有檔案結構）：
+   - **雙語內容**：`title`、`summary`、`highlights[]`、`sections[].name`、item 的
+     `title`/`content`/`action` 及含中文的 `date`，一律使用 `{ "zh": "...", "en": "..." }`
+     物件（純日期或英文專名可用字串，網站兩種語言都會直接顯示）
    - `highlights`：本週 3–5 條焦點摘要
    - `sections[].topic` 使用固定 key：`eu-ai-act`、`eu-cra`、`nis2`、`cmmc`、`iso27000`、`iso42001`、`tisax`、`incidents`
    - 每則 item 含 `title`、`date`、`importance`（high/medium/low）、`content`、`action`（建議行動）、`sources`（來源連結）

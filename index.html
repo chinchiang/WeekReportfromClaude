@@ -405,21 +405,22 @@
 </head>
 <body>
 <header class="site-header">
-  <span class="logo">🛡️ 資安合規<span class="accent">週報</span></span>
+  <span class="logo" id="siteLogo">🛡️ 資安合規<span class="accent">週報</span></span>
   <span class="header-sub">EU AI Act · CRA · NIS2 · CMMC · ISO 27000 · ISO 42001 · TISAX</span>
   <div class="header-right">
-    <button class="theme-btn" id="themeToggle" title="切換深淺色">🌓 主題</button>
+    <button class="theme-btn" id="langToggle" title="切換語言 / Switch language">EN</button>
+    <button class="theme-btn" id="themeToggle" title="切換深淺色 / Toggle theme">🌓</button>
   </div>
 </header>
 
 <div class="layout">
   <aside class="sidebar">
     <div class="panel">
-      <h3>週報存檔</h3>
+      <h3 id="archiveTitle">週報存檔</h3>
       <ul class="week-list" id="weekList"><li class="loading" style="padding:.5rem">載入中…</li></ul>
     </div>
     <div class="panel">
-      <h3>追蹤主題</h3>
+      <h3 id="topicsTitle">追蹤主題</h3>
       <ul class="topic-nav" id="topicNav"></ul>
     </div>
   </aside>
@@ -429,29 +430,72 @@
   </main>
 </div>
 
-<footer>
+<footer id="siteFooter">
   資安合規週報 — 每週一 08:00 自動更新 · 由 Claude 彙整公開資訊產生，重要決策請以官方原文為準
 </footer>
 
 <script>
 const TOPICS = [
-  { key: "highlights",  name: "本週焦點",      color: "#8b5cf6" },
-  { key: "eu-ai-act",   name: "EU AI Act",     color: "#2563eb" },
-  { key: "eu-cra",      name: "EU CRA",        color: "#0891b2" },
-  { key: "nis2",        name: "EU NIS2",       color: "#059669" },
-  { key: "cmmc",        name: "CMMC",          color: "#d97706" },
-  { key: "iso27000",    name: "ISO 27000 系列", color: "#dc2626" },
-  { key: "iso42001",    name: "ISO 42001",     color: "#db2777" },
-  { key: "tisax",       name: "TISAX",         color: "#7c3aed" },
-  { key: "incidents",   name: "重大資安事件",   color: "#64748b" }
+  { key: "highlights",  name: { zh: "本週焦點", en: "Weekly Highlights" },       color: "#8b5cf6" },
+  { key: "eu-ai-act",   name: { zh: "EU AI Act", en: "EU AI Act" },              color: "#2563eb" },
+  { key: "eu-cra",      name: { zh: "EU CRA", en: "EU CRA" },                    color: "#0891b2" },
+  { key: "nis2",        name: { zh: "EU NIS2", en: "EU NIS2" },                  color: "#059669" },
+  { key: "cmmc",        name: { zh: "CMMC", en: "CMMC" },                        color: "#d97706" },
+  { key: "iso27000",    name: { zh: "ISO 27000 系列", en: "ISO 27000 Series" },  color: "#dc2626" },
+  { key: "iso42001",    name: { zh: "ISO 42001", en: "ISO 42001" },              color: "#db2777" },
+  { key: "tisax",       name: { zh: "TISAX", en: "TISAX" },                      color: "#7c3aed" },
+  { key: "incidents",   name: { zh: "重大資安事件", en: "Major Incidents" },      color: "#64748b" }
 ];
-const IMPORTANCE = { high: "高度關注", medium: "持續留意", low: "一般資訊" };
+const IMPORTANCE = {
+  zh: { high: "高度關注", medium: "持續留意", low: "一般資訊" },
+  en: { high: "High Priority", medium: "Watch", low: "Info" }
+};
+const UI = {
+  zh: {
+    logo: '🛡️ 資安合規<span class="accent">週報</span>',
+    archive: "週報存檔", topics: "追蹤主題", highlights: "⭐ 本週焦點",
+    published: "發布日期", action: "建議行動：", sources: "來源",
+    noUpdate: "✓ 本週無重大更新", count: n => `${n} 則`,
+    loading: "載入週報中…", loadFail: id => `載入 ${id} 失敗。`, noReports: "尚無週報資料。",
+    indexFail: '無法載入 reports/index.json。<br>若你是直接以 file:// 開啟本頁，請改用本機伺服器（例如 <code>python3 -m http.server</code>）或部署到 GitHub Pages 後瀏覽。',
+    footer: "資安合規週報 — 每週一 08:00 自動更新 · 由 Claude 彙整公開資訊產生，重要決策請以官方原文為準",
+    langBtn: "EN", htmlLang: "zh-Hant"
+  },
+  en: {
+    logo: '🛡️ Security &amp; Compliance <span class="accent">Weekly</span>',
+    archive: "Archive", topics: "Topics", highlights: "⭐ Weekly Highlights",
+    published: "Published", action: "Recommended action: ", sources: "Sources",
+    noUpdate: "✓ No major updates this week", count: n => `${n} item${n === 1 ? "" : "s"}`,
+    loading: "Loading report…", loadFail: id => `Failed to load ${id}.`, noReports: "No reports yet.",
+    indexFail: 'Could not load reports/index.json.<br>If you opened this page via file://, serve it locally (e.g. <code>python3 -m http.server</code>) or browse the deployed GitHub Pages site.',
+    footer: "Security & Compliance Weekly — auto-updated every Monday 08:00 (UTC+8) · Compiled by Claude from public sources; consult official texts for decisions",
+    langBtn: "中", htmlLang: "en"
+  }
+};
 
+let lang = localStorage.getItem("lang") || "zh";
 let reportsIndex = [];
 let currentId = null;
+let currentReport = null;
+
+function L(v) {
+  if (v == null) return "";
+  if (typeof v === "string") return v;
+  return v[lang] ?? v.zh ?? v.en ?? "";
+}
 
 function topicMeta(key) {
-  return TOPICS.find(t => t.key === key) || { key, name: key, color: "#64748b" };
+  return TOPICS.find(t => t.key === key) || { key, name: { zh: key, en: key }, color: "#64748b" };
+}
+
+function applyChrome() {
+  const t = UI[lang];
+  document.documentElement.lang = t.htmlLang;
+  document.getElementById("siteLogo").innerHTML = t.logo;
+  document.getElementById("archiveTitle").textContent = t.archive;
+  document.getElementById("topicsTitle").textContent = t.topics;
+  document.getElementById("siteFooter").textContent = t.footer;
+  document.getElementById("langToggle").textContent = t.langBtn;
 }
 
 async function loadIndex() {
@@ -460,8 +504,7 @@ async function loadIndex() {
     if (!res.ok) throw new Error(res.status);
     reportsIndex = await res.json();
   } catch (e) {
-    document.getElementById("main").innerHTML =
-      '<div class="empty-state">無法載入 reports/index.json。<br>若你是直接以 file:// 開啟本頁，請改用本機伺服器（例如 <code>python3 -m http.server</code>）或部署到 GitHub Pages 後瀏覽。</div>';
+    document.getElementById("main").innerHTML = `<div class="empty-state">${UI[lang].indexFail}</div>`;
     document.getElementById("weekList").innerHTML = "";
     return;
   }
@@ -471,7 +514,7 @@ async function loadIndex() {
     const target = reportsIndex.find(r => r.id === hash) || reportsIndex[0];
     loadReport(target.id);
   } else {
-    document.getElementById("main").innerHTML = '<div class="empty-state">尚無週報資料。</div>';
+    document.getElementById("main").innerHTML = `<div class="empty-state">${UI[lang].noReports}</div>`;
   }
 }
 
@@ -482,11 +525,12 @@ function renderWeekList() {
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.dataset.id = r.id;
-    btn.innerHTML = `${r.title || r.id}<span class="wk-date">${r.period || ""}</span>`;
+    btn.innerHTML = `${esc(L(r.title)) || r.id}<span class="wk-date">${esc(L(r.period))}</span>`;
     btn.addEventListener("click", () => loadReport(r.id));
     li.appendChild(btn);
     ul.appendChild(li);
   }
+  markActiveWeek();
 }
 
 function markActiveWeek() {
@@ -499,16 +543,17 @@ async function loadReport(id) {
   location.hash = id;
   markActiveWeek();
   const main = document.getElementById("main");
-  main.innerHTML = '<div class="loading">載入週報中…</div>';
+  main.innerHTML = `<div class="loading">${UI[lang].loading}</div>`;
   let report;
   try {
     const res = await fetch(`reports/${id}.json`, { cache: "no-store" });
     if (!res.ok) throw new Error(res.status);
     report = await res.json();
   } catch (e) {
-    main.innerHTML = `<div class="empty-state">載入 ${id} 失敗。</div>`;
+    main.innerHTML = `<div class="empty-state">${UI[lang].loadFail(id)}</div>`;
     return;
   }
+  currentReport = report;
   renderReport(report);
 }
 
@@ -519,17 +564,18 @@ function esc(s) {
 }
 
 function renderReport(r) {
+  const t = UI[lang];
   const main = document.getElementById("main");
   let html = `
     <div class="report-header">
-      <div class="period">📅 ${esc(r.period)}｜發布日期：${esc(r.publishedAt)}</div>
-      <h1>${esc(r.title)}</h1>
-      <p class="summary">${esc(r.summary)}</p>
+      <div class="period">📅 ${esc(L(r.period))}｜${t.published}：${esc(r.publishedAt)}</div>
+      <h1>${esc(L(r.title))}</h1>
+      <p class="summary">${esc(L(r.summary))}</p>
     </div>`;
 
   if (r.highlights && r.highlights.length) {
-    html += `<div class="highlights" id="topic-highlights"><h2>⭐ 本週焦點</h2><ol>` +
-      r.highlights.map(h => `<li><span>${esc(h)}</span></li>`).join("") + `</ol></div>`;
+    html += `<div class="highlights" id="topic-highlights"><h2>${t.highlights}</h2><ol>` +
+      r.highlights.map(h => `<li><span>${esc(L(h))}</span></li>`).join("") + `</ol></div>`;
   }
 
   const navItems = [];
@@ -538,29 +584,31 @@ function renderReport(r) {
   for (const sec of (r.sections || [])) {
     const meta = topicMeta(sec.topic);
     navItems.push(sec.topic);
+    const secName = (sec.name && typeof sec.name === "object") ? L(sec.name)
+      : (lang === "zh" && typeof sec.name === "string") ? sec.name : L(meta.name);
     html += `
     <section class="topic" id="topic-${esc(sec.topic)}" style="--tc:${meta.color}">
       <div class="topic-head">
         <span class="dot"></span>
-        <h2>${esc(sec.name || meta.name)}</h2>
-        <span class="count">${(sec.items || []).length} 則</span>
+        <h2>${esc(secName)}</h2>
+        <span class="count">${t.count((sec.items || []).length)}</span>
       </div>
       <div class="topic-body">`;
     if (!sec.items || sec.items.length === 0) {
-      html += `<div class="no-update">✓ 本週無重大更新</div>`;
+      html += `<div class="no-update">${t.noUpdate}</div>`;
     } else {
       for (const it of sec.items) {
-        const imp = IMPORTANCE[it.importance] ? it.importance : "low";
+        const imp = IMPORTANCE.zh[it.importance] ? it.importance : "low";
         html += `
         <article class="item imp-${imp}">
           <div class="item-meta">
-            <span class="badge ${imp}">${IMPORTANCE[imp]}</span>
-            ${it.date ? `<span class="item-date">📅 ${esc(it.date)}</span>` : ""}
+            <span class="badge ${imp}">${IMPORTANCE[lang][imp]}</span>
+            ${it.date ? `<span class="item-date">📅 ${esc(L(it.date))}</span>` : ""}
           </div>
-          <h3>${esc(it.title)}</h3>
-          <p class="content">${esc(it.content)}</p>
-          ${it.action ? `<div class="action-box"><span class="icon">💡</span><div><strong>建議行動：</strong>${esc(it.action)}</div></div>` : ""}
-          ${(it.sources && it.sources.length) ? `<div class="sources"><span class="label">來源</span>` +
+          <h3>${esc(L(it.title))}</h3>
+          <p class="content">${esc(L(it.content))}</p>
+          ${it.action ? `<div class="action-box"><span class="icon">💡</span><div><strong>${t.action}</strong>${esc(L(it.action))}</div></div>` : ""}
+          ${(it.sources && it.sources.length) ? `<div class="sources"><span class="label">${t.sources}</span>` +
             it.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.title)}">${esc(s.title)} ↗</a>`).join("") +
             `</div>` : ""}
         </article>`;
@@ -578,7 +626,7 @@ function renderTopicNav(keys) {
   for (const key of keys) {
     const meta = topicMeta(key);
     const li = document.createElement("li");
-    li.innerHTML = `<a href="#topic-${meta.key}"><span class="dot" style="background:${meta.color}"></span>${meta.name}</a>`;
+    li.innerHTML = `<a href="#topic-${meta.key}"><span class="dot" style="background:${meta.color}"></span>${esc(L(meta.name))}</a>`;
     li.querySelector("a").addEventListener("click", ev => {
       ev.preventDefault();
       const el = document.getElementById(`topic-${meta.key}`);
@@ -594,6 +642,15 @@ document.getElementById("themeToggle").addEventListener("click", () => {
   root.setAttribute("data-theme", dark ? "light" : "dark");
 });
 
+document.getElementById("langToggle").addEventListener("click", () => {
+  lang = lang === "zh" ? "en" : "zh";
+  localStorage.setItem("lang", lang);
+  applyChrome();
+  renderWeekList();
+  if (currentReport) renderReport(currentReport);
+});
+
+applyChrome();
 loadIndex();
 </script>
 </body>
