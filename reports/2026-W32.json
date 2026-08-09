@@ -1,0 +1,162 @@
+{
+  "id": "2026-W32",
+  "title": "EU AI Act 執法權正式啟動、CMMC 改革意見徵詢 8/14 截止",
+  "period": "2026-08-03 ~ 2026-08-09",
+  "publishedAt": "2026-08-09",
+  "summary": "本期為補發週報（原 8/3 排程執行失敗，已修復）。EU AI Act 對 GPAI 的執法與罰款權限已於 8/2 正式生效，歐盟執委會現在可以開罰；高風險 AI 系統義務則因 Digital Omnibus 延後至 2027 年 12 月。美國 CMMC 改革意見徵詢（RFI）8/14 截止，是國防供應鏈廠商影響改革方向的關鍵窗口。Black Hat USA 於 8/5–8/6 舉行，NAT 劫持新型攻擊 NatJack 與多個遭利用漏洞（N-able 零時差、Kemp LoadMaster）值得資安團隊立即關注。",
+  "highlights": [
+    "EU AI Act：執委會對 GPAI 模型的執法與罰款權限 8/2 正式生效（最高 1,500 萬歐元或全球營業額 3%）；高風險 AI 系統義務因 Digital Omnibus 延後至 2027 年 12 月 2 日。",
+    "CMMC：國防部改革意見徵詢（RFI）8 月 14 日截止，60 天改革小組報告預計 9 月中出爐；Phase 2 第三方認證維持暫停、Level 1 自評仍屬必要。",
+    "EU CRA：漏洞通報義務 9/11 生效倒數約 5 週；首個網路韌性 Type A 調和標準預計 8 月發布。",
+    "重大漏洞：N-able N-central 零時差漏洞（CVE-2026-18577）遭利用；Kemp LoadMaster 命令注入漏洞（CVE-2026-8037，CVSS 9.6）列入 CISA KEV，請立即修補。",
+    "Black Hat USA 2026（8/5–8/6）：新型 NAT 攻擊 NatJack 可劫持 TCP 連線與毒化 DNS，影響 Windows / Linux / macOS 的 NAT 實作。"
+  ],
+  "sections": [
+    {
+      "topic": "eu-ai-act",
+      "name": "EU AI Act（歐盟人工智慧法案）",
+      "items": [
+        {
+          "title": "GPAI 執法與罰款權限 8/2 正式生效，執委會可開罰",
+          "date": "2026-08-02",
+          "importance": "high",
+          "content": "歐盟執委會與 AI Office 對 GPAI（通用人工智慧模型）提供者的監督執法權已於 8 月 2 日正式生效：可要求提供文件、對模型進行技術評估、命令採取合規與風險緩解措施、限制或下架模型，並依 Article 101 開罰最高 1,500 萬歐元或全球年營業額 3%。GPAI 義務本身自 2025 年 8 月即已適用，過去一年是執法緩衝期，現已結束。目前尚無首宗執法案例，各成員國主管機關仍在建置中。",
+          "action": "GPAI 提供者應完成技術文件、著作權政策與訓練資料摘要的最終檢查；部署 AI 的組織確認 Article 50 透明化揭露（告知使用者正在與 AI 互動）已上線。",
+          "sources": [
+            { "title": "Jetico: What Changed on August 2 (And What Didn't)", "url": "https://jetico.com/blog/eu-ai-act-news-today-what-changed-on-august-2/" },
+            { "title": "Beam: GPAI Enforcement & 3% Fines Begin", "url": "https://beam.ai/agentic-insights/eu-ai-act-enforcement-august-2-2026-gpai-fines" },
+            { "title": "AI Act: Enforcement of Chapter V", "url": "https://artificialintelligenceact.eu/enforcement-of-chapter-v-under-the-eu-ai-act/" }
+          ]
+        },
+        {
+          "title": "高風險 AI 系統義務確定延後至 2027 年 12 月 2 日",
+          "date": "持續",
+          "importance": "medium",
+          "content": "受 Digital Omnibus 影響，原定 2026 年 8 月適用的高風險 AI 系統（Annex III）義務已延後至 2027 年 12 月 2 日。這給了高風險系統部署者更多準備時間，但 GPAI、透明化與禁止用途等其他條文不受影響、照常執法。",
+          "action": "高風險 AI 系統的合規計畫可依新時程調整資源配置，但勿因延期而停止差距分析；透明化與 GPAI 相關義務仍須立即符合。",
+          "sources": [
+            { "title": "AccuroAI: What Actually Applies on August 2, 2026", "url": "https://accuroai.co/blog/eu-ai-act-what-actually-applies-august-2-2026" },
+            { "title": "Trilateral Research: EU AI Act Compliance Timeline", "url": "https://trilateralresearch.com/responsible-ai/eu-ai-act-implementation-timeline-mapping-your-models-to-the-new-risk-tiers" }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "eu-cra",
+      "name": "EU CRA（歐盟網路韌性法案）",
+      "items": [
+        {
+          "title": "首個網路韌性 Type A 調和標準預計 8 月發布",
+          "date": "2026-08",
+          "importance": "medium",
+          "content": "支撐 CRA 合規推定（presumption of conformity）的首個 Type A 調和標準預計於 2026 年 8 月發布，將為「依風險維持適當網路安全措施」提供可依循的框架。同時提醒：漏洞與重大事件通報義務 9 月 11 日生效，距今僅約 5 週，屆時須具備 24 小時早期預警能力。",
+          "action": "追蹤 CEN/CENELEC 標準發布動態並納入產品合規路線圖；尚未建立 24/72 小時通報流程的製造商應把握最後 5 週完成演練。",
+          "sources": [
+            { "title": "SGS: Update on Developments Relating to the EU CRA", "url": "https://www.sgs.com/en-us/news/2025/09/safeguards-13125-update-on-developments-relating-to-the-eu-cyber-resilience-act" },
+            { "title": "Hogan Lovells: CRA Vulnerability & Incident Reporting", "url": "https://www.hoganlovells.com/en/publications/eu-cyber-resilience-act-preparing-for-vulnerability-and-incident-reporting" }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "nis2",
+      "name": "EU NIS2（歐盟網路與資訊安全指令 2.0）",
+      "items": [
+        {
+          "title": "首波執法年進行中：事件通報共同範本已就緒",
+          "date": "持續",
+          "importance": "medium",
+          "content": "2026 年被視為 NIS2 首波執法年。NIS Cooperation Group 已於 5 月 26 日通過事件通報共同範本，統一各成員國通報格式；執委會 1 月提出的 NIS2 修正案（為約 2.87 萬家企業簡化合規）仍在立法程序中。上期報導的四國（愛爾蘭、西班牙、法國、荷蘭）遭移送歐洲法院案持續進行。",
+          "action": "受管制實體應將共同通報範本納入事件應變 SOP，並確認所在成員國主管機關的登記與通報管道；在轉換進度落後的國家營運者，仍以指令本文為合規基準。",
+          "sources": [
+            { "title": "European Commission: NIS2 Directive", "url": "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive" },
+            { "title": "Skadden: NIS2 Reform With Implementation Well Underway", "url": "https://www.skadden.com/insights/publications/2026/03/european-commission-announces-potential-nis2-cybersecurity-reform" }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "cmmc",
+      "name": "CMMC（美國國防部網路安全成熟度模型認證）",
+      "items": [
+        {
+          "title": "CMMC 改革意見徵詢（RFI）8 月 14 日截止",
+          "date": "截止 2026-08-14",
+          "importance": "high",
+          "content": "國防部就 CMMC 改革發布的意見徵詢（RFI）將於 8 月 14 日截止，徵求業界對合規成本驅動因素、行政負擔、具體安全控制成效、商用方案可用性與政策改革建議的意見。60 天改革小組的最終報告預計 9 月中旬出爐，目標是「優先考量快速取得能力、降低中小與非傳統企業門檻、以可擴展務實的安全措施取代高成本第三方合規模式」。Phase 2 第三方認證維持暫停，Level 1 自評與 DFARS 基本義務不變。",
+          "action": "受影響的國防供應鏈廠商（尤其中小企業）應把握 8/14 前提交意見，具體陳述合規成本與痛點——這是影響改革方向的關鍵窗口；同時維持 NIST SP 800-171 落地與 SPRS 自評分數的有效性。",
+          "sources": [
+            { "title": "SBA Office of Advocacy: DoW Requests Information for CMMC Reform", "url": "https://advocacy.sba.gov/2026/07/20/dow-requests-information-for-cmmc-reform-task-force/" },
+            { "title": "Greenberg Traurig: DoD Suspends CMMC Deadlines", "url": "https://www.gtlaw.com/en/insights/2026/7/dod-suspends-cmmc-deadlines-and-seeks-to-reassess-requirements" },
+            { "title": "Peak InfoSec: CMMC Reform Task Force Update", "url": "https://peakinfosec.com/cmmc-reform-task-force-update/" }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "iso27000",
+      "name": "ISO 27000 系列（資訊安全管理）",
+      "items": []
+    },
+    {
+      "topic": "iso42001",
+      "name": "ISO 42001（人工智慧管理系統）",
+      "items": []
+    },
+    {
+      "topic": "tisax",
+      "name": "TISAX（汽車產業資訊安全評鑑）",
+      "items": [
+        {
+          "title": "ISA 2027 過渡期持續：現行評鑑仍採 ISA 6",
+          "date": "持續",
+          "importance": "low",
+          "content": "VDA 於 7 月初發布 ISA 2027 後，本週無新的官方公告。現行 TISAX 評鑑仍採用 ISA 6（v6.0），新版適用起始日待 ENX 正式公告。",
+          "action": "即將啟動評鑑或換證的廠商，下單前先向稽核機構確認適用版本；可先以 ISA 2027 草案做內部差距分析。",
+          "sources": [
+            { "title": "ENX Portal: VDA ISA2027 Released", "url": "https://enx.com/en-US/news/isa2027/" }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "incidents",
+      "name": "重大資安事件與其他動態",
+      "items": [
+        {
+          "title": "N-able N-central 零時差漏洞遭利用（CVE-2026-18577）",
+          "date": "2026-07-31 發現",
+          "importance": "high",
+          "content": "N-able 於 7 月 31 日在客戶環境偵測到異常活動，發現攻擊者正在利用 N-central 伺服器當時未知的零時差漏洞 CVE-2026-18577（CVSS 8.2）。N-central 是 MSP 廣泛使用的遠端監控管理（RMM）平台，遭入侵可能波及下游所有受管客戶。另 CISA 已將 Progress Kemp LoadMaster 命令注入漏洞 CVE-2026-8037（CVSS 9.6）列入已知遭利用漏洞（KEV）目錄。",
+          "action": "使用 N-central 的組織與 MSP 立即套用修補並清查 7/31 前後的異常活動；Kemp LoadMaster 使用者依 KEV 時限完成修補。委外 IT 給 MSP 的企業，應向服務商確認其 RMM 平台修補狀態。",
+          "sources": [
+            { "title": "The Hacker News", "url": "https://thehackernews.com/" },
+            { "title": "SecurityWeek: Latest News", "url": "https://www.securityweek.com/latest-news/" }
+          ]
+        },
+        {
+          "title": "Black Hat USA 2026：NatJack 新型 NAT 攻擊揭露",
+          "date": "2026-08-05 ~ 08-06",
+          "importance": "medium",
+          "content": "Black Hat USA 於 8/5–8/6 在拉斯維加斯舉行。Synack 研究員揭露的 NatJack 是利用 NAT（網路位址轉換）信任假設的新型攻擊，可劫持進行中的 TCP 連線、毒化 DNS 回應、探測其他連線的埠號配置，或以耗盡 NAT 表造成阻斷服務；弱點橫跨 Windows（CVE-2026-56181，Hyper-V NAT）與 Linux（CVE-2026-63913，netfilter conntrack）等多個獨立實作。",
+          "action": "關注作業系統廠商的修補釋出並排入更新；網路團隊評估邊界與虛擬化環境中 NAT 裝置的曝險，必要時加強對 DNS 異常與連線劫持跡象的監控。",
+          "sources": [
+            { "title": "TechTarget: Black Hat 2026 Key Takeaways", "url": "https://www.techtarget.com/cybersecurity/conference/Black-Hat-2026-Key-news-takeaways-and-security-trends" },
+            { "title": "SecurityWeek: Black Hat USA 2026 Announcements", "url": "https://www.securityweek.com/black-hat-usa-2026-summary-of-vendor-announcements-part-1/" }
+          ]
+        },
+        {
+          "title": "藥廠 Inotiv 遭勒索軟體攻擊，9,542 人個資外洩",
+          "date": "2026-08",
+          "importance": "low",
+          "content": "製藥業者 Inotiv 於 8 月遭勒索軟體攻擊，9,542 名個人的資料遭竊。此前一週 Tata Electronics 亦證實 6 月事件——World Leaks 集團公布逾 20 萬份、約 630GB 的公司檔案。製造與生技供應鏈持續是勒索集團重點目標。",
+          "action": "檢視供應鏈中製造/研發合作夥伴的資安條款與事件通知義務；確認自身備份與離線復原演練的有效性。",
+          "sources": [
+            { "title": "Bright Defense: Recent Data Breaches 2026", "url": "https://www.brightdefense.com/resources/recent-data-breaches/" },
+            { "title": "PKWARE: 2026 Data Breaches", "url": "https://www.pkware.com/blog/2026-data-breaches" }
+          ]
+        }
+      ]
+    }
+  ]
+}
