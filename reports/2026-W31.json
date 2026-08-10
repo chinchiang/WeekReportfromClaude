@@ -39,14 +39,20 @@
   "sections": [
     {
       "topic": "eu-ai-act",
-      "name": { "zh": "EU AI Act（歐盟人工智慧法案）", "en": "EU AI Act" },
+      "name": {
+        "zh": "EU AI Act（歐盟人工智慧法案）",
+        "en": "EU AI Act"
+      },
       "items": [
         {
           "title": {
             "zh": "8 月 2 日執法大限：GPAI 罰則與 Article 50 透明化義務全面啟動",
             "en": "August 2 deadline: GPAI penalties and Article 50 transparency duties fully enforceable"
           },
-          "date": { "zh": "2026-08-02 生效", "en": "Effective 2026-08-02" },
+          "date": {
+            "zh": "2026-08-02 生效",
+            "en": "Effective 2026-08-02"
+          },
           "importance": "high",
           "content": {
             "zh": "歐盟執委會對通用人工智慧（GPAI）模型的執法權將於 2026 年 8 月 2 日全面啟動，依 Article 101 違規最高可處 1,500 萬歐元或全球年營業額 3% 的罰款。同日 Article 50 透明化義務、GPAI 罰則與市場監督機關權限一併開始執法：部署聊天機器人或 AI 生成內容的組織，必須明確告知使用者正在與機器互動。2025 年 8 月 2 日前已上市的 GPAI 模型提供者，亦須於 2026 年 8 月 2 日前完成合規。",
@@ -57,9 +63,18 @@
             "en": "Inventory all customer-facing AI interfaces (chatbots, AI-generated content) and confirm clear AI disclosure notices are in place; GPAI providers should verify technical documentation, copyright policy and training-data summaries are ready."
           },
           "sources": [
-            { "title": "MediaLaws: GPAI Compliance & Enforcement Deadlines", "url": "https://www.medialaws.eu/eu-ai-obligations-for-gpai-providers-compliance-enforcement-deadlines-2025-2027/" },
-            { "title": "EU AI Act Implementation Timeline", "url": "https://artificialintelligenceact.eu/implementation-timeline/" },
-            { "title": "European Commission: GPAI Guidelines", "url": "https://digital-strategy.ec.europa.eu/en/policies/guidelines-gpai-providers" }
+            {
+              "title": "MediaLaws: GPAI Compliance & Enforcement Deadlines",
+              "url": "https://www.medialaws.eu/eu-ai-obligations-for-gpai-providers-compliance-enforcement-deadlines-2025-2027/"
+            },
+            {
+              "title": "EU AI Act Implementation Timeline",
+              "url": "https://artificialintelligenceact.eu/implementation-timeline/"
+            },
+            {
+              "title": "European Commission: GPAI Guidelines (官方)",
+              "url": "https://digital-strategy.ec.europa.eu/en/policies/guidelines-gpai-providers"
+            }
           ]
         },
         {
@@ -78,22 +93,34 @@
             "en": "Track forthcoming testing frameworks and technical standards, and assess whether your AI systems could fall within testing or spot-check scope."
           },
           "sources": [
-            { "title": "EU AI Act News 2026 (Axis Intelligence)", "url": "https://axis-intelligence.com/eu-ai-act-news/" },
-            { "title": "Lumenova: EU AI Act July 2026 Update", "url": "https://www.lumenova.ai/blog/eu-ai-act-delays-july-2026/" }
+            {
+              "title": "EU AI Act News 2026 (Axis Intelligence)",
+              "url": "https://axis-intelligence.com/eu-ai-act-news/"
+            },
+            {
+              "title": "Lumenova: EU AI Act July 2026 Update",
+              "url": "https://www.lumenova.ai/blog/eu-ai-act-delays-july-2026/"
+            }
           ]
         }
       ]
     },
     {
       "topic": "eu-cra",
-      "name": { "zh": "EU CRA（歐盟網路韌性法案）", "en": "EU CRA (Cyber Resilience Act)" },
+      "name": {
+        "zh": "EU CRA（歐盟網路韌性法案）",
+        "en": "EU CRA (Cyber Resilience Act)"
+      },
       "items": [
         {
           "title": {
             "zh": "漏洞與事件通報義務 9 月 11 日生效：24 小時早期預警倒數",
             "en": "Vulnerability & incident reporting duties start September 11: 24-hour early-warning countdown"
           },
-          "date": { "zh": "2026-09-11 生效", "en": "Effective 2026-09-11" },
+          "date": {
+            "zh": "2026-09-11 生效",
+            "en": "Effective 2026-09-11"
+          },
           "importance": "high",
           "content": {
             "zh": "CRA 的漏洞與重大事件通報義務將於 2026 年 9 月 11 日生效。凡在歐盟市場銷售「具數位元素產品」的製造商（不論總部或產地在何處），知悉漏洞遭主動利用或發生重大事件後，須透過 ENISA 的單一通報平台：24 小時內提出早期預警、72 小時內提交含矯正措施的完整通知、修復後 14 天內提交最終報告。CRA 全部條文則於 2027 年 12 月 11 日全面適用。",
@@ -104,16 +131,28 @@
             "en": "About six weeks to go: stand up a product-vulnerability reporting SOP with 24/72-hour response flows and a named reporting owner. Even though the formal SBOM mandate lands in 2027, complete a software bill of materials now — without it, scoping impact within 24 hours is unrealistic."
           },
           "sources": [
-            { "title": "Hogan Lovells: CRA Vulnerability & Incident Reporting", "url": "https://www.hoganlovells.com/en/publications/eu-cyber-resilience-act-preparing-for-vulnerability-and-incident-reporting" },
-            { "title": "CRA Explained: Scope, Classes & Deadlines", "url": "https://www.cyberresilienceact.eu/explained.html" },
-            { "title": "Cloudsmith: CRA Compliance Guide 2026", "url": "https://cloudsmith.com/blog/the-eu-cyber-resilience-act-what-engineering-teams-need-to-do-to-be-compliant" }
+            {
+              "title": "Hogan Lovells: CRA Vulnerability & Incident Reporting",
+              "url": "https://www.hoganlovells.com/en/publications/eu-cyber-resilience-act-preparing-for-vulnerability-and-incident-reporting"
+            },
+            {
+              "title": "CRA Explained: Scope, Classes & Deadlines",
+              "url": "https://www.cyberresilienceact.eu/explained.html"
+            },
+            {
+              "title": "Cloudsmith: CRA Compliance Guide 2026",
+              "url": "https://cloudsmith.com/blog/the-eu-cyber-resilience-act-what-engineering-teams-need-to-do-to-be-compliant"
+            }
           ]
         }
       ]
     },
     {
       "topic": "nis2",
-      "name": { "zh": "EU NIS2（歐盟網路與資訊安全指令 2.0）", "en": "EU NIS2" },
+      "name": {
+        "zh": "EU NIS2（歐盟網路與資訊安全指令 2.0）",
+        "en": "EU NIS2"
+      },
       "items": [
         {
           "title": {
@@ -121,7 +160,7 @@
             "en": "Commission refers Ireland, Spain, France and the Netherlands to the EU Court of Justice"
           },
           "date": "2026-07-08",
-          "importance": "high",
+          "importance": "medium",
           "content": {
             "zh": "歐盟執委會於 7 月 8 日將愛爾蘭、西班牙、法國、荷蘭四國移送歐洲法院（CJEU），理由是未完成 NIS2 指令的國內法轉換通知，並請求法院課以一次性罰款與按日計罰。德國、義大利、波蘭、比利時等多數成員國已完成立法並進入實施階段，2026 年預期出現首波 NIS2 執法行動。",
             "en": "On July 8 the European Commission referred Ireland, Spain, France and the Netherlands to the Court of Justice (CJEU) for failing to notify full transposition of NIS2, asking the court to impose lump-sum and daily penalties. Most member states — Germany, Italy, Poland, Belgium among them — have completed legislation and moved into implementation, with the first wave of NIS2 enforcement expected in 2026."
@@ -131,9 +170,18 @@
             "en": "Organizations operating or holding subsidiaries in the EU should confirm transposition status and registration duties in each country of operation, and self-assess security measures against the NIS Cooperation Group's June Article 21 reference document."
           },
           "sources": [
-            { "title": "Passwork: NIS2 June/July 2026 Enforcement Update", "url": "https://passwork.pro/blog/nis2-latest-news-june-2026/" },
-            { "title": "Skadden: NIS2 Reform & Implementation", "url": "https://www.skadden.com/insights/publications/2026/03/european-commission-announces-potential-nis2-cybersecurity-reform" },
-            { "title": "Object First: NIS2 Enforcement in 2026", "url": "https://objectfirst.com/blog/nis2-in-2026-what-every-organisation-should-know/" }
+            {
+              "title": "Passwork: NIS2 June/July 2026 Enforcement Update",
+              "url": "https://passwork.pro/blog/nis2-latest-news-june-2026/"
+            },
+            {
+              "title": "Skadden: NIS2 Reform & Implementation",
+              "url": "https://www.skadden.com/insights/publications/2026/03/european-commission-announces-potential-nis2-cybersecurity-reform"
+            },
+            {
+              "title": "Object First: NIS2 Enforcement in 2026",
+              "url": "https://objectfirst.com/blog/nis2-in-2026-what-every-organisation-should-know/"
+            }
           ]
         },
         {
@@ -152,15 +200,24 @@
             "en": "Entities with Dutch operations should determine essential/important entity status and prepare to register with the Dutch authorities."
           },
           "sources": [
-            { "title": "Passwork: NIS2 Latest News", "url": "https://passwork.pro/blog/nis2-latest-news-june-2026/" },
-            { "title": "NISD2.eu Timeline", "url": "https://nisd2.eu/en/wiki/timelines-and-status/nis2-timeline" }
+            {
+              "title": "Passwork: NIS2 Latest News",
+              "url": "https://passwork.pro/blog/nis2-latest-news-june-2026/"
+            },
+            {
+              "title": "NISD2.eu Timeline",
+              "url": "https://nisd2.eu/en/wiki/timelines-and-status/nis2-timeline"
+            }
           ]
         }
       ]
     },
     {
       "topic": "cmmc",
-      "name": { "zh": "CMMC（美國國防部網路安全成熟度模型認證）", "en": "CMMC (US DoD Cybersecurity Maturity Model Certification)" },
+      "name": {
+        "zh": "CMMC（美國國防部網路安全成熟度模型認證）",
+        "en": "CMMC (US DoD Cybersecurity Maturity Model Certification)"
+      },
       "items": [
         {
           "title": {
@@ -178,23 +235,38 @@
             "en": "Note: Phase 1 is NOT suspended — FCI/CUI contracts still require Level 1 / Level 2 self-assessments uploaded to SPRS, and DFARS 252.204-7012 obligations continue. Vendors mid-way through C3PAO preparation should not stop; NIST SP 800-171 implementation remains the baseline. Avoid major compliance-roadmap pivots until the mid-September reform report."
           },
           "sources": [
-            { "title": "Federal News Network: Pentagon suspends CMMC Phase 2", "url": "https://federalnewsnetwork.com/cybersecurity/2026/07/pentagon-suspends-cmmc-phase-two-requirements-launches-review-of-program/" },
-            { "title": "Arnold & Porter: Reassessing CMMC", "url": "https://www.arnoldporter.com/en/perspectives/advisories/2026/07/reassessing-cmmc" },
-            { "title": "DefenseScoop: DOD halts CMMC Phase 2", "url": "https://defensescoop.com/2026/07/13/dod-halts-cmmc-cybersecurity-requirements-phase-2/" }
+            {
+              "title": "Federal News Network: Pentagon suspends CMMC Phase 2",
+              "url": "https://federalnewsnetwork.com/cybersecurity/2026/07/pentagon-suspends-cmmc-phase-two-requirements-launches-review-of-program/"
+            },
+            {
+              "title": "Arnold & Porter: Reassessing CMMC",
+              "url": "https://www.arnoldporter.com/en/perspectives/advisories/2026/07/reassessing-cmmc"
+            },
+            {
+              "title": "DefenseScoop: DOD halts CMMC Phase 2",
+              "url": "https://defensescoop.com/2026/07/13/dod-halts-cmmc-cybersecurity-requirements-phase-2/"
+            }
           ]
         }
       ]
     },
     {
       "topic": "iso27000",
-      "name": { "zh": "ISO 27000 系列（資訊安全管理）", "en": "ISO 27000 Series" },
+      "name": {
+        "zh": "ISO 27000 系列（資訊安全管理）",
+        "en": "ISO 27000 Series"
+      },
       "items": [
         {
           "title": {
             "zh": "ISO 27001:2013 轉版期已截止，舊版證書面臨撤銷風險",
             "en": "ISO 27001:2013 transition window closed — legacy certificates at risk of withdrawal"
           },
-          "date": { "zh": "持續影響中", "en": "Ongoing impact" },
+          "date": {
+            "zh": "持續影響中",
+            "en": "Ongoing impact"
+          },
           "importance": "high",
           "content": {
             "zh": "ISO 27001:2013 → 2022 的全球轉版期限已於 2025 年 10 月 31 日截止，尚未完成轉版的組織其 2013 版證書已失效，須以完整的 Stage 1 + Stage 2 稽核重新取得 2022 版認證（而非簡化的轉版稽核）。2022 版將 Annex A 控制措施從 114 項/14 領域重整為 93 項/4 主題，新增雲端服務、資料外洩防護等 11 項新控制措施。",
@@ -205,9 +277,18 @@
             "en": "Legacy certificate holders should contact their certification body immediately to schedule recertification; transitioned organizations should confirm the SoA maps to the 2022 controls and require key suppliers to present 2022-edition certificates."
           },
           "sources": [
-            { "title": "Bright Defense: Legacy Certificates At Risk", "url": "https://www.brightdefense.com/news/iso-270012022-deadline-puts-legacy-certificates-at-risk/" },
-            { "title": "A-LIGN: ISO 27001 Transition", "url": "https://www.a-lign.com/articles/iso-27001-transition" },
-            { "title": "Security Boulevard: Transition Audit Tips", "url": "https://securityboulevard.com/2026/07/iso-270012022-transition-audits-lazarus-alliance-deadline-tips/" }
+            {
+              "title": "Bright Defense: Legacy Certificates At Risk",
+              "url": "https://www.brightdefense.com/news/iso-270012022-deadline-puts-legacy-certificates-at-risk/"
+            },
+            {
+              "title": "A-LIGN: ISO 27001 Transition",
+              "url": "https://www.a-lign.com/articles/iso-27001-transition"
+            },
+            {
+              "title": "Security Boulevard: Transition Audit Tips",
+              "url": "https://securityboulevard.com/2026/07/iso-270012022-transition-audits-lazarus-alliance-deadline-tips/"
+            }
           ]
         },
         {
@@ -215,7 +296,10 @@
             "zh": "國際認證體系改組：Global Accreditation Cooperation 接手 IAF/ILAC 職能",
             "en": "Accreditation reshuffle: Global Accreditation Cooperation takes over IAF/ILAC functions"
           },
-          "date": { "zh": "2026-01-01 起", "en": "From 2026-01-01" },
+          "date": {
+            "zh": "2026-01-01 起",
+            "en": "From 2026-01-01"
+          },
           "importance": "low",
           "content": {
             "zh": "自 2026 年 1 月 1 日起，Global Accreditation Cooperation Incorporated 開始運作，接手原由 IAF 與 ILAC 執行的國際認證合作職能。對多數已認證組織影響有限，但驗證機構與稽核員的認可框架已改隸新體系。",
@@ -226,14 +310,20 @@
             "en": "No immediate action needed; watch for changes to accreditation marks and statements at renewal or new certification."
           },
           "sources": [
-            { "title": "Konfirmity: ISO 27001 What Changed In 2026", "url": "https://www.konfirmity.com/blog/iso-27001-what-changed-in-2026" }
+            {
+              "title": "Konfirmity: ISO 27001 What Changed In 2026",
+              "url": "https://www.konfirmity.com/blog/iso-27001-what-changed-in-2026"
+            }
           ]
         }
       ]
     },
     {
       "topic": "iso42001",
-      "name": { "zh": "ISO 42001（人工智慧管理系統）", "en": "ISO 42001 (AI Management Systems)" },
+      "name": {
+        "zh": "ISO 42001（人工智慧管理系統）",
+        "en": "ISO 42001 (AI Management Systems)"
+      },
       "items": [
         {
           "title": {
@@ -251,9 +341,18 @@
             "en": "Organizations offering AI products or services should scope an AIMS adoption timeline; even without near-term certification, run a gap analysis against ISO 42001 to be ready for customer security questionnaires."
           },
           "sources": [
-            { "title": "SGS: PwC Taiwan Achieves ISO 42001", "url": "https://www.sgs.com/en/news/2026/06/pwc-taiwan-achieves-iso-iec-42001-ai-management-system-certification" },
-            { "title": "Presidio Achieves ISO/IEC 42001", "url": "https://www.globenewswire.com/news-release/2026/07/15/3327792/0/en/presidio-achieves-iso-iec-42001-certification.html" },
-            { "title": "Schellman: AI Governance & ISO 42001 in 2026", "url": "https://www.schellman.com/blog/ai-governance/ai-governance-and-iso-42001-faqs" }
+            {
+              "title": "SGS: PwC Taiwan Achieves ISO 42001",
+              "url": "https://www.sgs.com/en/news/2026/06/pwc-taiwan-achieves-iso-iec-42001-ai-management-system-certification"
+            },
+            {
+              "title": "Presidio Achieves ISO/IEC 42001 (官方)",
+              "url": "https://www.globenewswire.com/news-release/2026/07/15/3327792/0/en/presidio-achieves-iso-iec-42001-certification.html"
+            },
+            {
+              "title": "Schellman: AI Governance & ISO 42001 in 2026",
+              "url": "https://www.schellman.com/blog/ai-governance/ai-governance-and-iso-42001-faqs"
+            }
           ]
         },
         {
@@ -261,7 +360,10 @@
             "zh": "注意：ISO 42001 尚非 EU AI Act 調和標準",
             "en": "Caution: ISO 42001 is not yet an EU AI Act harmonised standard"
           },
-          "date": { "zh": "持續", "en": "Ongoing" },
+          "date": {
+            "zh": "持續",
+            "en": "Ongoing"
+          },
           "importance": "medium",
           "content": {
             "zh": "EU AI Act 高風險系統義務將於 8 月 2 日生效，但截至目前 ISO 42001 尚未被列為 AI Act 的調和標準（harmonised standard），取得認證本身不能直接推定符合 AI Act。兩者應視為互補：ISO 42001 提供治理框架，AI Act 合規仍須逐條對應。",
@@ -272,15 +374,24 @@
             "en": "Do not treat ISO 42001 certification as a substitute for AI Act compliance; build a mapping between AI Act articles and your AIMS controls."
           },
           "sources": [
-            { "title": "Schellman: AI Governance FAQs", "url": "https://www.schellman.com/blog/ai-governance/ai-governance-and-iso-42001-faqs" },
-            { "title": "Enactia: ISO 42001 2026 Roadmap", "url": "https://enactia.com/iso-42001-certification-the-2026-roadmap-for-ai-governance/" }
+            {
+              "title": "Schellman: AI Governance FAQs",
+              "url": "https://www.schellman.com/blog/ai-governance/ai-governance-and-iso-42001-faqs"
+            },
+            {
+              "title": "Enactia: ISO 42001 2026 Roadmap",
+              "url": "https://enactia.com/iso-42001-certification-the-2026-roadmap-for-ai-governance/"
+            }
           ]
         }
       ]
     },
     {
       "topic": "tisax",
-      "name": { "zh": "TISAX（汽車產業資訊安全評鑑）", "en": "TISAX (Automotive Information Security)" },
+      "name": {
+        "zh": "TISAX（汽車產業資訊安全評鑑）",
+        "en": "TISAX (Automotive Information Security)"
+      },
       "items": [
         {
           "title": {
@@ -288,7 +399,7 @@
             "en": "VDA releases ISA 2027: 10th-anniversary overhaul revises 44 of 46 controls"
           },
           "date": "2026-07-01",
-          "importance": "high",
+          "importance": "medium",
           "content": {
             "zh": "德國汽車工業協會（VDA）於 7 月 1 日發布 ISA 6 的接續版本，並改採年份命名為「ISA 2027」。控制措施總數維持 46 項，但其中 44 項經過修訂，並更新了與 ISO/IEC 27001:2022 及 NIST CSF 2.0 的對應關係。現行 ISA 6（2024 年 4 月起適用）將逐步過渡到新版；2024 年取得認證、2026 年進入換證週期的供應商需特別留意適用版本。",
             "en": "On July 1 the German Association of the Automotive Industry (VDA) released the successor to ISA 6, adopting year-based naming as 'ISA 2027'. The catalogue keeps 46 controls, but 44 were revised, with updated mappings to ISO/IEC 27001:2022 and NIST CSF 2.0. Current ISA 6 (in force since April 2024) will phase out gradually; suppliers certified in 2024 entering their 2026 renewal cycle should watch which version applies."
@@ -298,16 +409,28 @@
             "en": "Automotive suppliers should download ISA 2027 for a gap analysis and confirm the ENX-announced applicability date; those facing re-assessment should verify with their audit provider which version will be used, prioritizing controls realigned to ISO 27001:2022."
           },
           "sources": [
-            { "title": "ENX Portal: 10 Years of TISAX – VDA ISA2027 Released", "url": "https://enx.com/en-US/news/isa2027/" },
-            { "title": "Valiido: VDA ISA 7.0 / ISA 2027 Changes", "url": "https://valiido.com/insights/vda-isa-2027-changes-for-tisax" },
-            { "title": "VDA: Information Security", "url": "https://www.vda.de/en/topics/digitization/data/information-security" }
+            {
+              "title": "ENX Portal: 10 Years of TISAX – VDA ISA2027 Released (官方)",
+              "url": "https://enx.com/en-US/news/isa2027/"
+            },
+            {
+              "title": "Valiido: VDA ISA 7.0 / ISA 2027 Changes",
+              "url": "https://valiido.com/insights/vda-isa-2027-changes-for-tisax"
+            },
+            {
+              "title": "VDA: Information Security (官方)",
+              "url": "https://www.vda.de/en/topics/digitization/data/information-security"
+            }
           ]
         }
       ]
     },
     {
       "topic": "incidents",
-      "name": { "zh": "重大資安事件與其他動態", "en": "Major Incidents & Other News" },
+      "name": {
+        "zh": "重大資安事件與其他動態",
+        "en": "Major Incidents & Other News"
+      },
       "items": [
         {
           "title": {
@@ -325,8 +448,14 @@
             "en": "Review IT/OT segmentation and production-environment response plans; listed or disclosure-bound organizations should rehearse external disclosure workflows for major incidents."
           },
           "sources": [
-            { "title": "eSecurity Planet Weekly Roundup", "url": "https://www.esecurityplanet.com/weekly-roundup/ai-agents-trust-abuse-and-breaches-define-cybersecurity-news-this-week-of-july-2026/" },
-            { "title": "SharkStriker: July 2026 Data Breaches", "url": "https://sharkstriker.com/blog/july-2026-data-breaches/" }
+            {
+              "title": "eSecurity Planet Weekly Roundup",
+              "url": "https://www.esecurityplanet.com/weekly-roundup/ai-agents-trust-abuse-and-breaches-define-cybersecurity-news-this-week-of-july-2026/"
+            },
+            {
+              "title": "SharkStriker: July 2026 Data Breaches",
+              "url": "https://sharkstriker.com/blog/july-2026-data-breaches/"
+            }
           ]
         },
         {
@@ -334,7 +463,10 @@
             "zh": "ShinyHunters 語音釣魚入侵 Abbott Laboratories",
             "en": "ShinyHunters breaches Abbott Laboratories via voice phishing"
           },
-          "date": { "zh": "2026-07 中旬", "en": "Mid-July 2026" },
+          "date": {
+            "zh": "2026-07 中旬",
+            "en": "Mid-July 2026"
+          },
           "importance": "medium",
           "content": {
             "zh": "ShinyHunters 集團透過針對員工的語音釣魚（vishing）取得 Abbott Laboratories 癌症診斷事業部門的 Microsoft Entra SSO 帳號，並將該公司列上洩密網站。社交工程結合身分系統入侵的手法持續升溫。另 Zoom 修補了可能導致帳號接管的 Windows 重大漏洞（CVE-2026-53412），建議儘速更新。",
@@ -345,8 +477,14 @@
             "en": "Run vishing-scenario employee drills; review phishing-resistant MFA (e.g. FIDO2) coverage on SSO/IdP accounts, and update Zoom to the patched release."
           },
           "sources": [
-            { "title": "eSecurity Planet Weekly Roundup", "url": "https://www.esecurityplanet.com/weekly-roundup/ai-agents-trust-abuse-and-breaches-define-cybersecurity-news-this-week-of-july-2026/" },
-            { "title": "SWK Cybersecurity News Recap July 2026", "url": "https://www.swktech.com/swk-cybersecurity-news-recap-july-2026/" }
+            {
+              "title": "eSecurity Planet Weekly Roundup",
+              "url": "https://www.esecurityplanet.com/weekly-roundup/ai-agents-trust-abuse-and-breaches-define-cybersecurity-news-this-week-of-july-2026/"
+            },
+            {
+              "title": "SWK Cybersecurity News Recap July 2026",
+              "url": "https://www.swktech.com/swk-cybersecurity-news-recap-july-2026/"
+            }
           ]
         }
       ]

@@ -39,7 +39,10 @@
   "sections": [
     {
       "topic": "eu-ai-act",
-      "name": { "zh": "EU AI Act（歐盟人工智慧法案）", "en": "EU AI Act" },
+      "name": {
+        "zh": "EU AI Act（歐盟人工智慧法案）",
+        "en": "EU AI Act"
+      },
       "items": [
         {
           "title": {
@@ -57,9 +60,18 @@
             "en": "GPAI providers should finalize technical documentation, copyright policy and training-data summaries; AI deployers should confirm Article 50 transparency disclosures (telling users they are interacting with AI) are live."
           },
           "sources": [
-            { "title": "Jetico: What Changed on August 2 (And What Didn't)", "url": "https://jetico.com/blog/eu-ai-act-news-today-what-changed-on-august-2/" },
-            { "title": "Beam: GPAI Enforcement & 3% Fines Begin", "url": "https://beam.ai/agentic-insights/eu-ai-act-enforcement-august-2-2026-gpai-fines" },
-            { "title": "AI Act: Enforcement of Chapter V", "url": "https://artificialintelligenceact.eu/enforcement-of-chapter-v-under-the-eu-ai-act/" }
+            {
+              "title": "Jetico: What Changed on August 2 (And What Didn't)",
+              "url": "https://jetico.com/blog/eu-ai-act-news-today-what-changed-on-august-2/"
+            },
+            {
+              "title": "Beam: GPAI Enforcement & 3% Fines Begin",
+              "url": "https://beam.ai/agentic-insights/eu-ai-act-enforcement-august-2-2026-gpai-fines"
+            },
+            {
+              "title": "AI Act: Enforcement of Chapter V",
+              "url": "https://artificialintelligenceact.eu/enforcement-of-chapter-v-under-the-eu-ai-act/"
+            }
           ]
         },
         {
@@ -67,7 +79,10 @@
             "zh": "高風險 AI 系統義務確定延後至 2027 年 12 月 2 日",
             "en": "High-risk AI system obligations confirmed deferred to December 2, 2027"
           },
-          "date": { "zh": "持續", "en": "Ongoing" },
+          "date": {
+            "zh": "持續",
+            "en": "Ongoing"
+          },
           "importance": "medium",
           "content": {
             "zh": "受 Digital Omnibus 影響，原定 2026 年 8 月適用的高風險 AI 系統（Annex III）義務已延後至 2027 年 12 月 2 日；成員國設立國家級 AI 監理沙盒的義務也從 2026/8/2 延後一年至 2027/8/2。另 Digital Omnibus 新增兩項禁止用途：以 AI 生成或操縱未經同意的私密影像（NCII）與兒少性虐待素材（CSAM）。GPAI、透明化與禁止用途條文不受延期影響、照常執法。",
@@ -78,16 +93,28 @@
             "en": "Rebalance high-risk compliance resourcing to the new timeline, but don't pause gap analyses; transparency and GPAI duties still require immediate compliance."
           },
           "sources": [
-            { "title": "AccuroAI: What Actually Applies on August 2, 2026", "url": "https://accuroai.co/blog/eu-ai-act-what-actually-applies-august-2-2026" },
-            { "title": "Covington: EU AI Act Update — Timeline Relief & New Prohibitions", "url": "https://www.insideprivacy.com/artificial-intelligence/eu-ai-act-update-timeline-relief-targeted-simplification-and-new-prohibitions/" },
-            { "title": "Trilateral Research: EU AI Act Compliance Timeline", "url": "https://trilateralresearch.com/responsible-ai/eu-ai-act-implementation-timeline-mapping-your-models-to-the-new-risk-tiers" }
+            {
+              "title": "AccuroAI: What Actually Applies on August 2, 2026",
+              "url": "https://accuroai.co/blog/eu-ai-act-what-actually-applies-august-2-2026"
+            },
+            {
+              "title": "Covington: EU AI Act Update — Timeline Relief & New Prohibitions",
+              "url": "https://www.insideprivacy.com/artificial-intelligence/eu-ai-act-update-timeline-relief-targeted-simplification-and-new-prohibitions/"
+            },
+            {
+              "title": "Trilateral Research: EU AI Act Compliance Timeline",
+              "url": "https://trilateralresearch.com/responsible-ai/eu-ai-act-implementation-timeline-mapping-your-models-to-the-new-risk-tiers"
+            }
           ]
         }
       ]
     },
     {
       "topic": "eu-cra",
-      "name": { "zh": "EU CRA（歐盟網路韌性法案）", "en": "EU CRA (Cyber Resilience Act)" },
+      "name": {
+        "zh": "EU CRA（歐盟網路韌性法案）",
+        "en": "EU CRA (Cyber Resilience Act)"
+      },
       "items": [
         {
           "title": {
@@ -105,22 +132,34 @@
             "en": "Track CEN/CENELEC publication and fold the standard into product compliance roadmaps; manufacturers without 24/72-hour reporting flows should use the remaining five weeks to rehearse."
           },
           "sources": [
-            { "title": "SGS: Update on Developments Relating to the EU CRA", "url": "https://www.sgs.com/en-us/news/2025/09/safeguards-13125-update-on-developments-relating-to-the-eu-cyber-resilience-act" },
-            { "title": "Hogan Lovells: CRA Vulnerability & Incident Reporting", "url": "https://www.hoganlovells.com/en/publications/eu-cyber-resilience-act-preparing-for-vulnerability-and-incident-reporting" }
+            {
+              "title": "SGS: Update on Developments Relating to the EU CRA",
+              "url": "https://www.sgs.com/en-us/news/2025/09/safeguards-13125-update-on-developments-relating-to-the-eu-cyber-resilience-act"
+            },
+            {
+              "title": "Hogan Lovells: CRA Vulnerability & Incident Reporting",
+              "url": "https://www.hoganlovells.com/en/publications/eu-cyber-resilience-act-preparing-for-vulnerability-and-incident-reporting"
+            }
           ]
         }
       ]
     },
     {
       "topic": "nis2",
-      "name": { "zh": "EU NIS2（歐盟網路與資訊安全指令 2.0）", "en": "EU NIS2" },
+      "name": {
+        "zh": "EU NIS2（歐盟網路與資訊安全指令 2.0）",
+        "en": "EU NIS2"
+      },
       "items": [
         {
           "title": {
             "zh": "首波執法年進行中：事件通報共同範本已就緒",
             "en": "First enforcement year underway: common incident-reporting templates ready"
           },
-          "date": { "zh": "持續", "en": "Ongoing" },
+          "date": {
+            "zh": "持續",
+            "en": "Ongoing"
+          },
           "importance": "medium",
           "content": {
             "zh": "2026 年被視為 NIS2 首波執法年。NIS Cooperation Group 已於 5 月 26 日通過事件通報共同範本，統一各成員國通報格式；執委會 1 月提出的 NIS2 修正案（為約 2.87 萬家企業簡化合規）仍在立法程序中。上期報導的四國（愛爾蘭、西班牙、法國、荷蘭）遭移送歐洲法院案持續進行。",
@@ -131,22 +170,34 @@
             "en": "Regulated entities should fold the common templates into incident-response SOPs and confirm registration and reporting channels with national authorities; in lagging member states, use the directive text itself as the compliance baseline."
           },
           "sources": [
-            { "title": "European Commission: NIS2 Directive", "url": "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive" },
-            { "title": "Skadden: NIS2 Reform With Implementation Well Underway", "url": "https://www.skadden.com/insights/publications/2026/03/european-commission-announces-potential-nis2-cybersecurity-reform" }
+            {
+              "title": "European Commission: NIS2 Directive (官方)",
+              "url": "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive"
+            },
+            {
+              "title": "Skadden: NIS2 Reform With Implementation Well Underway",
+              "url": "https://www.skadden.com/insights/publications/2026/03/european-commission-announces-potential-nis2-cybersecurity-reform"
+            }
           ]
         }
       ]
     },
     {
       "topic": "cmmc",
-      "name": { "zh": "CMMC（美國國防部網路安全成熟度模型認證）", "en": "CMMC (US DoD Cybersecurity Maturity Model Certification)" },
+      "name": {
+        "zh": "CMMC（美國國防部網路安全成熟度模型認證）",
+        "en": "CMMC (US DoD Cybersecurity Maturity Model Certification)"
+      },
       "items": [
         {
           "title": {
             "zh": "CMMC 改革意見徵詢（RFI）8 月 14 日截止",
             "en": "CMMC reform Request for Information closes August 14"
           },
-          "date": { "zh": "截止 2026-08-14", "en": "Due 2026-08-14" },
+          "date": {
+            "zh": "截止 2026-08-14",
+            "en": "Due 2026-08-14"
+          },
           "importance": "high",
           "content": {
             "zh": "國防部就 CMMC 改革發布的意見徵詢（RFI）將於 8 月 14 日截止，徵求業界對合規成本驅動因素、行政負擔、具體安全控制成效、商用方案可用性與政策改革建議的意見。60 天改革小組的最終報告預計 9 月中旬出爐，目標是「優先考量快速取得能力、降低中小與非傳統企業門檻、以可擴展務實的安全措施取代高成本第三方合規模式」。Phase 2 第三方認證維持暫停，Level 1 自評與 DFARS 基本義務不變。",
@@ -157,33 +208,54 @@
             "en": "Affected defense-supply-chain vendors — especially SMBs — should file comments by Aug 14 with concrete cost and pain-point data; it's the key window to shape the reform. Meanwhile keep NIST SP 800-171 implementation and SPRS self-assessment scores current."
           },
           "sources": [
-            { "title": "SBA Office of Advocacy: DoW Requests Information for CMMC Reform", "url": "https://advocacy.sba.gov/2026/07/20/dow-requests-information-for-cmmc-reform-task-force/" },
-            { "title": "Greenberg Traurig: DoD Suspends CMMC Deadlines", "url": "https://www.gtlaw.com/en/insights/2026/7/dod-suspends-cmmc-deadlines-and-seeks-to-reassess-requirements" },
-            { "title": "Peak InfoSec: CMMC Reform Task Force Update", "url": "https://peakinfosec.com/cmmc-reform-task-force-update/" }
+            {
+              "title": "SBA Office of Advocacy: DoW Requests Information for CMMC Reform",
+              "url": "https://advocacy.sba.gov/2026/07/20/dow-requests-information-for-cmmc-reform-task-force/"
+            },
+            {
+              "title": "Greenberg Traurig: DoD Suspends CMMC Deadlines",
+              "url": "https://www.gtlaw.com/en/insights/2026/7/dod-suspends-cmmc-deadlines-and-seeks-to-reassess-requirements"
+            },
+            {
+              "title": "Peak InfoSec: CMMC Reform Task Force Update",
+              "url": "https://peakinfosec.com/cmmc-reform-task-force-update/"
+            }
           ]
         }
       ]
     },
     {
       "topic": "iso27000",
-      "name": { "zh": "ISO 27000 系列（資訊安全管理）", "en": "ISO 27000 Series" },
+      "name": {
+        "zh": "ISO 27000 系列（資訊安全管理）",
+        "en": "ISO 27000 Series"
+      },
       "items": []
     },
     {
       "topic": "iso42001",
-      "name": { "zh": "ISO 42001（人工智慧管理系統）", "en": "ISO 42001 (AI Management Systems)" },
+      "name": {
+        "zh": "ISO 42001（人工智慧管理系統）",
+        "en": "ISO 42001 (AI Management Systems)"
+      },
       "items": []
     },
     {
       "topic": "tisax",
-      "name": { "zh": "TISAX（汽車產業資訊安全評鑑）", "en": "TISAX (Automotive Information Security)" },
+      "name": {
+        "zh": "TISAX（汽車產業資訊安全評鑑）",
+        "en": "TISAX (Automotive Information Security)"
+      },
       "items": [
         {
           "title": {
-            "zh": "ISA 2027 過渡期持續：現行評鑑仍採 ISA 6",
-            "en": "ISA 2027 transition continues: current assessments still use ISA 6"
+            "zh": "【續報】ISA 2027 過渡期持續：現行評鑑仍採 ISA 6",
+            "en": "[Follow-up] ISA 2027 transition continues: current assessments still use ISA 6"
           },
-          "date": { "zh": "持續", "en": "Ongoing" },
+          "date": {
+            "zh": "持續",
+            "en": "Ongoing"
+          },
           "importance": "low",
           "content": {
             "zh": "VDA 於 7 月初發布 ISA 2027 後，本週無新的官方公告。現行 TISAX 評鑑仍採用 ISA 6（v6.0），新版適用起始日待 ENX 正式公告。",
@@ -194,33 +266,52 @@
             "en": "Suppliers about to order an assessment or renewal should confirm the applicable version with their audit provider first; use ISA 2027 for an internal gap analysis in the meantime."
           },
           "sources": [
-            { "title": "ENX Portal: VDA ISA2027 Released", "url": "https://enx.com/en-US/news/isa2027/" }
+            {
+              "title": "ENX Portal: VDA ISA2027 Released (官方)",
+              "url": "https://enx.com/en-US/news/isa2027/"
+            }
           ]
         }
       ]
     },
     {
       "topic": "incidents",
-      "name": { "zh": "重大資安事件與其他動態", "en": "Major Incidents & Other News" },
+      "name": {
+        "zh": "重大資安事件與其他動態",
+        "en": "Major Incidents & Other News"
+      },
       "items": [
         {
           "title": {
             "zh": "N-able N-central 零時差漏洞遭利用（CVE-2026-18577）",
             "en": "N-able N-central zero-day under active exploitation (CVE-2026-18577)"
           },
-          "date": { "zh": "2026-07-31 發現", "en": "Detected 2026-07-31" },
+          "date": {
+            "zh": "2026-07-31 發現",
+            "en": "Detected 2026-07-31"
+          },
           "importance": "high",
           "content": {
             "zh": "N-able 於 7 月 31 日在客戶環境偵測到異常活動，發現攻擊者正在利用 N-central 伺服器當時未知的零時差漏洞 CVE-2026-18577（CVSS 8.2）。N-central 是 MSP 廣泛使用的遠端監控管理（RMM）平台，遭入侵可能波及下游所有受管客戶。另 CISA 已將 Progress Kemp LoadMaster 命令注入漏洞 CVE-2026-8037（CVSS 9.6）列入已知遭利用漏洞（KEV）目錄。",
             "en": "On July 31 N-able detected unusual activity in a customer environment, uncovering exploitation of a then-unknown zero-day in the N-central server, CVE-2026-18577 (CVSS 8.2). N-central is an RMM platform widely used by MSPs, so compromise can cascade to all downstream managed customers. Separately, CISA added Progress Kemp LoadMaster command injection CVE-2026-8037 (CVSS 9.6) to its Known Exploited Vulnerabilities catalog."
           },
           "action": {
-            "zh": "使用 N-central 的組織與 MSP 立即套用修補並清查 7/31 前後的異常活動；Kemp LoadMaster 使用者依 KEV 時限完成修補。委外 IT 給 MSP 的企業，應向服務商確認其 RMM 平台修補狀態。",
-            "en": "N-central users and MSPs should patch immediately and hunt for anomalies around July 31; Kemp LoadMaster users should remediate within KEV deadlines. Companies outsourcing IT to MSPs should ask providers to confirm RMM patch status."
+            "zh": "使用 N-central 的組織與 MSP 立即升級至 2026.3.1.7 hotfix 並清查 7/31 前後的異常活動（注意 Take Control 遠端連線與 Cloudflare Tunnel 持久化跡象）；Kemp LoadMaster 使用者依 KEV 時限完成修補。委外 IT 給 MSP 的企業，應向服務商確認其 RMM 平台修補狀態。",
+            "en": "N-central users and MSPs should upgrade to the 2026.3.1.7 hotfix immediately and hunt for anomalies around July 31 (watch for Take Control sessions and Cloudflare Tunnel persistence); Kemp LoadMaster users should remediate within KEV deadlines. Companies outsourcing IT to MSPs should ask providers to confirm RMM patch status."
           },
           "sources": [
-            { "title": "The Hacker News", "url": "https://thehackernews.com/" },
-            { "title": "SecurityWeek: Latest News", "url": "https://www.securityweek.com/latest-news/" }
+            {
+              "title": "N-able: N-central Security Update (官方)",
+              "url": "https://www.n-able.com/blog/n-central-security-update-august-6-2026"
+            },
+            {
+              "title": "The Hacker News: CISA Adds N-central Flaw to KEV",
+              "url": "https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html"
+            },
+            {
+              "title": "SecurityWeek: N-able Patches Exploited Vulnerability",
+              "url": "https://www.securityweek.com/n-able-patches-vulnerability-exploited-to-hack-n-central-servers/"
+            }
           ]
         },
         {
@@ -239,8 +330,14 @@
             "en": "Watch for OS vendor patches and schedule updates; network teams should assess NAT exposure at the edge and in virtualized environments, and strengthen monitoring for DNS anomalies and hijack indicators where warranted."
           },
           "sources": [
-            { "title": "TechTarget: Black Hat 2026 Key Takeaways", "url": "https://www.techtarget.com/cybersecurity/conference/Black-Hat-2026-Key-news-takeaways-and-security-trends" },
-            { "title": "SecurityWeek: Black Hat USA 2026 Announcements", "url": "https://www.securityweek.com/black-hat-usa-2026-summary-of-vendor-announcements-part-1/" }
+            {
+              "title": "TechTarget: Black Hat 2026 Key Takeaways",
+              "url": "https://www.techtarget.com/cybersecurity/conference/Black-Hat-2026-Key-news-takeaways-and-security-trends"
+            },
+            {
+              "title": "SecurityWeek: Black Hat USA 2026 Announcements",
+              "url": "https://www.securityweek.com/black-hat-usa-2026-summary-of-vendor-announcements-part-1/"
+            }
           ]
         },
         {
@@ -251,16 +348,26 @@
           "date": "2026-08-06",
           "importance": "high",
           "content": {
-            "zh": "CISA 證實，自架（on-premise）版 JetBrains TeamCity 的重大漏洞 CVE-2026-63077 已遭實際利用：攻擊者無需認證即可遠端執行程式碼。TeamCity 是廣泛使用的 CI/CD 平台，遭入侵等同打開軟體供應鏈的大門——攻擊者可竄改建置流程、植入惡意程式碼或竊取簽章金鑰。",
-            "en": "CISA confirmed active exploitation of CVE-2026-63077, a critical flaw in on-premise JetBrains TeamCity allowing unauthenticated remote code execution. TeamCity is a widely used CI/CD platform, so compromise opens the software supply chain — attackers can tamper with builds, inject malicious code or steal signing keys."
+            "zh": "CISA 於 8/5 將自架（on-premise）版 JetBrains TeamCity 的重大漏洞 CVE-2026-63077（CVSS 9.8，不受信任資料反序列化）列入 KEV 目錄，證實已遭實際利用：攻擊者透過 agent polling 協定無需認證即可遠端執行系統指令，可竊取憑證並危及建置產物完整性。TeamCity 是廣泛使用的 CI/CD 平台，遭入侵等同打開軟體供應鏈的大門。",
+            "en": "On Aug 5 CISA added CVE-2026-63077 (CVSS 9.8, deserialization of untrusted data) in on-premise JetBrains TeamCity to its KEV catalog, confirming active exploitation: via the agent polling protocol, attackers can execute OS commands without authentication, exposing credentials and compromising build-artifact integrity. TeamCity is a widely used CI/CD platform, so compromise opens the software supply chain."
           },
           "action": {
-            "zh": "自架 TeamCity 立即升級至已修補版本並清查近期建置紀錄與異常帳號；無法立即修補者先限制對外暴露。使用 SaaS 版者不受影響，但仍建議檢視建置管線的完整性驗證。",
-            "en": "Upgrade on-premise TeamCity to the patched release immediately and audit recent builds and anomalous accounts; if you can't patch now, remove external exposure first. SaaS users are unaffected, but reviewing pipeline integrity checks is still advisable."
+            "zh": "自架 TeamCity 立即升級至 2025.11.7 或 2026.1.3 以上，並清查近期建置紀錄與異常帳號；無法立即修補者先移除對外暴露。使用 SaaS 版者不受影響，但仍建議檢視建置管線的完整性驗證。",
+            "en": "Upgrade on-premise TeamCity to 2025.11.7 / 2026.1.3 or later immediately and audit recent builds and anomalous accounts; if you can't patch now, remove external exposure first. SaaS users are unaffected, but reviewing pipeline integrity checks is still advisable."
           },
           "sources": [
-            { "title": "The Hacker News", "url": "https://thehackernews.com/" },
-            { "title": "SecurityWeek: Latest News", "url": "https://www.securityweek.com/" }
+            {
+              "title": "CISA: KEV Catalog Alert 2026-08-05 (官方)",
+              "url": "https://www.cisa.gov/news-events/alerts/2026/08/05/cisa-adds-one-known-exploited-vulnerability-catalog"
+            },
+            {
+              "title": "JetBrains: CVE-2026-63077 Advisory (官方)",
+              "url": "https://blog.jetbrains.com/teamcity/2026/07/cve-2026-63077/"
+            },
+            {
+              "title": "The Hacker News: CISA Flags TeamCity RCE",
+              "url": "https://thehackernews.com/2026/08/cisa-flags-teamcity-cve-2026-63077-rce.html"
+            }
           ]
         },
         {
@@ -279,7 +386,14 @@
             "en": "Inventory data access and outbound capabilities of enabled enterprise AI assistants (Rovo, Copilot-class tools); restrict AI access to sensitive spaces, and add prompt injection to awareness training and red-team scopes."
           },
           "sources": [
-            { "title": "SecurityWeek: Latest News", "url": "https://www.securityweek.com/" }
+            {
+              "title": "SecurityWeek: One-Click Vulnerability in Atlassian Rovo",
+              "url": "https://www.securityweek.com/critical-one-click-vulnerability-in-atlassians-rovo-ai-exposed-enterprise-data/"
+            },
+            {
+              "title": "The Hacker News: Rovo Tricked Into Leaking Data",
+              "url": "https://thehackernews.com/2026/08/atlassian-rovo-can-be-tricked-into.html"
+            }
           ]
         },
         {
@@ -298,7 +412,14 @@
             "en": "No direct action needed; useful context when briefing leadership on the ransomware threat landscape and enforcement momentum."
           },
           "sources": [
-            { "title": "SecurityWeek: Latest News", "url": "https://www.securityweek.com/" }
+            {
+              "title": "US DOJ: Ransom Cartel Leader Sentenced (官方)",
+              "url": "https://www.justice.gov/usao-edva/pr/belarusian-leader-international-ransomware-scheme-known-ransom-cartel-sentenced-16"
+            },
+            {
+              "title": "SecurityWeek: Ransom Cartel Mastermind Gets 16 Years",
+              "url": "https://www.securityweek.com/belarusian-ransom-cartel-mastermind-gets-16-years-in-prison/"
+            }
           ]
         },
         {
@@ -317,8 +438,14 @@
             "en": "Review security clauses and incident-notification duties with manufacturing/R&D partners; validate backups and offline-recovery drills."
           },
           "sources": [
-            { "title": "Bright Defense: Recent Data Breaches 2026", "url": "https://www.brightdefense.com/resources/recent-data-breaches/" },
-            { "title": "PKWARE: 2026 Data Breaches", "url": "https://www.pkware.com/blog/2026-data-breaches" }
+            {
+              "title": "Bright Defense: Recent Data Breaches 2026",
+              "url": "https://www.brightdefense.com/resources/recent-data-breaches/"
+            },
+            {
+              "title": "PKWARE: 2026 Data Breaches",
+              "url": "https://www.pkware.com/blog/2026-data-breaches"
+            }
           ]
         }
       ]
