@@ -5,7 +5,7 @@
     "en": "EU AI Act Enforcement Goes Live; CMMC Reform RFI Closes August 14"
   },
   "period": "2026-08-03 ~ 2026-08-09",
-  "publishedAt": "2026-08-09",
+  "publishedAt": "2026-08-10",
   "summary": {
     "zh": "本期為補發週報（原 8/3 排程執行失敗，已修復）。EU AI Act 對 GPAI 的執法與罰款權限已於 8/2 正式生效，歐盟執委會現在可以開罰；高風險 AI 系統義務則因 Digital Omnibus 延後至 2027 年 12 月。美國 CMMC 改革意見徵詢（RFI）8/14 截止，是國防供應鏈廠商影響改革方向的關鍵窗口。Black Hat USA 於 8/5–8/6 舉行，NAT 劫持新型攻擊 NatJack 與多個遭利用漏洞（N-able 零時差、Kemp LoadMaster）值得資安團隊立即關注。",
     "en": "This is a make-up issue (the Aug 3 scheduled run failed and has been fixed). EU AI Act enforcement and fining powers over GPAI went live on August 2 — the Commission can now issue penalties — while high-risk AI system obligations slipped to December 2027 under the Digital Omnibus. The US CMMC reform RFI closes August 14, a key window for defense-supply-chain vendors to shape the program's future. Black Hat USA ran August 5–6; the new NatJack NAT-hijacking technique and actively exploited flaws (an N-able zero-day, Kemp LoadMaster) deserve immediate security-team attention."
@@ -30,6 +30,10 @@
     {
       "zh": "Black Hat USA 2026（8/5–8/6）：新型 NAT 攻擊 NatJack 可劫持 TCP 連線與毒化 DNS，影響 Windows / Linux / macOS 的 NAT 實作。",
       "en": "Black Hat USA 2026 (Aug 5–6): the new NatJack NAT attack can hijack TCP connections and poison DNS, affecting NAT implementations across Windows, Linux and macOS."
+    },
+    {
+      "zh": "JetBrains TeamCity 重大漏洞（CVE-2026-63077）遭利用中：免認證即可遠端執行程式碼，CISA 已示警，自架 TeamCity 請立即修補。",
+      "en": "JetBrains TeamCity critical flaw (CVE-2026-63077) under active exploitation: unauthenticated remote code execution, flagged by CISA — patch on-premise TeamCity now."
     }
   ],
   "sections": [
@@ -66,8 +70,8 @@
           "date": { "zh": "持續", "en": "Ongoing" },
           "importance": "medium",
           "content": {
-            "zh": "受 Digital Omnibus 影響，原定 2026 年 8 月適用的高風險 AI 系統（Annex III）義務已延後至 2027 年 12 月 2 日。這給了高風險系統部署者更多準備時間，但 GPAI、透明化與禁止用途等其他條文不受影響、照常執法。",
-            "en": "Under the Digital Omnibus, high-risk AI system (Annex III) obligations originally due August 2026 have been pushed to December 2, 2027. Deployers gain preparation time, but GPAI, transparency and prohibited-practice provisions are unaffected and remain enforceable."
+            "zh": "受 Digital Omnibus 影響，原定 2026 年 8 月適用的高風險 AI 系統（Annex III）義務已延後至 2027 年 12 月 2 日；成員國設立國家級 AI 監理沙盒的義務也從 2026/8/2 延後一年至 2027/8/2。另 Digital Omnibus 新增兩項禁止用途：以 AI 生成或操縱未經同意的私密影像（NCII）與兒少性虐待素材（CSAM）。GPAI、透明化與禁止用途條文不受延期影響、照常執法。",
+            "en": "Under the Digital Omnibus, high-risk AI system (Annex III) obligations originally due August 2026 have been pushed to December 2, 2027, and the member-state duty to stand up national AI regulatory sandboxes slipped a year from Aug 2, 2026 to Aug 2, 2027. The Omnibus also adds two new prohibited practices: using AI to generate or manipulate non-consensual intimate imagery (NCII) and child sexual abuse material (CSAM). GPAI, transparency and prohibited-practice provisions are unaffected by the deferrals and remain enforceable."
           },
           "action": {
             "zh": "高風險 AI 系統的合規計畫可依新時程調整資源配置，但勿因延期而停止差距分析；透明化與 GPAI 相關義務仍須立即符合。",
@@ -75,6 +79,7 @@
           },
           "sources": [
             { "title": "AccuroAI: What Actually Applies on August 2, 2026", "url": "https://accuroai.co/blog/eu-ai-act-what-actually-applies-august-2-2026" },
+            { "title": "Covington: EU AI Act Update — Timeline Relief & New Prohibitions", "url": "https://www.insideprivacy.com/artificial-intelligence/eu-ai-act-update-timeline-relief-targeted-simplification-and-new-prohibitions/" },
             { "title": "Trilateral Research: EU AI Act Compliance Timeline", "url": "https://trilateralresearch.com/responsible-ai/eu-ai-act-implementation-timeline-mapping-your-models-to-the-new-risk-tiers" }
           ]
         }
@@ -236,6 +241,64 @@
           "sources": [
             { "title": "TechTarget: Black Hat 2026 Key Takeaways", "url": "https://www.techtarget.com/cybersecurity/conference/Black-Hat-2026-Key-news-takeaways-and-security-trends" },
             { "title": "SecurityWeek: Black Hat USA 2026 Announcements", "url": "https://www.securityweek.com/black-hat-usa-2026-summary-of-vendor-announcements-part-1/" }
+          ]
+        },
+        {
+          "title": {
+            "zh": "JetBrains TeamCity 重大漏洞遭利用（CVE-2026-63077），CISA 示警",
+            "en": "JetBrains TeamCity critical flaw under active exploitation (CVE-2026-63077), CISA warns"
+          },
+          "date": "2026-08-06",
+          "importance": "high",
+          "content": {
+            "zh": "CISA 證實，自架（on-premise）版 JetBrains TeamCity 的重大漏洞 CVE-2026-63077 已遭實際利用：攻擊者無需認證即可遠端執行程式碼。TeamCity 是廣泛使用的 CI/CD 平台，遭入侵等同打開軟體供應鏈的大門——攻擊者可竄改建置流程、植入惡意程式碼或竊取簽章金鑰。",
+            "en": "CISA confirmed active exploitation of CVE-2026-63077, a critical flaw in on-premise JetBrains TeamCity allowing unauthenticated remote code execution. TeamCity is a widely used CI/CD platform, so compromise opens the software supply chain — attackers can tamper with builds, inject malicious code or steal signing keys."
+          },
+          "action": {
+            "zh": "自架 TeamCity 立即升級至已修補版本並清查近期建置紀錄與異常帳號；無法立即修補者先限制對外暴露。使用 SaaS 版者不受影響，但仍建議檢視建置管線的完整性驗證。",
+            "en": "Upgrade on-premise TeamCity to the patched release immediately and audit recent builds and anomalous accounts; if you can't patch now, remove external exposure first. SaaS users are unaffected, but reviewing pipeline integrity checks is still advisable."
+          },
+          "sources": [
+            { "title": "The Hacker News", "url": "https://thehackernews.com/" },
+            { "title": "SecurityWeek: Latest News", "url": "https://www.securityweek.com/" }
+          ]
+        },
+        {
+          "title": {
+            "zh": "Atlassian Rovo AI 助理遭揭可被注入指令外洩 Jira/Confluence 資料",
+            "en": "Atlassian Rovo AI assistant shown vulnerable to injected instructions exfiltrating Jira/Confluence data"
+          },
+          "date": "2026-08-08",
+          "importance": "medium",
+          "content": {
+            "zh": "研究揭露 Atlassian Rovo AI 助理可被攻擊者植入的指令（prompt injection）操縱：只要登入使用者看得到的 Jira / Confluence 內容，就可能被誘導蒐集並回傳到外部伺服器。這是「AI 助理成為新資料外洩管道」的又一例，與本週 EU AI Act 執法啟動形成呼應——企業導入 AI 工具時的資安治理已不只是合規題。",
+            "en": "Research showed Atlassian's Rovo assistant can be steered by attacker-planted instructions (prompt injection): any Jira/Confluence data visible to a signed-in user could be collected and sent to an external server. Another case of AI assistants becoming a data-exfiltration channel — a timely echo of this week's AI Act enforcement start: security governance of enterprise AI tools is no longer just a compliance checkbox."
+          },
+          "action": {
+            "zh": "盤點已啟用的企業 AI 助理（Rovo、Copilot 類工具）的資料存取範圍與外連能力；對含敏感資料的空間限制 AI 存取，並將 prompt injection 納入資安意識與紅隊測試項目。",
+            "en": "Inventory data access and outbound capabilities of enabled enterprise AI assistants (Rovo, Copilot-class tools); restrict AI access to sensitive spaces, and add prompt injection to awareness training and red-team scopes."
+          },
+          "sources": [
+            { "title": "SecurityWeek: Latest News", "url": "https://www.securityweek.com/" }
+          ]
+        },
+        {
+          "title": {
+            "zh": "Ransom Cartel 勒索服務創辦人遭判 16 年徒刑",
+            "en": "Ransom Cartel ransomware-as-a-service founder sentenced to 16 years"
+          },
+          "date": "2026-08-05",
+          "importance": "low",
+          "content": {
+            "zh": "美國維吉尼亞州聯邦法院於 8 月 5 日判處 Ransom Cartel 勒索軟體即服務（RaaS）創辦人 Maksim Silnikau 16 年徒刑。該組織 2021–2023 年間攻擊了至少 18 家美國及海外企業。這是近期針對勒索生態系的重要執法成果之一。",
+            "en": "A federal judge in Virginia sentenced Maksim Silnikau, founder of the Ransom Cartel ransomware-as-a-service operation, to 16 years on August 5. The group hit at least 18 companies in the US and abroad during 2021–2023 — a notable recent law-enforcement win against the ransomware ecosystem."
+          },
+          "action": {
+            "zh": "無需直接行動；可作為向管理層說明勒索威脅態勢與執法動向的參考素材。",
+            "en": "No direct action needed; useful context when briefing leadership on the ransomware threat landscape and enforcement momentum."
+          },
+          "sources": [
+            { "title": "SecurityWeek: Latest News", "url": "https://www.securityweek.com/" }
           ]
         },
         {
