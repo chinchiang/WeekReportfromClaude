@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>資安合規週報 | Security & Compliance Weekly</title>
+<title>資安合規雙週報 | Security &amp; Compliance Biweekly</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
 <style>
   :root {
@@ -532,7 +532,7 @@
 
 <header class="site-header">
   <span class="logo-avatar" title="Sindy"><svg viewBox="96 58 108 108"><use href="#sindy-art" width="300" height="400"/></svg><img src="assets/sindy.png" alt="Sindy" onerror="this.style.display='none'"></span>
-  <span class="logo" id="siteLogo">🛡️ 資安合規<span class="accent">週報</span></span>
+  <span class="logo" id="siteLogo">🛡️ 資安合規<span class="accent">雙週報</span></span>
   <span class="header-sub">EU AI Act · CRA · NIS2 · CMMC · ISO 27000 · ISO 42001 · TISAX</span>
   <div class="header-right">
     <button class="theme-btn" id="langToggle" title="切換語言 / Switch language">EN</button>
@@ -549,11 +549,11 @@
         <img src="assets/sindy.png" alt="Sindy" onerror="this.style.display='none'">
       </div>
       <div class="curator-name">Sindy <span class="accent">🛡️</span></div>
-      <div class="curator-title" id="curatorRole">資安合規週報 主理人</div>
-      <div class="curator-bio" id="curatorBio">每週一 08:00 為你彙整八大資安合規動態，重要的事不漏接。</div>
+      <div class="curator-title" id="curatorRole">資安合規雙週報 主理人</div>
+      <div class="curator-bio" id="curatorBio">每兩週一次，為你彙整八大資安合規動態，重要的事不漏接。</div>
     </div>
     <div class="panel">
-      <h3 id="archiveTitle">週報存檔</h3>
+      <h3 id="archiveTitle">期數存檔</h3>
       <ul class="week-list" id="weekList"><li class="loading" style="padding:.5rem">載入中…</li></ul>
     </div>
     <div class="panel">
@@ -563,17 +563,17 @@
   </aside>
 
   <main id="main">
-    <div class="loading">正在載入週報資料…</div>
+    <div class="loading">正在載入報告資料…</div>
   </main>
 </div>
 
 <footer id="siteFooter">
-  資安合規週報 — 每週一 08:00 自動更新 · 由 Claude 彙整公開資訊產生，重要決策請以官方原文為準
+  資安合規雙週報 — 隔週一 08:00 自動更新 · 由 Claude 彙整公開資訊產生，重要決策請以官方原文為準
 </footer>
 
 <script>
 const TOPICS = [
-  { key: "highlights",  name: { zh: "本週焦點", en: "Weekly Highlights" },       color: "#8b5cf6" },
+  { key: "highlights",  name: { zh: "本期焦點", en: "Key Highlights" },          color: "#8b5cf6" },
   { key: "eu-ai-act",   name: { zh: "EU AI Act", en: "EU AI Act" },              color: "#2563eb" },
   { key: "eu-cra",      name: { zh: "EU CRA", en: "EU CRA" },                    color: "#0891b2" },
   { key: "nis2",        name: { zh: "EU NIS2", en: "EU NIS2" },                  color: "#059669" },
@@ -589,28 +589,28 @@ const IMPORTANCE = {
 };
 const UI = {
   zh: {
-    logo: '🛡️ 資安合規<span class="accent">週報</span>',
-    archive: "週報存檔", topics: "追蹤主題", highlights: "⭐ 本週焦點",
+    logo: '🛡️ 資安合規<span class="accent">雙週報</span>',
+    archive: "期數存檔", topics: "追蹤主題", highlights: "⭐ 本期焦點",
     published: "發布日期", action: "建議行動：", sources: "來源",
     noUpdate: "✓ 本週無重大更新", count: n => `${n} 則`,
-    loading: "載入週報中…", loadFail: id => `載入 ${id} 失敗。`, noReports: "尚無週報資料。",
+    loading: "載入報告中…", loadFail: id => `載入 ${id} 失敗。`, noReports: "尚無報告資料。",
     indexFail: '無法載入 reports/index.json。<br>若你是直接以 file:// 開啟本頁，請改用本機伺服器（例如 <code>python3 -m http.server</code>）或部署到 GitHub Pages 後瀏覽。',
-    footer: "資安合規週報 — 主理人 Sindy · 每週一 08:00 自動更新 · 彙整公開資訊產生，重要決策請以官方原文為準",
-    curator: "主理人", curatorRole: "資安合規週報 主理人",
-    curatorBio: "每週一 08:00 為你彙整八大資安合規動態，重要的事不漏接。",
+    footer: "資安合規雙週報 — 主理人 Sindy · 隔週一 08:00 自動更新 · 彙整公開資訊產生，重要決策請以官方原文為準",
+    curator: "主理人", curatorRole: "資安合規雙週報 主理人",
+    curatorBio: "每兩週一次，為你彙整八大資安合規動態，重要的事不漏接。",
     curatorBy: "主理人 Sindy",
     langBtn: "EN", htmlLang: "zh-Hant"
   },
   en: {
-    logo: '🛡️ Security &amp; Compliance <span class="accent">Weekly</span>',
-    archive: "Archive", topics: "Topics", highlights: "⭐ Weekly Highlights",
+    logo: '🛡️ Security &amp; Compliance <span class="accent">Biweekly</span>',
+    archive: "Archive", topics: "Topics", highlights: "⭐ Key Highlights",
     published: "Published", action: "Recommended action: ", sources: "Sources",
     noUpdate: "✓ No major updates this week", count: n => `${n} item${n === 1 ? "" : "s"}`,
     loading: "Loading report…", loadFail: id => `Failed to load ${id}.`, noReports: "No reports yet.",
     indexFail: 'Could not load reports/index.json.<br>If you opened this page via file://, serve it locally (e.g. <code>python3 -m http.server</code>) or browse the deployed GitHub Pages site.',
-    footer: "Security & Compliance Weekly — curated by Sindy · auto-updated every Monday 08:00 (UTC+8) · Compiled from public sources; consult official texts for decisions",
-    curator: "Curator", curatorRole: "Curator, Security & Compliance Weekly",
-    curatorBio: "Every Monday at 08:00, Sindy rounds up eight security & compliance domains so nothing important slips by.",
+    footer: "Security & Compliance Biweekly — curated by Sindy · auto-updated every other Monday 08:00 (UTC+8) · Compiled from public sources; consult official texts for decisions",
+    curator: "Curator", curatorRole: "Curator, Security & Compliance Biweekly",
+    curatorBio: "Every other Monday, Sindy rounds up eight security & compliance domains so nothing important slips by.",
     curatorBy: "Curated by Sindy",
     langBtn: "中", htmlLang: "en"
   }
