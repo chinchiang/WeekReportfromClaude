@@ -1,0 +1,243 @@
+{
+  "id": "2026-W33",
+  "title": {
+    "zh": "Cisco ASA 遭利用列入 KEV、CMMC 改革意見徵詢截止、CRA 通報義務倒數 4 週",
+    "en": "Cisco ASA Exploited and Added to KEV; CMMC Reform RFI Closes; CRA Reporting Duties 4 Weeks Out"
+  },
+  "period": "2026-08-10 ~ 2026-08-16",
+  "publishedAt": "2026-08-16",
+  "summary": {
+    "zh": "本週漏洞面最為緊急：CISA 於 8/11 一口氣新增三個遭實際利用的漏洞至 KEV 目錄，其中 Cisco Secure Firewall ASA/FTD 的 SSL VPN 漏洞可免認證遠端癱瘓設備，聯邦機關修補期限僅到 8/14。法遵面，CMMC 改革意見徵詢已於 8/14 截止，改革小組報告預計 9 月中出爐；EU CRA 漏洞通報義務距 9/11 生效僅剩約 4 週。EU AI Act 方面，法律業界分析指出 AI Office 將以「技術合規對話」作為執法的第一步，且 2025 年 8 月以來的違規均在追溯範圍內。",
+    "en": "Vulnerabilities dominated this week: on Aug 11 CISA added three actively exploited flaws to its KEV catalog, including a Cisco Secure Firewall ASA/FTD SSL VPN bug that lets unauthenticated attackers crash devices — with a federal remediation deadline of Aug 14. On the regulatory side, the CMMC reform RFI closed Aug 14 with the task force report due mid-September, and EU CRA reporting obligations are now about four weeks from taking effect on Sept 11. For the EU AI Act, legal analyses indicate the AI Office will open with 'technical compliance dialogues', and violations dating back to August 2025 remain in scope."
+  },
+  "highlights": [
+    {
+      "zh": "Cisco Secure Firewall ASA/FTD 遠端存取 SSL VPN 漏洞（CVE-2026-20349，CVSS 8.6）已遭實際利用：免認證即可使設備重啟造成斷線，8/11 列入 CISA KEV，請立即修補。",
+      "en": "Cisco Secure Firewall ASA/FTD remote-access SSL VPN flaw (CVE-2026-20349, CVSS 8.6) is under active exploitation: unauthenticated attackers can force device reloads and outages. Added to CISA KEV on Aug 11 — patch immediately."
+    },
+    {
+      "zh": "CISA 8/11 一次新增三個遭利用漏洞至 KEV：Cisco ASA/FTD、Windows WinSock 輔助功能驅動程式（CVE-2026-68820，權限提升）、Metabase SQL 注入（CVE-2026-72898）。",
+      "en": "CISA added three exploited flaws to KEV on Aug 11: Cisco ASA/FTD, Windows Ancillary Function Driver for WinSock (CVE-2026-68820, privilege escalation) and Metabase SQL injection (CVE-2026-72898)."
+    },
+    {
+      "zh": "CMMC：改革意見徵詢（RFI）已於 8/14 截止，改革小組報告預計 9 月中提出；Phase 2 第三方認證仍暫停，Level 1 自評與 DFARS 義務不變。",
+      "en": "CMMC: the reform RFI closed Aug 14 with the task force report expected mid-September; Phase 2 third-party certification remains suspended while Level 1 self-assessments and DFARS duties continue."
+    },
+    {
+      "zh": "EU CRA：漏洞與重大事件通報義務 9/11 生效，僅剩約 4 週——24 小時早期預警流程與 SBOM 盤點應於本月內完成演練。",
+      "en": "EU CRA: vulnerability and severe-incident reporting duties start Sept 11 — about four weeks out. Rehearse the 24-hour early-warning workflow and finish your SBOM inventory this month."
+    },
+    {
+      "zh": "EU AI Act：執法首步為 AI Office 的「技術合規對話」，且 2025 年 8 月起的 GPAI 違規均在追溯範圍，文件備妥度比想像中更急迫。",
+      "en": "EU AI Act: enforcement opens with the AI Office's 'technical compliance dialogues', and GPAI violations dating back to August 2025 are in scope — documentation readiness is more urgent than it looks."
+    }
+  ],
+  "sections": [
+    {
+      "topic": "eu-ai-act",
+      "name": { "zh": "EU AI Act（歐盟人工智慧法案）", "en": "EU AI Act" },
+      "items": [
+        {
+          "title": {
+            "zh": "執法首步是「技術合規對話」，2025 年 8 月起的違規均在追溯範圍",
+            "en": "Enforcement opens with 'technical compliance dialogues'; violations back to August 2025 in scope"
+          },
+          "date": { "zh": "2026-08 分析", "en": "August 2026 analysis" },
+          "importance": "medium",
+          "content": {
+            "zh": "承續 8/2 執法權啟動，本週多份法律分析釐清了實際執法節奏：AI Office 傾向先以「技術合規對話」（technical compliance dialogues）與模型提供者及部署者進行結構化溝通，釐清合規狀態與灰色地帶，再視情況啟動正式程序。關鍵在於追溯範圍——自 2025 年 8 月第一波 GPAI 義務生效以來的違規行為都納入審視，並非只從 2026 年 8 月起算。罰則上限為 GPAI 違規 1,500 萬歐元或全球營業額 3%，禁止用途則達 3,500 萬歐元或 7%。",
+            "en": "Following the Aug 2 activation of enforcement powers, several legal analyses this week clarified how it will play out in practice: the AI Office prefers to open with 'technical compliance dialogues' — structured conversations with model providers and deployers to assess compliance and clarify grey areas before formal proceedings. The key point is retroactivity: conduct since the first wave of GPAI obligations in August 2025 is in scope, not merely from August 2026. Caps are €15M or 3% of global turnover for GPAI breaches, and €35M or 7% for prohibited practices."
+          },
+          "action": {
+            "zh": "GPAI 提供者應假設「隨時可能被要求提供文件」：確認 2025 年 8 月以來的技術文件、著作權政策與訓練資料摘要具備可追溯版本紀錄；指定能代表公司回應技術合規對話的窗口。",
+            "en": "GPAI providers should assume a documentation request could arrive at any time: ensure technical documentation, copyright policy and training-data summaries have traceable version history back to August 2025, and designate an owner to represent the company in a technical compliance dialogue."
+          },
+          "sources": [
+            { "title": "Wilson Sonsini: EU AI Act Enforcement Phase Begins", "url": "https://www.wsgr.com/en/insights/eu-ai-act-enforcement-phase-begins.html" },
+            { "title": "AI Act: Enforcement of Chapter V", "url": "https://artificialintelligenceact.eu/enforcement-of-chapter-v-under-the-eu-ai-act/" }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "eu-cra",
+      "name": { "zh": "EU CRA（歐盟網路韌性法案）", "en": "EU CRA (Cyber Resilience Act)" },
+      "items": [
+        {
+          "title": {
+            "zh": "【續報】漏洞通報義務 9/11 生效，僅剩約 4 週",
+            "en": "[Follow-up] Vulnerability reporting duties start Sept 11 — about four weeks out"
+          },
+          "date": { "zh": "2026-09-11 生效", "en": "Effective 2026-09-11" },
+          "importance": "high",
+          "content": {
+            "zh": "本週無新的官方公告，但時程已進入最後衝刺：9 月 11 日起，在歐盟市場銷售「具數位元素產品」的製造商，知悉漏洞遭主動利用或發生重大事件後，須透過 ENISA 單一通報平台於 24 小時內提出早期預警、72 小時內提交含矯正措施的完整通知、修復後 14 天內提交最終報告。本週 Cisco 與 Windows 的實際利用案例正是這類義務的典型觸發情境，可作為流程演練的現成劇本。",
+            "en": "No new official announcements this week, but the clock is running down: from September 11, manufacturers selling products with digital elements in the EU must, upon learning of an actively exploited vulnerability or severe incident, file an early warning within 24 hours via ENISA's single reporting platform, a full notification with corrective measures within 72 hours, and a final report within 14 days of the fix. This week's Cisco and Windows exploitation cases are exactly the kind of trigger these duties contemplate — useful as a ready-made tabletop scenario."
+          },
+          "action": {
+            "zh": "本月內完成一次桌上演練：以本週的 Cisco ASA 事件為情境，實測能否在 24 小時內判定受影響產品範圍並完成通報草稿；同步確認 SBOM 盤點涵蓋所有在售產品。",
+            "en": "Run a tabletop exercise this month using the Cisco ASA case as the scenario: test whether you can scope affected products and draft the notification within 24 hours, and confirm SBOM coverage spans every product still on sale."
+          },
+          "sources": [
+            { "title": "Hogan Lovells: CRA Vulnerability & Incident Reporting", "url": "https://www.hoganlovells.com/en/publications/eu-cyber-resilience-act-preparing-for-vulnerability-and-incident-reporting" },
+            { "title": "CRA Explained: Scope, Classes & Deadlines", "url": "https://www.cyberresilienceact.eu/explained.html" }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "nis2",
+      "name": { "zh": "EU NIS2（歐盟網路與資訊安全指令 2.0）", "en": "EU NIS2" },
+      "items": []
+    },
+    {
+      "topic": "cmmc",
+      "name": { "zh": "CMMC（美國國防部網路安全成熟度模型認證）", "en": "CMMC (US DoD Cybersecurity Maturity Model Certification)" },
+      "items": [
+        {
+          "title": {
+            "zh": "改革意見徵詢 8/14 截止，改革小組報告預計 9 月中出爐",
+            "en": "Reform RFI closed Aug 14; task force report expected mid-September"
+          },
+          "date": { "zh": "2026-08-14 截止", "en": "Closed 2026-08-14" },
+          "importance": "medium",
+          "content": {
+            "zh": "CMMC 改革意見徵詢（RFI）已於 8 月 14 日截止收件，蒐集業界對合規成本、行政負擔、商用資安方案可用性與自我聲明（self-attestation）選項的意見。改革小組向國防部資訊長報告，期限為 60 天，報告預計 9 月中提出。在此之前，Phase 2 第三方（C3PAO）認證維持暫停，但 Level 1 自評、SPRS 分數上傳與 DFARS 252.204-7012 等既有義務完全不受影響。",
+            "en": "The CMMC reform RFI closed on August 14, gathering industry input on compliance costs, administrative burden, availability of commercial security solutions and self-attestation options. The task force reports to the DoD CIO within 60 days, with its report expected mid-September. Until then Phase 2 third-party (C3PAO) certification stays suspended, while Level 1 self-assessments, SPRS score uploads and DFARS 252.204-7012 obligations are entirely unaffected."
+          },
+          "action": {
+            "zh": "已提交意見的廠商留意 9 月中報告內容；未提交者現階段沒有其他窗口，應把資源放在維持 NIST SP 800-171 落地與 SPRS 分數時效性——無論改革結論為何，這都是不會白費的基本盤。",
+            "en": "Vendors that filed comments should watch for the mid-September report; those that did not have no further window right now and should focus resources on sustaining NIST SP 800-171 implementation and current SPRS scores — the baseline that holds regardless of how the reform lands."
+          },
+          "sources": [
+            { "title": "ArentFox Schiff: CMMC Reform Task Force RFI", "url": "https://www.afslaw.com/perspectives/alerts/cmmc-reform-task-force-rfi-defense-contractors-have-chance-shape-federal" },
+            { "title": "SBA Office of Advocacy: DoW Requests Information for CMMC Reform (官方)", "url": "https://advocacy.sba.gov/2026/07/20/dow-requests-information-for-cmmc-reform-task-force/" }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "iso27000",
+      "name": { "zh": "ISO 27000 系列（資訊安全管理）", "en": "ISO 27000 Series" },
+      "items": []
+    },
+    {
+      "topic": "iso42001",
+      "name": { "zh": "ISO 42001（人工智慧管理系統）", "en": "ISO 42001 (AI Management Systems)" },
+      "items": [
+        {
+          "title": {
+            "zh": "AI Act 執法啟動推升 ISO 42001 需求，採購端要求持續擴散",
+            "en": "AI Act enforcement lifts ISO 42001 demand as procurement requirements spread"
+          },
+          "date": { "zh": "2026-08", "en": "August 2026" },
+          "importance": "medium",
+          "content": {
+            "zh": "隨著 AI Act 執法權於本月啟動，業界分析普遍將 ISO 42001 視為建立可稽核 AI 治理的實務起點；多家顧問與稽核業者引述的市場調查指出，大型企業採購端要求供應商符合 ISO 42001 的比例正快速上升（此為業者引述之二手數據，非原始報告，僅供趨勢參考）。須留意的前提不變：ISO 42001 迄今仍非 AI Act 的調和標準，取得認證不等於合規推定。",
+            "en": "With AI Act enforcement powers now live, industry analyses widely treat ISO 42001 as the practical starting point for auditable AI governance, and market surveys cited by consultancies and audit firms report a fast-rising share of large-enterprise procurement teams requiring ISO 42001 alignment from vendors (secondary figures quoted by vendors rather than primary research — treat as directional). One caveat is unchanged: ISO 42001 is still not a harmonised standard under the AI Act, so certification does not create a presumption of conformity."
+          },
+          "action": {
+            "zh": "提供 AI 產品或服務者，將 ISO 42001 差距分析排入本季工作；同時維持 AI Act 條文與 AIMS 控制措施的對照表，避免在客戶問卷中把認證誤答為法遵合規。",
+            "en": "AI product and service providers should schedule an ISO 42001 gap analysis this quarter and maintain a mapping between AI Act articles and AIMS controls, so certification is never presented as regulatory compliance in customer questionnaires."
+          },
+          "sources": [
+            { "title": "Insight Assurance: ISO/IEC 42001 in 2026", "url": "https://insightassurance.com/insights/blog/iso-iec-42001-the-2026-gold-standard-for-ai-governance-and-trust/" },
+            { "title": "Schellman: AI Governance & ISO 42001 FAQs", "url": "https://www.schellman.com/blog/ai-governance/ai-governance-and-iso-42001-faqs" }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "tisax",
+      "name": { "zh": "TISAX（汽車產業資訊安全評鑑）", "en": "TISAX (Automotive Information Security)" },
+      "items": [
+        {
+          "title": {
+            "zh": "【續報】現行評鑑仍採 ISA 6，ISA 2027 適用日待 ENX 公告",
+            "en": "[Follow-up] Assessments still run on ISA 6; ISA 2027 applicability date pending ENX announcement"
+          },
+          "date": { "zh": "持續", "en": "Ongoing" },
+          "importance": "low",
+          "content": {
+            "zh": "本週 ENX 無新公告。現行 TISAX 評鑑仍以 VDA ISA 6.0 為基準（2024 年 4 月起適用），該版強化了 OT、營運持續與供應鏈安全的要求；7 月發布的 ISA 2027 尚未進入正式適用階段。",
+            "en": "No new ENX announcements this week. TISAX assessments still run against VDA ISA 6.0 (in force since April 2024), which strengthened requirements around OT, operational continuity and supply-chain security; ISA 2027, released in July, has not yet entered its applicability phase."
+          },
+          "action": {
+            "zh": "近期要下單評鑑或換證者，仍以 ISA 6.0 準備；可並行用 ISA 2027 做內部差距分析，待 ENX 公告適用日後再決定是否調整時程。",
+            "en": "If you are booking an assessment or renewal soon, prepare against ISA 6.0; run a parallel internal gap analysis on ISA 2027 and revisit timing once ENX announces the applicability date."
+          },
+          "sources": [
+            { "title": "ENX Portal: VDA ISA2027 Released (官方)", "url": "https://enx.com/en-US/news/isa2027/" },
+            { "title": "ENX Portal: TISAX (官方)", "url": "https://www.enx.com/en-US/tisax/" }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "incidents",
+      "name": { "zh": "重大資安事件與其他動態", "en": "Major Incidents & Other News" },
+      "items": [
+        {
+          "title": {
+            "zh": "Cisco Secure Firewall ASA/FTD SSL VPN 漏洞遭利用（CVE-2026-20349）",
+            "en": "Cisco Secure Firewall ASA/FTD SSL VPN flaw under active exploitation (CVE-2026-20349)"
+          },
+          "date": "2026-08-11",
+          "importance": "high",
+          "content": {
+            "zh": "Cisco 於 8 月 11 日發布資安公告，證實其產品資安事件應變小組已觀察到 CVE-2026-20349 遭實際利用。該漏洞位於 Cisco Secure Firewall ASA 與 FTD 的遠端存取 SSL VPN 服務，成因是處理 HTTP 請求時的錯誤檢查不足（CVSS 8.6）：攻擊者無需認證、無需使用者互動，只要能連到 SSL VPN 服務，即可送出特製 HTTP 請求造成設備非預期重啟。對仰賴該設備做遠端連線的組織而言，等同 VPN 全面中斷。CISA 同日將其列入 KEV，聯邦機關修補期限為 8 月 14 日。",
+            "en": "Cisco published an advisory on August 11 confirming its PSIRT had observed active exploitation of CVE-2026-20349. The flaw sits in the remote-access SSL VPN service of Cisco Secure Firewall ASA and FTD and stems from insufficient error checking when processing HTTP requests (CVSS 8.6): with no authentication and no user interaction, an attacker who can reach the SSL VPN service can send a crafted HTTP request that forces an unexpected device reload. For organizations relying on these devices for remote access, that means a full VPN outage. CISA added it to KEV the same day, with an August 14 federal remediation deadline."
+          },
+          "action": {
+            "zh": "立即套用 Cisco 修補版本；無法即刻更新者，限制 SSL VPN 服務的對外可達範圍（來源 IP 白名單、暫時改走其他遠端存取路徑）。同時檢查設備近期是否有非預期重啟紀錄——那可能是已遭嘗試利用的跡象。",
+            "en": "Apply Cisco's fixed release immediately; if you cannot patch now, restrict external reachability of the SSL VPN service (source-IP allowlisting, temporary alternate remote-access paths). Also review devices for recent unexpected reloads — those may indicate exploitation attempts."
+          },
+          "sources": [
+            { "title": "CISA: KEV Catalog Alert 2026-08-11 (官方)", "url": "https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" },
+            { "title": "The Hacker News: Cisco ASA and FTD Flaw Exploited in the Wild", "url": "https://thehackernews.com/2026/08/cisco-asa-and-ftd-flaw-exploited-in.html" },
+            { "title": "BleepingComputer: Cisco warns of ASA and FTD VPN flaw exploited", "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-and-ftd-vpn-flaw-exploited-to-crash-devices/" }
+          ]
+        },
+        {
+          "title": {
+            "zh": "CISA 8/11 新增三個遭利用漏洞：另含 Windows WinSock 驅動與 Metabase",
+            "en": "CISA adds three exploited flaws on Aug 11: Windows WinSock driver and Metabase included"
+          },
+          "date": "2026-08-11",
+          "importance": "high",
+          "content": {
+            "zh": "除 Cisco ASA/FTD 外，同日列入 KEV 的還有兩項：CVE-2026-68820（Windows WinSock 輔助功能驅動程式 AFD 的釋放後使用漏洞，可用於本機權限提升，已於微軟 8 月 Patch Tuesday 同步修補）與 CVE-2026-72898（Metabase SQL 注入）。AFD 這類權限提升漏洞常被用於攻擊鏈的第二階段——搭配任一初始入侵手法即可取得系統層級權限，因此不宜因「非遠端執行」而降低修補優先序。",
+            "en": "Alongside the Cisco ASA/FTD bug, two more entered KEV the same day: CVE-2026-68820, a use-after-free in the Windows Ancillary Function Driver for WinSock enabling local privilege escalation (patched in Microsoft's August Patch Tuesday), and CVE-2026-72898, a Metabase SQL injection. AFD-class privilege escalation is a classic second stage in an attack chain — paired with any initial foothold it yields SYSTEM-level access, so don't deprioritize it just because it is not remote code execution."
+          },
+          "action": {
+            "zh": "確認 8 月 Patch Tuesday 已完整部署至端點與伺服器（特別是 CVE-2026-68820）；使用 Metabase 的團隊立即升級並檢查資料庫存取紀錄。可用 KEV 目錄作為本月修補優先序的排序依據。",
+            "en": "Confirm the August Patch Tuesday rollout reached endpoints and servers (CVE-2026-68820 in particular); teams running Metabase should upgrade now and review database access logs. Use the KEV catalog to prioritize this month's patching."
+          },
+          "sources": [
+            { "title": "CISA: KEV Catalog Alert 2026-08-11 (官方)", "url": "https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" },
+            { "title": "Senserva: Microsoft Patch Tuesday August 2026", "url": "https://senserva.com/patch-tuesday-2026-08" }
+          ]
+        },
+        {
+          "title": {
+            "zh": "Trezor 因物流商 ShipMonk 遭駭，約 1.4 萬名客戶資料外洩",
+            "en": "Trezor discloses breach of ~14,000 customers via logistics provider ShipMonk"
+          },
+          "date": { "zh": "2026-08 中旬揭露", "en": "Disclosed mid-August 2026" },
+          "importance": "medium",
+          "content": {
+            "zh": "硬體錢包廠商 Trezor 揭露約 1.4 萬名客戶資料外洩，源頭並非自身系統，而是其出貨物流服務商 ShipMonk 遭入侵。外洩內容包含姓名、寄送地址、電子郵件與電話，影響 2026 年 5 月 10 日至 8 月 8 日間收到訂單的美、英、瑞典、哥倫比亞、巴西、義大利、葡萄牙客戶。對持有加密資產的客戶而言，姓名加實體地址的組合會顯著提高針對性釣魚與實體威脅風險。",
+            "en": "Hardware wallet maker Trezor disclosed a breach affecting roughly 14,000 customers that originated not in its own systems but at ShipMonk, its shipping and logistics provider. Exposed data includes names, shipping addresses, email addresses and phone numbers for customers in the US, UK, Sweden, Colombia, Brazil, Italy and Portugal who received orders between May 10 and August 8, 2026. For customers holding crypto assets, the combination of name and physical address materially raises targeted-phishing and physical-threat risk."
+          },
+          "action": {
+            "zh": "檢視物流、金流、客服等「非 IT 類」外包商是否納入供應商資安評鑑範圍與事件通知條款——這類廠商往往持有完整客戶個資卻不在資安盤點清單上。",
+            "en": "Review whether non-IT outsourcers — logistics, payments, customer support — fall within your vendor security assessment scope and incident-notification clauses; these providers often hold complete customer PII yet sit outside the security inventory."
+          },
+          "sources": [
+            { "title": "Privacy Guides: Data Breach Roundup (Aug 7–13, 2026)", "url": "https://www.privacyguides.org/news/2026/08/14/data-breach-roundup-august-7-13-2026/" }
+          ]
+        }
+      ]
+    }
+  ]
+}
