@@ -111,8 +111,21 @@
     position: sticky;
     top: 5rem;
     min-width: 0;
+    /* 與右側內容獨立捲動：側欄過高時自己捲，不必把整頁拉到底 */
+    max-height: calc(100vh - 6.5rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: .3rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
   }
-  @media (max-width: 860px) { aside.sidebar { position: static; } }
+  aside.sidebar::-webkit-scrollbar { width: 6px; }
+  aside.sidebar::-webkit-scrollbar-track { background: transparent; }
+  aside.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+  aside.sidebar:hover::-webkit-scrollbar-thumb { background: var(--text-2); }
+  @media (max-width: 860px) {
+    aside.sidebar { position: static; max-height: none; overflow: visible; padding-right: 0; }
+  }
   .panel {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -542,6 +555,14 @@
 
 <div class="layout">
   <aside class="sidebar">
+    <div class="panel">
+      <h3 id="archiveTitle">週報存檔</h3>
+      <ul class="week-list" id="weekList"><li class="loading" style="padding:.5rem">載入中…</li></ul>
+    </div>
+    <div class="panel">
+      <h3 id="topicsTitle">追蹤主題</h3>
+      <ul class="topic-nav" id="topicNav"></ul>
+    </div>
     <div class="panel curator-panel">
       <h3 id="curatorTitle">主理人</h3>
       <div class="curator-photo">
@@ -551,14 +572,6 @@
       <div class="curator-name">Sindy <span class="accent">🛡️</span></div>
       <div class="curator-title" id="curatorRole">資安合規週報 主理人</div>
       <div class="curator-bio" id="curatorBio">每週日晚間為你彙整八大資安合規動態，重要的事不漏接。</div>
-    </div>
-    <div class="panel">
-      <h3 id="archiveTitle">週報存檔</h3>
-      <ul class="week-list" id="weekList"><li class="loading" style="padding:.5rem">載入中…</li></ul>
-    </div>
-    <div class="panel">
-      <h3 id="topicsTitle">追蹤主題</h3>
-      <ul class="topic-nav" id="topicNav"></ul>
     </div>
   </aside>
 
