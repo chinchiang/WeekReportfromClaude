@@ -38,6 +38,10 @@
     {
       "zh": "ISO/IEC 27000:2026 第六版發布：從術語彙編改寫為 ISMS 概念總覽，定義詞條由 77 條縮減至 12 條，引用該標準術語的內部文件需更新。",
       "en": "ISO/IEC 27000:2026 (6th edition) published: recast from a glossary into an ISMS concepts overview, with defined terms cut from 77 to 12 — internal documents citing them need updating."
+    },
+    {
+      "zh": "IEC 62443（新增追蹤主題）：EN IEC 62443-4-2 正以 A11:2026 修訂與 CRA 接軌，4-2＋4-1 成為工控產品對應 CRA 必要資安要求的主要技術路徑。",
+      "en": "IEC 62443 (newly tracked topic): EN IEC 62443-4-2 is being aligned with the CRA via amendment A11:2026, making 4-2 plus 4-1 the primary technical route for industrial products to meet CRA essential requirements."
     }
   ],
   "sections": [
@@ -339,6 +343,48 @@
             {
               "title": "ENX Portal: TISAX (官方)",
               "url": "https://www.enx.com/en-US/tisax/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "iec62443",
+      "name": {
+        "zh": "IEC 62443（工控與 OT 資安標準）",
+        "en": "IEC 62443 (Industrial & OT Security)"
+      },
+      "items": [
+        {
+          "title": {
+            "zh": "EN IEC 62443-4-2 修訂 A11:2026：成為 CRA 工控產品的技術依據",
+            "en": "EN IEC 62443-4-2 Amendment A11:2026: becoming the technical basis for CRA industrial products"
+          },
+          "date": {
+            "zh": "2026 年進行中",
+            "en": "In progress through 2026"
+          },
+          "importance": "medium",
+          "content": {
+            "zh": "EN IEC 62443-4-2:2019 正透過 A11:2026 修訂與 CRA 接軌，成為工業與關鍵數位產品技術資安要求的基礎：既有資安要求對齊 CRA 框架、補上因應 CRA 必要資安要求的缺口條文，並整合 EN IEC TS 62443-6-2 的評鑑方法供符合性評估使用。對工控廠商而言，4-2（元件要求）＋4-1（安全開發流程）目前是對應 CRA 必要資安要求最直接的技術路徑；不少銷往歐盟的製造商正以 2026 年底前取得 ISASecure CSA／SDLA 認證為目標，以銜接 CRA。提醒：CRA 漏洞通報義務 9/11 生效，工控產品同樣適用。",
+            "en": "EN IEC 62443-4-2:2019 is being aligned with the CRA through amendment A11:2026, positioning it as the foundation for technical security requirements of industrial and critical digital products: existing requirements are mapped to the CRA framework, gap-filling clauses are added for CRA essential cybersecurity requirements, and the EN IEC TS 62443-6-2 evaluation approach is integrated for conformity assessment. For industrial vendors, 4-2 (component requirements) plus 4-1 (secure development lifecycle) is currently the most direct technical route to the CRA essential requirements; many manufacturers selling into the EU are targeting ISASecure CSA/SDLA certification by end-2026 to be CRA-ready. Note that the CRA reporting obligations starting Sept 11 apply to industrial products too."
+          },
+          "action": {
+            "zh": "工控與 OT 產品製造商應建立 62443-4-2 要求與 CRA 必要資安要求的對照表，確認 4-1 安全開發流程證據（威脅模型、漏洞處理、修補發布機制）齊備；採購端則可在規格書要求供應商提出 62443-4-2 元件等級（SL-C）或 ISASecure 認證。",
+            "en": "Industrial and OT product manufacturers should build a mapping between 62443-4-2 requirements and the CRA essential requirements, and confirm 4-1 secure-development evidence is in place (threat models, vulnerability handling, patch release process). On the buying side, specify a 62443-4-2 component security level (SL-C) or ISASecure certification in procurement requirements."
+          },
+          "sources": [
+            {
+              "title": "CEN-CENELEC: From EN IEC 62443 to CRA (官方)",
+              "url": "https://www.cencenelec.eu/news-events/events/2025/2025-09-09-en-iec-62443-to-cra/"
+            },
+            {
+              "title": "IBF Solutions: Current status of standardisation for the CRA",
+              "url": "https://www.ibf-solutions.com/en/news-and-knowledge/technical-papers-and-news-on-ce-marking/current-status-of-standardisation-for-the-cyber-resilience-act"
+            },
+            {
+              "title": "exida: How IEC 62443 Helps Achieve CRA Compliance",
+              "url": "https://www.exida.com/blog/how-iec-62443-can-help-achieve-compliance-with-the-eu-cyber-resilience-act-cra"
             }
           ]
         }

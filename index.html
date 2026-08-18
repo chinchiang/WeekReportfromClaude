@@ -550,7 +550,7 @@
 <header class="site-header">
   <span class="logo-avatar" title="Sindy"><svg viewBox="96 58 108 108"><use href="#sindy-art" width="300" height="400"/></svg><img src="assets/sindy.png" alt="Sindy" onerror="this.style.display='none'"></span>
   <span class="logo" id="siteLogo">🛡️ 資安合規<span class="accent">週報</span></span>
-  <span class="header-sub">EU AI Act · CRA · NIS2 · CMMC · ISO 27000 系列 · ISO 42001 · TISAX</span>
+  <span class="header-sub">EU AI Act · CRA · NIS2 · CMMC · ISO 27000 系列 · ISO 42001 · TISAX · IEC 62443</span>
   <div class="header-right">
     <button class="theme-btn" id="langToggle" title="切換語言 / Switch language">EN</button>
     <button class="theme-btn" id="themeToggle" title="切換深淺色 / Toggle theme">🌓</button>
@@ -620,6 +620,10 @@ const TOPICS = [
     name: { zh: "TISAX", en: "TISAX" },
     desc: { zh: "汽車產業資訊安全評鑑：以 VDA ISA 目錄為基準，由 ENX 管理",
             en: "Automotive information security assessment based on the VDA ISA catalogue, administered by ENX" } },
+  { key: "iec62443", color: "#4d7c0f",
+    name: { zh: "IEC 62443", en: "IEC 62443" },
+    desc: { zh: "工業自動化與控制系統（IACS／OT）資安標準系列：4-1（安全開發流程）、4-2（元件要求）、3-2（風險評鑑）、3-3（系統要求）、2-1（IACS 資安管理），並為 CRA 工控產品合規的主要技術依據",
+            en: "Security standards for industrial automation and control systems (IACS/OT): 4-1 (secure development lifecycle), 4-2 (component requirements), 3-2 (risk assessment), 3-3 (system requirements), 2-1 (IACS security programme) — also the main technical reference for CRA compliance of industrial products" } },
   { key: "incidents", color: "#64748b",
     name: { zh: "重大資安事件", en: "Major Incidents" },
     desc: { zh: "本期重大資安事件、遭實際利用的漏洞與威脅情資",
