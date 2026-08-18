@@ -295,6 +295,7 @@
   }
   .topic-head {
     padding: .9rem 1.4rem;
+    align-items: flex-start;
     background: color-mix(in srgb, var(--tc, var(--accent)) 9%, var(--surface));
     border-bottom: 1px solid color-mix(in srgb, var(--tc, var(--accent)) 25%, var(--border));
     border-left: 5px solid var(--tc, var(--accent));
@@ -303,8 +304,10 @@
     gap: .7rem;
     flex-wrap: wrap;
   }
-  .topic-head .dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; background: var(--tc); box-shadow: 0 0 0 4px color-mix(in srgb, var(--tc) 22%, transparent); }
+  .topic-head .dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; background: var(--tc); box-shadow: 0 0 0 4px color-mix(in srgb, var(--tc) 22%, transparent); margin-top: .3rem; align-self: flex-start; }
+  .topic-head-text { min-width: 0; flex: 1; }
   .topic-head h2 { font-size: 1.12rem; }
+  .topic-desc { font-size: .76rem; color: var(--text-2); line-height: 1.5; margin-top: .15rem; }
   .topic-head .count {
     margin-left: auto;
     background: var(--surface);
@@ -450,6 +453,7 @@
     section.topic { border-radius: 12px; margin-bottom: 1rem; }
     .topic-head { padding: .65rem .9rem; gap: .5rem; border-left-width: 4px; }
     .topic-head h2 { font-size: .98rem; }
+    .topic-desc { font-size: .7rem; line-height: 1.45; }
     .topic-head .dot { width: 9px; height: 9px; box-shadow: 0 0 0 3px color-mix(in srgb, var(--tc) 22%, transparent); }
     .topic-head .count { font-size: .7rem; padding: .1rem .55rem; }
 
@@ -546,7 +550,7 @@
 <header class="site-header">
   <span class="logo-avatar" title="Sindy"><svg viewBox="96 58 108 108"><use href="#sindy-art" width="300" height="400"/></svg><img src="assets/sindy.png" alt="Sindy" onerror="this.style.display='none'"></span>
   <span class="logo" id="siteLogo">🛡️ 資安合規<span class="accent">週報</span></span>
-  <span class="header-sub">EU AI Act · CRA · NIS2 · CMMC · ISO 27000 · ISO 42001 · TISAX</span>
+  <span class="header-sub">EU AI Act · CRA · NIS2 · CMMC · ISO 27000 系列 · ISO 42001 · TISAX</span>
   <div class="header-right">
     <button class="theme-btn" id="langToggle" title="切換語言 / Switch language">EN</button>
     <button class="theme-btn" id="themeToggle" title="切換深淺色 / Toggle theme">🌓</button>
@@ -586,15 +590,40 @@
 
 <script>
 const TOPICS = [
-  { key: "highlights",  name: { zh: "本週焦點", en: "Weekly Highlights" },          color: "#8b5cf6" },
-  { key: "eu-ai-act",   name: { zh: "EU AI Act", en: "EU AI Act" },              color: "#2563eb" },
-  { key: "eu-cra",      name: { zh: "EU CRA", en: "EU CRA" },                    color: "#0891b2" },
-  { key: "nis2",        name: { zh: "EU NIS2", en: "EU NIS2" },                  color: "#059669" },
-  { key: "cmmc",        name: { zh: "CMMC", en: "CMMC" },                        color: "#d97706" },
-  { key: "iso27000",    name: { zh: "ISO 27000 系列", en: "ISO 27000 Series" },  color: "#dc2626" },
-  { key: "iso42001",    name: { zh: "ISO 42001", en: "ISO 42001" },              color: "#db2777" },
-  { key: "tisax",       name: { zh: "TISAX", en: "TISAX" },                      color: "#7c3aed" },
-  { key: "incidents",   name: { zh: "重大資安事件", en: "Major Incidents" },      color: "#64748b" }
+  { key: "highlights", color: "#8b5cf6",
+    name: { zh: "本週焦點", en: "Weekly Highlights" } },
+  { key: "eu-ai-act", color: "#2563eb",
+    name: { zh: "EU AI Act", en: "EU AI Act" },
+    desc: { zh: "歐盟人工智慧法案：GPAI、高風險系統與透明化義務",
+            en: "EU AI Act: GPAI, high-risk systems and transparency obligations" } },
+  { key: "eu-cra", color: "#0891b2",
+    name: { zh: "EU CRA", en: "EU CRA" },
+    desc: { zh: "歐盟網路韌性法案：具數位元素產品的資安要求與漏洞通報",
+            en: "EU Cyber Resilience Act: security requirements and vulnerability reporting for products with digital elements" } },
+  { key: "nis2", color: "#059669",
+    name: { zh: "EU NIS2", en: "EU NIS2" },
+    desc: { zh: "歐盟網路與資訊安全指令 2.0：必要與重要實體的資安與通報義務",
+            en: "EU NIS2 Directive: security and reporting duties for essential and important entities" } },
+  { key: "cmmc", color: "#d97706",
+    name: { zh: "CMMC", en: "CMMC" },
+    desc: { zh: "美國國防部網路安全成熟度模型認證：FCI/CUI 保護與 DFARS 要求",
+            en: "US DoD Cybersecurity Maturity Model Certification: FCI/CUI protection and DFARS requirements" } },
+  { key: "iso27000", color: "#dc2626",
+    name: { zh: "ISO 27000 系列", en: "ISO 27000 Series" },
+    desc: { zh: "指 ISO/IEC 27000 系列中與資訊安全相關的標準：27001（ISMS 要求）、27002（控制措施）、27005（風險管理）、27017/27018（雲端安全與隱私）、27031（營運持續）、27035（事件管理）、27036（供應鏈）、27701（隱私資訊管理）等",
+            en: "The information-security standards within the ISO/IEC 27000 family: 27001 (ISMS requirements), 27002 (controls), 27005 (risk management), 27017/27018 (cloud security and privacy), 27031 (continuity), 27035 (incident management), 27036 (supplier relationships), 27701 (privacy information management) and related parts" } },
+  { key: "iso42001", color: "#db2777",
+    name: { zh: "ISO 42001", en: "ISO 42001" },
+    desc: { zh: "人工智慧管理系統標準（AIMS）：AI 治理框架與認證",
+            en: "AI management system standard (AIMS): AI governance framework and certification" } },
+  { key: "tisax", color: "#7c3aed",
+    name: { zh: "TISAX", en: "TISAX" },
+    desc: { zh: "汽車產業資訊安全評鑑：以 VDA ISA 目錄為基準，由 ENX 管理",
+            en: "Automotive information security assessment based on the VDA ISA catalogue, administered by ENX" } },
+  { key: "incidents", color: "#64748b",
+    name: { zh: "重大資安事件", en: "Major Incidents" },
+    desc: { zh: "本期重大資安事件、遭實際利用的漏洞與威脅情資",
+            en: "Major incidents, actively exploited vulnerabilities and threat intelligence this period" } }
 ];
 const IMPORTANCE = {
   zh: { high: "高度關注", medium: "持續留意", low: "一般資訊" },
@@ -749,7 +778,10 @@ function renderReport(r) {
     <section class="topic" id="topic-${esc(sec.topic)}" style="--tc:${meta.color}">
       <div class="topic-head">
         <span class="dot"></span>
-        <h2>${esc(secName)}</h2>
+        <div class="topic-head-text">
+          <h2>${esc(secName)}</h2>
+          ${meta.desc ? `<p class="topic-desc">${esc(L(meta.desc))}</p>` : ""}
+        </div>
         <span class="count">${t.count((sec.items || []).length)}</span>
       </div>
       <div class="topic-body">`;
