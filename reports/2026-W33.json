@@ -288,7 +288,7 @@
             "zh": "2026-08",
             "en": "August 2026"
           },
-          "importance": "medium",
+          "importance": "low",
           "content": {
             "zh": "隨著 AI Act 執法權於本月啟動，業界分析普遍將 ISO 42001 視為建立可稽核 AI 治理的實務起點；多家顧問與稽核業者引述的市場調查指出，大型企業採購端要求供應商符合 ISO 42001 的比例正快速上升（此為業者引述之二手數據，非原始報告，僅供趨勢參考）。須留意的前提不變：ISO 42001 迄今仍非 AI Act 的調和標準，取得認證不等於合規推定。",
             "en": "With AI Act enforcement powers now live, industry analyses widely treat ISO 42001 as the practical starting point for auditable AI governance, and market surveys cited by consultancies and audit firms report a fast-rising share of large-enterprise procurement teams requiring ISO 42001 alignment from vendors (secondary figures quoted by vendors rather than primary research — treat as directional). One caveat is unchanged: ISO 42001 is still not a harmonised standard under the AI Act, so certification does not create a presumption of conformity."
