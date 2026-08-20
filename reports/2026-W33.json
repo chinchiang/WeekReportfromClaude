@@ -218,6 +218,35 @@
               "url": "https://objectfirst.com/blog/nis2-in-2026-what-every-organisation-should-know/"
             }
           ]
+        },
+        {
+          "title": {
+            "zh": "【重點追蹤】四國訴訟案：荷蘭已完成轉換，觀察執委會是否撤案",
+            "en": "[Watch] Four-country case: the Netherlands has now transposed — watching whether the Commission withdraws"
+          },
+          "date": {
+            "zh": "2026-07-08 移送，追蹤中",
+            "en": "Referred 2026-07-08, ongoing"
+          },
+          "importance": "medium",
+          "content": {
+            "zh": "執委會於 7 月 8 日以未完成 NIS2 轉換為由，將愛爾蘭、西班牙、法國、荷蘭移送歐洲法院（CJEU），請求課以一次性罰款與按日計罰。本週出現關鍵變化：荷蘭轉換法已於 8 月 15 日生效，其被訴基礎可能消失——依執委會慣例，成員國在判決前完成轉換時，執委會常撤回案件或法院僅就已發生期間裁罰。愛爾蘭、西班牙、法國仍未完成轉換，按日計罰的請求對其壓力持續累積。CJEU 尚未有公開的程序進展（案件登錄與言詞辯論時程待公布）。",
+            "en": "On July 8 the Commission referred Ireland, Spain, France and the Netherlands to the CJEU for failing to transpose NIS2, seeking lump-sum and daily penalties. A key development this week: the Dutch transposition law took effect on August 15, potentially removing the basis for its case — by Commission practice, when a member state completes transposition before judgment, the case is often withdrawn or the court rules only on the elapsed period. Ireland, Spain and France have still not transposed, so the daily-penalty request keeps building pressure on them. No public procedural progress at the CJEU yet (case registration and hearing dates pending)."
+          },
+          "action": {
+            "zh": "在愛爾蘭、西班牙、法國營運者不要等判決：三國的轉換法一旦通過，登記與合規期限往往很短，現在就以指令本文為基準自評；判決或撤案將於當期週報以高度關注回報。",
+            "en": "If you operate in Ireland, Spain or France, do not wait for the judgment: once these transposition laws pass, registration and compliance windows tend to be short, so self-assess against the directive text now. A judgment or withdrawal will be reported as high priority in the issue it lands."
+          },
+          "sources": [
+            {
+              "title": "European Commission: NIS2 Directive (官方)",
+              "url": "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive"
+            },
+            {
+              "title": "Legiscope: NIS2 Enforcement Tracker 2026",
+              "url": "https://www.legiscope.com/blog/nis2-enforcement-tracker-2026.html"
+            }
+          ]
         }
       ]
     },
