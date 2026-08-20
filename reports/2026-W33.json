@@ -1,14 +1,14 @@
 {
   "id": "2026-W33",
   "title": {
-    "zh": "Cisco ASA 遭利用列入 KEV、CRA 通報平台尚未上線、荷蘭 NIS2 生效",
-    "en": "Cisco ASA Exploited and Added to KEV; CRA Reporting Platform Still Not Live; Dutch NIS2 Takes Effect"
+    "zh": "Cisco ASA 遭利用列入 KEV、CRA 通報平台未上線、歐盟兩大調和標準全數延宕",
+    "en": "Cisco ASA Exploited and Added to KEV; CRA Reporting Platform Not Live; Both EU Harmonised Standard Tracks Slip"
   },
   "period": "2026-08-10 ~ 2026-08-16",
   "publishedAt": "2026-08-16",
   "summary": {
-    "zh": "本週最緊急的是漏洞面：CISA 於 8/11 一次新增三個遭實際利用的漏洞至 KEV，其中 Cisco Secure Firewall ASA/FTD 的 SSL VPN 漏洞可免認證遠端癱瘓設備，聯邦修補期限只到 8/14。法遵面有兩個值得注意的落差：CRA 漏洞通報義務 9/11 生效倒數 4 週，但 ENISA 單一通報平台至今仍未上線、歐盟公報也尚無任何 CRA 調和標準（Article 27 合規推定目前無法適用）；另荷蘭 NIS2 國內法 8/15 生效並啟動登記義務。標準面，TISAX 的 ISA2027 確定自 2027/1/1 起委託的評鑑強制適用，VDA 並改採年度發布週期。",
-    "en": "Vulnerabilities led the week: on Aug 11 CISA added three actively exploited flaws to KEV, including a Cisco Secure Firewall ASA/FTD SSL VPN bug that lets unauthenticated attackers crash devices, with a federal remediation deadline of Aug 14. Two regulatory gaps stand out: CRA reporting obligations start Sept 11 — four weeks away — yet ENISA's Single Reporting Platform is still not live and no CRA harmonised standard has appeared in the Official Journal, so the Article 27 presumption of conformity is unavailable. Separately, the Dutch NIS2 law took effect Aug 15, triggering registration duties. In standards, TISAX confirmed ISA2027 becomes mandatory for assessments commissioned from Jan 1, 2027, with the VDA moving to an annual release cycle."
+    "zh": "本週最緊急的是漏洞面：CISA 於 8/11 一次新增三個遭實際利用的漏洞至 KEV，其中 Cisco Secure Firewall ASA/FTD 的 SSL VPN 漏洞可免認證遠端癱瘓設備，聯邦修補期限只到 8/14。法遵面浮現一個共同問題——歐盟兩部新法的技術基礎設施都還沒到位：CRA 通報義務 9/11 生效倒數 4 週，但 ENISA 單一通報平台仍未上線；CRA 與 AI Act 的調和標準也都尚未刊登歐盟公報，兩者的合規推定目前皆無法適用（AI Act 標準原訂 2025 年 4 月交付，已兩度延期至 Q4 2026）。另荷蘭 NIS2 國內法 8/15 生效並啟動登記義務，其被訴基礎預期將消失；TISAX 的 ISA2027 確定自 2027/1/1 起委託的評鑑強制適用。",
+    "en": "Vulnerabilities led the week: on Aug 11 CISA added three actively exploited flaws to KEV, including a Cisco Secure Firewall ASA/FTD SSL VPN bug that lets unauthenticated attackers crash devices, with a federal remediation deadline of Aug 14. On the regulatory side a common theme emerged — the technical infrastructure behind two major EU laws is still not in place: CRA reporting obligations start Sept 11, four weeks away, yet ENISA's Single Reporting Platform is not live, and neither the CRA nor the AI Act has a harmonised standard cited in the Official Journal, so neither presumption of conformity is available (the AI Act standards were originally due April 2025 and have slipped twice, now targeted for Q4 2026). Separately, the Dutch NIS2 law took effect Aug 15, triggering registration duties and likely removing the basis for its CJEU case, while TISAX confirmed ISA2027 becomes mandatory for assessments commissioned from Jan 1, 2027."
   },
   "highlights": [
     {
@@ -20,39 +20,37 @@
       "en": "CISA added three exploited flaws to KEV on Aug 11: Cisco ASA/FTD, the Windows Ancillary Function Driver for WinSock (CVE-2026-68820, privilege escalation) and Metabase SQL injection (CVE-2026-72898)."
     },
     {
-      "zh": "EU CRA：距 9/11 通報義務生效僅 4 週，但 ENISA 單一通報平台仍未上線；ENISA 已於 8/3–8/14 更新三份操作指引，請先依文件備妥流程而非等平台。",
-      "en": "EU CRA: four weeks to the Sept 11 reporting obligations, yet ENISA's Single Reporting Platform is still not live; ENISA refreshed three how-to guides between Aug 3 and Aug 14 — build your process from the documentation rather than waiting for the platform."
+      "zh": "【重點追蹤】EU CRA：距 9/11 通報義務生效僅 4 週，ENISA 單一通報平台仍未上線、公開網址未公布；ENISA 已於 8/3–8/14 更新三份操作指引，請依文件備妥流程而非等平台。",
+      "en": "[Watch] EU CRA: four weeks to the Sept 11 reporting obligations, yet ENISA's Single Reporting Platform is still not live and its URL unpublished; ENISA refreshed three how-to guides between Aug 3 and Aug 14 — build your process from the documentation rather than waiting."
     },
     {
-      "zh": "EU CRA：截至 8/9 歐盟公報仍無任何 CRA 調和標準，Article 27 合規推定對所有產品類別皆尚不可用——上期預期的 8 月 Type A 標準未如期發布。",
-      "en": "EU CRA: as of Aug 9 no CRA harmonised standard has been published in the Official Journal, so the Article 27 presumption of conformity is unavailable for every product category — the Type A standard anticipated for August in our last issue did not arrive."
+      "zh": "【重點追蹤】歐盟兩大調和標準全數未刊登 OJ：CRA 的 Type A 標準原訂 8 月交付未實現；AI Act 標準由 JTC 21 起草，最超前的 EN 18286 已進入核准階段，目標 Q4 2026 交付。",
+      "en": "[Watch] Neither EU harmonised standard track has reached the OJ: the CRA Type A standard due in August did not arrive, while the AI Act standards drafted by JTC 21 have EN 18286 furthest along at Approval, targeted for Q4 2026."
     },
     {
-      "zh": "EU NIS2：荷蘭國內法 8/15 生效啟動登記義務；比利時、義大利、匈牙利已開出首波罰單（7.8 萬～45 萬歐元），監管進入實際裁罰階段。",
-      "en": "EU NIS2: the Dutch law took effect Aug 15 triggering registration duties, while Belgium, Italy and Hungary have issued the first fines (€78k–€450k) — supervision has entered the penalty phase."
+      "zh": "【重點追蹤】NIS2 四國訴訟案：荷蘭 8/15 轉換法生效，正式通知後撤案機率高；法國僅通過參議院一讀、尚未經國民議會，愛爾蘭與西班牙亦未完成，按日計罰持續累積。",
+      "en": "[Watch] NIS2 four-country case: the Dutch law took effect Aug 15 and withdrawal is likely once formally notified; France has only cleared a Senate first reading, and Ireland and Spain remain incomplete, so daily penalties keep accruing."
     },
     {
-      "zh": "TISAX：VDA ISA2027 確定自 2027 年 1 月 1 日起委託的評鑑強制適用，並改採「以生效年份命名」的年度發布週期，換證規劃須配合。",
-      "en": "TISAX: VDA ISA2027 becomes mandatory for assessments commissioned from January 1, 2027, and the catalogue moves to an annual release cycle named by effective year — plan renewals accordingly."
+      "zh": "EU NIS2：比利時、義大利、匈牙利已開出首波罰單（7.8 萬～45 萬歐元），監管從立法階段進入實際裁罰階段。",
+      "en": "EU NIS2: Belgium, Italy and Hungary have issued the first fines (€78k–€450k) — supervision has moved from legislation into actual penalties."
+    },
+    {
+      "zh": "TISAX：VDA ISA2027 確定自 2027 年 1 月 1 日起委託的評鑑強制適用，並改採「以生效年份命名」的年度發布週期，換證規劃須以委託日為分水嶺。",
+      "en": "TISAX: VDA ISA2027 becomes mandatory for assessments commissioned from January 1, 2027, and moves to an annual release cycle named by effective year — plan renewals around the commissioning date."
     }
   ],
   "sections": [
     {
       "topic": "eu-ai-act",
-      "name": {
-        "zh": "EU AI Act（歐盟人工智慧法案）",
-        "en": "EU AI Act"
-      },
+      "name": { "zh": "EU AI Act（歐盟人工智慧法案）", "en": "EU AI Act" },
       "items": [
         {
           "title": {
             "zh": "執法首步是「技術合規對話」，2025 年 8 月起的違規均在追溯範圍",
             "en": "Enforcement opens with 'technical compliance dialogues'; violations back to August 2025 in scope"
           },
-          "date": {
-            "zh": "2026-08 法律分析",
-            "en": "August 2026 legal analyses"
-          },
+          "date": { "zh": "2026-08 法律分析", "en": "August 2026 legal analyses" },
           "importance": "medium",
           "content": {
             "zh": "承續 8/2 執法權啟動，本週多份法律分析釐清了實際執法節奏：AI Office 傾向先以「技術合規對話」（technical compliance dialogues）與模型提供者及部署者進行結構化溝通，釐清合規狀態與灰色地帶，再視情況啟動正式程序。其執法權包含要求提供文件、對模型進行技術評估、命令採取合規與風險緩解措施、限制或下架模型並開罰。關鍵在追溯範圍——自 2025 年 8 月第一波 GPAI 義務生效以來的行為都納入審視，並非只從 2026 年 8 月起算。罰則上限為 GPAI 違規 1,500 萬歐元或全球營業額 3%，禁止用途則達 3,500 萬歐元或 7%。",
@@ -63,63 +61,43 @@
             "en": "GPAI providers should assume a documentation request could arrive at any time: ensure technical documentation, copyright policy and training-data summaries carry traceable version history back to August 2025, and designate an owner to represent the company in a technical compliance dialogue. Deployers should confirm Article 50 transparency disclosures are live."
           },
           "sources": [
-            {
-              "title": "Wilson Sonsini: EU AI Act Enforcement Phase Begins",
-              "url": "https://www.wsgr.com/en/insights/eu-ai-act-enforcement-phase-begins.html"
-            },
-            {
-              "title": "AI Act: Enforcement of Chapter V",
-              "url": "https://artificialintelligenceact.eu/enforcement-of-chapter-v-under-the-eu-ai-act/"
-            }
+            { "title": "Wilson Sonsini: EU AI Act Enforcement Phase Begins", "url": "https://www.wsgr.com/en/insights/eu-ai-act-enforcement-phase-begins.html" },
+            { "title": "AI Act: Enforcement of Chapter V", "url": "https://artificialintelligenceact.eu/enforcement-of-chapter-v-under-the-eu-ai-act/" }
           ]
         },
         {
           "title": {
-            "zh": "【重點追蹤】AI Act 調和標準：OJ 尚無刊登，JTC 21 起草中",
-            "en": "[Watch] AI Act harmonised standards: none in the OJ yet; JTC 21 drafting under way"
+            "zh": "【重點追蹤】調和標準：EN 18286 進入核准階段，目標 Q4 2026 交付",
+            "en": "[Watch] Harmonised standards: EN 18286 reaches Approval, delivery targeted for Q4 2026"
           },
-          "date": {
-            "zh": "2026-08 現況",
-            "en": "Status as of August 2026"
-          },
+          "date": { "zh": "2026-08 現況", "en": "Status as of August 2026" },
           "importance": "medium",
           "content": {
-            "zh": "截至目前，歐盟公報（OJ）尚未刊登任何 AI Act 調和標準，高風險 AI 系統的合規推定因此還無法適用。標準起草由 CEN-CENELEC JTC 21 依執委會標準化委託進行中。時間壓力來自高風險義務的新期限：Digital Omnibus 將其延至 2027 年 12 月 2 日，調和標準須在此之前到位，業界才有足夠的導入時間。另須持續留意：ISO 42001 迄今仍非 AI Act 調和標準，取得認證不構成合規推定——除非未來被正式採認。",
-            "en": "To date no AI Act harmonised standard has been cited in the Official Journal, so the presumption of conformity for high-risk AI systems remains unavailable. Drafting is under way at CEN-CENELEC JTC 21 under the Commission's standardisation request. The time pressure comes from the new high-risk deadline: the Digital Omnibus moved it to December 2, 2027, and harmonised standards need to land well before then for industry to have adoption lead time. Also worth restating: ISO 42001 is still not an AI Act harmonised standard, and certification does not create a presumption of conformity — unless it is formally adopted in future."
+            "zh": "歐盟公報（OJ）迄今未刊登任何 AI Act 調和標準，高風險 AI 系統的合規推定因此仍無法適用。標準由 CEN-CENELEC JTC 21 依標準化委託 M/593（及修訂 M/613）起草，進度一再延後：原訂 2025 年 4 月 30 日交付，執委會於 2025 年 6 月修訂為同年 8 月 31 日，仍未達成。CEN 與 CENELEC 遂於 2025 年 10 月技術董事會通過例外加速措施——公眾意見徵詢投票通過者可直接發布、免除另行正式投票程序，目標讓關鍵標準於 2026 年第四季到位。目前最超前的是 EN 18286，已進入核准（Approval）階段，最可能成為首個被引用的標準。值得注意的是，這套加速做法在布魯塞爾引發爭議，被批評為以速度換取共識程序的正當性。另須留意：ISO 42001 迄今仍非 AI Act 調和標準，取得認證不構成合規推定。",
+            "en": "No AI Act harmonised standard has yet been cited in the Official Journal, so the presumption of conformity for high-risk AI systems remains unavailable. The standards are drafted by CEN-CENELEC JTC 21 under standardisation request M/593 (and amendment M/613), and have slipped repeatedly: originally due April 30, 2025, formally revised by the Commission in June 2025 to August 31, 2025, and still not met. In October 2025 the CEN and CENELEC Technical Boards adopted an exceptional acceleration package — drafts passing the Enquiry vote can be published directly, without a separate Formal Vote — aiming to have the key standards available in Q4 2026. EN 18286 is furthest along, now at Approval, and is the most likely to be cited first. Notably, this accelerated route has drawn criticism in Brussels for trading consensus-process legitimacy for speed. Also worth restating: ISO 42001 is still not an AI Act harmonised standard, and certification does not create a presumption of conformity."
           },
           "action": {
-            "zh": "高風險 AI 系統的合規規劃暫以 AI Act 條文逐條對應為準，並保留技術文件證據；標準刊登 OJ 或 ISO 42001 被採認時，本站將以高度關注回報，屆時再切換為推定路徑。",
-            "en": "Plan high-risk compliance on article-by-article mapping to the AI Act for now, retaining technical documentation evidence; when a standard is cited in the OJ or ISO 42001 is adopted, this site will report it as high priority and you can switch to the presumption route."
+            "zh": "高風險 AI 系統的合規規劃暫以 AI Act 條文逐條對應為準並保留技術文件證據，不要押注在標準如期到位；可提前取得 EN 18286 草案評估與內部控制的落差。標準刊登 OJ 或 ISO 42001 被採認時，本站將以高度關注回報。",
+            "en": "Plan high-risk compliance on article-by-article mapping to the AI Act with documented technical evidence rather than betting on standards arriving on time; obtaining the EN 18286 draft early to gap-assess against internal controls is worthwhile. This site will report as high priority when a standard is cited in the OJ or ISO 42001 is adopted."
           },
           "sources": [
-            {
-              "title": "AI Act Implementation Timeline",
-              "url": "https://artificialintelligenceact.eu/implementation-timeline/"
-            },
-            {
-              "title": "Covington: EU AI Act Update — Timeline Relief & New Prohibitions",
-              "url": "https://www.insideprivacy.com/artificial-intelligence/eu-ai-act-update-timeline-relief-targeted-simplification-and-new-prohibitions/"
-            }
+            { "title": "CEN-CENELEC: Decision to Accelerate AI Standards Development (官方)", "url": "https://www.cencenelec.eu/news-events/news/2025/brief-news/2025-10-23-ai-standardization/" },
+            { "title": "CEN-CENELEC: Artificial Intelligence Area of Work (官方)", "url": "https://www.cencenelec.eu/areas-of-work/cen-cenelec-topics/artificial-intelligence/" },
+            { "title": "JTC 21 Standards Tracker: CEN-CENELEC AI Act Deliverables", "url": "https://kla.digital/blog/jtc-21-standards-tracker" }
           ]
         }
       ]
     },
     {
       "topic": "eu-cra",
-      "name": {
-        "zh": "EU CRA（歐盟網路韌性法案）",
-        "en": "EU CRA (Cyber Resilience Act)"
-      },
+      "name": { "zh": "EU CRA（歐盟網路韌性法案）", "en": "EU CRA (Cyber Resilience Act)" },
       "items": [
         {
           "title": {
             "zh": "【重點追蹤】SRP 距 9/11 通報義務生效 4 週仍未上線",
             "en": "[Watch] SRP still not live with four weeks to the Sept 11 reporting duties"
           },
-          "date": {
-            "zh": "2026-09-11 生效",
-            "en": "Effective 2026-09-11"
-          },
+          "date": { "zh": "2026-09-11 生效", "en": "Effective 2026-09-11" },
           "importance": "high",
           "content": {
             "zh": "CRA 的漏洞與重大事件通報義務將於 9 月 11 日生效：知悉漏洞遭主動利用或發生重大事件後，須於 24 小時內提出早期預警、72 小時內提交含矯正措施的完整通知、修復後 14 天內提交最終報告。但承接這些通報的 ENISA 單一通報平台（Single Reporting Platform, SRP）截至本週仍未上線，公開存取網址亦尚未公布；ENISA 已於 7 月發布操作說明與逐步指引，並於 8 月 3 日至 14 日更新其中三份文件，官方規劃平台於 9 月 11 日隨義務生效同步啟用。這代表製造商沒有事前試用環境可演練，只能依文件先把流程與角色定義好。",
@@ -130,18 +108,9 @@
             "en": "Do not wait for the platform: using ENISA's published guidance, run a tabletop exercise this month (the Cisco ASA case makes a ready-made scenario) to confirm you can scope affected products, draft the notification within 24 hours and name a reporting owner — and finish the SBOM inventory for products still on sale."
           },
           "sources": [
-            {
-              "title": "ENISA: Single Reporting Platform (SRP) (官方)",
-              "url": "https://www.enisa.europa.eu/topics/product-security/single-reporting-platform-srp"
-            },
-            {
-              "title": "European Commission: CRA Reporting Obligations (官方)",
-              "url": "https://digital-strategy.ec.europa.eu/en/policies/cra-reporting"
-            },
-            {
-              "title": "cyberresilienceact.eu: SRP Is Still Not Live",
-              "url": "https://www.cyberresilienceact.eu/news/cra-single-reporting-platform-not-yet-live.html"
-            }
+            { "title": "ENISA: Single Reporting Platform (SRP) (官方)", "url": "https://www.enisa.europa.eu/topics/product-security/single-reporting-platform-srp" },
+            { "title": "European Commission: CRA Reporting Obligations (官方)", "url": "https://digital-strategy.ec.europa.eu/en/policies/cra-reporting" },
+            { "title": "cyberresilienceact.eu: SRP Is Still Not Live", "url": "https://www.cyberresilienceact.eu/news/cra-single-reporting-platform-not-yet-live.html" }
           ]
         },
         {
@@ -149,10 +118,7 @@
             "zh": "【重點追蹤】OJ 仍無任何 CRA 調和標準，Article 27 合規推定尚不可用",
             "en": "[Watch] No CRA harmonised standard in the OJ yet — Article 27 presumption of conformity unavailable"
           },
-          "date": {
-            "zh": "2026-08-09 現況",
-            "en": "Status as of 2026-08-09"
-          },
+          "date": { "zh": "2026-08-09 現況", "en": "Status as of 2026-08-09" },
           "importance": "medium",
           "content": {
             "zh": "截至 8 月 9 日，歐盟公報（OJ）尚未刊登任何 CRA 調和標準，因此 Article 27 的合規推定對所有產品類別都還無法適用——本站上期提及「首個 Type A 標準預計 8 月發布」的預期並未如期實現。目前進度：ETSI 的產品標準草案與首批 CEN 標準最為超前，數項 CEN 標準已結束公眾意見徵詢並進入核准階段；漏洞處理（Type A）標準原訂 2026 年 8 月交付，通用要求標準則預估 2027 年 10 月。CEN、CENELEC、ETSI 已於 2025 年 4 月正式接受標準化委託，並承諾在 CRA 全面適用前至少一年交付。",
@@ -163,38 +129,23 @@
             "en": "Do not stake compliance planning on harmonised standards: self-assess line by line against the CRA Annex I essential requirements and retain technical documentation and risk-assessment evidence. Industrial/OT products can build the technical mapping on IEC 62443-4-2 plus 4-1 now (see this issue's IEC 62443 section) and switch to the presumption route once standards are cited."
           },
           "sources": [
-            {
-              "title": "CEN-CENELEC: CRA Standardisation Request Accepted (官方)",
-              "url": "https://www.cencenelec.eu/news-events/news/2025/newsletter/ots-62-cra/"
-            },
-            {
-              "title": "ENISA: CRA Requirements Standards Mapping (官方)",
-              "url": "https://www.enisa.europa.eu/publications/cyber-resilience-act-requirements-standards-mapping"
-            },
-            {
-              "title": "CRA Evidence: Harmonised Standards Status Tracker",
-              "url": "https://craevidence.com/cra-compliance/harmonised-standards-status"
-            }
+            { "title": "CEN-CENELEC: CRA Standardisation Request Accepted (官方)", "url": "https://www.cencenelec.eu/news-events/news/2025/newsletter/ots-62-cra/" },
+            { "title": "ENISA: CRA Requirements Standards Mapping (官方)", "url": "https://www.enisa.europa.eu/publications/cyber-resilience-act-requirements-standards-mapping" },
+            { "title": "CRA Evidence: Harmonised Standards Status Tracker", "url": "https://craevidence.com/cra-compliance/harmonised-standards-status" }
           ]
         }
       ]
     },
     {
       "topic": "nis2",
-      "name": {
-        "zh": "EU NIS2（歐盟網路與資訊安全指令 2.0）",
-        "en": "EU NIS2"
-      },
+      "name": { "zh": "EU NIS2（歐盟網路與資訊安全指令 2.0）", "en": "EU NIS2" },
       "items": [
         {
           "title": {
             "zh": "荷蘭 NIS2 國內法 8/15 正式生效，登記義務啟動",
             "en": "Netherlands NIS2 law entered into force Aug 15; registration duties begin"
           },
-          "date": {
-            "zh": "2026-08-15 生效",
-            "en": "In force 2026-08-15"
-          },
+          "date": { "zh": "2026-08-15 生效", "en": "In force 2026-08-15" },
           "importance": "high",
           "content": {
             "zh": "荷蘭的 NIS2 轉換法 Cyberbeveiligingswet 已於 8 月 15 日（本週六）生效，在荷蘭營運的受管制實體自即日起須向主管機關完成登記。各成員國的登記期限普遍落在國內法生效後 1 至 6 個月內，且時程各不相同（例如德國要求必要與重要實體向 BSI 登記）。截至 2026 年年中，27 個成員國中已有 23 國完成 NIS2 轉換，監管重心正式從布魯塞爾移轉至各國主管機關。",
@@ -205,18 +156,30 @@
             "en": "Organizations with Dutch sites, subsidiaries or service delivery should determine essential/important entity status this week and start registering; multinationals must check registration deadlines country by country rather than applying one timeline everywhere."
           },
           "sources": [
-            {
-              "title": "European Commission: NIS2 Directive (官方)",
-              "url": "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive"
-            },
-            {
-              "title": "NIS2 Timeline: Critical Dates to Enforcement",
-              "url": "https://www.nis-2-templates.com/timeline/"
-            },
-            {
-              "title": "Object First: NIS2 Enforcement in 2026",
-              "url": "https://objectfirst.com/blog/nis2-in-2026-what-every-organisation-should-know/"
-            }
+            { "title": "European Commission: NIS2 Directive (官方)", "url": "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive" },
+            { "title": "NIS2 Timeline: Critical Dates to Enforcement", "url": "https://www.nis-2-templates.com/timeline/" },
+            { "title": "Object First: NIS2 Enforcement in 2026", "url": "https://objectfirst.com/blog/nis2-in-2026-what-every-organisation-should-know/" }
+          ]
+        },
+        {
+          "title": {
+            "zh": "【重點追蹤】四國訴訟案：荷蘭撤案機率高，法國仍卡在國民議會",
+            "en": "[Watch] Four-country case: Dutch withdrawal likely, France still stuck in the National Assembly"
+          },
+          "date": { "zh": "2026-07-08 移送，追蹤中", "en": "Referred 2026-07-08, ongoing" },
+          "importance": "medium",
+          "content": {
+            "zh": "執委會於 7 月 8 日以未完成 NIS2 轉換通知為由，將愛爾蘭、西班牙、法國、荷蘭移送歐洲法院（CJEU），請求課以一次性罰款與按日計罰至完成通知為止。程序脈絡：成員國轉換期限為 2024 年 10 月 17 日，執委會於 2024 年 11 月 28 日發出正式通知函、2025 年 5 月 7 日發出理由意見書。四國進度分歧明顯：荷蘭參議院在移送前一天（7 月 7 日）通過轉換法、8 月 15 日生效，一旦正式通知執委會，對其案件幾乎確定撤回；法國截至 7 月下旬僅通過參議院一讀，尚未經國民議會表決、未公布於官方公報；愛爾蘭與西班牙同樣尚未完成。CJEU 目前無公開的程序進展（案件登錄與言詞辯論時程待公布）。",
+            "en": "On July 8 the Commission referred Ireland, Spain, France and the Netherlands to the CJEU for failing to notify transposition of NIS2, asking the court to impose a lump sum plus daily penalties until notification is complete. Procedural context: the transposition deadline was October 17, 2024; the Commission sent letters of formal notice on November 28, 2024 and reasoned opinions on May 7, 2025. The four states now diverge sharply: the Dutch Senate passed its transposition law the day before the referral (July 7), effective August 15, and once formally notified its case is almost certain to be withdrawn; France, as of late July, had only cleared a Senate first reading, with no National Assembly vote and no publication in the official journal; Ireland and Spain likewise remain incomplete. The CJEU has no public procedural progress yet (case registration and hearing dates pending)."
+          },
+          "action": {
+            "zh": "在愛爾蘭、西班牙、法國營運者不要等判決：三國的轉換法一旦通過，登記與合規期限往往很短，現在就以指令本文與 NIS Cooperation Group 的 Article 21 參考文件為基準自評。判決、撤案或任一國完成立法，本站將於當期以高度關注回報。",
+            "en": "If you operate in Ireland, Spain or France, do not wait for the judgment: once these transposition laws pass, registration and compliance windows tend to be short, so self-assess now against the directive text and the NIS Cooperation Group's Article 21 reference document. A judgment, a withdrawal or any of the three completing legislation will be reported here as high priority in the issue it lands."
+          },
+          "sources": [
+            { "title": "European Commission: Referral Press Release IP/26/1499 (官方)", "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1499" },
+            { "title": "RegDossier: NIS2 Transposition in France Is Late and at the EU Court", "url": "https://regdossier.eu/nis2-france/" },
+            { "title": "IEU Monitoring: Commission Refers Four Member States over NIS2 Delays", "url": "https://ieu-monitoring.com/editorial/eu-commission-refers-four-member-states-to-eu-court-over-nis2-cybersecurity-delays/1245202" }
           ]
         },
         {
@@ -224,10 +187,7 @@
             "zh": "NIS2 首波罰單出爐：比利時、義大利、匈牙利已開罰",
             "en": "First NIS2 fines land: Belgium, Italy and Hungary have issued penalties"
           },
-          "date": {
-            "zh": "截至 2026 年年中累計",
-            "en": "Cumulative as of mid-2026"
-          },
+          "date": { "zh": "截至 2026 年年中累計", "en": "Cumulative as of mid-2026" },
           "importance": "medium",
           "content": {
             "zh": "NIS2 已從立法階段進入實際開罰階段：截至 2026 年年中，比利時（18.5 萬歐元）、義大利（45 萬歐元）、匈牙利（7.8 萬歐元）皆已開出罰單。這些案例累計自近幾個月，非全部發生於本週，但確立了重要先例。法定上限為必要實體 1,000 萬歐元或全球年營業額 2%（取高者）、重要實體 700 萬歐元或 1.4%。目前裁罰金額遠低於上限，顯示各國先以較溫和力道建立遵法習慣，但「不會真的開罰」的假設已不成立。",
@@ -238,101 +198,48 @@
             "en": "Self-assess against the NIS Cooperation Group's June Article 21 reference document, prioritising incident-reporting workflows and supply-chain security clauses — the gaps most commonly cited in the first penalty cases."
           },
           "sources": [
-            {
-              "title": "Legiscope: NIS2 Enforcement Tracker 2026",
-              "url": "https://www.legiscope.com/blog/nis2-enforcement-tracker-2026.html"
-            },
-            {
-              "title": "Object First: NIS2 Enforcement in 2026",
-              "url": "https://objectfirst.com/blog/nis2-in-2026-what-every-organisation-should-know/"
-            }
-          ]
-        },
-        {
-          "title": {
-            "zh": "【重點追蹤】四國訴訟案：荷蘭已完成轉換，觀察執委會是否撤案",
-            "en": "[Watch] Four-country case: the Netherlands has now transposed — watching whether the Commission withdraws"
-          },
-          "date": {
-            "zh": "2026-07-08 移送，追蹤中",
-            "en": "Referred 2026-07-08, ongoing"
-          },
-          "importance": "medium",
-          "content": {
-            "zh": "執委會於 7 月 8 日以未完成 NIS2 轉換為由，將愛爾蘭、西班牙、法國、荷蘭移送歐洲法院（CJEU），請求課以一次性罰款與按日計罰。本週出現關鍵變化：荷蘭轉換法已於 8 月 15 日生效，其被訴基礎可能消失——依執委會慣例，成員國在判決前完成轉換時，執委會常撤回案件或法院僅就已發生期間裁罰。愛爾蘭、西班牙、法國仍未完成轉換，按日計罰的請求對其壓力持續累積。CJEU 尚未有公開的程序進展（案件登錄與言詞辯論時程待公布）。",
-            "en": "On July 8 the Commission referred Ireland, Spain, France and the Netherlands to the CJEU for failing to transpose NIS2, seeking lump-sum and daily penalties. A key development this week: the Dutch transposition law took effect on August 15, potentially removing the basis for its case — by Commission practice, when a member state completes transposition before judgment, the case is often withdrawn or the court rules only on the elapsed period. Ireland, Spain and France have still not transposed, so the daily-penalty request keeps building pressure on them. No public procedural progress at the CJEU yet (case registration and hearing dates pending)."
-          },
-          "action": {
-            "zh": "在愛爾蘭、西班牙、法國營運者不要等判決：三國的轉換法一旦通過，登記與合規期限往往很短，現在就以指令本文為基準自評；判決或撤案將於當期週報以高度關注回報。",
-            "en": "If you operate in Ireland, Spain or France, do not wait for the judgment: once these transposition laws pass, registration and compliance windows tend to be short, so self-assess against the directive text now. A judgment or withdrawal will be reported as high priority in the issue it lands."
-          },
-          "sources": [
-            {
-              "title": "European Commission: NIS2 Directive (官方)",
-              "url": "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive"
-            },
-            {
-              "title": "Legiscope: NIS2 Enforcement Tracker 2026",
-              "url": "https://www.legiscope.com/blog/nis2-enforcement-tracker-2026.html"
-            }
+            { "title": "Legiscope: NIS2 Enforcement Tracker 2026", "url": "https://www.legiscope.com/blog/nis2-enforcement-tracker-2026.html" },
+            { "title": "Object First: NIS2 Enforcement in 2026", "url": "https://objectfirst.com/blog/nis2-in-2026-what-every-organisation-should-know/" }
           ]
         }
       ]
     },
     {
       "topic": "cmmc",
-      "name": {
-        "zh": "CMMC（美國國防部網路安全成熟度模型認證）",
-        "en": "CMMC (US DoD Cybersecurity Maturity Model Certification)"
-      },
+      "name": { "zh": "CMMC（美國國防部網路安全成熟度模型認證）", "en": "CMMC (US DoD Cybersecurity Maturity Model Certification)" },
       "items": [
         {
           "title": {
             "zh": "【重點追蹤】改革意見徵詢 8/14 截止，改革小組報告預計 9 月中出爐",
             "en": "[Watch] Reform RFI closed Aug 14; task force report expected mid-September"
           },
-          "date": {
-            "zh": "2026-08-14 截止",
-            "en": "Closed 2026-08-14"
-          },
+          "date": { "zh": "2026-08-14 截止", "en": "Closed 2026-08-14" },
           "importance": "medium",
           "content": {
             "zh": "CMMC 改革意見徵詢（RFI）已於 8 月 14 日截止收件，蒐集業界對合規成本驅動因素、行政負擔、商用資安方案可用性與自我聲明（self-attestation）選項的意見。改革小組向國防部資訊長報告，期限 60 天，報告預計 9 月中提出，目標是降低中小與非傳統企業的門檻。在此之前，Phase 2 第三方（C3PAO）認證維持暫停，但 Level 1 自評、SPRS 分數上傳與 DFARS 252.204-7012 等既有義務完全不受影響。",
             "en": "The CMMC reform RFI closed on August 14, gathering industry input on compliance cost drivers, administrative burden, availability of commercial security solutions and self-attestation options. The task force reports to the DoD CIO within 60 days, with its report expected mid-September and a goal of lowering barriers for small, medium and non-traditional businesses. Until then Phase 2 third-party (C3PAO) certification stays suspended, while Level 1 self-assessments, SPRS score uploads and DFARS 252.204-7012 obligations are entirely unaffected."
           },
           "action": {
-            "zh": "意見窗口已關閉，現階段應把資源放在維持 NIST SP 800-171 落地與 SPRS 分數時效性——無論改革結論為何，這都是不會白費的基本盤；9 月中報告出爐前避免對合規路線做重大轉向。",
-            "en": "The comment window has closed; focus resources now on sustaining NIST SP 800-171 implementation and current SPRS scores — the baseline that holds regardless of how the reform lands — and avoid major compliance-roadmap pivots before the mid-September report."
+            "zh": "意見窗口已關閉，現階段應把資源放在維持 NIST SP 800-171 落地與 SPRS 分數時效性——無論改革結論為何，這都是不會白費的基本盤；9 月中報告出爐前避免對合規路線做重大轉向。報告發布時本站將以高度關注回報其結論。",
+            "en": "The comment window has closed; focus resources now on sustaining NIST SP 800-171 implementation and current SPRS scores — the baseline that holds regardless of how the reform lands — and avoid major compliance-roadmap pivots before the mid-September report. This site will report the report's conclusions as high priority when it lands."
           },
           "sources": [
-            {
-              "title": "ArentFox Schiff: CMMC Reform Task Force RFI",
-              "url": "https://www.afslaw.com/perspectives/alerts/cmmc-reform-task-force-rfi-defense-contractors-have-chance-shape-federal"
-            },
-            {
-              "title": "SBA Office of Advocacy: DoW Requests Information for CMMC Reform (官方)",
-              "url": "https://advocacy.sba.gov/2026/07/20/dow-requests-information-for-cmmc-reform-task-force/"
-            }
+            { "title": "ArentFox Schiff: CMMC Reform Task Force RFI", "url": "https://www.afslaw.com/perspectives/alerts/cmmc-reform-task-force-rfi-defense-contractors-have-chance-shape-federal" },
+            { "title": "SBA Office of Advocacy: DoW Requests Information for CMMC Reform (官方)", "url": "https://advocacy.sba.gov/2026/07/20/dow-requests-information-for-cmmc-reform-task-force/" }
           ]
         }
       ]
     },
     {
       "topic": "iso27000",
-      "name": {
-        "zh": "ISO 27000 系列（資訊安全標準）",
-        "en": "ISO 27000 Series (Information Security Standards)"
-      },
+      "name": { "zh": "ISO 27000 系列（資訊安全標準）", "en": "ISO 27000 Series (Information Security Standards)" },
       "items": [
         {
           "title": {
             "zh": "ISO/IEC 27000:2026 第六版發布：從術語彙編改寫為概念總覽",
             "en": "ISO/IEC 27000:2026 (6th edition) published: recast from glossary to concepts overview"
           },
-          "date": {
-            "zh": "2026-07 發布",
-            "en": "Published July 2026"
-          },
+          "date": { "zh": "2026-07 發布", "en": "Published July 2026" },
           "importance": "medium",
           "content": {
             "zh": "ISO/IEC 27000 第六版（2026 版）已發布，定位明顯轉變：過去它主要是整個 27000 系列的術語彙編，新版改以說明 ISMS 的概念、原則、標準間關係與整體結構為主軸；第 3 章的定義詞條從 77 條縮減到 12 條，只保留解釋本文概念所需者。這代表查詢術語定義的習慣做法需調整，但對已通過 ISO 27001:2022 認證的組織不產生新的控制措施要求。附帶提醒：ISO 27001:2022 的 Amendment 1（氣候行動修訂）要求組織在情境分析中考量氣候變遷與極端天氣是否為相關議題，該修訂已納入現行稽核範圍。",
@@ -343,18 +250,9 @@
             "en": "Update internal documents and training material citing ISO 27000 term definitions (most were removed — citing ISO 27001/27002 directly is safer), and confirm your SoA and context analysis reflect the climate action amendment."
           },
           "sources": [
-            {
-              "title": "ISO: ISO/IEC 27000:2026 (官方)",
-              "url": "https://www.iso.org/standard/27000"
-            },
-            {
-              "title": "ANSI Blog: ISO/IEC 27000:2026 ISMS Overview",
-              "url": "https://blog.ansi.org/ansi/iso-iec-27000-2026-isms-overview/"
-            },
-            {
-              "title": "GRC Lab: Updates in ISO 27000:2026",
-              "url": "https://blog.grclab.com/p/two-surprising-updates-in-iso-270002026"
-            }
+            { "title": "ISO: ISO/IEC 27000:2026 (官方)", "url": "https://www.iso.org/standard/27000" },
+            { "title": "ANSI Blog: ISO/IEC 27000:2026 ISMS Overview", "url": "https://blog.ansi.org/ansi/iso-iec-27000-2026-isms-overview/" },
+            { "title": "GRC Lab: Updates in ISO 27000:2026", "url": "https://blog.grclab.com/p/two-surprising-updates-in-iso-270002026" }
           ]
         },
         {
@@ -362,10 +260,7 @@
             "zh": "【背景補充】ISO/IEC 27701:2025 改為獨立標準，轉版期限 2028/10/01",
             "en": "[Background] ISO/IEC 27701:2025 is now stand-alone; transition deadline Oct 1, 2028"
           },
-          "date": {
-            "zh": "2025-10 發布（本站首次報導）",
-            "en": "Published Oct 2025 (first covered here)"
-          },
+          "date": { "zh": "2025-10 發布（本站首次報導）", "en": "Published Oct 2025 (first covered here)" },
           "importance": "medium",
           "content": {
             "zh": "本站先前未報導過的系列重大改版：隱私資訊管理系統標準 ISO/IEC 27701 已於 2025 年 10 月改版，並從「ISO 27001／27002 的延伸」改為可獨立實施與驗證的獨立標準——組織即使未持有 ISO 27001 認證，也能單獨取得 PIMS 認證。持有 27701:2019 證書者須於 2028 年 10 月 1 日前完成轉版稽核，逾期原證書失效；現有證書在轉版期間維持有效，且完成轉版不會重啟認證週期。",
@@ -376,76 +271,49 @@
             "en": "Holders of 27701:2019 certificates should confirm the transition audit schedule with their certification body (folding it into a scheduled surveillance audit saves cost); organizations without 27001 certification facing customer demands for privacy-management assurance should reassess, since the new edition allows standalone certification."
           },
           "sources": [
-            {
-              "title": "DNV: Updated ISO/IEC 27701 Standard Released",
-              "url": "https://www.dnv.us/news/2025/ba_updated-version-of-isoiec-27701-standard-released/"
-            },
-            {
-              "title": "ISMS.online: ISO 27701 Transition Guide 2019 to 2025",
-              "url": "https://www.isms.online/iso-27701/transition-from-2019-to-2025/"
-            },
-            {
-              "title": "Brand Compliance: ISO 27701:2025 Transition Deadline and Audit",
-              "url": "https://brandcompliance.com/en/docs/transition-to-iso-277012025/"
-            }
+            { "title": "DNV: Updated ISO/IEC 27701 Standard Released", "url": "https://www.dnv.us/news/2025/ba_updated-version-of-isoiec-27701-standard-released/" },
+            { "title": "ISMS.online: ISO 27701 Transition Guide 2019 to 2025", "url": "https://www.isms.online/iso-27701/transition-from-2019-to-2025/" },
+            { "title": "Brand Compliance: ISO 27701:2025 Transition Deadline and Audit", "url": "https://brandcompliance.com/en/docs/transition-to-iso-277012025/" }
           ]
         }
       ]
     },
     {
       "topic": "iso42001",
-      "name": {
-        "zh": "ISO 42001（人工智慧管理系統）",
-        "en": "ISO 42001 (AI Management Systems)"
-      },
+      "name": { "zh": "ISO 42001（人工智慧管理系統）", "en": "ISO 42001 (AI Management Systems)" },
       "items": [
         {
           "title": {
             "zh": "AI Act 執法啟動帶動 ISO 42001 導入，認證成本區間約 1.5 萬～20 萬美元",
             "en": "AI Act enforcement drives ISO 42001 adoption; certification costs range roughly $15k–$200k"
           },
-          "date": {
-            "zh": "2026-08 產業動態",
-            "en": "August 2026 industry trend"
-          },
+          "date": { "zh": "2026-08 產業動態", "en": "August 2026 industry trend" },
           "importance": "low",
           "content": {
-            "zh": "隨 AI Act 執法權於本月啟動，業界普遍將 ISO 42001 視為建立可稽核 AI 治理的實務起點，2026 年陸續有企業宣布取得認證。就導入成本，顧問業者估計多數組織的總支出落在 1.5 萬至 20 萬美元之間，依組織規模而異（此為業者估算之參考區間，非官方數據）。須留意的前提不變：ISO 42001 迄今仍非 AI Act 的調和標準，取得認證不等於合規推定。",
-            "en": "With AI Act enforcement powers now live, the industry broadly treats ISO 42001 as the practical starting point for auditable AI governance, and a steady stream of organizations announced certification through 2026. On cost, consultancies estimate most organizations spend between $15,000 and $200,000 in total depending on size (a vendor-estimated range for reference, not official data). One caveat is unchanged: ISO 42001 is still not a harmonised standard under the AI Act, so certification does not create a presumption of conformity."
+            "zh": "隨 AI Act 執法權於本月啟動，業界普遍將 ISO 42001 視為建立可稽核 AI 治理的實務起點，2026 年陸續有企業宣布取得認證。就導入成本，顧問業者估計多數組織的總支出落在 1.5 萬至 20 萬美元之間，依組織規模而異（此為業者估算之參考區間，非官方數據）。須留意的前提不變：ISO 42001 迄今仍非 AI Act 的調和標準，取得認證不等於合規推定；本站已將「ISO 42001 是否被採認為調和標準」納入 AI Act 調和標準的重點追蹤。",
+            "en": "With AI Act enforcement powers now live, the industry broadly treats ISO 42001 as the practical starting point for auditable AI governance, and a steady stream of organizations announced certification through 2026. On cost, consultancies estimate most organizations spend between $15,000 and $200,000 in total depending on size (a vendor-estimated range for reference, not official data). One caveat is unchanged: ISO 42001 is still not a harmonised standard under the AI Act, so certification does not create a presumption of conformity — whether it is ever adopted as one is part of this site's AI Act harmonised-standards watch."
           },
           "action": {
             "zh": "提供 AI 產品或服務者，可將 ISO 42001 差距分析排入本季工作以因應客戶問卷；同時維持 AI Act 條文與 AIMS 控制措施的對照表，避免在客戶問卷中把認證誤答為法遵合規。",
             "en": "AI product and service providers can schedule an ISO 42001 gap analysis this quarter to be ready for customer questionnaires, while maintaining a mapping between AI Act articles and AIMS controls so certification is never presented as regulatory compliance."
           },
           "sources": [
-            {
-              "title": "Compyl: ISO 42001 Certification Cost in 2026",
-              "url": "https://compyl.com/blog/iso-42001-certification-cost/"
-            },
-            {
-              "title": "Schellman: AI Governance & ISO 42001 FAQs",
-              "url": "https://www.schellman.com/blog/ai-governance/ai-governance-and-iso-42001-faqs"
-            }
+            { "title": "Compyl: ISO 42001 Certification Cost in 2026", "url": "https://compyl.com/blog/iso-42001-certification-cost/" },
+            { "title": "Schellman: AI Governance & ISO 42001 FAQs", "url": "https://www.schellman.com/blog/ai-governance/ai-governance-and-iso-42001-faqs" }
           ]
         }
       ]
     },
     {
       "topic": "tisax",
-      "name": {
-        "zh": "TISAX（汽車產業資訊安全評鑑）",
-        "en": "TISAX (Automotive Information Security)"
-      },
+      "name": { "zh": "TISAX（汽車產業資訊安全評鑑）", "en": "TISAX (Automotive Information Security)" },
       "items": [
         {
           "title": {
             "zh": "ISA2027 確定 2027/1/1 起強制適用，VDA 改採年度發布週期",
             "en": "ISA2027 becomes mandatory from Jan 1, 2027; VDA moves to an annual release cycle"
           },
-          "date": {
-            "zh": "2027-01-01 起強制適用",
-            "en": "Mandatory from 2027-01-01"
-          },
+          "date": { "zh": "2027-01-01 起強制適用", "en": "Mandatory from 2027-01-01" },
           "importance": "medium",
           "content": {
             "zh": "TISAX 的適用時程已明確：VDA 於 7 月 1 日發布的 ISA2027，自 2027 年 1 月 1 日起委託的評鑑一律強制適用；在此之前委託的評鑑仍以現行 ISA 6.0 為基準（ISA 6.0 自 2024 年 4 月起適用，強化了 OT、營運持續與供應鏈安全要求）。同時 VDA 啟動全新的發布與版本命名機制：不再使用流水號版本，改以「生效年份」命名並轉為年度發布週期。ISA2027 維持 46 項控制措施但其中 44 項經修訂，並更新對 ISO/IEC 27001:2022 與 NIST CSF 2.0 的對應。",
@@ -456,38 +324,23 @@
             "en": "Treat the commissioning date as the planning watershed: renewals or new assessments commissioned before end-2026 can still be prepared against ISA 6.0, while anything commissioned in 2027 should be gap-analysed against ISA2027 now, focusing on the 44 revised controls and the realignment to ISO 27001:2022. The annual release cycle also means reviewing version deltas every year from now on."
           },
           "sources": [
-            {
-              "title": "ENX Portal: 10 Years of TISAX – VDA ISA2027 Released (官方)",
-              "url": "https://enx.com/en-US/news/isa2027/"
-            },
-            {
-              "title": "ENX Portal: TISAX Downloads (官方)",
-              "url": "https://enx.com/en-US/TISAX/downloads/"
-            },
-            {
-              "title": "CIS-Cert: New ISA Catalogue Published by VDA",
-              "url": "https://www.cis-cert.com/en/news/tisax-neuer-isa-katalog-vom-vda-veroeffentlicht/"
-            }
+            { "title": "ENX Portal: 10 Years of TISAX – VDA ISA2027 Released (官方)", "url": "https://enx.com/en-US/news/isa2027/" },
+            { "title": "ENX Portal: TISAX Downloads (官方)", "url": "https://enx.com/en-US/TISAX/downloads/" },
+            { "title": "CIS-Cert: New ISA Catalogue Published by VDA", "url": "https://www.cis-cert.com/en/news/tisax-neuer-isa-katalog-vom-vda-veroeffentlicht/" }
           ]
         }
       ]
     },
     {
       "topic": "iec62443",
-      "name": {
-        "zh": "IEC 62443（工控與 OT 資安標準）",
-        "en": "IEC 62443 (Industrial & OT Security)"
-      },
+      "name": { "zh": "IEC 62443（工控與 OT 資安標準）", "en": "IEC 62443 (Industrial & OT Security)" },
       "items": [
         {
           "title": {
             "zh": "EN IEC 62443-4-2 修訂 A11:2026：成為 CRA 工控產品的技術依據",
             "en": "EN IEC 62443-4-2 Amendment A11:2026: becoming the technical basis for CRA industrial products"
           },
-          "date": {
-            "zh": "2026 年進行中",
-            "en": "In progress through 2026"
-          },
+          "date": { "zh": "2026 年進行中", "en": "In progress through 2026" },
           "importance": "medium",
           "content": {
             "zh": "EN IEC 62443-4-2:2019 正透過 A11:2026 修訂與 CRA 接軌，成為工業與關鍵數位產品技術資安要求的基礎：既有資安要求對齊 CRA 框架、補上因應 CRA 必要資安要求的缺口條文，並整合 EN IEC TS 62443-6-2 的評鑑方法供符合性評估使用。在 OJ 尚無 CRA 調和標準的現況下（見本期 EU CRA 章節），4-2（元件要求）＋4-1（安全開發流程）是工控廠商對應 CRA 必要資安要求最直接的技術路徑；不少銷歐製造商正以 2026 年底前取得 ISASecure CSA／SDLA 認證為目標。",
@@ -498,28 +351,16 @@
             "en": "Industrial and OT manufacturers should build a mapping from 62443-4-2 requirements to the CRA Annex I essential requirements and confirm 4-1 secure-development evidence is in place (threat models, vulnerability handling, patch release process). Buyers can specify a 62443-4-2 component security level (SL-C) or ISASecure certification in procurement requirements."
           },
           "sources": [
-            {
-              "title": "CEN-CENELEC: From EN IEC 62443 to CRA (官方)",
-              "url": "https://www.cencenelec.eu/news-events/events/2025/2025-09-09-en-iec-62443-to-cra/"
-            },
-            {
-              "title": "IBF Solutions: Current Status of Standardisation for the CRA",
-              "url": "https://www.ibf-solutions.com/en/news-and-knowledge/technical-papers-and-news-on-ce-marking/current-status-of-standardisation-for-the-cyber-resilience-act"
-            },
-            {
-              "title": "exida: How IEC 62443 Helps Achieve CRA Compliance",
-              "url": "https://www.exida.com/blog/how-iec-62443-can-help-achieve-compliance-with-the-eu-cyber-resilience-act-cra"
-            }
+            { "title": "CEN-CENELEC: From EN IEC 62443 to CRA (官方)", "url": "https://www.cencenelec.eu/news-events/events/2025/2025-09-09-en-iec-62443-to-cra/" },
+            { "title": "IBF Solutions: Current Status of Standardisation for the CRA", "url": "https://www.ibf-solutions.com/en/news-and-knowledge/technical-papers-and-news-on-ce-marking/current-status-of-standardisation-for-the-cyber-resilience-act" },
+            { "title": "exida: How IEC 62443 Helps Achieve CRA Compliance", "url": "https://www.exida.com/blog/how-iec-62443-can-help-achieve-compliance-with-the-eu-cyber-resilience-act-cra" }
           ]
         }
       ]
     },
     {
       "topic": "incidents",
-      "name": {
-        "zh": "重大資安事件與其他動態",
-        "en": "Major Incidents & Other News"
-      },
+      "name": { "zh": "重大資安事件與其他動態", "en": "Major Incidents & Other News" },
       "items": [
         {
           "title": {
@@ -537,18 +378,9 @@
             "en": "Apply Cisco's fixed release immediately; if you cannot patch now, restrict external reachability of the SSL VPN service (source-IP allowlisting, temporary alternate remote-access paths). Also review devices for recent unexpected reloads, which may indicate exploitation attempts."
           },
           "sources": [
-            {
-              "title": "CISA: KEV Catalog Alert 2026-08-11 (官方)",
-              "url": "https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog"
-            },
-            {
-              "title": "The Hacker News: Cisco ASA and FTD Flaw Exploited in the Wild",
-              "url": "https://thehackernews.com/2026/08/cisco-asa-and-ftd-flaw-exploited-in.html"
-            },
-            {
-              "title": "BleepingComputer: Cisco warns of ASA and FTD VPN flaw exploited",
-              "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-and-ftd-vpn-flaw-exploited-to-crash-devices/"
-            }
+            { "title": "CISA: KEV Catalog Alert 2026-08-11 (官方)", "url": "https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" },
+            { "title": "The Hacker News: Cisco ASA and FTD Flaw Exploited in the Wild", "url": "https://thehackernews.com/2026/08/cisco-asa-and-ftd-flaw-exploited-in.html" },
+            { "title": "BleepingComputer: Cisco warns of ASA and FTD VPN flaw exploited", "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-and-ftd-vpn-flaw-exploited-to-crash-devices/" }
           ]
         },
         {
@@ -567,14 +399,8 @@
             "en": "Confirm the August Patch Tuesday rollout reached endpoints and servers (CVE-2026-68820 in particular); teams running Metabase should upgrade now and review database access logs. Use the KEV catalog to prioritise this month's patching."
           },
           "sources": [
-            {
-              "title": "CISA: KEV Catalog Alert 2026-08-11 (官方)",
-              "url": "https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog"
-            },
-            {
-              "title": "Senserva: Microsoft Patch Tuesday August 2026",
-              "url": "https://senserva.com/patch-tuesday-2026-08"
-            }
+            { "title": "CISA: KEV Catalog Alert 2026-08-11 (官方)", "url": "https://www.cisa.gov/news-events/alerts/2026/08/11/cisa-adds-three-known-exploited-vulnerabilities-catalog" },
+            { "title": "Senserva: Microsoft Patch Tuesday August 2026", "url": "https://senserva.com/patch-tuesday-2026-08" }
           ]
         },
         {
@@ -582,10 +408,7 @@
             "zh": "Trezor 因物流商 ShipMonk 遭駭，約 1.4 萬名客戶資料外洩",
             "en": "Trezor discloses breach of ~14,000 customers via logistics provider ShipMonk"
           },
-          "date": {
-            "zh": "2026-08 中旬揭露",
-            "en": "Disclosed mid-August 2026"
-          },
+          "date": { "zh": "2026-08 中旬揭露", "en": "Disclosed mid-August 2026" },
           "importance": "medium",
           "content": {
             "zh": "硬體錢包廠商 Trezor 揭露約 1.4 萬名客戶資料外洩，源頭並非自身系統，而是出貨物流服務商 ShipMonk 遭入侵。外洩內容包含姓名、寄送地址、電子郵件與電話，影響 2026 年 5 月 10 日至 8 月 8 日間收到訂單的美、英、瑞典、哥倫比亞、巴西、義大利、葡萄牙客戶。對持有加密資產的客戶而言，姓名加實體地址的組合會顯著提高針對性釣魚與實體威脅風險。",
@@ -596,10 +419,7 @@
             "en": "Review whether non-IT outsourcers — logistics, payments, customer support — fall within your vendor security assessment scope and incident-notification clauses; these providers often hold complete customer PII yet sit outside the security inventory. The case also maps directly onto NIS2 and ISO 27036 supply-chain requirements."
           },
           "sources": [
-            {
-              "title": "Privacy Guides: Data Breach Roundup (Aug 7–13, 2026)",
-              "url": "https://www.privacyguides.org/news/2026/08/14/data-breach-roundup-august-7-13-2026/"
-            }
+            { "title": "Privacy Guides: Data Breach Roundup (Aug 7–13, 2026)", "url": "https://www.privacyguides.org/news/2026/08/14/data-breach-roundup-august-7-13-2026/" }
           ]
         }
       ]
