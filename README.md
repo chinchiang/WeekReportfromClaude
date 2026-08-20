@@ -67,6 +67,18 @@ reports/<id>.json     # 每週一份報告資料，id 格式：YYYY-Www（如 20
 | TISAX | ENX 公告、VDA ISA 版本適用日、AL2/AL3 評鑑實務 |
 | **IEC 62443** | 各分冊改版與修訂（4-1／4-2／3-2／3-3／2-1、EN 版本與 A11 修訂）、**與 CRA 的調和進度**（CEN-CENELEC 調和標準、EN IEC TS 62443-6-2 評鑑方法）、ISASecure（CSA／SDLA／SSA）認證動態、ISA/IEC 委員會公告、OT/ICS 資安事件與工控產品漏洞（ICS-CERT／CISA ICS advisories） |
 
+## 重點追蹤標的（Watchlist）
+
+除九大主題的例行掃描外，下列標的每期**必查現況**，直到其里程碑達成為止；
+相關項目標題加「【重點追蹤】/ [Watch]」前綴，讓讀者能逐期追蹤進度：
+
+| 標的 | 追蹤問題 | 現況（隨每期更新） |
+|---|---|---|
+| **ENISA Single Reporting Platform（SRP）** | "The Cyber Resilience Act (CRA) introduces the Single Reporting Platform (SRP) for cybersecurity incident reporting in the EU Digital Single Market." —— **何時正式完工、啟用？** 官方規劃與 9/11 通報義務同步上線，須每期確認：平台是否已上線、公開網址是否公布、ENISA 指引／onboarding 文件更新、上線後的實際運作狀況與問題 | 截至 2026-08-16 仍未上線，網址未公布；ENISA 於 8/3–8/14 更新三份指引 |
+
+- 報導位置：`eu-cra` 章節；平台正式啟用當期以 **high** 回報，之後轉為運作狀況追蹤
+- 查詢角度：ENISA SRP 官方頁（enisa.europa.eu/topics/product-security/single-reporting-platform-srp）、ENISA 新聞稿、執委會 CRA reporting 頁、產業側報導（上線體驗、故障、onboarding 問題）
+
 ## 來源引用政策
 
 1. **官方優先**：能取得一手來源（歐盟執委會、EUR-Lex、CISA、ENISA、ENX、ISO、廠商官方公告、司法部新聞稿等）時必須引用，並在 title 標註「(官方)」
