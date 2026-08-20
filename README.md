@@ -75,9 +75,11 @@ reports/<id>.json     # 每週一份報告資料，id 格式：YYYY-Www（如 20
 | 標的 | 追蹤問題 | 現況（隨每期更新） |
 |---|---|---|
 | **ENISA Single Reporting Platform（SRP）** | "The Cyber Resilience Act (CRA) introduces the Single Reporting Platform (SRP) for cybersecurity incident reporting in the EU Digital Single Market." —— **何時正式完工、啟用？** 官方規劃與 9/11 通報義務同步上線，須每期確認：平台是否已上線、公開網址是否公布、ENISA 指引／onboarding 文件更新、上線後的實際運作狀況與問題 | 截至 2026-08-16 仍未上線，網址未公布；ENISA 於 8/3–8/14 更新三份指引 |
+| **CRA 調和標準刊登歐盟公報（OJ）** | **第一個 CRA 調和標準（harmonised standard）何時刊登 OJ？** 刊登之日起 Article 27 合規推定（presumption of conformity）才開始可用。須每期確認：OJ 是否已刊登任何 CRA 調和標準（刊登哪些、對應哪些產品類別）、CEN／CENELEC／ETSI 各標準草案進度（公眾意見徵詢、核准、交付執委會）、漏洞處理 Type A 標準與通用要求標準的時程變化 | 截至 2026-08-09 OJ 尚無任何 CRA 調和標準；Type A 原訂 2026-08 交付未實現，通用要求標準預估 2027-10；數項 CEN 標準已進入核准階段 |
 
-- 報導位置：`eu-cra` 章節；平台正式啟用當期以 **high** 回報，之後轉為運作狀況追蹤
-- 查詢角度：ENISA SRP 官方頁（enisa.europa.eu/topics/product-security/single-reporting-platform-srp）、ENISA 新聞稿、執委會 CRA reporting 頁、產業側報導（上線體驗、故障、onboarding 問題）
+- 報導位置：`eu-cra` 章節；**里程碑達成當期（SRP 正式啟用／首個調和標準刊登 OJ）以 high 回報**，之後轉為後續追蹤
+- SRP 查詢角度：ENISA SRP 官方頁（enisa.europa.eu/topics/product-security/single-reporting-platform-srp）、ENISA 新聞稿、執委會 CRA reporting 頁、產業側報導（上線體驗、故障、onboarding 問題）
+- 調和標準查詢角度：歐盟公報（eur-lex）、執委會 harmonised standards 頁、CEN-CENELEC 與 ETSI 公告、追蹤網站（如 craevidence.com 的 status tracker）
 
 ## 來源引用政策
 
