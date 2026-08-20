@@ -72,6 +72,35 @@
               "url": "https://artificialintelligenceact.eu/enforcement-of-chapter-v-under-the-eu-ai-act/"
             }
           ]
+        },
+        {
+          "title": {
+            "zh": "【重點追蹤】AI Act 調和標準：OJ 尚無刊登，JTC 21 起草中",
+            "en": "[Watch] AI Act harmonised standards: none in the OJ yet; JTC 21 drafting under way"
+          },
+          "date": {
+            "zh": "2026-08 現況",
+            "en": "Status as of August 2026"
+          },
+          "importance": "medium",
+          "content": {
+            "zh": "截至目前，歐盟公報（OJ）尚未刊登任何 AI Act 調和標準，高風險 AI 系統的合規推定因此還無法適用。標準起草由 CEN-CENELEC JTC 21 依執委會標準化委託進行中。時間壓力來自高風險義務的新期限：Digital Omnibus 將其延至 2027 年 12 月 2 日，調和標準須在此之前到位，業界才有足夠的導入時間。另須持續留意：ISO 42001 迄今仍非 AI Act 調和標準，取得認證不構成合規推定——除非未來被正式採認。",
+            "en": "To date no AI Act harmonised standard has been cited in the Official Journal, so the presumption of conformity for high-risk AI systems remains unavailable. Drafting is under way at CEN-CENELEC JTC 21 under the Commission's standardisation request. The time pressure comes from the new high-risk deadline: the Digital Omnibus moved it to December 2, 2027, and harmonised standards need to land well before then for industry to have adoption lead time. Also worth restating: ISO 42001 is still not an AI Act harmonised standard, and certification does not create a presumption of conformity — unless it is formally adopted in future."
+          },
+          "action": {
+            "zh": "高風險 AI 系統的合規規劃暫以 AI Act 條文逐條對應為準，並保留技術文件證據；標準刊登 OJ 或 ISO 42001 被採認時，本站將以高度關注回報，屆時再切換為推定路徑。",
+            "en": "Plan high-risk compliance on article-by-article mapping to the AI Act for now, retaining technical documentation evidence; when a standard is cited in the OJ or ISO 42001 is adopted, this site will report it as high priority and you can switch to the presumption route."
+          },
+          "sources": [
+            {
+              "title": "AI Act Implementation Timeline",
+              "url": "https://artificialintelligenceact.eu/implementation-timeline/"
+            },
+            {
+              "title": "Covington: EU AI Act Update — Timeline Relief & New Prohibitions",
+              "url": "https://www.insideprivacy.com/artificial-intelligence/eu-ai-act-update-timeline-relief-targeted-simplification-and-new-prohibitions/"
+            }
+          ]
         }
       ]
     },

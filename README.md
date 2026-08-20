@@ -78,12 +78,14 @@ reports/<id>.json     # 每週一份報告資料，id 格式：YYYY-Www（如 20
 | **CRA 調和標準刊登歐盟公報（OJ）** | **第一個 CRA 調和標準（harmonised standard）何時刊登 OJ？** 刊登之日起 Article 27 合規推定（presumption of conformity）才開始可用。須每期確認：OJ 是否已刊登任何 CRA 調和標準（刊登哪些、對應哪些產品類別）、CEN／CENELEC／ETSI 各標準草案進度（公眾意見徵詢、核准、交付執委會）、漏洞處理 Type A 標準與通用要求標準的時程變化 | 截至 2026-08-09 OJ 尚無任何 CRA 調和標準；Type A 原訂 2026-08 交付未實現，通用要求標準預估 2027-10；數項 CEN 標準已進入核准階段 |
 | **CMMC 改革小組報告（9 月中出爐）** | DoD 的 60 天 CMMC 改革小組報告**何時發布、結論為何？** 報告將決定 Phase 2 第三方認證的存廢與替代方案（自我聲明擴大、商用方案採認、時程重排），直接影響國防供應鏈的合規路線。須每期確認：報告是否發布、發布後的關鍵結論（C3PAO 認證恢復或取代、Level 2/3 要求變化）、DoD 是否啟動 DFARS／32 CFR 修訂、Phase 2 暫停狀態是否變化 | RFI 已於 2026-08-14 截止；報告預計 2026-09 中旬提出；Phase 2 維持暫停，Level 1 自評與 DFARS 義務不變 |
 | **NIS2 四國訴訟案（CJEU）結果** | 執委會於 2026-07-08 以未完成 NIS2 轉換為由，將**愛爾蘭、西班牙、法國、荷蘭**移送歐洲法院（CJEU），請求課以一次性罰款與按日計罰——**判決結果與罰款金額為何？** 須每期確認：CJEU 程序進度（案號、言詞辯論、佐審官意見、判決）、執委會是否因成員國完成轉換而撤回個別案件（荷蘭已於 2026-08-15 生效轉換法，其被訴基礎可能消失）、其餘三國的轉換立法進度 | 2026-07-08 移送；荷蘭 8/15 已完成轉換（觀察是否撤案）；愛爾蘭、西班牙、法國尚未完成；CJEU 尚未有程序進展公開 |
+| **EU AI Act 調和標準進度** | **第一個 AI Act 調和標準（harmonised standard）何時刊登 OJ？** 高風險 AI 系統義務已延至 2027-12-02，調和標準須在此之前到位，刊登之日起高風險系統才有合規推定可用。須每期確認：CEN-CENELEC JTC 21 各標準草案進度（起草、公眾意見徵詢、核准、交付執委會）、OJ 是否刊登、執委會標準化委託的時程調整、ISO 42001 等國際標準是否被採認為調和標準 | 截至 2026-08 OJ 尚無任何 AI Act 調和標準；ISO 42001 亦非調和標準（認證不構成合規推定）；JTC 21 起草中 |
 
-- 報導位置：SRP 與調和標準在 `eu-cra` 章節、CMMC 改革報告在 `cmmc` 章節、NIS2 訴訟案在 `nis2` 章節；**里程碑達成當期（SRP 正式啟用／首個調和標準刊登 OJ／CMMC 改革報告發布／CJEU 判決或撤案）以 high 回報**，之後轉為後續追蹤
+- 報導位置：SRP 與 CRA 調和標準在 `eu-cra`、AI Act 調和標準在 `eu-ai-act`、CMMC 改革報告在 `cmmc`、NIS2 訴訟案在 `nis2`；**里程碑達成當期（SRP 正式啟用／CRA 或 AI Act 首個調和標準刊登 OJ／CMMC 改革報告發布／CJEU 判決或撤案）以 high 回報**，之後轉為後續追蹤
 - SRP 查詢角度：ENISA SRP 官方頁（enisa.europa.eu/topics/product-security/single-reporting-platform-srp）、ENISA 新聞稿、執委會 CRA reporting 頁、產業側報導（上線體驗、故障、onboarding 問題）
 - 調和標準查詢角度：歐盟公報（eur-lex）、執委會 harmonised standards 頁、CEN-CENELEC 與 ETSI 公告、追蹤網站（如 craevidence.com 的 status tracker）
 - CMMC 改革報告查詢角度：DoD／DoW CIO 辦公室公告與備忘錄、defensescoop／federalnewsnetwork 等國防媒體、法律事務所 client alert、Cyber-AB 與 C3PAO 生態圈反應
 - NIS2 訴訟案查詢角度：CJEU 案件查詢（curia.europa.eu）、執委會侵權程序資料庫（infringement decisions）與新聞稿、四國國內立法進度、法律事務所 client alert
+- AI Act 調和標準查詢角度：CEN-CENELEC JTC 21 公告與工作計畫、EUR-Lex／OJ、執委會 AI 標準化委託頁、artificialintelligenceact.eu 標準追蹤、法律事務所 client alert
 
 ## 來源引用政策
 
