@@ -1,0 +1,441 @@
+{
+  "id": "2026-W34",
+  "title": {
+    "zh": "首個 AI Act 標準 EN 18286 已發布待刊登、SRP 倒數 19 天未上線、Langflow 遭大規模利用",
+    "en": "First AI Act Standard EN 18286 Published Awaiting Citation; SRP Not Live with 19 Days to Go; Langflow Under Mass Exploitation"
+  },
+  "period": "2026-08-17 ~ 2026-08-23",
+  "publishedAt": "2026-08-23",
+  "summary": {
+    "zh": "本期 Watchlist 有實質進展也有更正：EN 18286:2026 其實已於 7 月 12 日正式發布，是首個支援 AI Act 的歐洲標準（上期依 6 月資料誤述為「進入核准階段」），但迄今仍未刊登歐盟公報，合規推定尚不可用——不過標準文本已可取得，高風險 AI 系統提供者現在就能對照實際條文做差距分析。CRA 方面，距 9/11 通報義務生效僅 19 天，ENISA 單一通報平台仍未上線，官方規劃上線前兩週辦說明會；新公布的操作細節顯示 CSIRT 驗證並非通報前提、跨境分享為人工步驟。CMMC 改革小組報告日期精確化為 9 月 13 日前後。漏洞面，CISA 於 8/17 再新增三個遭利用漏洞，其中 Langflow 的免認證遠端執行漏洞已累積逾 650 次攻擊嘗試。",
+    "en": "This issue's watchlist brings both real progress and a correction: EN 18286:2026 was in fact formally published on July 12 as the first European standard supporting the AI Act (our last issue, working from June-dated sources, described it as still at Approval), yet it has not been cited in the Official Journal, so the presumption of conformity is not yet available — though the text is now obtainable, letting high-risk AI providers gap-assess against the actual clauses today. On the CRA side, with 19 days to the September 11 reporting obligations ENISA's Single Reporting Platform is still not live, with a webinar planned two weeks before go-live; newly published operational detail confirms CSIRT validation is not a precondition for reporting and cross-border sharing is a manual step. The CMMC reform task force report date firmed up to on or about September 13. On vulnerabilities, CISA added three more exploited flaws on August 17, including a Langflow unauthenticated RCE that has already drawn over 650 exploitation attempts."
+  },
+  "highlights": [
+    {
+      "zh": "【重點追蹤】EN 18286:2026 已於 7/12 正式發布，為首個支援 AI Act 的歐洲標準（Article 17 高風險系統品質管理系統），但**尚未刊登歐盟公報**，合規推定仍不可用；標準文本已可取得，可先做差距分析。",
+      "en": "[Watch] EN 18286:2026 was formally published on July 12 as the first European standard supporting the AI Act (Article 17 quality management system for high-risk systems), but is **not yet cited in the Official Journal**, so the presumption of conformity remains unavailable; the text is obtainable now for gap analysis."
+    },
+    {
+      "zh": "【重點追蹤】EU CRA：距 9/11 通報義務生效僅 19 天，ENISA 單一通報平台仍未上線、網址未公布；ENISA 規劃上線前兩週舉辦說明會，並先進行使用者與資安測試。",
+      "en": "[Watch] EU CRA: 19 days to the September 11 reporting obligations and ENISA's Single Reporting Platform is still not live, its URL unpublished; ENISA plans a webinar two weeks before go-live, preceded by user and security testing."
+    },
+    {
+      "zh": "EU CRA 操作細節：ENISA 已釐清 CSIRT 驗證並非提交通報的前提條件，且跨境分享目前是人工步驟——通報流程設計不應假設系統會自動轉送。",
+      "en": "EU CRA operational detail: ENISA has clarified that CSIRT validation is not a precondition for submitting a report and that cross-border sharing is currently a manual step — do not design your process assuming automatic forwarding."
+    },
+    {
+      "zh": "漏洞：CISA 8/17 新增三個遭利用漏洞，Langflow 免認證遠端執行（CVE-2026-9198，CVSS 9.8）自 7/6 起累積逾 650 次攻擊嘗試、來自 41 國 244 個 IP，使用該 AI 應用建置工具者請立即修補。",
+      "en": "Vulnerabilities: CISA added three exploited flaws on Aug 17. Langflow's unauthenticated RCE (CVE-2026-9198, CVSS 9.8) has drawn over 650 exploitation attempts since July 6 from 244 IPs across 41 countries — patch immediately if you run this AI app-building tool."
+    },
+    {
+      "zh": "威脅趨勢：Apache Tomcat 漏洞（CVE-2026-34486）的利用被歸因於一起「AI 驅動的自主攻擊行動」，顯示攻擊端自動化程度正在提高。",
+      "en": "Threat trend: exploitation of the Apache Tomcat flaw (CVE-2026-34486) was attributed to an AI-enabled autonomous hacking campaign, a sign that attacker-side automation is increasing."
+    },
+    {
+      "zh": "【重點追蹤】CMMC：改革小組報告日期精確化為 9 月 13 日前後向國防部資訊長提出；Phase 2 第三方認證維持暫停。",
+      "en": "[Watch] CMMC: the reform task force reports to the DoD CIO on or about September 13; Phase 2 third-party certification remains suspended."
+    },
+    {
+      "zh": "TISAX：ISA 6 的初次評鑑最後開案期限為 2027 年 3 月，2027 年起委託的評鑑以 ISA2027 為基準——換證規劃須同時考慮「委託日」與「開案日」兩個時點。",
+      "en": "TISAX: the final date to open an initial assessment under ISA 6 is March 2027, while assessments ordered from 2027 run on ISA2027 — renewal planning must account for both the ordering and the opening dates."
+    }
+  ],
+  "sections": [
+    {
+      "topic": "eu-ai-act",
+      "name": {
+        "zh": "EU AI Act（歐盟人工智慧法案）",
+        "en": "EU AI Act"
+      },
+      "items": [
+        {
+          "title": {
+            "zh": "【重點追蹤】EN 18286:2026 已發布：首個 AI Act 歐洲標準，惟尚未刊登 OJ",
+            "en": "[Watch] EN 18286:2026 published: the first European AI Act standard, but not yet cited in the OJ"
+          },
+          "date": {
+            "zh": "2026-07-12 發布",
+            "en": "Published 2026-07-12"
+          },
+          "importance": "medium",
+          "content": {
+            "zh": "本期須先更正上期敘述：EN 18286:2026 並非「仍在核准階段」，而是已於 2026 年 7 月 12 日經 CEN-CENELEC 核准並正式發布，成為首個支援 EU AI Act 的歐洲標準（上期依 6 月狀態的資料撰寫，特此更正）。該標準為 AI Act Article 17 所要求的品質管理系統（QMS）建立框架，供高風險 AI 系統提供者證明符合性之用，含 10 項規範性條款與 5 項資訊性附錄，採涵蓋設計、開發、部署、監控到除役的生命週期方法。關鍵限制不變：**發布不等於刊登**——EN 18286:2026 迄今尚未刊登於歐盟公報（OJ），而合規推定要在刊登之後才附著，因此目前引用該標準仍無法主張 Article 17 的推定效果。",
+            "en": "A correction to last issue first: EN 18286:2026 is not still at Approval — it was approved by CEN-CENELEC and formally published on July 12, 2026, becoming the first European standard supporting the EU AI Act (our last issue relied on June-dated status information). The standard establishes the quality management system (QMS) framework required by AI Act Article 17 for high-risk AI providers to demonstrate conformity, comprising ten normative clauses and five informative annexes, with a lifecycle approach spanning design, development, deployment, monitoring and retirement. The key limitation is unchanged: **publication is not citation** — EN 18286:2026 has not yet been cited in the Official Journal, and the presumption of conformity attaches only upon citation, so invoking the standard today does not yet secure the Article 17 presumption."
+          },
+          "action": {
+            "zh": "高風險 AI 系統提供者現在就能取得標準文本並展開差距分析，不必等 OJ 刊登——刊登後通常沒有寬限期，提前對照可換取準備時間。但在對外文件（客戶問卷、技術文件）中，暫時只能陳述「依 EN 18286 建置」，不可主張合規推定。刊登 OJ 當期本站將以高度關注回報。",
+            "en": "High-risk AI providers can obtain the text and start a gap analysis now rather than waiting for OJ citation — citation typically comes without a grace period, so early mapping buys preparation time. In external documents (customer questionnaires, technical files), however, state only that you build to EN 18286; do not claim a presumption of conformity. This site will report the OJ citation as high priority in the issue it occurs."
+          },
+          "sources": [
+            {
+              "title": "CEN-CENELEC: Artificial Intelligence Area of Work (官方)",
+              "url": "https://www.cencenelec.eu/areas-of-work/cen-cenelec-topics/artificial-intelligence/"
+            },
+            {
+              "title": "Law & Technology: EN 18286 Nears Publication for AI Act Article 17",
+              "url": "https://lawandtechnology.eu/en/en-18286-the-quality-management-system-for-article-17-of-the-ai-act-nears-publication/"
+            },
+            {
+              "title": "Lumenova: EN 18286:2026 — Early Breakdown of the EU AI Act Standard",
+              "url": "https://www.lumenova.ai/blog/en-18286-eu-ai-act-standard/"
+            },
+            {
+              "title": "JTC 21 Standards Tracker: CEN-CENELEC AI Act Deliverables",
+              "url": "https://kla.digital/blog/jtc-21-standards-tracker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "eu-cra",
+      "name": {
+        "zh": "EU CRA（歐盟網路韌性法案）",
+        "en": "EU CRA (Cyber Resilience Act)"
+      },
+      "items": [
+        {
+          "title": {
+            "zh": "【重點追蹤】SRP 距生效 19 天仍未上線，操作細節陸續釐清",
+            "en": "[Watch] SRP still not live with 19 days to go, as operational detail emerges"
+          },
+          "date": {
+            "zh": "2026-09-11 生效",
+            "en": "Effective 2026-09-11"
+          },
+          "importance": "high",
+          "content": {
+            "zh": "距 CRA 漏洞與重大事件通報義務生效僅剩 19 天，ENISA 單一通報平台（SRP）仍未上線、公開存取網址亦未公布。ENISA 規劃平台於 9 月 11 日隨義務同步啟用，並在此之前完成使用者測試與資安測試，另將於上線前約兩週舉辦說明會、發布教學短片。本期新釐清兩項操作細節，對流程設計影響直接：其一，**CSIRT 驗證並非提交通報的前提條件**——製造商不必等待主管機關確認即可送出早期預警；其二，**跨境分享目前是人工步驟**，平台不會自動把通報轉送到所有相關成員國。現有三份指引分別涵蓋註冊與通報提交（8 月 3 日更新）及平台介面功能（8 月 14 日更新）。",
+            "en": "With 19 days until the CRA vulnerability and severe-incident reporting obligations take effect, ENISA's Single Reporting Platform (SRP) is still not live and its public URL unpublished. ENISA plans to bring the platform into service on September 11 alongside the obligations, preceded by user and security testing, with a webinar roughly two weeks before go-live and instructional videos to follow. Two operational points clarified this period bear directly on process design: first, **CSIRT validation is not a precondition for submitting a report** — manufacturers need not wait for authority confirmation to file an early warning; second, **cross-border sharing is currently a manual step**, so the platform will not automatically forward a report to every relevant member state. The three existing guides cover registration and notification submission (updated August 3) and platform interface functions (updated August 14)."
+          },
+          "action": {
+            "zh": "把兩項新細節寫進通報 SOP：早期預警不必等 CSIRT 回覆即應送出（24 小時時鐘不會因等待而暫停）；若產品銷往多國，需自行確認各相關成員國是否都收到通報，不可假設平台自動轉送。並留意 ENISA 上線前的說明會場次與網址公布。",
+            "en": "Write both points into your reporting SOP: file the early warning without waiting for a CSIRT response (the 24-hour clock does not pause), and if you sell into multiple countries, confirm each relevant member state has received the report rather than assuming the platform forwards it. Also watch for ENISA's pre-launch webinar and the URL announcement."
+          },
+          "sources": [
+            {
+              "title": "ENISA: Single Reporting Platform (SRP) (官方)",
+              "url": "https://www.enisa.europa.eu/topics/product-security/single-reporting-platform-srp"
+            },
+            {
+              "title": "ENISA: SRP Frequently Asked Questions (官方)",
+              "url": "https://www.enisa.europa.eu/topics/product-security/single-reporting-platform-srp/frequently-asked-questions"
+            },
+            {
+              "title": "cyberresilienceact.eu: ENISA's 3 August Update on CSIRT Validation and Cross-Border Sharing",
+              "url": "https://www.cyberresilienceact.eu/news/enisa-srp-guidance-update-3-august-2026.html"
+            },
+            {
+              "title": "cyberresilienceact.eu: ENISA Step-by-Step SRP Instructions, 31 July 2026",
+              "url": "https://www.cyberresilienceact.eu/news/enisa-srp-step-by-step-instructions-31-july-2026.html"
+            }
+          ]
+        },
+        {
+          "title": {
+            "zh": "【重點追蹤】OJ 仍無任何 CRA 調和標準，Article 27 合規推定尚不可用",
+            "en": "[Watch] Still no CRA harmonised standard in the OJ — Article 27 presumption unavailable"
+          },
+          "date": {
+            "zh": "2026-08 現況",
+            "en": "Status as of August 2026"
+          },
+          "importance": "medium",
+          "content": {
+            "zh": "本期無新進展：歐盟公報仍未刊登任何 CRA 調和標準，Article 27 的合規推定對所有產品類別皆無法適用。漏洞處理（Type A）標準原訂 2026 年 8 月交付，本月已過而未刊登；通用要求標準預估 2027 年 10 月。ETSI 產品標準草案與首批 CEN 標準仍是最超前者，數項已結束公眾意見徵詢並在核准階段。對照本期 AI Act 的情況可以看出同一個結構性問題：**標準「發布」與「刊登 OJ」是兩件事，後者才產生法律效果**，而歐盟兩套新法目前都卡在後者。",
+            "en": "No new progress this period: no CRA harmonised standard has been cited in the Official Journal, so the Article 27 presumption of conformity remains unavailable for every product category. The vulnerability-handling (Type A) standard was due August 2026 and the month has passed without citation; the generic requirements standard is anticipated around October 2027. ETSI's product drafts and the first CEN standards remain furthest along, several having closed public enquiry and sitting at approval. Read alongside this issue's AI Act item, the same structural problem is visible: **publication and OJ citation are two different things, and only the latter has legal effect** — and both new EU regimes are currently stuck at the latter."
+          },
+          "action": {
+            "zh": "維持以 CRA 附錄一必要資安要求逐條自評的路線，保留技術文件與風險評鑑證據；工控／OT 產品可用 IEC 62443-4-2＋4-1 建立技術對照。不要在合規時程中假設調和標準會在 9/11 前到位。",
+            "en": "Stay on the route of self-assessing line by line against the CRA Annex I essential requirements, retaining technical documentation and risk-assessment evidence; industrial/OT products can build the mapping on IEC 62443-4-2 plus 4-1. Do not build a compliance timeline that assumes harmonised standards arrive before September 11."
+          },
+          "sources": [
+            {
+              "title": "ENISA: CRA Requirements Standards Mapping (官方)",
+              "url": "https://www.enisa.europa.eu/publications/cyber-resilience-act-requirements-standards-mapping"
+            },
+            {
+              "title": "CEN-CENELEC: CRA Standardisation Request Accepted (官方)",
+              "url": "https://www.cencenelec.eu/news-events/news/2025/newsletter/ots-62-cra/"
+            },
+            {
+              "title": "CRA Evidence: Harmonised Standards Status Tracker",
+              "url": "https://craevidence.com/cra-compliance/harmonised-standards-status"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "nis2",
+      "name": {
+        "zh": "EU NIS2（歐盟網路與資訊安全指令 2.0）",
+        "en": "EU NIS2"
+      },
+      "items": [
+        {
+          "title": {
+            "zh": "【重點追蹤】四國訴訟案：荷蘭法已生效，撤案仍待正式通知",
+            "en": "[Watch] Four-country case: the Dutch law is in force, withdrawal still awaiting formal notification"
+          },
+          "date": {
+            "zh": "2026-07-08 移送，追蹤中",
+            "en": "Referred 2026-07-08, ongoing"
+          },
+          "importance": "medium",
+          "content": {
+            "zh": "本期無 CJEU 程序進展公開。荷蘭轉換法 Cyberbeveiligingswet 已於 8 月 15 日生效，但截至本期尚未見執委會撤回對荷案件的消息——關鍵在於荷蘭是否已完成「正式通知轉換」這道程序，執委會慣例是收到通知後才撤案。愛爾蘭、西班牙、法國仍未完成轉換：法國進度最落後，僅通過參議院一讀，尚未經國民議會表決、未公布於官方公報。由於執委會請求的是一次性罰款加按日計罰至完成通知為止，三國每拖一週，潛在罰額就持續累積。",
+            "en": "No public CJEU procedural progress this period. The Dutch Cyberbeveiligingswet took effect on August 15, but no Commission withdrawal of the case against the Netherlands has been reported yet — the hinge is whether the Netherlands has completed formal notification of transposition, since the Commission's practice is to withdraw only after notification is received. Ireland, Spain and France remain incomplete, with France furthest behind: only a Senate first reading, no National Assembly vote and no publication in the official journal. Because the Commission is seeking a lump sum plus daily penalties running until notification, every additional week adds to the three states' potential exposure."
+          },
+          "action": {
+            "zh": "在荷蘭營運者確認登記程序已啟動（法律已生效，登記期限通常在生效後數月內）；在愛爾蘭、西班牙、法國營運者持續以指令本文與 NIS Cooperation Group 的 Article 21 參考文件自評，不要等本國立法。撤案、判決或任一國完成立法，本站將以高度關注回報。",
+            "en": "Entities operating in the Netherlands should confirm registration is under way (the law is in force and registration deadlines typically fall within months). Those in Ireland, Spain or France should keep self-assessing against the directive text and the NIS Cooperation Group's Article 21 reference document rather than waiting for national law. A withdrawal, a judgment or any of the three completing legislation will be reported here as high priority."
+          },
+          "sources": [
+            {
+              "title": "European Commission: Referral Press Release IP/26/1499 (官方)",
+              "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1499"
+            },
+            {
+              "title": "RegDossier: NIS2 in the Netherlands, Cyberbeveiligingswet 2026",
+              "url": "https://regdossier.eu/nis2-netherlands/"
+            },
+            {
+              "title": "RegDossier: NIS2 Transposition in France Is Late and at the EU Court",
+              "url": "https://regdossier.eu/nis2-france/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "cmmc",
+      "name": {
+        "zh": "CMMC（美國國防部網路安全成熟度模型認證）",
+        "en": "CMMC (US DoD Cybersecurity Maturity Model Certification)"
+      },
+      "items": [
+        {
+          "title": {
+            "zh": "【重點追蹤】改革小組報告日期確定為 9 月 13 日前後",
+            "en": "[Watch] Reform task force report now pinned to on or about September 13"
+          },
+          "date": {
+            "zh": "2026-09-13 前後",
+            "en": "On or about 2026-09-13"
+          },
+          "importance": "medium",
+          "content": {
+            "zh": "改革小組的 60 天期限自 7 月 13 日暫停令起算，向國防部資訊長提交建議的時點確定落在 **9 月 13 日前後**（上期記為「9 月中旬」，本期精確化）。RFI 已於 8 月 14 日截止，改革方向聚焦降低中小與非傳統企業門檻、檢討第三方認證的成本效益，可能結果涵蓋從恢復原時程、擴大自我聲明、採認商用資安方案，到全面重構等數種情境。在報告出爐前，Phase 2 第三方（C3PAO）認證維持暫停，Level 1 自評、SPRS 分數上傳與 DFARS 252.204-7012 義務完全不受影響。",
+            "en": "The task force's 60-day clock runs from the July 13 suspension memoranda, placing delivery of its recommendations to the DoD CIO **on or about September 13** (last issue said mid-September; this is the firmer date). The RFI closed on August 14, and the reform focus is on lowering barriers for small, medium and non-traditional businesses and re-examining the cost-effectiveness of third-party assessment, with plausible outcomes ranging from restoring the original timeline, to expanding self-attestation, to recognising commercial security solutions, to a full redesign. Until the report lands, Phase 2 third-party (C3PAO) certification stays suspended while Level 1 self-assessments, SPRS uploads and DFARS 252.204-7012 obligations are unaffected."
+          },
+          "action": {
+            "zh": "距報告僅約三週，現在不是重新規劃合規路線的時機：把資源放在維持 NIST SP 800-171 落地與 SPRS 分數時效性，這在任何一種改革結果下都是必要基礎。已投入 C3PAO 準備者亦不建議中斷。報告發布當期本站將以高度關注回報其結論與對各層級的影響。",
+            "en": "With roughly three weeks to the report, this is not the moment to re-plan your compliance route: keep resources on sustaining NIST SP 800-171 implementation and current SPRS scores, which remain necessary under every plausible outcome. Vendors mid-way through C3PAO preparation should not stop either. This site will report the conclusions and their level-by-level impact as high priority when the report lands."
+          },
+          "sources": [
+            {
+              "title": "SBA Office of Advocacy: DoW Requests Information for CMMC Reform (官方)",
+              "url": "https://advocacy.sba.gov/2026/07/20/dow-requests-information-for-cmmc-reform-task-force/"
+            },
+            {
+              "title": "Greenberg Traurig: DoD Suspends CMMC Deadlines",
+              "url": "https://www.gtlaw.com/en/insights/2026/7/dod-suspends-cmmc-deadlines-and-seeks-to-reassess-requirements"
+            },
+            {
+              "title": "ComplianceHub: The CMMC Reform Task Force Reports Around 13 September 2026",
+              "url": "https://compliancehub.wiki/cmmc-reform-task-force-september-13-2026-report-defense-contractor-decision-point/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "iso27000",
+      "name": {
+        "zh": "ISO 27000 系列（資訊安全標準）",
+        "en": "ISO 27000 Series (Information Security Standards)"
+      },
+      "items": []
+    },
+    {
+      "topic": "iso42001",
+      "name": {
+        "zh": "ISO 42001（人工智慧管理系統）",
+        "en": "ISO 42001 (AI Management Systems)"
+      },
+      "items": [
+        {
+          "title": {
+            "zh": "EN 18286 發布後，ISO 42001 的定位轉為互補而非替代",
+            "en": "With EN 18286 published, ISO 42001's role shifts to complement rather than substitute"
+          },
+          "date": {
+            "zh": "2026-08 分析",
+            "en": "August 2026 analysis"
+          },
+          "importance": "medium",
+          "content": {
+            "zh": "EN 18286 正式發布後，AI 治理的標準版圖出現實質變化：AI Act Article 17 的品質管理系統要求，現在有了專為法遵目的撰寫的歐洲標準，而 ISO/IEC 42001 是通用的 AI 管理系統（AIMS）標準、非為特定法規而設。兩者的關係因此更清楚——ISO 42001 提供組織層級的治理框架與國際認可的認證，EN 18286 則對應 AI Act 的具體條文要求；已導入 ISO 42001 者可望在流程、文件與稽核機制上重複使用大部分成果，但仍需針對 EN 18286 的法遵導向條款補足。業界已出現兩者的對照研究可供參考。",
+            "en": "With EN 18286 formally published, the AI governance standards landscape has materially shifted: the AI Act Article 17 quality management requirements now have a European standard written specifically for regulatory purposes, whereas ISO/IEC 42001 is a general AI management system (AIMS) standard not tied to any particular regulation. Their relationship is correspondingly clearer — ISO 42001 supplies organisation-level governance and internationally recognised certification, while EN 18286 maps to the AI Act's specific articles. Organisations already running ISO 42001 should be able to reuse much of their process, documentation and audit machinery, but will still need to close gaps against EN 18286's compliance-oriented clauses. Comparative analyses of the two are now available."
+          },
+          "action": {
+            "zh": "已取得或正在導入 ISO 42001 者，取得 EN 18286 文本後做一次對照，標出可重用的控制措施與需補強之處；在客戶問卷中清楚區分兩者——ISO 42001 認證證明治理成熟度，EN 18286 才是對應 AI Act 的技術路徑（且仍待刊登 OJ 才有推定效果）。",
+            "en": "If you hold or are implementing ISO 42001, obtain the EN 18286 text and run a mapping exercise to identify reusable controls and remaining gaps; in customer questionnaires distinguish the two clearly — ISO 42001 certification evidences governance maturity, while EN 18286 is the technical route aligned to the AI Act (and still awaits OJ citation for presumption effect)."
+          },
+          "sources": [
+            {
+              "title": "Cloud Security Alliance: EU AI Act — prEN 18286 and ISO 42001 Research Note",
+              "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-eu-ai-act-pren-18286-iso-42001-20260428-cs/"
+            },
+            {
+              "title": "CMS: What prEN 18286 Signals for Providers, Users and Regulators",
+              "url": "https://cms.law/en/aut/legal-updates/the-first-draft-ai-act-standard-for-public-consultation-what-pren-18286-quality-management-system-for-eu-ai-act-regulatory-purposes-signals-for"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "tisax",
+      "name": {
+        "zh": "TISAX（汽車產業資訊安全評鑑）",
+        "en": "TISAX (Automotive Information Security)"
+      },
+      "items": [
+        {
+          "title": {
+            "zh": "ISA 6 初次評鑑最後開案期限為 2027 年 3 月",
+            "en": "March 2027 is the final date to open an initial assessment under ISA 6"
+          },
+          "date": {
+            "zh": "2027-03 為 ISA 6 最後開案期限",
+            "en": "ISA 6 initial assessments must open by March 2027"
+          },
+          "importance": "medium",
+          "content": {
+            "zh": "TISAX 版本轉換的時程再補上一個關鍵時點：除了「2027 年起委託的評鑑以 ISA2027 為基準」之外，**依 ISA 6 開啟初次評鑑（initial assessment）的最後期限為 2027 年 3 月**。換言之規劃時要同時看兩個日期——委託日決定適用版本，開案日則決定 ISA 6 是否還來得及走完。另補充 ISA 6 的內容重點：強化事件與危機管理要求、新增控制措施以提升勒索軟體與 APT 韌性，並透過對應 ISA/IEC 62443-2 明確其適用於產線 IT 與 OT 環境——這也解釋了為何汽車供應鏈的 OT 資安要求近年明顯收緊。",
+            "en": "One more key date rounds out the TISAX version transition: beyond assessments ordered from 2027 running on ISA2027, **the final date to open an initial assessment under ISA 6 is March 2027**. Planning therefore has to track two dates — the ordering date determines the applicable version, while the opening date determines whether an ISA 6 route can still complete. On content, ISA 6 strengthened incident and crisis management requirements, added controls to improve ransomware and APT resilience, and confirmed its applicability to shopfloor IT and OT by mapping to ISA/IEC 62443-2 — which explains why OT security expectations across the automotive supply chain have tightened noticeably."
+          },
+          "action": {
+            "zh": "若計畫循 ISA 6 取得初次標章，最遲須在 2027 年 3 月前完成開案，並回推稽核機構排程與內部整備所需時間（通常需數月）；否則直接以 ISA2027 規劃。既有標章持有者則以委託日判斷換證版本。",
+            "en": "If you plan an initial label under ISA 6, the assessment must be opened by March 2027 — work backwards from that for audit-provider scheduling and internal readiness (typically several months); otherwise plan directly against ISA2027. Existing label holders should judge the renewal version by the ordering date."
+          },
+          "sources": [
+            {
+              "title": "ENX Portal: 10 Years of TISAX – VDA ISA2027 Released (官方)",
+              "url": "https://enx.com/en-US/news/isa2027/"
+            },
+            {
+              "title": "ENX Portal: TISAX Participant Handbook (官方)",
+              "url": "https://portal.enx.com/handbook/tisax-participant-handbook.html"
+            },
+            {
+              "title": "ENX Portal: TISAX Downloads (官方)",
+              "url": "https://portal.enx.com/en-us/TISAX/downloads/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "iec62443",
+      "name": {
+        "zh": "IEC 62443（工控與 OT 資安標準）",
+        "en": "IEC 62443 (Industrial & OT Security)"
+      },
+      "items": [
+        {
+          "title": {
+            "zh": "ISASecure 將為美國政府採購的商用元件開發新認證方案",
+            "en": "ISASecure to develop a certification scheme for commercial components procured by the US government"
+          },
+          "date": {
+            "zh": "2026-08 公告",
+            "en": "Announced August 2026"
+          },
+          "importance": "medium",
+          "content": {
+            "zh": "ISA 於 8 月公告，其認證機構 ISASecure 將著手開發一套針對美國政府採購商用元件的認證方案，並邀請有意發展智慧控制器的製造商加入開發過程。ISASecure 是 ISA/IEC 62443 的全球認證體系，自 2010 年起為現成控制系統產品與供應商開發實務提供認證，目前維持五套方案：SDLA（安全開發生命週期）、CSA（元件安全）、ICSA（IIoT 元件安全）、SSA（系統安全），以及 2026 年新增的 ACSSA（自動化與控制系統安全）。此舉的意義在於，62443 認證正同時被歐盟 CRA 路徑與美國政府採購路徑援引，對同時銷往兩地的工控廠商而言，一套認證可望覆蓋兩邊要求。",
+            "en": "ISA announced in August that its certification body ISASecure will develop a certification scheme for commercial components procured by the US government, inviting manufacturers interested in smart controllers to join the development process. ISASecure is the global ISA/IEC 62443 conformance scheme, certifying off-the-shelf control system products and supplier development practices since 2010, and currently maintains five schemes: SDLA (secure development lifecycle), CSA (component security), ICSA (IIoT component security), SSA (system security) and the newly added 2026 ACSSA (automation and control system security). The significance is that 62443 certification is now being invoked by both the EU CRA route and US government procurement, so for industrial vendors selling into both markets one certification may cover both sets of requirements."
+          },
+          "action": {
+            "zh": "同時銷往歐盟與美國政府市場的工控廠商，可將 ISASecure 認證納入單一合規投資評估——CSA／SDLA 既是 CRA 必要資安要求的技術路徑，未來也可能對接美國政府採購要求。有意影響方案設計者可循 ISA 公告參與開發程序。",
+            "en": "Industrial vendors selling into both the EU and US government markets can evaluate ISASecure certification as a single compliance investment — CSA/SDLA already serves as a technical route to the CRA essential requirements and may in future align with US procurement requirements. Vendors wanting to shape the scheme can join the development process via ISA's announcement."
+          },
+          "sources": [
+            {
+              "title": "ISA: ISASecure to Develop Certification Scheme for Commercial Components (官方)",
+              "url": "https://www.isa.org/news-press-releases/2026/august/isasecure-to-develop-certification-scheme-for-comm"
+            },
+            {
+              "title": "ISASecure: Learning Center — Certification Requirements & Procedure (官方)",
+              "url": "https://isasecure.org/learning-center"
+            },
+            {
+              "title": "ISASecure: Building Secure Foundations through ISA/IEC 62443 Certifications",
+              "url": "https://isasecure.org/news-events/building-secure-foundations-and-strengthening-your-business-relationships-through-isa/iec-62443-certifications"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "incidents",
+      "name": {
+        "zh": "重大資安事件與其他動態",
+        "en": "Major Incidents & Other News"
+      },
+      "items": [
+        {
+          "title": {
+            "zh": "CISA 8/17 新增三個遭利用漏洞：Langflow 免認證 RCE 已累積逾 650 次攻擊",
+            "en": "CISA adds three exploited flaws on Aug 17: Langflow unauthenticated RCE has drawn 650+ attacks"
+          },
+          "date": "2026-08-17",
+          "importance": "high",
+          "content": {
+            "zh": "CISA 於 8 月 17 日再新增三個遭實際利用的漏洞至 KEV 目錄：Langflow 的程式碼注入漏洞 CVE-2026-9198（CVSS 9.8）、Apache Tomcat 的敏感資料未加密漏洞 CVE-2026-34486（CVSS 7.5），以及先前已報導的 N-able N-central 認證繞過漏洞 CVE-2026-18577。其中 Langflow 最為嚴峻：攻擊者無需認證即可在預設部署上取得完整遠端執行權限，遙測資料顯示自 7 月 6 日起已累積逾 650 次攻擊嘗試，來源涵蓋 41 個國家的 244 個獨立 IP。Langflow 是用於建置 AI／LLM 應用的低程式碼工具，往往部署在開發或內部環境而疏於納入修補管理，風險因此被低估。CISA 8 月累計已新增 24 筆 KEV。",
+            "en": "On August 17 CISA added three more actively exploited flaws to the KEV catalog: a Langflow code-injection flaw, CVE-2026-9198 (CVSS 9.8); an Apache Tomcat missing-encryption-of-sensitive-data flaw, CVE-2026-34486 (CVSS 7.5); and the previously reported N-able N-central authentication bypass, CVE-2026-18577. Langflow is the most severe: unauthenticated attackers can achieve full remote code execution on default deployments, and telemetry shows over 650 exploitation attempts since July 6 from 244 unique IPs across 41 countries. Langflow is a low-code tool for building AI/LLM applications and is often deployed in development or internal environments that fall outside patch management, so its risk is frequently underestimated. CISA logged 24 KEV additions in August."
+          },
+          "action": {
+            "zh": "立即盤點是否有 Langflow 部署（包含資料科學或 AI 團隊自行架設、未納入資產清單者）並升級至修補版本；Apache Tomcat 依 KEV 時限完成修補。此案提醒：AI／資料科學工具鏈往往不在傳統資產與修補流程內，應納入常態盤點。",
+            "en": "Immediately inventory any Langflow deployments — including instances stood up by data-science or AI teams outside the asset register — and upgrade to a fixed release; remediate Apache Tomcat within KEV deadlines. The case is a reminder that AI/data-science toolchains often sit outside conventional asset and patch processes and should be brought into routine inventory."
+          },
+          "sources": [
+            {
+              "title": "The Hacker News: CISA Flags Langflow RCE, Tomcat, and N-central Flaws as Actively Exploited",
+              "url": "https://thehackernews.com/2026/08/cisa-flags-langflow-rce-tomcat-and-n.html"
+            },
+            {
+              "title": "Senserva: CISA KEV Additions This Week",
+              "url": "https://senserva.com/exploited-this-week.html"
+            }
+          ]
+        },
+        {
+          "title": {
+            "zh": "Tomcat 漏洞利用被歸因於「AI 驅動的自主攻擊行動」",
+            "en": "Tomcat exploitation attributed to an AI-enabled autonomous hacking campaign"
+          },
+          "date": "2026-08",
+          "importance": "medium",
+          "content": {
+            "zh": "上述 Apache Tomcat 漏洞（CVE-2026-34486）的利用行為，被研究者歸因於一起「AI 驅動的自主攻擊行動」，操作者為使用 knaithe、KnYuan 等代號的中文使用者、據報位於中國珠海。這類歸因近期開始出現，意味攻擊端的漏洞發現、武器化與大規模掃描正逐步自動化，防守方可預期「從漏洞公開到大規模利用」的時間窗會持續縮短。此為單一研究歸因，細節有待更多獨立來源佐證。",
+            "en": "Exploitation of the Apache Tomcat flaw above (CVE-2026-34486) has been attributed by researchers to an AI-enabled autonomous hacking campaign run by a Chinese-speaking actor using the aliases knaithe and KnYuan, reportedly based in Zhuhai, China. Attributions of this kind have only recently begun to appear, and they suggest that attacker-side discovery, weaponisation and mass scanning are progressively automating — defenders should expect the window between disclosure and mass exploitation to keep shrinking. This is a single research attribution and the details await corroboration from independent sources."
+          },
+          "action": {
+            "zh": "把「修補時效」的目標往前壓：對外暴露資產的高風險漏洞不宜再以月為單位排程。可用 CISA KEV 作為最低門檻，但別把 KEV 收錄當成起跑點——Langflow 案例中攻擊早在收錄前六週就已開始。",
+            "en": "Tighten patch-timeliness targets: high-severity flaws on externally exposed assets can no longer be scheduled in monthly cycles. Use CISA KEV as a floor, but do not treat KEV listing as the starting gun — in the Langflow case attacks began six weeks before it was listed."
+          },
+          "sources": [
+            {
+              "title": "The Hacker News: CISA Flags Langflow RCE, Tomcat, and N-central Flaws as Actively Exploited",
+              "url": "https://thehackernews.com/2026/08/cisa-flags-langflow-rce-tomcat-and-n.html"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
