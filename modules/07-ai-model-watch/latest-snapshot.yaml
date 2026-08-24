@@ -1,0 +1,71 @@
+module: 07
+period_end: 2026-08-24
+targets:
+  - id: model-claude-flagship
+    state: "窗內無新旗艦版本／定價；公開新聞最新 2026-08-14（文字浮水印）。Mythos 5 仍非一般可提示旗艦。"
+    evidence: 證實
+    source_date: 2026-08-14
+  - id: model-gpt-flagship
+    state: "gpt-5.6-sol 短上下文促銷價 $4/$0.40 cached/$20 per 1M（至少至 2026-11-21）；長上下文 >272K 為 2x input / 1.5x output；context 1.05M、max out 128K。版本字串未改。"
+    evidence: 證實
+    source_date: 2026-08-21
+  - id: model-gemini-flagship
+    state: "窗內無新版本／定價。Gemini 3.7 Flash GA 在 2026-08-13（窗外）。"
+    evidence: 證實
+    source_date: 2026-08-13
+  - id: model-grok-flagship
+    state: "直連 API 旗艦仍為 Grok 4.6（2026-08-12）：500k context；$2/$0.50 cached/$6 per 1M（prompt <200k）。窗內無新版本字串。"
+    evidence: 證實
+    source_date: 2026-08-12
+  - id: model-llama-flagship
+    state: "窗內 ai.meta.com/blog 無新文；Llama 5 查無公開發布。Muse Spark 1.2 權重仍為窗前「coming weeks」主張。"
+    evidence: 未證實
+    source_date: 2026-08-05
+  - id: model-mistral-flagship
+    state: "窗內無新 model ID／定價／下架。2026-08-20 Agentic Search 為產品功能、非旗艦模型。"
+    evidence: 證實
+    source_date: 2026-08-20
+  - id: model-bedrock-catalog
+    state: "2026-08-19 上架 xai.grok-4.6（us.xai.grok-4.6 US Geo、global.xai.grok-4.6 Global）；2026-08-21 GPT-5.6 Sol Bedrock 跟進 $4/$20。"
+    evidence: 證實
+    source_date: 2026-08-19
+  - id: model-vertex-garden
+    state: "2026-08-21 Grok 4.6 於 Gemini Enterprise Agent Platform Model Garden 上架，Google 文件標 Preview；model id grok-4.6；xAI 標價 $2/$0.50/$6。"
+    evidence: 證實
+    source_date: 2026-08-21
+  - id: model-azure-foundry
+    state: "窗內查無 Foundry catalog／retirement／GPT-5.6 Sol 降價落地之公開公告。"
+    evidence: 未證實
+    source_date: 2026-08-13
+  - id: security-glasswing
+    state: "夥伴數仍為 2026-06-02 基線（約 50 初始 + 約 150 新增）。2026-08-21 僅重申持續透過 Glasswing 擴張，無新計數。"
+    evidence: 證實
+    source_date: 2026-06-02
+  - id: security-red-anthropic
+    state: "CVD dashboard 仍標 2026-05-22 10:27 PT；窗內無新 snapshot。"
+    evidence: 證實
+    source_date: 2026-05-22
+  - id: security-big-sleep
+    state: "窗內查無 Big Sleep／Project Zero 新公開能力或 CVE 歸因公告。"
+    evidence: 未證實
+    source_date: 2026-08-18
+  - id: security-claude-security-mythos
+    state: "2026-08-21 Claude Security 掃描改跑 Mythos 5（Claude Enterprise 公開測試）；Mythos 5 仍非一般可提示 API；Defender Advantage Fund 宣稱 3500 萬美元 credits。"
+    evidence: 廠商主張
+    source_date: 2026-08-21
+  - id: security-panw-facdp
+    state: "2026-08-19 Palo Alto Networks 發布 Frontier AI Critical Defense Program（虛擬修補聯盟）。14,090 筆 OSS 發現數來自 2026-08-04，非本窗新計數。"
+    evidence: 證實
+    source_date: 2026-08-19
+  - id: enterprise-dpa-retention
+    state: "OpenAI 2026-08-19 預覽 Private Safety Processing（與 ZDR 並存，9 月 rollout）；DPA 文本未改。Anthropic 客戶自有雲 30 日留存僅為 2026-08-20 媒體報導，官網條款未改。"
+    evidence: 廠商主張
+    source_date: 2026-08-19
+  - id: enterprise-region-access
+    state: "Bedrock：2026-08-17 GPT-5.6 Sol/Terra/Luna Global+US Geo CRI；2026-08-18 Terra/Luna India Geo；2026-08-19 Grok 4.6 US Geo+Global。第一方 Anthropic/OpenAI/xAI 區域與 BIS 出口管制本窗查無新官方公告。"
+    evidence: 證實
+    source_date: 2026-08-17
+  - id: reg-model-capability
+    state: "窗內查無 GPAI 分類、Code of Practice 義務或特定模型出口管制之官方新發布。"
+    evidence: 未證實
+    source_date: 2026-08-07
