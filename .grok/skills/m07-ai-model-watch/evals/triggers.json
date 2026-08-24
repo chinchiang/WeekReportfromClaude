@@ -1,0 +1,13 @@
+{
+  "skill": "m07-ai-model-watch",
+  "test_cases": [
+    {"input": "執行模組 07", "should_trigger": true},
+    {"input": "跑 m07 週報", "should_trigger": true},
+    {"input": "weekly AI model watch", "should_trigger": true},
+    {"input": "模組07 全球 AI 模型觀測", "should_trigger": true},
+    {"input": "用 Grok Build 產 Inventec AI 模型週報", "should_trigger": true},
+    {"input": "EU AI Act 本週 JSON 週報", "should_trigger": false},
+    {"input": "每日 SOC 巡邏 OSINT", "should_trigger": false},
+    {"input": "幫我摘要今天 AI 新聞", "should_trigger": false}
+  ]
+}

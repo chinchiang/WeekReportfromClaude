@@ -1,0 +1,50 @@
+{
+  "skill": "m07-ai-model-watch",
+  "test_cases": [
+    {
+      "name": "monday-run-computes-previous-week-window",
+      "input": "執行模組 07。今天是 2026-08-24（週一）Asia/Taipei。",
+      "assertions": [
+        "period.py --date 2026-08-24 yields period_start 2026-08-17 and period_end_local 2026-08-24T07:59:00+08:00",
+        "week_id is 2026-W34 and report path is modules/07-ai-model-watch/2026-W34.html",
+        "report opening states 本期起訖日 as 2026-08-17 to 2026-08-24"
+      ]
+    },
+    {
+      "name": "missing-snapshot-is-baseline-no-invention",
+      "input": "跑 m07 週報。latest-snapshot.yaml 讀取失敗。",
+      "assertions": [
+        "management summary first sentence states 本期為基線建立版，無 Delta 比對",
+        "does not invent previous-period states",
+        "still writes eight sections and a seed snapshot with evidence enum values only"
+      ]
+    },
+    {
+      "name": "vendor-benchmark-labeled-claim",
+      "input": "AI model watch：官方 blog 公布自評 SWE-bench 分數，無第三方復現。",
+      "assertions": [
+        "labels the score 【廠商主張】 not 【已證實】",
+        "requires a second independent source before treating other facts as 已證實",
+        "section 7 challenges benchmark comparability"
+      ]
+    },
+    {
+      "name": "track-failure-still-ships",
+      "input": "weekly AI model watch，B 軌來源全部不可達。",
+      "assertions": [
+        "section 4 notes 本期檢索失敗 with the reason",
+        "action board includes a P1 item for the failed track",
+        "does not skip snapshot overwrite or the HTML report"
+      ]
+    },
+    {
+      "name": "does-not-touch-compliance-json-spa",
+      "input": "執行模組 07 並更新週報。",
+      "assertions": [
+        "writes under modules/07-ai-model-watch/ not reports/*.json",
+        "commit message matches chore(m07): weekly AI model watch YYYY-Www",
+        "overwrites latest-snapshot.yaml only after validate_snapshot.py passes"
+      ]
+    }
+  ]
+}
