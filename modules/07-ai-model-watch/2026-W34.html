@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>模組 07 · 2026-W34 全球 AI 模型與產業動態觀測</title>
+  <style>
+    :root {
+      --bg:#f6f7f9; --surface:#fff; --surface-2:#eef0f4; --text:#1a1d23;
+      --text-2:#5b6472; --border:#dde1e8; --accent:#2563eb; --accent-soft:#dbeafe;
+      --high:#dc2626; --high-soft:#fee2e2; --medium:#d97706; --medium-soft:#fef3c7;
+      --low:#059669; --low-soft:#d1fae5;
+      --shadow:0 1px 3px rgba(16,24,40,.08),0 1px 2px rgba(16,24,40,.04);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:#111418; --surface:#1a1f26; --surface-2:#232a33; --text:#e8eaee;
+        --text-2:#9aa4b2; --border:#2e3742; --accent:#5b95f5; --accent-soft:#1e3a5f;
+        --high:#f47272; --high-soft:#4a1d1d; --medium:#f0a94b; --medium-soft:#453317;
+        --low:#4fd1a5; --low-soft:#123c2e; --shadow:0 1px 3px rgba(0,0,0,.4);
+      }
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font: 16px/1.6 system-ui, "Noto Sans TC", sans-serif; background:var(--bg); color:var(--text); }
+    .site-header { position:sticky; top:0; z-index:10; display:flex; justify-content:space-between; align-items:center; padding:12px 20px; background:var(--surface); border-bottom:1px solid var(--border); }
+    .logo { font-weight:700; } .logo .accent { color:var(--accent); }
+    .layout { display:grid; grid-template-columns: 240px minmax(0,1fr); gap:20px; max-width:1200px; margin:0 auto; padding:20px; }
+    .sidebar { position:sticky; top:64px; align-self:start; }
+    .panel { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px; box-shadow:var(--shadow); margin-bottom:12px; }
+    .week-list { list-style:none; margin:0; padding:0; }
+    .week-list a { display:block; padding:6px 8px; border-radius:6px; color:var(--accent); text-decoration:none; }
+    .week-list a.current, .week-list a:hover { background:var(--accent-soft); }
+    main { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:28px; box-shadow:var(--shadow); }
+    h1 { font-size:1.45rem; margin:0 0 8px; }
+    h2 { font-size:1.15rem; margin:32px 0 12px; border-bottom:1px solid var(--border); padding-bottom:6px; }
+    h3 { font-size:1rem; margin:20px 0 8px; }
+    .meta { color:var(--text-2); font-size:.9rem; }
+    table { width:100%; border-collapse:collapse; font-size:.92rem; }
+    th, td { border:1px solid var(--border); padding:8px 10px; text-align:left; vertical-align:top; }
+    th { background:var(--surface-2); }
+    .item { border:1px solid var(--border); border-radius:8px; padding:12px 14px; margin:10px 0; }
+    .imp-high { border-left:4px solid var(--high); background:var(--high-soft); }
+    .imp-medium { border-left:4px solid var(--medium); background:var(--medium-soft); }
+    .imp-low { border-left:4px solid var(--low); background:var(--low-soft); }
+    .badge { display:inline-block; font-size:.75rem; padding:2px 8px; border-radius:999px; background:var(--surface-2); }
+    footer { text-align:center; color:var(--text-2); font-size:.85rem; padding:24px; }
+    ul.toc { margin:0; padding-left:1.2rem; font-size:.9rem; }
+    @media (max-width: 800px) { .layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <span class="logo">模組 07 <span class="accent">AI 模型觀測</span></span>
+    <span class="meta">2026-W34 · 內部技術情報 · 基線建立版</span>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="panel">
+        <h3>期數</h3>
+        <ul class="week-list">
+          <li><a class="current" href="2026-W34.html">2026-W34</a></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <strong>八節</strong>
+        <ol class="toc">
+          <li>管理階層摘要</li>
+          <li>Delta</li>
+          <li>能力雷達</li>
+          <li>資安專章</li>
+          <li>Inventec 矩陣</li>
+          <li>行動看板</li>
+          <li>反面觀點</li>
+          <li>來源</li>
+        </ol>
+      </div>
+    </aside>
+    <main>
+      <p class="meta">觀測期間：2026-08-17 00:00 至 2026-08-24 07:59（Asia/Taipei）。判定依據為來源原始發布日。Snapshot 讀取失敗，本期為基線建立版。</p>
+      <h1>全球 AI 模型與產業動態觀測 · 2026-W34</h1>
+      <p class="meta">本期新增追蹤標的：<code>security-claude-security-mythos</code>、<code>security-panw-facdp</code>。本期移除／暫停：無。</p>
+
+      <h2>1. 管理階層摘要</h2>
+      <p>本期為基線建立版，無 Delta 比對。觀測期間 2026-08-17 至 2026-08-24 07:59（臺北）。已證實：Bedrock 與 Google Agent Platform 上架 Grok 4.6；GPT-5.6 Sol 短上下文促銷價 $4／$20（至少至 11/21）。Claude Security（Enterprise 測試）改以 Mythos 5 掃描，模型仍 gated。OpenAI 預覽與 ZDR 相容的 Private Safety Processing（規劃 9 月）。建議本月評估雲端 catalog、留存條款對照，以及防守掃描是否納入 SDL／PSIRT。</p>
+
+      <h2>2. 本期 Delta 對照表</h2>
+      <table>
+        <thead><tr><th>軌別</th><th>項目</th><th>上期狀態 → 本期狀態</th><th>證據等級</th><th>優先級</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>GPT-5.6 Sol 定價</td><td>—（基線）→ 短上下文促銷 $4／$20 per 1M，至少至 2026-11-21</td><td>【已證實】</td><td>P1</td></tr>
+          <tr><td>A</td><td>Bedrock Grok 4.6</td><td>—（基線）→ us.xai.grok-4.6 與 global.xai.grok-4.6 上架</td><td>【已證實】</td><td>P1</td></tr>
+          <tr><td>A</td><td>Vertex／Agent Platform Grok 4.6</td><td>—（基線）→ Model Garden Preview 上架 grok-4.6</td><td>【已證實】</td><td>P1</td></tr>
+          <tr><td>A</td><td>Claude／Gemini／Llama 旗艦版本</td><td>—（基線）→ 本期無變更</td><td>【已證實】</td><td>P3</td></tr>
+          <tr><td>A</td><td>Mistral 旗艦模型</td><td>—（基線）→ 本期無變更（Agentic Search 為產品功能）</td><td>【已證實】</td><td>P3</td></tr>
+          <tr><td>A</td><td>Azure AI Foundry Sol 定價</td><td>—（基線）→ 查無公開資料</td><td>【尚未證實】</td><td>P2</td></tr>
+          <tr><td>B</td><td>Claude Security × Mythos 5</td><td>—（基線）→ Enterprise 公開測試掃描改跑 Mythos 5；模型仍 gated</td><td>【廠商主張】</td><td>P1</td></tr>
+          <tr><td>B</td><td>Project Glasswing 夥伴數</td><td>—（基線）→ 本期無變更</td><td>【已證實】</td><td>P3</td></tr>
+          <tr><td>B</td><td>red.anthropic.com CVD</td><td>—（基線）→ 本期無變更（快照仍 2026-05-22）</td><td>【已證實】</td><td>P3</td></tr>
+          <tr><td>B</td><td>Big Sleep</td><td>—（基線）→ 本期無變更</td><td>【尚未證實】</td><td>P3</td></tr>
+          <tr><td>B</td><td>PANW Frontier AI Critical Defense Program</td><td>—（基線）→ 2026-08-19 啟動虛擬修補聯盟</td><td>【已證實】</td><td>P2</td></tr>
+          <tr><td>B</td><td>OpenAI The Defender’s Window</td><td>—（基線）→ 2026-08-17 防守操作指引；非新模型 SKU</td><td>【廠商主張】</td><td>P1</td></tr>
+          <tr><td>C</td><td>OpenAI ZDR／Private Safety Processing</td><td>—（基線）→ 2026-08-19 預覽，9 月 rollout；DPA 文本未改</td><td>【廠商主張】</td><td>P1</td></tr>
+          <tr><td>C</td><td>Anthropic 企業留存</td><td>—（基線）→ 媒體報導擬改客戶雲 30 日留存；官網未改</td><td>【第三方評論】</td><td>P2</td></tr>
+          <tr><td>C</td><td>Bedrock OpenAI 區域</td><td>—（基線）→ Global＋US Geo CRI（08-17）；India Geo Terra／Luna（08-18）</td><td>【已證實】</td><td>P1</td></tr>
+          <tr><td>C</td><td>出口管制／第一方 residency</td><td>—（基線）→ 本期無變更／查無公開資料</td><td>【尚未證實】</td><td>P3</td></tr>
+          <tr><td>D</td><td>GPAI／模型出口管制連動</td><td>—（基線）→ 本期無變更</td><td>【尚未證實】</td><td>P3</td></tr>
+        </tbody>
+      </table>
+
+      <h2>3. 模型能力雷達</h2>
+      <table>
+        <thead><tr><th>模型名稱</th><th>版本／能力變更</th><th>定價變更</th><th>可用性／region</th><th>證據等級</th><th>備註</th></tr></thead>
+        <tbody>
+          <tr><td>Claude 公開旗艦（Opus 5／Sonnet 5／Fable 5）</td><td>本期無變更</td><td>本期無變更</td><td>本期無變更</td><td>【已證實】</td><td>newsroom 窗內無文；最新 08-14 浮水印在窗外。</td></tr>
+          <tr><td>Claude Mythos 5</td><td>非新版本；掃描產出路徑納入 Claude Security</td><td>廠商稱以一般 token 計費</td><td>仍非一般可提示；Enterprise 公開測試</td><td>【廠商主張】</td><td>anthropic.com/news 未鏡射此文，主文在 claude.com/blog。</td></tr>
+          <tr><td>GPT-5.6 Sol</td><td>版本字串未改；context 1.05M</td><td>短上下文 $4／$0.40／$20 per 1M，至少至 2026-11-21</td><td>Bedrock 同日跟進 $4／$20；Azure Foundry 查無公開資料</td><td>【已證實】</td><td>Terra 模型比較表曾殘留 $5，以 changelog／pricing 為準，不列衝突未解。</td></tr>
+          <tr><td>Gemini 旗艦</td><td>本期無變更</td><td>本期無變更</td><td>本期無變更</td><td>【已證實】</td><td>3.7 Flash GA 在 08-13（窗外）。</td></tr>
+          <tr><td>Grok 4.6（直連 API）</td><td>本期無新版本</td><td>直連定價本期無變更</td><td>Bedrock GA；Google Agent Platform Preview</td><td>【已證實】</td><td>原發布 08-12 在窗外。</td></tr>
+          <tr><td>Grok 4.6 on Bedrock</td><td>500k；reasoning low／medium／high／xhigh</td><td>xAI：$2／$0.50／$6；AWS Global CRIS 同列；In-Region／Geo 卡面為 $2.20／$6.60</td><td>us.xai.grok-4.6（美境）、global.xai.grok-4.6</td><td>【已證實】</td><td>model card launch date 08-18 vs What's New 08-19，均在窗內。</td></tr>
+          <tr><td>Grok 4.6 on Google Agent Platform</td><td>500k（Google 文件 524,288）</td><td>xAI 標 $2／$0.50／$6</td><td>Model Garden Preview</td><td>【已證實】</td><td>xAI 寫 available，Google 寫 Preview。</td></tr>
+          <tr><td>Llama／Muse</td><td>本期無變更</td><td>查無公開資料</td><td>查無公開資料</td><td>【尚未證實】</td><td>blog 8 月無新文。</td></tr>
+          <tr><td>Mistral</td><td>本期無新 model ID</td><td>本期無變更</td><td>本期無變更</td><td>【已證實】</td><td>08-20 Agentic Search 非旗艦模型。</td></tr>
+        </tbody>
+      </table>
+
+      <h2>4. 資安能力專章</h2>
+      <div class="item imp-medium">
+        <p><strong>防守方。</strong>Anthropic 於 2026-08-21 宣布 Claude Security 掃描改以 Mythos 5 執行，公開測試對象為 Claude Enterprise；廠商強調回傳 CWE、嚴重度與建議修補，且修補須人工核准，並聲明不因此把 Mythos 開到其他 Claude 介面。【廠商主張】另提出 Defender Advantage Fund（0xDAF）3,500 萬美元 credits，以及 Cyber Verification Program 將在數週內放寬 Opus／Sonnet 雙用途阻擋、再跟進 Mythos-class 防守任務。OpenAI 同窗（08-17）發布 <em>The Defender’s Window</em>，屬操作指引而非新 SKU，指向 Trusted Access for Cyber／GPT-Daybreak-Blue（Daybreak 產品擴張本身在 08-10、窗外）。Palo Alto Networks 於 08-19 成立 Frontier AI Critical Defense Program，主張以網路層虛擬修補消化 AI 發現的漏洞；其 14,090 筆 OSS 數字來自 08-04，不得計入本窗新發現。</p>
+      </div>
+      <div class="item imp-medium">
+        <p><strong>攻擊方。</strong>Mythos 5 與 GPT-Daybreak 類能力本窗仍未一般可提示。OpenAI 文中將「月底開源權重網路模型（點名 GLM-5.3）」當作威脅節奏加速器，屬廠商敘事、非該模型之官方發布。【廠商主張】CISA AA26-231A（08-19）描述行為者使用 AI 產生腳本攻擊西門子 S7 PLC，屬攻擊手法通報，不構成新模型能力發布。防守工具若只輸出修補／告警、不提供可操縱 prompt，可降低直接武器化，但不能消除漏出或供應鏈整合後的轉用風險。</p>
+      </div>
+      <p>獨立驗證缺口：Mythos 掃描真陽性／誤報率、PANW 虛擬修補覆蓋範圍、Private Safety Processing 是否真能在「人員不可讀內容」下做跨會話偵測，本窗皆無第三方復現。Glasswing 夥伴數、red.anthropic.com CVD、Big Sleep 本窗均為「本期無變更」。</p>
+
+      <h2>5. Inventec 影響矩陣</h2>
+      <table>
+        <thead><tr><th>業務群組</th><th>受影響既有工作項</th><th>影響說明</th><th>建議優先級</th></tr></thead>
+        <tbody>
+          <tr><td>EBG</td><td>供應鏈安全、地端 LLM 架構、SDL</td><td>Bedrock／Agent Platform 新增 Grok 4.6 與 OpenAI CRI／India Geo，影響資料中心客戶可選模型清單與駐留路徑。【已證實】Mythos 5 仍 gated，不構成地端權重供應。</td><td>P1</td></tr>
+          <tr><td>PSG</td><td>SBOM、SDL</td><td>本窗無新內嵌權重或裝置端旗艦發布。Claude Security 掃描若導入客戶 SDL，屬流程選項而非強制。【廠商主張】</td><td>P2</td></tr>
+          <tr><td>NBG</td><td>地端 LLM 架構</td><td>窗內無筆電／NPU 相關模型版本或授權變更之公開資料。</td><td>P3</td></tr>
+          <tr><td>ICZ</td><td>供應鏈安全</td><td>公開資料不足以對應具體產品線。出口管制本窗查無新官方公告；Bedrock Global CRI 明確不是資料駐留保證。</td><td>P3</td></tr>
+        </tbody>
+      </table>
+
+      <h2>6. 行動看板</h2>
+      <div class="item imp-high"><span class="badge">P0 立即</span> 無。本窗無新的出口管制生效、亦無一般可用的高能力網路模型公開放行。</div>
+      <div class="item imp-medium"><span class="badge">P1 本月</span>
+        <ul>
+          <li>評估 Bedrock Grok 4.6（US Geo vs Global）與 GPT-5.6 Sol 促銷價是否納入 EBG／客戶 BOM。</li>
+          <li>對照 OpenAI ZDR＋PSP 預覽與 Anthropic Covered Models 30 日留存（官網未改）。</li>
+          <li>若已用 Claude Enterprise：評估 Claude Security／Mythos 掃描是否納入 PSIRT／SDL（人工核准修補）。</li>
+          <li>追蹤 OpenAI 所稱「月底開源網路模型」是否實際發布（非本窗事實）。</li>
+        </ul>
+      </div>
+      <div class="item imp-low"><span class="badge">P2 本季</span> Azure Foundry 是否跟進 Sol 降價；Anthropic 客戶雲留存若官宣；PANW 虛擬修補聯盟是否與既有供應鏈／OT 客戶重疊。</div>
+      <div class="item imp-low"><span class="badge">P3 觀察</span> Glasswing 計數、CVD dashboard、Big Sleep、GPAI／模型出口管制、Llama 5／Mythos 一般可用性。</div>
+
+      <h2>7. 風險與反面觀點</h2>
+      <ul>
+        <li><strong>PR 動機。</strong>OpenAI Defender’s Window 與 Anthropic Mythos／0xDAF 同週出現，皆強調「把能力交給防守方」。這與即將到來的開源網路模型敘事互為對照，屬商業與政策溝通，不應直接當成能力階躍已普及。</li>
+        <li><strong>商業誘因。</strong>Sol 促銷價有截止日（至少至 11/21）；Bedrock Global 設定檔宣稱較低單價但放棄地理駐留。Grok 上架雲端擴大 xAI 企業通路，定價數字來自廠商價目，實際合約可能不同。</li>
+        <li><strong>Benchmark 可比性。</strong>本窗無須採信新的廠商自評榜。能力宣稱（長時 agent、xhigh reasoning）未附第三方復現則維持【廠商主張】。</li>
+        <li><strong>獨立驗證缺口。</strong>Mythos 掃描品質、PSP 密碼學與信號最小化、PANW 虛擬修補對 OT／韌體的實際覆蓋，皆無本窗獨立評測。</li>
+        <li><strong>過度宣稱風險。</strong>「available」vs Google「Preview」；「ZDR 相容跨會話偵測」在 9 月前僅早期客戶；Bloomberg／Reuters 的 Anthropic 留存改版在官網未出現前不得寫成已生效。</li>
+      </ul>
+
+      <h2>8. 來源附錄</h2>
+      <h3>Tier 1</h3>
+      <ul>
+        <li>OpenAI, GPT-5.6 Sol changelog／pricing, https://developers.openai.com/api/docs/changelog , 2026-08-21</li>
+        <li>OpenAI, GPT-5.6 Sol model, https://developers.openai.com/api/docs/models/gpt-5.6-sol , 2026-08-21</li>
+        <li>AWS, Amazon Bedrock announces reduced pricing for OpenAI GPT-5.6 Sol, https://aws.amazon.com/about-aws/whats-new/2026/08/bedrock-openai-gpt-56-sol-reduced-pricing/ , 2026-08-21</li>
+        <li>AWS, Amazon Bedrock now supports SpaceXAI Grok 4.6 with Cross Region Inferencing, https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-grok-4-6/ , 2026-08-19</li>
+        <li>xAI, Grok 4.6 on Amazon Bedrock, https://x.ai/news/grok-4-6-amazon-bedrock , 2026-08-19</li>
+        <li>AWS, Grok 4.6 model card, https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-xai-grok-4-6.html , 2026-08-18</li>
+        <li>xAI, Grok 4.6 on Google Enterprise Agent Platform, https://x.ai/news/grok-4-6-vertex-ai , 2026-08-21</li>
+        <li>Google Cloud, Grok 4.6 partner model docs, https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-6 , 2026-08-21</li>
+        <li>AWS, Bedrock CRI for OpenAI GPT-5.6, https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-cross-region-openai-v2/ , 2026-08-17</li>
+        <li>AWS, Bedrock OpenAI in India, https://aws.amazon.com/about-aws/whats-new/2026/08/amazon-bedrock-openai-india-v1/ , 2026-08-18</li>
+        <li>OpenAI, Offering Zero Data Retention for frontier models, https://openai.com/index/offering-zero-data-retention-for-frontier-models/ , 2026-08-19</li>
+        <li>OpenAI, The Defender’s Window, https://openai.com/index/the-defenders-window/ , 2026-08-17</li>
+        <li>Anthropic／Claude, Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders, https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders , 2026-08-21</li>
+        <li>Palo Alto Networks, Frontier AI Critical Defense Program, https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-introduces-frontier-ai-critical-defense-program , 2026-08-19</li>
+        <li>Anthropic, Newsroom, https://www.anthropic.com/news , 列至 2026-08-14</li>
+        <li>Mistral, Agentic Search, https://mistral.ai/news/agentic-search/ , 2026-08-20</li>
+      </ul>
+      <h3>Tier 2</h3>
+      <ul>
+        <li>Axios, OpenAI previews zero-retention safety system as Anthropic requires data logs, https://www.axios.com/2026/08/19/openai-previews-zero-retention-safety-system-as-anthropic-requires-data-logs , 2026-08-19</li>
+        <li>TechCrunch, OpenAI seeks to one-up Anthropic with new customer privacy protections, https://techcrunch.com/2026/08/19/openai-seeks-to-one-up-anthropic-with-new-customer-privacy-protections/ , 2026-08-19</li>
+        <li>MarkTechPost, Anthropic Brings Claude Mythos 5 to Claude Security, https://www.marktechpost.com/2026/08/21/anthropic-brings-claude-mythos-5-to-claude-security/ , 2026-08-21</li>
+        <li>Security Boulevard, Palo Alto Launches Frontier AI Critical Defense Program, https://securityboulevard.com/2026/08/palo-alto-launches-frontier-ai-critical-defense-program/ , 2026-08-20</li>
+        <li>The Indian Express, GPT-5.6 Terra and Luna on Bedrock in India, https://indianexpress.com/article/technology/artificial-intelligence/openais-gpt-5-6-terra-and-luna-models-now-available-on-amazon-bedrock-in-india-10841892/ , 2026-08-20</li>
+      </ul>
+      <h3>Tier 3</h3>
+      <ul>
+        <li>Bloomberg, Anthropic Plans to Change Data Retention Policy for Advanced AI, https://www.bloomberg.com/news/articles/2026-08-20/anthropic-plans-to-change-data-retention-policy-for-advanced-ai , 2026-08-20（匿名消息；廠商拒評；官網未改 → 報告標【第三方評論】）</li>
+        <li>Reuters, Anthropic plans to change enterprise data retention policy, source says, https://www.reuters.com/business/anthropic-plans-change-enterprise-data-retention-policy-source-says-2026-08-20/ , 2026-08-20</li>
+      </ul>
+    </main>
+  </div>
+  <footer>內部技術情報 · 非對外公關稿 · 模組 07 · 2026-W34 基線建立版</footer>
+</body>
+</html>
