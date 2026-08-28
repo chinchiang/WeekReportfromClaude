@@ -1,0 +1,14 @@
+{
+  "module": "07",
+  "title": "全球 AI 模型與產業動態觀測",
+  "owner": "Inventec 全球資安管理處",
+  "cadence": "每週一 08:00 (Asia/Taipei)",
+  "retention": {
+    "policy": "所有期別至少保留 12 個月；12 個月內不得刪除任何期別檔案。滿 12 個月後的期別仍保留原檔，另彙整年度 rollup。git 歷史為不可否認的稽核軌跡。",
+    "min_months": 12,
+    "purge_allowed": false
+  },
+  "weeks": [
+    { "week": "2026-W34", "period_end": "2026-08-24", "mode": "baseline", "file": "weeks/2026/2026-W34.json" }
+  ]
+}

@@ -226,6 +226,24 @@
   .topic-nav a:hover { background: var(--surface-2); text-decoration: none; }
   .topic-nav .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: .5rem; }
 
+  .module-link {
+    display: block;
+    padding: .5rem .6rem;
+    border-radius: 8px;
+    background: var(--surface-2);
+    color: var(--text);
+    text-decoration: none;
+  }
+  .module-link:hover { background: var(--accent-soft); color: var(--accent); text-decoration: none; }
+  .module-link .mod-name { display: block; font-size: .88rem; font-weight: 600; }
+  .module-link .mod-desc { display: block; font-size: .75rem; color: var(--text-2); margin-top: .15rem; }
+  .module-link:hover .mod-desc { color: inherit; }
+  .header-link {
+    font-size: .82rem; color: var(--text-2); text-decoration: none;
+    padding: .3rem .55rem; border-radius: 8px; white-space: nowrap;
+  }
+  .header-link:hover { background: var(--surface-2); color: var(--accent); text-decoration: none; }
+
   main { min-width: 0; }
   .report-header {
     background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, var(--surface)), var(--surface) 55%);
@@ -552,6 +570,7 @@
   <span class="logo" id="siteLogo">🛡️ 資安合規<span class="accent">週報</span></span>
   <span class="header-sub">EU AI Act · CRA · NIS2 · CMMC · ISO 27000 系列 · ISO 42001 · TISAX · IEC 62443</span>
   <div class="header-right">
+    <a class="header-link" id="m07HeaderLink" href="modules/07-ai-model-watch/">模組 07 · AI 模型觀測 →</a>
     <button class="theme-btn" id="langToggle" title="切換語言 / Switch language">EN</button>
     <button class="theme-btn" id="themeToggle" title="切換深淺色 / Toggle theme">🌓</button>
   </div>
@@ -566,6 +585,13 @@
     <div class="panel">
       <h3 id="topicsTitle">追蹤主題</h3>
       <ul class="topic-nav" id="topicNav"></ul>
+    </div>
+    <div class="panel">
+      <h3 id="modulesTitle">其他模組</h3>
+      <a class="module-link" href="modules/07-ai-model-watch/">
+        <span class="mod-name" id="m07Name">模組 07 · 全球 AI 模型與產業動態觀測</span>
+        <span class="mod-desc" id="m07Desc">模型能力、AI 資安、企業導入與監理連動，每週一更新</span>
+      </a>
     </div>
     <div class="panel curator-panel">
       <h3 id="curatorTitle">主理人</h3>
@@ -642,6 +668,10 @@ const UI = {
     loading: "載入週報中…", loadFail: id => `載入 ${id} 失敗。`, noReports: "尚無週報資料。",
     indexFail: '無法載入 reports/index.json。<br>若你是直接以 file:// 開啟本頁，請改用本機伺服器（例如 <code>python3 -m http.server</code>）或部署到 GitHub Pages 後瀏覽。',
     footer: "資安合規週報 — 主理人 Sindy · 每週日 20:00 自動更新 · 彙整公開資訊產生，重要決策請以官方原文為準",
+    modules: "其他模組",
+    m07Name: "模組 07 · 全球 AI 模型與產業動態觀測",
+    m07Desc: "模型能力、AI 資安、企業導入與監理連動，每週一更新",
+    m07HeaderLink: "模組 07 · AI 模型觀測 →",
     curator: "主理人", curatorRole: "資安合規週報 主理人",
     curatorBio: "每週日晚間為你彙整八大資安合規動態，重要的事不漏接。",
     curatorBy: "主理人 Sindy",
@@ -655,6 +685,10 @@ const UI = {
     loading: "Loading report…", loadFail: id => `Failed to load ${id}.`, noReports: "No reports yet.",
     indexFail: 'Could not load reports/index.json.<br>If you opened this page via file://, serve it locally (e.g. <code>python3 -m http.server</code>) or browse the deployed GitHub Pages site.',
     footer: "Security & Compliance Weekly — curated by Sindy · auto-updated every Sunday 20:00 (UTC+8) · Compiled from public sources; consult official texts for decisions",
+    modules: "Other modules",
+    m07Name: "Module 07 · Global AI Model & Industry Watch",
+    m07Desc: "Model capability, AI security, enterprise adoption and regulatory linkage — updated every Monday",
+    m07HeaderLink: "Module 07 · AI Model Watch →",
     curator: "Curator", curatorRole: "Curator, Security & Compliance Weekly",
     curatorBio: "Every Sunday evening, Sindy rounds up eight security & compliance domains so nothing important slips by.",
     curatorBy: "Curated by Sindy",
@@ -683,6 +717,10 @@ function applyChrome() {
   document.getElementById("siteLogo").innerHTML = t.logo;
   document.getElementById("archiveTitle").textContent = t.archive;
   document.getElementById("topicsTitle").textContent = t.topics;
+  document.getElementById("modulesTitle").textContent = t.modules;
+  document.getElementById("m07Name").textContent = t.m07Name;
+  document.getElementById("m07Desc").textContent = t.m07Desc;
+  document.getElementById("m07HeaderLink").textContent = t.m07HeaderLink;
   document.getElementById("siteFooter").textContent = t.footer;
   document.getElementById("langToggle").textContent = t.langBtn;
   document.getElementById("curatorTitle").textContent = t.curator;

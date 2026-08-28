@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>歷期查詢 — 模組 07</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛰</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0D1E25;--surface:#142C36;--raised:#1B3A46;--paper:#E6EDEA;--muted:#7E97A0;
+  --hairline:#2C4B57;--verified:#7FC7A6;--vendor:#E0A24F;--thirdparty:#A2AEDB;
+  --unverified:#6E8892;--alarm:#E4705C;
+  --serif:"Noto Serif TC",serif;--sans:"Noto Sans TC",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:15px;line-height:1.75;font-feature-settings:"palt" 1}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 96px}
+
+.masthead{padding:56px 0 28px;border-bottom:1px solid var(--hairline)}
+.mod{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+.mod a{color:var(--thirdparty);text-decoration:none;border-bottom:1px solid rgba(162,174,219,.35)}
+.masthead h1{font-family:var(--serif);font-weight:700;font-size:clamp(26px,4.6vw,40px);line-height:1.2;margin:14px 0 0}
+.meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:20px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.meta b{color:var(--paper);font-weight:500}
+
+.search{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.search input{
+  flex:1 1 340px;background:var(--surface);border:1px solid var(--hairline);color:var(--paper);
+  font-family:var(--sans);font-size:15px;padding:13px 16px;
+}
+.search input::placeholder{color:var(--muted)}
+.search input:focus{outline:none;border-color:var(--thirdparty)}
+.modes{display:flex;border:1px solid var(--hairline)}
+.modes button{
+  font-family:var(--mono);font-size:12px;padding:12px 18px;background:none;border:none;
+  color:var(--muted);cursor:pointer;letter-spacing:.06em;
+}
+.modes button[aria-pressed="true"]{background:var(--raised);color:var(--paper)}
+
+.filters{margin:20px 0 0;padding-bottom:16px;border-bottom:1px solid var(--hairline)}
+.frow{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;margin-bottom:9px}
+.frow .fl{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;min-width:86px}
+.chip{font-family:var(--mono);font-size:11.5px;padding:4px 11px;border:1px solid var(--hairline);border-radius:999px;background:none;color:var(--muted);cursor:pointer;transition:border-color .15s,color .15s,background .15s}
+.chip:hover{border-color:var(--muted);color:var(--paper)}
+.chip[aria-pressed="true"]{background:var(--raised);border-color:var(--muted);color:var(--paper)}
+.chip .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:1px}
+.chip .dot.hollow{background:none;border:1px solid var(--unverified)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--thirdparty);outline-offset:2px}
+
+.count{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);margin:22px 0 2px;text-transform:uppercase}
+
+.row{border-top:1px solid var(--hairline);padding:20px 0;display:grid;grid-template-columns:104px 1fr;gap:0 22px}
+.row.dashed{border-top-style:dashed}
+.row .wk{font-family:var(--mono);font-size:12px;color:var(--paper)}
+.row .wk small{display:block;color:var(--muted);font-size:10.5px;letter-spacing:.06em;margin-top:3px}
+.row .wk a{color:var(--thirdparty);text-decoration:none;border-bottom:1px solid rgba(162,174,219,.3);display:inline-block;margin-top:8px;font-size:10.5px}
+.row h3{font-family:var(--serif);font-weight:600;font-size:18px;line-height:1.45;margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;align-items:center}
+.tag{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:2px;border:1px solid transparent}
+.tag.ev-verified{background:rgba(127,199,166,.14);color:var(--verified);border-color:rgba(127,199,166,.4)}
+.tag.ev-vendor{background:rgba(224,162,79,.14);color:var(--vendor);border-color:rgba(224,162,79,.4)}
+.tag.ev-thirdparty{background:rgba(162,174,219,.14);color:var(--thirdparty);border-color:rgba(162,174,219,.4)}
+.tag.ev-unverified{background:none;color:var(--unverified);border-color:var(--unverified);border-style:dashed}
+.tag.pri{color:var(--muted);border-color:var(--hairline)}
+.tag.pri.p0{color:var(--alarm);border-color:var(--alarm)}
+.tag.tgt{color:var(--muted);border-color:var(--hairline);cursor:pointer;background:none}
+.tag.tgt:hover{color:var(--paper);border-color:var(--muted)}
+.delta{font-family:var(--mono);font-size:12.5px;line-height:1.85;margin-top:12px;padding:10px 13px;background:var(--surface);display:flex;flex-wrap:wrap;gap:3px 12px;align-items:baseline}
+.delta .from{color:var(--muted)}
+.delta .arrow{color:var(--verified);font-weight:600}
+.row.dashed .delta .arrow{color:var(--unverified)}
+mark{background:rgba(224,162,79,.3);color:var(--paper);padding:0 2px}
+
+/* timeline */
+.tl{border-top:1px solid var(--hairline);padding:24px 0}
+.tl h3{font-family:var(--serif);font-size:19px;margin:0 0 4px}
+.tl .tid{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.08em}
+.steps{margin:16px 0 0;padding:0 0 0 20px;border-left:1px solid var(--hairline);list-style:none}
+.steps li{position:relative;padding:0 0 18px}
+.steps li:last-child{padding-bottom:0}
+.steps li::before{content:"";position:absolute;left:-25px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--verified)}
+.steps li.ev-vendor::before{background:var(--vendor)}
+.steps li.ev-thirdparty::before{background:var(--thirdparty)}
+.steps li.ev-unverified::before{background:none;border:1px solid var(--unverified)}
+.steps .sw{font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.06em}
+.steps .ss{display:block;font-size:14.5px;color:#CBD8D6;margin-top:2px}
+
+.empty{padding:44px 0;color:var(--muted);font-family:var(--mono);font-size:12.5px;border-top:1px solid var(--hairline)}
+.notice{margin:44px 0;padding:26px 28px;background:var(--surface);border:1px dashed var(--hairline)}
+.notice h2{font-family:var(--serif);font-size:19px;margin:0 0 10px}
+.notice code{font-family:var(--mono);font-size:12.5px;background:var(--ink);padding:2px 6px}
+footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--hairline);font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.9}
+
+@media(max-width:560px){
+  .wrap{padding:0 18px 72px}
+  .row{grid-template-columns:1fr;gap:10px}
+  .frow .fl{min-width:100%}
+}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"><div class="empty">載入中…</div></div>
+<script>
+const EV = { verified:"已證實", vendor:"廠商主張", thirdparty:"第三方評論", unverified:"尚未證實" };
+const esc = s => String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const state = { db:null, q:"", mode:"list", f:{ year:null, track:null, ev:null, pri:null, target:null } };
+
+function hl(text, q){
+  const t = esc(text);
+  if(!q) return t;
+  try{ return t.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi"), m=>`<mark>${m}</mark>`); }
+  catch(e){ return t; }
+}
+
+function match(e){
+  const f = state.f;
+  if(f.year && !e.week.startsWith(f.year)) return false;
+  if(f.track && e.track !== f.track) return false;
+  if(f.ev && e.evidence !== f.ev) return false;
+  if(f.pri && e.priority !== f.pri) return false;
+  if(f.target && e.target !== f.target) return false;
+  if(state.q){
+    const hay = [e.title,e.prev_state,e.curr_state,e.detail,e.target_label,e.source_org,(e.impact||[]).join(" ")].join(" ").toLowerCase();
+    if(!hay.includes(state.q.toLowerCase())) return false;
+  }
+  return true;
+}
+
+async function boot(){
+  try{ state.db = await (await fetch("data/archive-index.json",{cache:"no-store"})).json(); }
+  catch(err){
+    document.getElementById("app").innerHTML = `
+      <div class="masthead"><div class="mod">模組 07 · <a href="index.html">← 本期報告</a></div><h1>歷期查詢</h1></div>
+      <div class="notice"><h2>索引讀取失敗</h2>
+      <p>本頁從 <code>data/archive-index.json</code> 讀取跨期索引。若該檔尚未產生，執行
+      <code>python3 scripts/generate_week.py --rebuild-index</code> 從各期檔案重建。
+      本機預覽請用 <code>python3 -m http.server 8080</code>，瀏覽器不允許以 <code>file://</code> 讀取本機檔案。</p></div>`;
+    return;
+  }
+  render();
+}
+
+function render(){
+  const db = state.db;
+  const years = [...new Set(db.entries.map(e=>e.week.slice(0,4)))].sort().reverse();
+  const shown = db.entries.filter(match);
+
+  const chips = (label,key,vals,fmt) => `<div class="frow"><span class="fl">${label}</span>` +
+    vals.map(v=>`<button class="chip" data-f="${key}" data-v="${esc(v)}" aria-pressed="${state.f[key]===v}">${fmt?fmt(v):esc(v)}</button>`).join("") + `</div>`;
+
+  const evChips = `<div class="frow"><span class="fl">證據等級</span>` +
+    Object.entries(EV).map(([k,l])=>`<button class="chip" data-f="ev" data-v="${k}" aria-pressed="${state.f.ev===k}">
+      <span class="dot${k==="unverified"?" hollow":""}" style="background:${k==="unverified"?"none":"var(--"+k+")"}"></span>${l}</button>`).join("") + `</div>`;
+
+  let body;
+  if(state.mode === "list"){
+    body = shown.length ? shown.map(e=>{
+      const dashed = e.evidence==="unverified" ? " dashed" : "";
+      return `<article class="row${dashed}">
+        <div class="wk">${esc(e.week)}<small>${esc(e.period_end)}</small>
+          <a href="index.html?week=${esc(e.week)}">看該期報告 →</a></div>
+        <div>
+          <h3>${hl(e.title,state.q)}</h3>
+          <div class="tags">
+            <span class="tag ev-${esc(e.evidence)}">${EV[e.evidence]||e.evidence}</span>
+            <span class="tag pri ${e.priority==="P0"?"p0":""}">${esc(e.priority)}</span>
+            <span class="tag pri">${esc(e.track)} 軌</span>
+            <button class="tag tgt" data-f="target" data-v="${esc(e.target)}">${esc(e.target_label)}</button>
+          </div>
+          <div class="delta"><span class="from">${hl(e.prev_state,state.q)}</span><span class="arrow">⟶</span><span>${hl(e.curr_state,state.q)}</span></div>
+        </div>
+      </article>`;
+    }).join("") : `<div class="empty">沒有符合條件的紀錄。清除關鍵字或篩選後共 ${db.entries.length} 則。</div>`;
+  } else {
+    const groups = {};
+    shown.forEach(e => (groups[e.target||"__none"] ||= []).push(e));
+    const keys = Object.keys(groups).sort((a,b)=>groups[b].length-groups[a].length);
+    body = keys.length ? keys.map(k=>{
+      const rows = groups[k].slice().sort((a,b)=>a.week.localeCompare(b.week));
+      const steps = rows.map(e=>`<li class="ev-${esc(e.evidence)}">
+        <span class="sw">${esc(e.week)} · ${EV[e.evidence]||e.evidence} · ${esc(e.priority)} ·
+          <a href="index.html?week=${esc(e.week)}" style="color:var(--thirdparty);text-decoration:none">該期 →</a></span>
+        <span class="ss">${hl(e.curr_state,state.q)}</span></li>`).join("");
+      return `<section class="tl">
+        <h3>${esc(rows[0].target_label)}</h3>
+        <div class="tid">${esc(k==="__none"?"未標記 target":k)} · ${rows.length} 次紀錄 · ${esc(rows[0].week)} 起</div>
+        <ul class="steps">${steps}</ul></section>`;
+    }).join("") : `<div class="empty">沒有符合條件的追蹤標的。</div>`;
+  }
+
+  document.getElementById("app").innerHTML = `
+    <div class="masthead">
+      <div class="mod">模組 07 · <a href="index.html">← 本期報告</a></div>
+      <h1>歷期查詢</h1>
+      <div class="meta">
+        <span>在檔期別 <b>${db.weeks.length}</b></span>
+        <span>累計紀錄 <b>${db.entries.length}</b></span>
+        <span>最新 <b>${esc(db.updated)}</b></span>
+        <span>保留政策 <b>至少 ${db.retention.min_months} 個月，不得刪除</b></span>
+      </div>
+      <div class="search">
+        <input id="q" type="search" placeholder="搜尋標題、狀態值、內文、追蹤標的、來源機構…" value="${esc(state.q)}">
+        <div class="modes">
+          <button data-mode="list" aria-pressed="${state.mode==="list"}">逐則列表</button>
+          <button data-mode="timeline" aria-pressed="${state.mode==="timeline"}">標的時間軸</button>
+        </div>
+      </div>
+    </div>
+    <div class="filters">
+      ${chips("年份","year",years)}
+      ${chips("軌別","track",["A","B","C","D"],v=>v+" 軌")}
+      ${evChips}
+      ${chips("優先級","pri",["P0","P1","P2","P3"])}
+      ${state.f.target?`<div class="frow"><span class="fl">追蹤標的</span><button class="chip" data-f="target" data-v="${esc(state.f.target)}" aria-pressed="true">${esc(state.f.target)} ✕</button></div>`:""}
+    </div>
+    <div class="count">${state.mode==="list"?"逐則列表":"標的時間軸"} — 命中 ${shown.length} / ${db.entries.length} 則</div>
+    ${body}
+    <footer>
+      期別檔案為真實來源，本頁索引為衍生資料，可用 <code>--rebuild-index</code> 重建。<br>
+      保留政策：期別檔案一經產出即唯讀，至少保留 ${db.retention.min_months} 個月，git 歷史為稽核軌跡。
+    </footer>`;
+
+  const q = document.getElementById("q");
+  q.addEventListener("input", () => {
+    state.q = q.value;
+    clearTimeout(window.__t);
+    window.__t = setTimeout(() => { const p = q.selectionStart; render(); const n = document.getElementById("q"); n.focus(); n.setSelectionRange(p,p); }, 160);
+  });
+  document.querySelectorAll("[data-f]").forEach(b => b.addEventListener("click", () => {
+    const k = b.dataset.f, v = b.dataset.v;
+    state.f[k] = state.f[k] === v ? null : v;
+    render();
+  }));
+  document.querySelectorAll("[data-mode]").forEach(b => b.addEventListener("click", () => {
+    state.mode = b.dataset.mode; render();
+  }));
+}
+boot();
+</script>
+</body>
+</html>

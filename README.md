@@ -19,14 +19,37 @@
 
 ## 網站架構
 
+這個 repo 掛了兩個彼此獨立的模組，共用一個 GitHub Pages 站台：
+
 ```
-index.html            # 單頁式網站（無外部相依，純 HTML/CSS/JS）
-reports/index.json    # 週報索引（新的排最前面）
-reports/<id>.json     # 每週一份報告資料，id 格式：YYYY-Www（如 2026-W33）
+index.html                    # 資安合規週報（單頁式，無外部相依，純 HTML/CSS/JS）
+reports/index.json            # 週報索引（新的排最前面）
+reports/<id>.json             # 每週一份報告資料，id 格式：YYYY-Www（如 2026-W33）
+
+modules/07-ai-model-watch/    # 模組 07 — 全球 AI 模型與產業動態觀測（見下）
+.github/workflows/            # 模組 07 的資料稽核
 ```
 
 網站於載入時讀取 `reports/index.json` 取得週報清單，再依選擇載入對應的
 `reports/<id>.json` 渲染內容，支援深/淺色主題、中英雙語與週報存檔切換。
+
+兩個模組**不共用 schema、不共用渲染器，也不互相寫入**；資料形狀本來就不同 ——
+合規週報是「里程碑與截止日」，模型觀測是「狀態值的連續變動」。
+
+## 模組 07 — 全球 AI 模型與產業動態觀測
+
+Inventec 全球資安管理處內部技術情報，追蹤模型能力、AI 資安、企業導入與監理連動四軌，
+每週一 08:00（台北時間）由 Claude Routine 產出。與本站的九大合規主題並行，
+只處理模型能力與產業供應面，法規進度仍由合規週報負責，避免重複。
+
+- 網址：`https://<username>.github.io/WeekReportfromClaude/modules/07-ai-model-watch/`
+- 歷期查詢（逐則列表／標的時間軸）：同路徑下的 `archive.html`
+- 與合規週報不同，本模組**每期只寫 JSON，不產生 HTML**，`index.html` 是永遠不需要改的渲染器
+- 說明與方法論見 [`modules/07-ai-model-watch/README.md`](modules/07-ai-model-watch/README.md)
+
+本機預覽兩個模組：在 repo 根目錄執行 `python3 -m http.server`，
+合規週報在 `http://localhost:8000/`，模組 07 在
+`http://localhost:8000/modules/07-ai-model-watch/`。
 
 ## 部署（GitHub Pages）
 
