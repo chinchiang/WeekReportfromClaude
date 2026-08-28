@@ -150,9 +150,11 @@ data/snapshots/<期別>.yaml 與 data/archive-index.json。
     git config user.name  "chinchiang"
     git config user.email "chinchiang.ccp@gmail.com"
 
-然後：
+然後（**你仍在 `modules/07-ai-model-watch/` 目錄下**，git 的 pathspec 是相對於
+當前目錄而非 repo 根目錄，所以這裡寫 `data/`，不要寫成完整的
+`modules/07-ai-model-watch/data/` —— 那會被解析成子目錄下的同名路徑而失敗）：
 
-    git add modules/07-ai-model-watch/data/
+    git add data/
     git commit -m "chore(m07): weekly AI model watch <期別>"
     git push origin main
 

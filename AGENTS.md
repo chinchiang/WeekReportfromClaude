@@ -48,7 +48,9 @@
   **不得填入 BG 層級曝險描述**，除非 repo 轉為 private（見 `docs/DEPLOY.md` 階段 0）。
 - `entries[].target` 必須對應 `snapshot_targets[].id`，這是跨期時間軸的接點。
 - `counter_views` 至少 2 則，必填。
-- Commit message：`chore(m07): weekly AI model watch YYYY-Www`，只 add `modules/07-ai-model-watch/data/`。
+- 只 commit `modules/07-ai-model-watch/data/` 下的檔案。在模組目錄裡下 `git add data/` ——
+  git 的 pathspec 相對於當前目錄，寫成完整路徑會失敗。
+- Commit message：`chore(m07): weekly AI model watch YYYY-Www`。
 
 完整 schema 與驗證器會擋下來的情況見
 [`docs/SCHEMA.md`](modules/07-ai-model-watch/docs/SCHEMA.md)。
