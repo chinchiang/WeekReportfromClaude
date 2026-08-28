@@ -1,0 +1,78 @@
+### 模組 07 — 追蹤標的狀態快照
+### 此檔為下期 Delta 比對基準。排程任務必須在報告產出完成後才覆寫本檔。
+module: "07"
+week: "2026-W34"
+period_end: "2026-08-24"
+mode: baseline
+
+targets:
+  - id: anthropic-frontier-tier
+    label: Anthropic 前沿模型世代
+    state: "Mythos 5 / Fable 5（2026-06-09 起），取代 Mythos Preview"
+    evidence: 第三方評論
+    source_date: "2026-08-20"
+
+  - id: glasswing-scope
+    label: Project Glasswing 夥伴規模
+    state: "約 50 家 + 再增約 150 家組織，分布 15 國以上"
+    evidence: 已證實
+    source_date: "2026-06-02"
+
+  - id: glasswing-findings
+    label: Glasswing 累計發現量
+    state: "夥伴端逾 10,000 件高風險/重大；OSS 掃描 23,019 件、其中 6,202 件高風險/重大"
+    evidence: 已證實
+    source_date: "2026-05-26"
+
+  - id: anthropic-enterprise-security
+    label: Claude Security 產品線狀態
+    state: "public beta，對 Claude Enterprise 客戶開放；另有 Cyber Verification Program"
+    evidence: 已證實
+    source_date: "2026-05-26"
+
+  - id: model-access-geopolitics
+    label: 模型存取的地緣政治風險
+    state: "曾於 2026-06-12 因美國出口管制暫停，06-30 解除、07-01 恢復"
+    evidence: 已證實
+    source_date: "2026-06-30"
+
+  - id: openai-cyber-model
+    label: OpenAI 資安導向模型
+    state: "GPT-5.5-Cyber，大規模夥伴測試中，未一般開放"
+    evidence: 第三方評論
+    source_date: "2026-06-02"
+
+  - id: china-models-observation
+    label: 中國廠商模型（情報觀察區）
+    state: "依 9SISMIP-AI-TRiSM-001 不納入採用評估；僅追蹤能力與供應鏈訊號"
+    evidence: 已證實
+    source_date: "2026-05-12"
+
+  - id: glasswing-program
+    label: Project Glasswing 存取模式
+    state: "封閉夥伴計畫，非一般商業銷售；Bedrock 為 gated research preview"
+    evidence: 已證實
+    source_date: "2026-04-07"
+
+  - id: glasswing-field-results
+    label: 夥伴實測回報
+    state: "能力真實但護欄不一致；掃描流程需設計重試與人工覆核"
+    evidence: 第三方評論
+    source_date: "2026-05-18"
+
+### 待補基線 —— 下期起須建立狀態值
+pending_targets:
+  - id: anthropic-pricing
+    label: Anthropic 公開 API 定價與 deprecation 排程
+    note: 須以官方 pricing 頁與 model deprecations 頁覆核
+  - id: openai-frontier-tier
+    label: OpenAI 前沿模型世代與定價
+    note: 須以 openai.com 一手來源建立
+  - id: google-frontier-tier
+    label: Google DeepMind 前沿模型世代與定價
+  - id: data-retention-terms
+    label: 主要廠商企業版資料留存與訓練使用條款
+    note: C 軌長期追蹤項，變更常無公告
+  - id: onprem-options
+    label: 可地端／VPC 部署的模型選項
+    note: 對應「地端優先、政策路由、能力按需上雲」原則

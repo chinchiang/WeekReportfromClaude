@@ -1,0 +1,184 @@
+{
+  "module": "07",
+  "retention": {
+    "min_months": 12,
+    "purge_allowed": false,
+    "note": "索引為衍生資料。期別檔案為真實來源，保留期內唯讀。"
+  },
+  "updated": "2026-08-24",
+  "weeks": [
+    {
+      "week": "2026-W34",
+      "period_end": "2026-08-24",
+      "mode": "baseline",
+      "file": "weeks/2026/2026-W34.json",
+      "count": 8
+    }
+  ],
+  "entries": [
+    {
+      "week": "2026-W34",
+      "period_end": "2026-08-24",
+      "id": "m07-2026W34-01",
+      "track": "B",
+      "target": "glasswing-program",
+      "target_label": "Project Glasswing 存取模式",
+      "title": "Project Glasswing 為 Mythos 級模型的受管存取通道",
+      "prev_state": "—（基線）",
+      "curr_state": "封閉夥伴計畫，非一般商業銷售",
+      "evidence": "verified",
+      "priority": "P2",
+      "impact": [
+        "採用政策",
+        "供應商評估"
+      ],
+      "detail": "Anthropic 於 2026-04-07 公開 Claude Mythos Preview，並同步啟動 Project Glasswing。launch partners 包含 AWS、Apple、Broadcom、Cisco、CrowdStrike、Google、JPMorganChase、Linux Foundation、Microsoft、NVIDIA、Palo Alto Networks，另擴及 40 多家建置或維運關鍵軟體基礎設施的組織。存取管道之一為 Amazon Bedrock 的 gated research preview，限 allow-list 組織。此軌需與「Enterprise 產品線」及「公開 API 模型」明確區分，三者條件不同。",
+      "source_org": "Anthropic",
+      "source_date": "2026-04-07"
+    },
+    {
+      "week": "2026-W34",
+      "period_end": "2026-08-24",
+      "id": "m07-2026W34-02",
+      "track": "B",
+      "target": "glasswing-scope",
+      "target_label": "Project Glasswing 夥伴規模",
+      "title": "Glasswing 夥伴規模擴張至關鍵基礎設施",
+      "prev_state": "約 50 家夥伴",
+      "curr_state": "再增約 150 家組織，分布 15 國以上",
+      "evidence": "verified",
+      "priority": "P2",
+      "impact": [
+        "威脅情報",
+        "供應鏈安全"
+      ],
+      "detail": "2026-06-02 Anthropic 宣布擴大計畫，新增組織涵蓋原本未被代表的部門：電力、供水、醫療、電信，另含硬體廠商與關鍵軟體維護者（包含非營利組織）。每一家仍須先通過 Anthropic 的安全要求才取得存取權。判讀：Anthropic 自述預期 6 至 12 個月內多家 AI 公司將擁有 Mythos 級模型，且可能在缺乏防濫用保護的情況下釋出。",
+      "source_org": "Anthropic",
+      "source_date": "2026-06-02"
+    },
+    {
+      "week": "2026-W34",
+      "period_end": "2026-08-24",
+      "id": "m07-2026W34-03",
+      "track": "B",
+      "target": "glasswing-findings",
+      "target_label": "Glasswing 累計發現量",
+      "title": "瓶頸已從「發現漏洞」轉為「驗證、揭露、修補」",
+      "prev_state": "—（基線）",
+      "curr_state": "揭露量能成為新瓶頸；OSS 掃描已產生大量待處理案件",
+      "evidence": "verified",
+      "priority": "P0",
+      "impact": [
+        "PSIRT",
+        "SBOM",
+        "CVD 流程",
+        "SDL"
+      ],
+      "detail": "Anthropic 表示 Glasswing 夥伴已找出超過一萬個高風險或重大等級漏洞。另掃描超過 1,000 個開源專案，識別 23,019 項問題，其中 6,202 項為高風險或重大等級；已評估的 1,752 項中，逾九成被驗證為 true positive。Anthropic 明確指出：軟體安全的進展過去受限於發現新漏洞的速度，現在受限於驗證、揭露與修補的速度。此為模組 07 目前唯一的 P0：這是可預期、非假設性的 PSIRT 與 SBOM 流程壓力。",
+      "source_org": "Anthropic",
+      "source_date": "2026-05-26"
+    },
+    {
+      "week": "2026-W34",
+      "period_end": "2026-08-24",
+      "id": "m07-2026W34-04",
+      "track": "C",
+      "target": "anthropic-enterprise-security",
+      "target_label": "Claude Security 產品線狀態",
+      "title": "Enterprise 線：Claude Security public beta 與 Cyber Verification Program",
+      "prev_state": "—（基線）",
+      "curr_state": "public beta，對 Claude Enterprise 客戶開放",
+      "evidence": "vendor",
+      "priority": "P1",
+      "impact": [
+        "採用政策",
+        "SOC 工具鏈",
+        "PSIRT"
+      ],
+      "detail": "與 Glasswing 為不同軌道。Anthropic 對 Claude Enterprise 客戶推出 Claude Security public beta，用於漏洞發現與修補；另以 Cyber Verification Program 讓通過審核的資安專業人員在較少限制下使用模型進行正當資安工作，並將 Mythos Preview 所用工具（custom skills、自動掃描與報告框架、威脅建模工具）提供給符合條件的資安團隊。此為 Inventec 較可能實際觸及的管道，值得列入評估。 ／查證缺口：此則目前僅有單一 Tier 2 來源轉述廠商說法，未取得 Anthropic 一手產品文件覆核，依規則不得標為已證實。待覆核 pricing／docs 頁後升級。",
+      "source_org": "Help Net Security",
+      "source_date": "2026-05-26"
+    },
+    {
+      "week": "2026-W34",
+      "period_end": "2026-08-24",
+      "id": "m07-2026W34-05",
+      "track": "A",
+      "target": "anthropic-frontier-tier",
+      "target_label": "Anthropic 前沿模型世代",
+      "title": "Mythos Preview 已由 Mythos 5 / Fable 5 世代取代",
+      "prev_state": "Mythos Preview（2026-04-07）",
+      "curr_state": "Mythos 5 供 Glasswing 夥伴；Fable 5 上公開 API",
+      "evidence": "thirdparty",
+      "priority": "P1",
+      "impact": [
+        "採用政策",
+        "成本評估"
+      ],
+      "detail": "2026-06-09 世代更迭：Mythos 5 取代 Mythos Preview 供 Glasswing 夥伴使用，Fable 5 則進入公開 API 與 Claude Code。Fable 5 與 Mythos 5 共用相同底層模型，前者額外加上生物、資安、LLM R&D 領域的安全防護措施。定價與可用性須以官方 pricing 頁與 model card 覆核後才可升級為【已證實】—— 目前來源為第三方彙整，故本則維持【第三方評論】。",
+      "source_org": "claudefa.st",
+      "source_date": "2026-08-20"
+    },
+    {
+      "week": "2026-W34",
+      "period_end": "2026-08-24",
+      "id": "m07-2026W34-06",
+      "track": "C",
+      "target": "model-access-geopolitics",
+      "target_label": "模型存取的地緣政治風險",
+      "title": "出口管制曾導致模型存取中斷",
+      "prev_state": "—（基線）",
+      "curr_state": "管制已解除，存取已恢復",
+      "evidence": "vendor",
+      "priority": "P1",
+      "impact": [
+        "架構韌性",
+        "採用政策",
+        "地端 LLM"
+      ],
+      "detail": "Fable 5 與 Mythos 5 於 2026-06-09 發布後，Anthropic 於 06-12 為配合美國商務部出口管制而暫停兩者存取；管制於 06-30 解除，07-01 恢復存取。判讀：這是 C 軌最值得長期追蹤的風險型態 —— 模型存取權可能因地緣政治在無預警下中斷，任何把前沿模型放進關鍵流程的架構都必須具備 fallback。對 Inventec 而言直接支持「地端優先、政策路由、能力按需上雲」的既有原則。 ／查證缺口：此則僅有廠商一手聲明一筆來源，未達「至少 2 筆獨立來源」門檻，依規則不得標為已證實。待補一筆獨立來源（如商務部公告或專業媒體查證）後升級。",
+      "source_org": "Anthropic",
+      "source_date": "2026-06-30"
+    },
+    {
+      "week": "2026-W34",
+      "period_end": "2026-08-24",
+      "id": "m07-2026W34-07",
+      "track": "A",
+      "target": "openai-cyber-model",
+      "target_label": "OpenAI 資安導向模型",
+      "title": "OpenAI 推出資安導向模型 GPT-5.5-Cyber",
+      "prev_state": "—（基線）",
+      "curr_state": "已釋出給大批夥伴測試，未一般開放",
+      "evidence": "thirdparty",
+      "priority": "P2",
+      "impact": [
+        "威脅情報",
+        "採用政策"
+      ],
+      "detail": "Mythos 發布後，OpenAI 釋出自家資安導向模型 GPT-5.5-Cyber，並以大規模夥伴測試方式推進。此則尚未取得 OpenAI 一手文件覆核，維持【第三方評論】。追蹤重點：受管存取是否成為前沿資安模型的產業慣例，以及是否出現不設防護措施的同級模型。",
+      "source_org": "TechCrunch",
+      "source_date": "2026-06-02"
+    },
+    {
+      "week": "2026-W34",
+      "period_end": "2026-08-24",
+      "id": "m07-2026W34-08",
+      "track": "B",
+      "target": "glasswing-field-results",
+      "target_label": "夥伴實測回報",
+      "title": "實測回報：能力真實，但護欄不一致、流程需重構",
+      "prev_state": "—（基線）",
+      "curr_state": "夥伴實測結果已公開",
+      "evidence": "thirdparty",
+      "priority": "P2",
+      "impact": [
+        "SDL",
+        "工具鏈設計"
+      ],
+      "detail": "Cloudflare 以 Mythos Preview 掃描自家 50 多個 repository 後表示，相較先前的通用前沿模型是一種不同類型的工具，難以做同基準比較。同時指出該模型雖未加上一般可用模型的額外防護，卻會自發性拒絕部分請求，且拒絕行為不一致 —— 同一任務換個框架或情境可能得到完全不同結果。對 Inventec 的意涵：若導入此類工具，掃描流程必須設計重試與人工覆核，不能假設輸出穩定。",
+      "source_org": "Cloudflare",
+      "source_date": "2026-05-18"
+    }
+  ]
+}

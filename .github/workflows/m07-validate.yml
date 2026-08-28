@@ -1,0 +1,34 @@
+name: 模組 07 資料稽核
+
+# 產出不在這裡。每週一的報告由 Claude Routine 觸發的雲端 session 產出
+# （見 modules/07-ai-model-watch/prompts/routine.md），本工作流程只做稽核，不呼叫任何 API、不需要金鑰。
+#
+# 稽核內容：schema 驗證、保留期檢查（index.json 列出但檔案不存在即紅燈）、
+# archive-index.json 與期別檔案的一致性。
+
+on:
+  push:
+    branches: ["**"]
+    paths: ["modules/07-ai-model-watch/**", ".github/workflows/m07-validate.yml"]
+  pull_request:
+    paths: ["modules/07-ai-model-watch/**", ".github/workflows/m07-validate.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: m07-validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/generate_week.py --validate-only
+        working-directory: modules/07-ai-model-watch
