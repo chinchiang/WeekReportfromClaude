@@ -1,0 +1,517 @@
+{
+  "module": "07",
+  "week": "2026-W36",
+  "period": {
+    "start": "2026-08-24",
+    "end": "2026-08-31"
+  },
+  "mode": "delta",
+  "exec_summary": "本期為 2026-W36 Delta，另補登三項前期漏項（Claude Security／Mythos 5、OpenAI Daybreak、企業資料留存）；補登不視為 08-24 後的新發布。期間內重點為 MHS research preview、Compliance API／Claude in Chrome、Sonnet 5 定價與 GLM／Qwen 開放權重。Daybreak 官方頁已於 2026-09-04 重新驗證可讀。移除缺乏 Tier 1 的美國遠端 GPU 與中國模型出口管制草案；中國模型的效能 benchmark 仍只視為廠商主張。",
+  "tracks": {
+    "A": {
+      "name": "模型發布與能力變更",
+      "status": "changed",
+      "note": "觀測期間內西方主要廠商無新前沿模型發布。變更集中在定價與生命週期：Sonnet 5 的 introductory 定價轉為常態、取消 2026-09-01 漲價；Mythos Preview 已 deprecated 並指向 Mythos 5。中國廠商 GLM-5.3-Flash 與 Qwen3.8-Flash-Next 於 08-26 同日開放權重；Qwen 開放權重預覽與另行託管的 production 版本已分開記錄。"
+    },
+    "B": {
+      "name": "AI 資安能力與相關計畫",
+      "status": "changed",
+      "note": "Anthropic 與 OpenAI 的前沿資安能力均已有經審核的產品化管道。Claude Security／Mythos 5 與 Daybreak 的原始公告早於本期，故列為補登而非 08-24 後的新事件。OpenAI Daybreak 兩個官方頁面已於 2026-09-04 重新驗證可讀，原先 HTTP 403 不再構成證據限制；廠商自評數據仍不計入分級。"
+    },
+    "C": {
+      "name": "企業導入與供應條件變更",
+      "status": "changed",
+      "note": "三項產品與供應條件變更：企業資料留存方案（補登，Anthropic 部分仍待官方條款覆核）、Compliance API 涵蓋 Cowork 與 Claude Code、Claude in Chrome 於所有付費方案 GA 並支援自主操作。缺乏 Tier 1 的美國遠端 GPU 管制草案已移出本期 findings。"
+    },
+    "D": {
+      "name": "監理與標準連動",
+      "status": "changed",
+      "note": "純法規進度（EU AI Act GPAI 自 2026-08-02 起可執法、California SB 53）不在本模組展開，交叉引用模組 02 與模組 06。本期記錄一項與模型能力直接相關的標準：Anthropic 的 Model Hardware Standard research preview。"
+    }
+  },
+  "entries": [
+    {
+      "id": "m07-2026W36-01",
+      "track": "D",
+      "target": "mhs-standard",
+      "title": "Anthropic 預覽 Model Hardware Standard（MHS）：AI agent 操作實體設備的共通規格",
+      "prev_state": "—（新增追蹤標的）",
+      "curr_state": "research preview，限定科研實驗室與先進製造夥伴；規劃日後開源",
+      "evidence": "verified",
+      "priority": "P1",
+      "detail": "2026-08-27 Anthropic 公開 MHS research preview。MHS 定義一層標準化 driver，把裝置的能力、狀態、指令、物理特性與強制運作上限描述給模型，讓 agent 以 read／write 等基本指令操作顯微鏡、液體處理器、機械手臂等設備，並宣稱可透過 Model Context Protocol 等標準協定由任何 agent harness 存取，非 Claude 專屬。啟始夥伴含 Genentech、University of Washington、Carnegie Mellon、HHMI Janelia、QuEra；產業支持者含 AWS、Automata、Danaher、Doosan Robotics、MBF Bioscience、QIAGEN、Tecan、Universal Robots、Hugging Face、Raspberry Pi。安全設計包含 driver 層強制的裝置安全上限、標準化的裝置特性與安全限制描述檔、即時監控與錯誤偵測、高風險決策須人工核可。判讀：這是本期唯一與製造現場直接相關的變化，Universal Robots 與 Doosan Robotics 在列意味著協作型機械手臂會是早期落點。此軌若成形，OT 與 IT 的邊界會被 agent 打穿，權限模型、kill-switch 與變更管理須在導入前先設計，不能等試點結束再補。Anthropic 自承 LLM 仍缺乏物理直覺，且互通性、非 Claude 模型表現、生產環境安全性與認證治理均未經驗證。",
+      "impact": [
+        "架構韌性",
+        "OT／產線資安",
+        "採用政策",
+        "供應商評估",
+        "SDL"
+      ],
+      "sources": [
+        {
+          "org": "Anthropic",
+          "title": "Previewing the Model Hardware Standard",
+          "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview",
+          "date": "2026-08-27",
+          "tier": 1
+        },
+        {
+          "org": "The Register",
+          "title": "Anthropic proposes plumbing spec to link AI agents to lab kit and robots",
+          "url": "https://www.theregister.com/ai-and-ml/2026/08/28/anthropic-proposes-plumbing-spec-to-link-ai-agents-to-lab-kit-and-robots/5293135",
+          "date": "2026-08-28",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W36-02",
+      "track": "B",
+      "target": "anthropic-enterprise-security",
+      "title": "【補登】Mythos 5 進入 Claude Security：Enterprise 客戶不需直接存取模型即可用其掃描",
+      "prev_state": "public beta，對 Claude Enterprise 客戶開放；另有 Cyber Verification Program",
+      "curr_state": "Claude Security 掃描已由 Mythos 5 驅動，標準 token 計費、無額外 add-on；另設 $35M Defender Advantage Fund（0xDAF）；CVP 擴大至 Opus／Sonnet 更廣的 dual-use 能力，Mythos 級後續開放",
+      "evidence": "verified",
+      "priority": "P1",
+      "detail": "時間軸註記：Anthropic 原始公告日期為 2026-08-21，早於本期觀測起點；SecurityWeek 於 08-24 報導，本則作為 W34 基線漏項補登，不計為 08-24 後的新發布。Claude Security public beta 對 Claude Enterprise 客戶開放，掃描由 Mythos 5 驅動，輸出包含 CWE 分類、信心度、嚴重度與修補建議，修補仍須人工核可。Anthropic 同時公布 3,500 萬美元 Defender Advantage Fund（0xDAF），並擴大 Cyber Verification Program。",
+      "impact": [
+        "PSIRT",
+        "SDL",
+        "SOC 工具鏈",
+        "採用政策",
+        "SBOM"
+      ],
+      "sources": [
+        {
+          "org": "Anthropic",
+          "title": "Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders",
+          "url": "https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders",
+          "date": "2026-08-21",
+          "tier": 1
+        },
+        {
+          "org": "SecurityWeek",
+          "title": "Anthropic Expands Mythos 5 Access to More Defenders, Unveils $35M Open Source Fund",
+          "url": "https://www.securityweek.com/anthropic-expands-mythos-5-access-to-more-defenders-unveils-35m-open-source-fund/",
+          "date": "2026-08-24",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W36-03",
+      "track": "B",
+      "target": "openai-cyber-model",
+      "title": "【補登】OpenAI 以 Daybreak Blue／Red 兩層開放 GPT-5.6-Cyber，並上架 Amazon Bedrock",
+      "prev_state": "GPT-5.5-Cyber，大規模夥伴測試中，未一般開放",
+      "curr_state": "GPT-5.6-Cyber 經 Daybreak Red 提供給通過審核的組織；Daybreak Blue 提供 GPT-5.6 Sol；兩層均已可在 Amazon Bedrock 取用",
+      "evidence": "verified",
+      "priority": "P1",
+      "detail": "時間軸註記：OpenAI 與 AWS 的原始公告日期為 2026-08-10～11，早於本期觀測起點；本則作為 W34 基線漏項補登，不計為 08-24 後的新發布。Daybreak Blue 提供 GPT-5.6 Sol，Daybreak Red 提供 GPT-5.6-Cyber；符合資格的 AWS 客戶可透過 Amazon Bedrock 存取，仍須完成 Daybreak 註冊與審核。OpenAI 官方頁面在原始蒐集時回傳 HTTP 403，但已於 2026-09-04 重新驗證可讀並納入 Tier 1；官方亦確認身分驗證、用途限制、監控及硬體安全金鑰要求。廠商自評 benchmark 不納入證據分級。",
+      "impact": [
+        "採用政策",
+        "SOC 工具鏈",
+        "供應商評估",
+        "身分與存取管理"
+      ],
+      "sources": [
+        {
+          "org": "OpenAI",
+          "title": "Expanding Daybreak as the cyber defense window narrows",
+          "url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/",
+          "date": "2026-08-10",
+          "tier": 1
+        },
+        {
+          "org": "OpenAI",
+          "title": "Daybreak models are now available on AWS",
+          "url": "https://openai.com/index/daybreak-models-are-now-available-on-aws/",
+          "date": "2026-08-11",
+          "tier": 1
+        },
+        {
+          "org": "AWS",
+          "title": "OpenAI models are now available on AWS",
+          "url": "https://www.aboutamazon.com/news/aws/bedrock-openai-models",
+          "date": "2026-08-11",
+          "tier": 1
+        },
+        {
+          "org": "TechCrunch",
+          "title": "As AI-led attacks multiply, OpenAI launches a new cyber model",
+          "url": "https://techcrunch.com/2026/08/10/as-ai-led-attacks-multiply-openai-launches-a-new-cyber-model/",
+          "date": "2026-08-10",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W36-04",
+      "track": "C",
+      "target": "data-retention-terms",
+      "title": "【補登／部分待官方確認】Anthropic 自有雲留存方案與 OpenAI ZDR／PSP",
+      "prev_state": "—（基線；上期列為待補標的）",
+      "curr_state": "Anthropic 自有雲留存調整仍為媒體報導；OpenAI 已官方確認 ZDR 相容的 PSP 為 preview，預計 2026-09 起分階段推出",
+      "evidence": "thirdparty",
+      "priority": "P1",
+      "detail": "時間軸註記：來源日期為 2026-08-19～21，早於本期觀測起點；本則用於補齊上期 pending baseline，不計為 08-24 後的新事件。Bloomberg 與 Quartz 報導 Anthropic 計畫讓 covered-model 資料由企業存於自有雲，但尚未取得 Anthropic 一手條款覆核，因此該部分不得視為已證實。OpenAI 則於 08-19 官方說明 Zero Data Retention 相容的 Private Safety Processing（PSP）正在 early testing，並預計 9 月起分階段擴大；preview 不等同 GA。整則維持 thirdparty，避免把 OpenAI 的一手證據誤套到 Anthropic 主張。",
+      "impact": [
+        "採用政策",
+        "合約與條款審查",
+        "資料治理",
+        "供應商評估"
+      ],
+      "sources": [
+        {
+          "org": "Bloomberg",
+          "title": "Anthropic Plans to Change Data Retention Policy for Advanced AI",
+          "url": "https://www.bloomberg.com/news/articles/2026-08-20/anthropic-plans-to-change-data-retention-policy-for-advanced-ai",
+          "date": "2026-08-20",
+          "tier": 2
+        },
+        {
+          "org": "Quartz",
+          "title": "Anthropic enterprise data storage policy",
+          "url": "https://qz.com/anthropic-enterprise-data-storage-policy-cloud-082126",
+          "date": "2026-08-21",
+          "tier": 2
+        },
+        {
+          "org": "OpenAI",
+          "title": "Offering zero data retention for frontier models",
+          "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models/",
+          "date": "2026-08-19",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W36-06",
+      "track": "C",
+      "target": "compliance-api-coverage",
+      "title": "Compliance API 涵蓋 Cowork 與 Claude Code 轉 GA，另推 inference hooks 即時 DLP（beta）",
+      "prev_state": "—（新增追蹤標的）",
+      "curr_state": "Compliance API 對 Cowork（桌面／網頁／行動）與 Claude Code（CLI／桌面）GA；M365 add-ins 與 Claude Science 為 beta；inference hooks 為 Enterprise beta",
+      "evidence": "vendor",
+      "priority": "P1",
+      "detail": "2026-08-26 Anthropic 公告：合規與資安團隊可用既有的 Compliance Access Key，以同一組介面拉取 Cowork 與 Claude Code 的 session 內容與 metadata，不需另做整合。Microsoft 365 add-ins（Excel、Word、PowerPoint、Outlook）與 Claude Science 覆蓋仍為 beta。另新增 inference hooks（Enterprise beta），可在 prompt 與 tool call 送達模型前檢查，等同跨 chat、Claude Code、Cowork 的即時 DLP 執行點。判讀：這是本期對治理實務最有用的一則 —— 過去 agentic 工具（Claude Code、Cowork）是稽核死角，現在有了可程式化的取證與攔截介面。建議由資安治理與 SOC 共同評估把 Compliance API 接入既有稽核管線，inference hooks 則先在 beta 階段做可行性驗證，不宜直接列為控制措施。／分級註記：本則僅有 Anthropic 一手來源（公告與產品文件），無獨立第三方覆核，依規則標為廠商主張。",
+      "impact": [
+        "SOC 工具鏈",
+        "資料治理",
+        "稽核與取證",
+        "採用政策"
+      ],
+      "sources": [
+        {
+          "org": "Anthropic",
+          "title": "Compliance API coverage extends to Claude Cowork and Claude Code",
+          "url": "https://claude.com/blog/compliance-api-cowork-and-claude-code",
+          "date": "2026-08-26",
+          "tier": 1
+        },
+        {
+          "org": "Anthropic",
+          "title": "Compliance API — Claude Platform Docs",
+          "url": "https://platform.claude.com/docs/en/manage-claude/compliance-api",
+          "date": "2026-08-26",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W36-07",
+      "track": "C",
+      "target": "ai-agent-browser-surface",
+      "title": "Claude in Chrome 於所有付費方案 GA，並開放不逐步核可的自主操作",
+      "prev_state": "—（新增追蹤標的）",
+      "curr_state": "Chrome 擴充功能對 Pro／Max／Team／Enterprise GA；可自主執行瀏覽器操作，每個動作由安全分類器驗證；免費方案不含",
+      "evidence": "verified",
+      "priority": "P1",
+      "detail": "2026-08-26 Anthropic 宣布 Claude in Chrome 一般供應，由先前的限量 beta 轉為所有付費方案可用。功能上可讀取目前頁面並執行動作 —— 讀寫文字、點擊連結、頁面間導覽、填寫表單 —— 且沿用使用者既有的登入狀態；本次變更的重點是不再需要逐步核可，改由安全分類器在每個動作執行前驗證是否安全且符合使用者請求。同期（08-26）Cowork 桌面版也內建瀏覽器。判讀：這是本期對端點側曝險面影響最大的一則。瀏覽器代理沿用既有 session 等同把已認證的內部系統納入 agent 可及範圍，prompt injection 的後果不再只是輸出錯誤，而是實際操作。安全分類器是廠商側控制，不可視為企業側控制措施。建議在採用政策中明確界定可安裝範圍，並與 DLP、CASB 的既有規則對齊後才放行。",
+      "impact": [
+        "採用政策",
+        "端點管控",
+        "資料防護（DLP）",
+        "SOC 工具鏈"
+      ],
+      "sources": [
+        {
+          "org": "Anthropic",
+          "title": "Claude in Chrome is generally available",
+          "url": "https://claude.com/blog/claude-in-chrome-generally-available",
+          "date": "2026-08-26",
+          "tier": 1
+        },
+        {
+          "org": "GIGAZINE",
+          "title": "Claude's official Chrome extension, 'Claude in Chrome,' is now generally available",
+          "url": "https://gigazine.net/gsc_news/en/20260827-claude-chrome-available/",
+          "date": "2026-08-27",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W36-08",
+      "track": "A",
+      "target": "anthropic-pricing",
+      "title": "Sonnet 5 introductory 定價轉為常態，取消 2026-09-01 漲價；前沿層定價與退役排程完成基線覆核",
+      "prev_state": "—（基線；上期列為待補標的）",
+      "curr_state": "Fable 5 與 Mythos 5 皆 $10／$50 per MTok；Opus 5 $5／$25；Sonnet 5 $2／$10（原訂 09-01 漲至 $3／$15 已取消）；Haiku 4.5 $1／$5。最近一次退役公告為 2026-06-05 的 Opus 4.1，已於 2026-08-05 退役",
+      "evidence": "verified",
+      "priority": "P2",
+      "detail": "Anthropic 官方 pricing 文件已載明：Sonnet 5 於 2026-06 發布時標示為期至 2026-08-31 的 introductory 定價（$2 輸入／$10 輸出 per MTok），現轉為標準價，原訂 2026-09-01 起調整為 $3／$15 的方案不會執行；第三方報導指公告時點為 2026-08-10。同頁另可覆核：Mythos 5 標示為 limited availability，計價與 Fable 5 相同；4.6 以後的模型與 Mythos Preview 使用新 tokenizer，相同文本約多產生 30% token —— 做成本估算時這一點比單價更關鍵。資料落地（inference_geo 設為 us）與 Bedrock／Google Cloud 的區域端點各有 1.1x 與 10% 溢價。退役面向：deprecations 頁顯示本期無新公告，最近一次為 2026-06-05 的 Opus 4.1（已於 2026-08-05 退役），Mythos Preview 已 deprecated 並指向 Mythos 5。判讀：本則的價值在把上期的待補基線補齊，之後每期只需比對差異。取消漲價對既有評估是利多，但 tokenizer 造成的 token 膨脹會抵消一部分。",
+      "impact": [
+        "成本評估",
+        "採用政策",
+        "架構韌性"
+      ],
+      "sources": [
+        {
+          "org": "Anthropic",
+          "title": "Pricing — Claude Platform Docs",
+          "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "date": "發布日未標示（2026-08-31 擷取覆核）",
+          "tier": 1
+        },
+        {
+          "org": "Tech Journal",
+          "title": "Claude Sonnet 5 Pricing Now Permanent: What You Need to Know",
+          "url": "https://techjournal.org/claude-sonnet-5-pricing-now-permanent",
+          "date": "2026-08-10",
+          "tier": 3
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W36-09",
+      "track": "A",
+      "target": "anthropic-frontier-tier",
+      "title": "【基線覆核】Anthropic 前沿世代狀態經官方文件與獨立報導交叉驗證",
+      "prev_state": "Mythos 5 / Fable 5（2026-06-09 起），取代 Mythos Preview（來源為第三方彙整）",
+      "curr_state": "官方文件確認：claude-mythos-preview 已 deprecated 並指向 claude-mythos-5；claude-fable-5 為 Active，退役不早於 2027-06-09；Mythos 5 標示為 limited availability",
+      "evidence": "verified",
+      "priority": "P3",
+      "detail": "本則是基線證據修正，不代表本期發布新模型。Anthropic pricing 與 deprecations 文件確認 claude-fable-5 為 Active、claude-mythos-preview 已 deprecated 並指向 claude-mythos-5；Reuters 對 2026-06-09 發布的獨立報導補足不同組織來源。模型效能與安全能力數據仍視為廠商主張，不因版本狀態獲確認而升級。",
+      "impact": [
+        "採用政策",
+        "供應商評估"
+      ],
+      "sources": [
+        {
+          "org": "Anthropic",
+          "title": "Model deprecations — Claude Platform Docs",
+          "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+          "date": "發布日未標示（2026-08-31 擷取覆核）",
+          "tier": 1
+        },
+        {
+          "org": "Anthropic",
+          "title": "Pricing — Claude Platform Docs",
+          "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "date": "發布日未標示（2026-08-31 擷取覆核）",
+          "tier": 1
+        },
+        {
+          "org": "Reuters",
+          "title": "Anthropic rolls out public version of Mythos without cybersecurity capability",
+          "url": "https://www.reuters.com/technology/anthropic-rolls-out-public-version-mythos-without-cybersecurity-capability-2026-06-09/",
+          "date": "2026-06-09",
+          "tier": 2
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W36-10",
+      "track": "A",
+      "target": "china-models-observation",
+      "title": "情報觀察區：GLM-5.3-Flash 與 Qwen3.8-Flash-Next 開放權重；Qwen production 版本另列",
+      "prev_state": "依 9SISMIP-AI-TRiSM-001 不納入採用評估；僅追蹤能力與供應鏈訊號",
+      "curr_state": "GLM-5.3-Flash 與 Qwen3.8-Flash-Next 均有官方開放權重資料；Qwen3.8-Flash 為另行託管的 production 版本，不與 Flash-Next 的權重或規格混算",
+      "evidence": "verified",
+      "priority": "P2",
+      "detail": "2026-08-26，Z.ai 與 Qwen 分別發布 GLM-5.3-Flash、Qwen3.8-Flash-Next 的官方開放權重資料。Z.ai 公布 GLM-5.3-Flash API 單價為每百萬 token 輸入 0.15 美元、輸出 0.50 美元。Qwen 官方 model card 明確區分開放權重的 Flash-Next 預覽與另行託管的 production Qwen3.8-Flash；後者的定價、預設 context 與工具能力不得回填到 Flash-Next。MarkTechPost 作為獨立來源僅用來交叉確認發布事實；所有 benchmark 仍屬廠商自評，不納入分級。依 9SISMIP-AI-TRiSM-001，本則只作供應鏈情報，不納入採用評估。",
+      "impact": [
+        "威脅情報",
+        "供應鏈安全",
+        "採用政策"
+      ],
+      "sources": [
+        {
+          "org": "Z.ai",
+          "title": "GLM-5.3-Flash",
+          "url": "https://z.ai/blog/glm-5.3-flash",
+          "date": "2026-08-26",
+          "tier": 1
+        },
+        {
+          "org": "Qwen",
+          "title": "Qwen3.8-Flash-Next model card",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+          "date": "2026-08-26",
+          "tier": 1
+        },
+        {
+          "org": "MarkTechPost",
+          "title": "Z.ai releases GLM-5.3-Flash",
+          "url": "https://www.marktechpost.com/2026/08/26/z-ai-releases-glm-5-3-flash-a-320b-a18b-natively-multimodal-moe-with-a-1m-token-context/amp/",
+          "date": "2026-08-26",
+          "tier": 2
+        }
+      ]
+    }
+  ],
+  "counter_views": [
+    {
+      "point": "對「把前沿模型接進掃描工具就能提升偵測」的反面證據：Cobalt State of Pentesting Report 2026（約 450 名資安專業人員）顯示，完全依賴 AI 自動化做測試的組織一年內由 29% 降至 9%，78% 表示全自動掃描工具漏掉重大漏洞，偏好人機混合模式者上升 22 個百分點至 47%。這對本期 entry 02（Mythos 5 進入 Claude Security）是直接的節制訊號：導入評估的重點應放在人工驗證量能，而非掃描覆蓋率。",
+      "source": {
+        "org": "Infosecurity Magazine",
+        "title": "Trust in Automated AI Vulnerability Scanning Collapses to 9%",
+        "url": "https://www.infosecurity-magazine.com/news/trust-ai-vulnerability-scanning/",
+        "date": "2026-06-25",
+        "tier": 2
+      }
+    },
+    {
+      "point": "對 MHS「讓 AI agent 安全操作實體設備」的反面觀點：報導直指 Anthropic 無法可靠預測自家模型行為，卻提出安全關鍵系統的規格；Anthropic 自承 LLM 仍缺乏物理直覺，是從文字與影像學習物理世界。互通性、非 Claude 模型的表現、獨立可靠度驗證、生產環境安全性、認證、治理與長期支援皆屬未驗證項。此觀點支持把 entry 01 維持在 P1 評估而非導入。",
+      "source": {
+        "org": "The Register",
+        "title": "Anthropic proposes plumbing spec to link AI agents to lab kit and robots",
+        "url": "https://www.theregister.com/ai-and-ml/2026/08/28/anthropic-proposes-plumbing-spec-to-link-ai-agents-to-lab-kit-and-robots/5293135",
+        "date": "2026-08-28",
+        "tier": 2
+      }
+    },
+    {
+      "point": "對「AI 發現漏洞即為淨效益」的反面證據：開源維護者將 LLM 產生的報告形容為阻斷服務式的洪水，curl 已永久關閉 bug bounty（確認率低於 5%），HackerOne 於 2026-03 暫停 Internet Bug Bounty，Linus Torvalds 表示 Linux kernel 安全信箱因大量重複回報而近乎無法管理。這說明 entry 02 的 0xDAF 基金即使補上修補端資源，分流端的瓶頸仍在人身上。",
+      "source": {
+        "org": "Help Net Security",
+        "title": "AI is drowning software maintainers in junk security reports",
+        "url": "https://www.helpnetsecurity.com/2026/05/18/problems-with-ai-assisted-vulnerability-research/",
+        "date": "2026-05-18",
+        "tier": 2
+      }
+    }
+  ],
+  "snapshot_targets": [
+    {
+      "id": "anthropic-frontier-tier",
+      "label": "Anthropic 前沿模型世代",
+      "state": "Mythos 5（limited availability）／Fable 5 為前沿世代；claude-mythos-preview 已 deprecated 並指向 claude-mythos-5；claude-fable-5 為 Active，退役不早於 2027-06-09",
+      "evidence": "已證實",
+      "source_date": "2026-08-31"
+    },
+    {
+      "id": "anthropic-pricing",
+      "label": "Anthropic 公開 API 定價與 deprecation 排程",
+      "state": "Fable 5／Mythos 5 $10／$50 per MTok；Opus 5 $5／$25；Sonnet 5 $2／$10（introductory 轉常態，取消原訂 2026-09-01 漲至 $3／$15）；Haiku 4.5 $1／$5。4.6 以後模型與 Mythos Preview 使用新 tokenizer，相同文本約多 30% token。最近一次退役公告為 2026-06-05 的 Opus 4.1（2026-08-05 退役），本期無新公告",
+      "evidence": "已證實",
+      "source_date": "2026-08-31"
+    },
+    {
+      "id": "glasswing-scope",
+      "label": "Project Glasswing 夥伴規模",
+      "state": "約 50 家 + 再增約 150 家組織，分布 15 國以上（本期無更新）",
+      "evidence": "已證實",
+      "source_date": "2026-06-02"
+    },
+    {
+      "id": "glasswing-findings",
+      "label": "Glasswing 累計發現量",
+      "state": "夥伴端逾 10,000 件高風險/重大；OSS 掃描 23,019 件、其中 6,202 件高風險/重大（本期無新的累計數據公布）",
+      "evidence": "已證實",
+      "source_date": "2026-05-26"
+    },
+    {
+      "id": "glasswing-program",
+      "label": "Project Glasswing 存取模式",
+      "state": "封閉夥伴計畫，非一般商業銷售；Bedrock 為 gated research preview（本期無更新）",
+      "evidence": "已證實",
+      "source_date": "2026-04-07"
+    },
+    {
+      "id": "glasswing-field-results",
+      "label": "夥伴實測回報",
+      "state": "能力真實但護欄不一致；掃描流程需設計重試與人工覆核（本期無更新）",
+      "evidence": "第三方評論",
+      "source_date": "2026-05-18"
+    },
+    {
+      "id": "anthropic-enterprise-security",
+      "label": "Claude Security 產品線狀態",
+      "state": "public beta，對 Claude Enterprise 客戶開放，掃描已由 Mythos 5 驅動，輸出含 CWE 分類、信心度與嚴重度、建議修補，修補須人工核可；依標準 token 計費、無額外 add-on。另設 $35M Defender Advantage Fund（0xDAF）；Cyber Verification Program 擴大至 Opus／Sonnet 更廣的 dual-use 能力，Mythos 級存取後續跟進",
+      "evidence": "已證實",
+      "source_date": "2026-08-21"
+    },
+    {
+      "id": "openai-cyber-model",
+      "label": "OpenAI 資安導向模型",
+      "state": "GPT-5.6-Cyber 經 Daybreak Red 提供，Daybreak Blue 提供 GPT-5.6 Sol；兩層均已對符合資格客戶在 Amazon Bedrock 上線，須先完成 OpenAI Daybreak 註冊；存取須身分驗證、監控、用途限制與法律聲明。早期夥伴含 Accenture、IBM、CrowdStrike、Cloudflare",
+      "evidence": "已證實",
+      "source_date": "2026-08-11"
+    },
+    {
+      "id": "openai-frontier-tier",
+      "label": "OpenAI 前沿模型世代與定價",
+      "state": "GPT-5.6 系列為現行旗艦（含 Sol／Luna／Terra 分軌）；o3 已於 2026-08-26 自 ChatGPT 退役。定價未於本次修訂覆核；Daybreak 官方頁面已於 2026-09-04 重新驗證可讀，修正原 HTTP 403 限制",
+      "evidence": "部分已證實",
+      "source_date": "2026-09-04"
+    },
+    {
+      "id": "google-frontier-tier",
+      "label": "Google DeepMind 前沿模型世代與定價",
+      "state": "Gemini 3.x 系列：3.7 Flash（2026-08-13）、3.6 Flash 與 3.5 Flash-Lite 已 GA；gemini-robotics-er-1.6-preview 於 2026-08-31 停用。本觀測期間無新發布。定價未覆核，來源為第三方追蹤站",
+      "evidence": "尚未證實",
+      "source_date": "2026-08-31"
+    },
+    {
+      "id": "data-retention-terms",
+      "label": "主要廠商企業版資料留存與訓練使用條款",
+      "state": "Anthropic：媒體報導 covered-model 資料未來可由企業存於自有雲，尚待 Anthropic 一手條款覆核。OpenAI：官方確認 Zero Data Retention 相容的 Private Safety Processing（PSP）正 early testing，預計 2026-09 起分階段擴大；preview 不等同 GA",
+      "evidence": "第三方評論（Anthropic）／已證實 preview（OpenAI）",
+      "source_date": "2026-08-21"
+    },
+    {
+      "id": "onprem-options",
+      "label": "可地端／VPC 部署的模型選項",
+      "state": "查無公開資料：本期未取得主要廠商在地端或 VPC 部署條件上的新變更。最接近者為 Anthropic 允許企業把 30 天留存資料存於自有雲（2026 秋季，屬資料落地而非模型落地），以及 Bedrock／Google Cloud 的區域端點（含 10% 溢價）與 inference_geo 資料落地選項（1.1x 溢價）",
+      "evidence": "尚未證實",
+      "source_date": "2026-08-31"
+    },
+    {
+      "id": "model-access-geopolitics",
+      "label": "模型存取的地緣政治風險",
+      "state": "曾於 2026-06-12 因美國出口管制暫停，06-30 解除、07-01 恢復；本期無經 Tier 1 證實的新變更",
+      "evidence": "已證實",
+      "source_date": "2026-06-30"
+    },
+    {
+      "id": "china-models-observation",
+      "label": "中國廠商模型（情報觀察區）",
+      "state": "依 9SISMIP-AI-TRiSM-001 不納入採用評估；僅追蹤能力與供應鏈訊號。2026-08-26 GLM-5.3-Flash 與 Qwen3.8-Flash-Next 均有官方開放權重資料；Z.ai API 價格為輸入 $0.15／輸出 $0.50 per MTok。Qwen3.8-Flash 是另行託管的 production 版本，不與 Flash-Next 的權重、規格或價格混算",
+      "evidence": "已證實（benchmark 仍屬廠商主張）",
+      "source_date": "2026-08-26"
+    },
+    {
+      "id": "mhs-standard",
+      "label": "Model Hardware Standard（AI agent 操作實體設備規格）",
+      "state": "research preview，限定科研實驗室與先進製造夥伴；規劃日後開源。安全設計含 driver 層裝置安全上限、標準化裝置特性與限制描述檔、即時監控與錯誤偵測、高風險決策人工核可。產業支持者含 AWS、Danaher、Doosan Robotics、Universal Robots、QIAGEN、Tecan、Hugging Face、Raspberry Pi",
+      "evidence": "已證實",
+      "source_date": "2026-08-27"
+    },
+    {
+      "id": "ai-agent-browser-surface",
+      "label": "AI agent 的瀏覽器與端點曝險面",
+      "state": "Claude in Chrome 於 Pro／Max／Team／Enterprise GA，支援不逐步核可的自主操作，每個動作由安全分類器驗證，沿用使用者既有登入狀態；免費方案不含。Cowork 桌面版另內建瀏覽器",
+      "evidence": "已證實",
+      "source_date": "2026-08-26"
+    },
+    {
+      "id": "compliance-api-coverage",
+      "label": "Anthropic 企業治理與稽核介面覆蓋範圍",
+      "state": "Compliance API 對 Cowork（桌面／網頁／行動）與 Claude Code（CLI／桌面）GA，沿用既有 Compliance Access Key；M365 add-ins 與 Claude Science 為 beta；inference hooks（prompt 與 tool call 送達模型前檢查的即時 DLP）為 Enterprise beta",
+      "evidence": "廠商主張",
+      "source_date": "2026-08-26"
+    }
+  ]
+}

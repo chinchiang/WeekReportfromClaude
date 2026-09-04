@@ -9,6 +9,17 @@
     "purge_allowed": false
   },
   "weeks": [
-    { "week": "2026-W34", "period_end": "2026-08-24", "mode": "baseline", "file": "weeks/2026/2026-W34.json" }
+    {
+      "week": "2026-W36",
+      "period_end": "2026-08-31",
+      "mode": "delta",
+      "file": "weeks/2026/2026-W36.json"
+    },
+    {
+      "week": "2026-W34",
+      "period_end": "2026-08-24",
+      "mode": "baseline",
+      "file": "weeks/2026/2026-W34.json"
+    }
   ]
 }
