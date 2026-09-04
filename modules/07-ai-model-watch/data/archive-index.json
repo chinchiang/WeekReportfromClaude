@@ -12,7 +12,7 @@
       "period_end": "2026-08-31",
       "mode": "delta",
       "file": "weeks/2026/2026-W36.json",
-      "count": 11
+      "count": 9
     },
     {
       "week": "2026-W34",
@@ -53,7 +53,7 @@
       "track": "B",
       "target": "anthropic-enterprise-security",
       "target_label": "Claude Security 產品線狀態",
-      "title": "Mythos 5 進入 Claude Security：Enterprise 客戶不需直接存取模型即可用其掃描",
+      "title": "【補登】Mythos 5 進入 Claude Security：Enterprise 客戶不需直接存取模型即可用其掃描",
       "prev_state": "public beta，對 Claude Enterprise 客戶開放；另有 Cyber Verification Program",
       "curr_state": "Claude Security 掃描已由 Mythos 5 驅動，標準 token 計費、無額外 add-on；另設 $35M Defender Advantage Fund（0xDAF）；CVP 擴大至 Opus／Sonnet 更廣的 dual-use 能力，Mythos 級後續開放",
       "evidence": "verified",
@@ -65,7 +65,7 @@
         "採用政策",
         "SBOM"
       ],
-      "detail": "Anthropic 於 2026-08-21 公告、SecurityWeek 於 2026-08-24 報導：自 2026-04 起僅限受審防守方使用的 Mythos 5，現已用於 Claude Security 的 codebase 掃描，輸出含 CWE 分類、信心度與嚴重度評級、建議修補，修補須人工核可後才部署。計費依標準 token 用量，無獨立 add-on 費用。同時推出 Defender Advantage Fund（0xDAF），提供 3,500 萬美元 Claude credits，用於開源專案漏洞修補、掃描與修補流程自動化、以及新的資安做法實驗，首批試辦受贈者將於後續公布。Cyber Verification Program 將由現行的 Opus／Sonnet 降低防護擴大到更廣的 dual-use 能力，Mythos 級存取後續跟進。判讀：這是模組 07 首次出現 Inventec 可實際評估的正式管道 —— 存取模式是「只拿輸出、不碰模型」，比 Glasswing 的封閉夥伴計畫可行得多。要評估的重點不是能力，而是掃描結果進入 PSIRT 與 SDL 後的驗證與分流量能。",
+      "detail": "時間軸註記：Anthropic 原始公告日期為 2026-08-21，早於本期觀測起點；SecurityWeek 於 08-24 報導，本則作為 W34 基線漏項補登，不計為 08-24 後的新發布。Claude Security public beta 對 Claude Enterprise 客戶開放，掃描由 Mythos 5 驅動，輸出包含 CWE 分類、信心度、嚴重度與修補建議，修補仍須人工核可。Anthropic 同時公布 3,500 萬美元 Defender Advantage Fund（0xDAF），並擴大 Cyber Verification Program。",
       "source_org": "Anthropic",
       "source_date": "2026-08-21"
     },
@@ -76,7 +76,7 @@
       "track": "B",
       "target": "openai-cyber-model",
       "target_label": "OpenAI 資安導向模型",
-      "title": "OpenAI 以 Daybreak Blue／Red 兩層開放 GPT-5.6-Cyber，並上架 Amazon Bedrock",
+      "title": "【補登】OpenAI 以 Daybreak Blue／Red 兩層開放 GPT-5.6-Cyber，並上架 Amazon Bedrock",
       "prev_state": "GPT-5.5-Cyber，大規模夥伴測試中，未一般開放",
       "curr_state": "GPT-5.6-Cyber 經 Daybreak Red 提供給通過審核的組織；Daybreak Blue 提供 GPT-5.6 Sol；兩層均已可在 Amazon Bedrock 取用",
       "evidence": "verified",
@@ -87,9 +87,9 @@
         "供應商評估",
         "身分與存取管理"
       ],
-      "detail": "2026-08-10 OpenAI 擴大 Daybreak 並發布 GPT-5.6-Cyber，分為兩層：Blue 提供 GPT-5.6 Sol，涵蓋弱點發掘、安全程式碼審查、惡意程式分析、事件應變與修補驗證，被定位為多數防守方的建議起點；Red 提供專門訓練的資安模型（含 GPT-5.6-Cyber），用於弱點研究、exploit 驗證與安全測試。存取須經身分驗證、帳號安全、監控、用途限制與法律聲明。2026-08-11 AWS 一手公告確認 Daybreak Red 與 Daybreak Blue 已對符合資格的客戶在 Amazon Bedrock 上線，須先在 OpenAI 完成 Daybreak 註冊；AWS 表示兩者設計上任何人皆無法存取客戶 prompt 與輸出、資料不用於模型訓練、亦不需與 OpenAI 分享資料。早期受信任夥伴含 Accenture、IBM、CrowdStrike、Cloudflare。／分級註記：OpenAI 宣稱 GPT-5.6-Cyber 對 exploit chain 開發與提權類敏感請求的完成率為 95%，相對 GPT-5.6 Sol 的 1.5%、Daybreak Blue 的 2.0%，此為廠商自評、未見第三方復現，僅列為 vendor 級資訊，不支撐本則的分級。另有多筆二手報導指出 2026-09-01 起個人 Daybreak 帳號須綁定硬體安全金鑰，一手頁面無法覆核，列為尚未證實。openai.com 的 Daybreak 擴大公告與 AWS 上架公告兩個一手頁面在本次檢索皆回傳 HTTP 403。",
-      "source_org": "AWS",
-      "source_date": "2026-08-11"
+      "detail": "時間軸註記：OpenAI 與 AWS 的原始公告日期為 2026-08-10～11，早於本期觀測起點；本則作為 W34 基線漏項補登，不計為 08-24 後的新發布。Daybreak Blue 提供 GPT-5.6 Sol，Daybreak Red 提供 GPT-5.6-Cyber；符合資格的 AWS 客戶可透過 Amazon Bedrock 存取，仍須完成 Daybreak 註冊與審核。OpenAI 官方頁面在原始蒐集時回傳 HTTP 403，但已於 2026-09-04 重新驗證可讀並納入 Tier 1；官方亦確認身分驗證、用途限制、監控及硬體安全金鑰要求。廠商自評 benchmark 不納入證據分級。",
+      "source_org": "OpenAI",
+      "source_date": "2026-08-10"
     },
     {
       "week": "2026-W36",
@@ -98,9 +98,9 @@
       "track": "C",
       "target": "data-retention-terms",
       "target_label": "主要廠商企業版資料留存與訓練使用條款",
-      "title": "Anthropic 將允許企業把必要留存資料存放在自有雲，OpenAI 以 ZDR 加 PSP 對應",
+      "title": "【補登／部分待官方確認】Anthropic 自有雲留存方案與 OpenAI ZDR／PSP",
       "prev_state": "—（基線；上期列為待補標的）",
-      "curr_state": "30 天留存要求不變，但企業客戶可改存於自有雲基礎設施，涵蓋 Fable 與 Mythos 及後續前沿模型，預計 2026 秋季推出",
+      "curr_state": "Anthropic 自有雲留存調整仍為媒體報導；OpenAI 已官方確認 ZDR 相容的 PSP 為 preview，預計 2026-09 起分階段推出",
       "evidence": "thirdparty",
       "priority": "P1",
       "impact": [
@@ -109,31 +109,9 @@
         "資料治理",
         "供應商評估"
       ],
-      "detail": "Anthropic 於 2026-07 表示對特定 covered models（含 Mythos 級與後續同等能力模型）要求有限度的資料留存與審查，prompt 與輸出保留 30 天以支援安全工作。2026-08-20 起多家媒體報導 Anthropic 將在企業客戶反映後調整：留存天數不變，但可把資料放在客戶自己的雲上、由客戶掌握金鑰與司法管轄。OpenAI 側的做法是 Zero Data Retention 加上 Private Safety Processing（PSP），在不讓 OpenAI 員工接觸 prompt 與回應的前提下跨互動偵測安全風險，已與 Databricks、Microsoft 試行，預計 9 月擴大。判讀：兩家的差異是保管權而非天數 —— 這正是本模組長期追蹤 data-retention-terms 的原因。對 Inventec 而言，若導入 Mythos 級能力，30 天留存本身是既成條件，可談的是存放位置與金鑰管理；建議在採用政策中把「covered model 的留存位置」列為必要條款。／查證限制：未取得 Anthropic 一手條款頁面覆核，來源為 Bloomberg 與 Quartz 等二手報導，依規則不得標為已證實。",
+      "detail": "時間軸註記：來源日期為 2026-08-19～21，早於本期觀測起點；本則用於補齊上期 pending baseline，不計為 08-24 後的新事件。Bloomberg 與 Quartz 報導 Anthropic 計畫讓 covered-model 資料由企業存於自有雲，但尚未取得 Anthropic 一手條款覆核，因此該部分不得視為已證實。OpenAI 則於 08-19 官方說明 Zero Data Retention 相容的 Private Safety Processing（PSP）正在 early testing，並預計 9 月起分階段擴大；preview 不等同 GA。整則維持 thirdparty，避免把 OpenAI 的一手證據誤套到 Anthropic 主張。",
       "source_org": "Bloomberg",
       "source_date": "2026-08-20"
-    },
-    {
-      "week": "2026-W36",
-      "period_end": "2026-08-31",
-      "id": "m07-2026W36-05",
-      "track": "C",
-      "target": "model-access-geopolitics",
-      "target_label": "模型存取的地緣政治風險",
-      "title": "美國研議以新規取代 AI diffusion rule，鎖定境外雲端的遠端 GPU 存取",
-      "prev_state": "曾於 2026-06-12 因美國出口管制暫停，06-30 解除、07-01 恢復",
-      "curr_state": "商務部草擬新規取代 AI diffusion rule，針對中國業者透過境外雲端遠端租用受管制 GPU；最快 2026-09 交業界徵詢，尚未定案",
-      "evidence": "thirdparty",
-      "priority": "P2",
-      "impact": [
-        "架構韌性",
-        "採用政策",
-        "供應鏈安全",
-        "營運持續"
-      ],
-      "detail": "2026-08-28 前後多家媒體報導，美方擬廢除 2025 年初定案的分級式 AI diffusion rule，改以新規處理「遠端存取」缺口 —— 亦即中國業者向泰國、新加坡等未受同等管制地區的資料中心租用受出口管制的 GPU。商務部最快 9 月將規則交由產業團體徵詢意見。法律面存在爭議：有貿易管制律師指出商務部傳統上管制實體貨物運輸，對遠端存取的可執行性「普遍被認為」有疑義，較可行的路徑是透過 know-your-customer 查核。判讀：本則對 Inventec 的意義不在中國業者，而在於管制邏輯若從「晶片出境」擴張到「算力可及性」，跨國營運據點取用雲端模型的合規判斷會變複雜，且可能像 2026-06 那次一樣在無預警下改變可用性。目前為草案，維持 P2 追蹤，不需立即行動。",
-      "source_org": "Tom's Hardware",
-      "source_date": "2026-08-28"
     },
     {
       "week": "2026-W36",
@@ -207,7 +185,7 @@
       "track": "A",
       "target": "anthropic-frontier-tier",
       "target_label": "Anthropic 前沿模型世代",
-      "title": "前沿世代狀態經官方文件覆核，證據等級由第三方評論升級為已證實",
+      "title": "【基線覆核】Anthropic 前沿世代狀態經官方文件與獨立報導交叉驗證",
       "prev_state": "Mythos 5 / Fable 5（2026-06-09 起），取代 Mythos Preview（來源為第三方彙整）",
       "curr_state": "官方文件確認：claude-mythos-preview 已 deprecated 並指向 claude-mythos-5；claude-fable-5 為 Active，退役不早於 2027-06-09；Mythos 5 標示為 limited availability",
       "evidence": "verified",
@@ -216,7 +194,7 @@
         "採用政策",
         "供應商評估"
       ],
-      "detail": "上期此則僅有第三方彙整來源，依規則標為第三方評論並註記待覆核。本期已在 Anthropic 兩份一手文件取得確認：model deprecations 頁明載 claude-mythos-preview 已 deprecated、遷移對象為 claude-mythos-5；pricing 頁將 Claude Mythos 5 標示為 limited availability 並連向 Glasswing 頁面。Fable 5 與 Mythos 5 定價一致，與上期「兩者共用底層模型、Fable 5 額外加上生物／資安／LLM R&D 防護」的說法一致。／分級註記：兩筆來源皆為 Anthropic 一手文件，非第三方復現；因本則屬產品線狀態的事實性陳述而非能力主張，官方文件即為權威來源，故標為已證實。",
+      "detail": "本則是基線證據修正，不代表本期發布新模型。Anthropic pricing 與 deprecations 文件確認 claude-fable-5 為 Active、claude-mythos-preview 已 deprecated 並指向 claude-mythos-5；Reuters 對 2026-06-09 發布的獨立報導補足不同組織來源。模型效能與安全能力數據仍視為廠商主張，不因版本狀態獲確認而升級。",
       "source_org": "Anthropic",
       "source_date": "發布日未標示（2026-08-31 擷取覆核）"
     },
@@ -227,40 +205,19 @@
       "track": "A",
       "target": "china-models-observation",
       "target_label": "中國廠商模型（情報觀察區）",
-      "title": "情報觀察區：GLM-5.3-Flash 與 Qwen3.8-Flash-Next 於 08-26 同日開放權重",
+      "title": "情報觀察區：GLM-5.3-Flash 與 Qwen3.8-Flash-Next 開放權重；Qwen production 版本另列",
       "prev_state": "依 9SISMIP-AI-TRiSM-001 不納入採用評估；僅追蹤能力與供應鏈訊號",
-      "curr_state": "同前，不納入採用評估；本期新增兩款開放權重模型，價格帶壓至每百萬 token 0.15～0.5 美元級距",
-      "evidence": "thirdparty",
+      "curr_state": "GLM-5.3-Flash 與 Qwen3.8-Flash-Next 均有官方開放權重資料；Qwen3.8-Flash 為另行託管的 production 版本，不與 Flash-Next 的權重或規格混算",
+      "evidence": "verified",
       "priority": "P2",
       "impact": [
         "威脅情報",
         "供應鏈安全",
         "採用政策"
       ],
-      "detail": "2026-08-26 Z.ai 發布 GLM-5.3-Flash：320B 總參數／18B 啟用參數的原生多模態 MoE，1M token context，MIT 授權開放權重，官方標價每百萬 token 輸入 0.15 美元、輸出 0.50 美元。同日 Alibaba Qwen 團隊開放 Qwen3.8-Flash-Next 權重，為多模態 MoE、125B 參數加 51B N-gram 元件，被描述為 Qwen4 架構的早期預覽，production API 標價輸入 0.16 美元、輸出 0.47 美元。判讀：依 9SISMIP-AI-TRiSM-001 政策，此區僅作情報觀察，不納入採用評估。需要注意的訊號是「能力溢價正在被壓縮」—— 開放權重模型在 1M context 與低單價上逼近商用前沿層，這會改變供應鏈上下游（含客戶與代工夥伴）的實際部署選擇，進而影響我方在專案中會遇到的模型清單。／分級註記：兩款模型的 benchmark 數字（含 DeepSWE v1.1 63.4 對 58.7）均為廠商自評或第三方彙整，未見獨立復現，屬 vendor 級資訊，不支撐本則分級。",
-      "source_org": "MarkTechPost",
+      "detail": "2026-08-26，Z.ai 與 Qwen 分別發布 GLM-5.3-Flash、Qwen3.8-Flash-Next 的官方開放權重資料。Z.ai 公布 GLM-5.3-Flash API 單價為每百萬 token 輸入 0.15 美元、輸出 0.50 美元。Qwen 官方 model card 明確區分開放權重的 Flash-Next 預覽與另行託管的 production Qwen3.8-Flash；後者的定價、預設 context 與工具能力不得回填到 Flash-Next。MarkTechPost 作為獨立來源僅用來交叉確認發布事實；所有 benchmark 仍屬廠商自評，不納入分級。依 9SISMIP-AI-TRiSM-001，本則只作供應鏈情報，不納入採用評估。",
+      "source_org": "Z.ai",
       "source_date": "2026-08-26"
-    },
-    {
-      "week": "2026-W36",
-      "period_end": "2026-08-31",
-      "id": "m07-2026W36-11",
-      "track": "C",
-      "target": "china-models-observation",
-      "target_label": "中國廠商模型（情報觀察區）",
-      "title": "中國商務部研議 AI 模型權重與訓練資料出口管制（草案）",
-      "prev_state": "依 9SISMIP-AI-TRiSM-001 不納入採用評估；僅追蹤能力與供應鏈訊號",
-      "curr_state": "商務部就模型權重、訓練關鍵資料、晶片設計的出口管制徵詢阿里巴巴、字節跳動、智譜等業者；分級構想為弱能力開源模型備查、較強者安全審查、最強者可能禁止公開釋出；API／雲端服務型存取擬維持",
-      "evidence": "thirdparty",
-      "priority": "P2",
-      "impact": [
-        "供應鏈安全",
-        "威脅情報",
-        "資產盤點"
-      ],
-      "detail": "2026-08 中旬起有報導指出，中國商務部正就三條出境路徑諮詢業者：模型檔案下載、訓練關鍵資料跨境傳輸、以及基於中國晶片設計的境外生產。討論核心有二 —— 訓練資料出境，以及外國使用者是否還能自由下載中國 AI 系統的模型權重；以 API 與雲端服務形式提供的存取則擬維持。多數提案仍在審議，主管機關正評估產業意見，尚無定案時程。判讀：與本期 entry 10 併看，方向是矛盾的 —— 廠商正加速開放權重，主管機關則在研議收緊下載途徑。對我方的實務影響是：若專案或供應鏈夥伴已把中國開放權重模型納入既有部署，未來的可取得性與更新路徑存在政策風險，應在資產盤點時標註來源與授權狀態。此則維持情報觀察，不改變採用政策。",
-      "source_org": "Tom's Hardware",
-      "source_date": "2026-08-16"
     },
     {
       "week": "2026-W34",

@@ -48,9 +48,9 @@ targets:
     source_date: "2026-08-11"
   - id: openai-frontier-tier
     label: OpenAI 前沿模型世代與定價
-    state: "GPT-5.6 系列為現行旗艦（2026-07 發布，含 Sol／Luna／Terra 分軌，Luna 於 8 月成為 ChatGPT 免費層預設）；o3 於 2026-08-26 自 ChatGPT 退役。定價未覆核；openai.com 一手頁面於本期檢索回傳 HTTP 403，無法確認"
-    evidence: 尚未證實
-    source_date: "2026-08-31"
+    state: "GPT-5.6 系列為現行旗艦（含 Sol／Luna／Terra 分軌）；o3 已於 2026-08-26 自 ChatGPT 退役。定價未於本次修訂覆核；Daybreak 官方頁面已於 2026-09-04 重新驗證可讀，修正原 HTTP 403 限制"
+    evidence: 部分已證實
+    source_date: "2026-09-04"
   - id: google-frontier-tier
     label: Google DeepMind 前沿模型世代與定價
     state: "Gemini 3.x 系列：3.7 Flash（2026-08-13）、3.6 Flash 與 3.5 Flash-Lite 已 GA；gemini-robotics-er-1.6-preview 於 2026-08-31 停用。本觀測期間無新發布。定價未覆核，來源為第三方追蹤站"
@@ -58,8 +58,8 @@ targets:
     source_date: "2026-08-31"
   - id: data-retention-terms
     label: 主要廠商企業版資料留存與訓練使用條款
-    state: "Anthropic：covered models（含 Mythos 級）prompt 與輸出保留 30 天；天數不變，但企業客戶將可改存於自有雲、自行掌握金鑰與司法管轄，預計 2026 秋季推出。OpenAI：Zero Data Retention 加 Private Safety Processing（PSP），與 Databricks、Microsoft 試行中，預計 9 月擴大。兩者差異在保管權而非留存天數；均未取得一手條款頁面覆核"
-    evidence: 第三方評論
+    state: "Anthropic：媒體報導 covered-model 資料未來可由企業存於自有雲，尚待 Anthropic 一手條款覆核。OpenAI：官方確認 Zero Data Retention 相容的 Private Safety Processing（PSP）正 early testing，預計 2026-09 起分階段擴大；preview 不等同 GA"
+    evidence: 第三方評論（Anthropic）／已證實 preview（OpenAI）
     source_date: "2026-08-21"
   - id: onprem-options
     label: 可地端／VPC 部署的模型選項
@@ -68,13 +68,13 @@ targets:
     source_date: "2026-08-31"
   - id: model-access-geopolitics
     label: 模型存取的地緣政治風險
-    state: "2026-06-12 的出口管制暫停已於 06-30 解除、07-01 恢復。新增：美國商務部草擬新規取代 AI diffusion rule，鎖定中國業者透過境外雲端遠端租用受管制 GPU，最快 2026-09 交業界徵詢，可執行性有法律爭議，尚未定案"
-    evidence: 第三方評論
-    source_date: "2026-08-28"
+    state: "曾於 2026-06-12 因美國出口管制暫停，06-30 解除、07-01 恢復；本期無經 Tier 1 證實的新變更"
+    evidence: 已證實
+    source_date: "2026-06-30"
   - id: china-models-observation
     label: 中國廠商模型（情報觀察區）
-    state: "依 9SISMIP-AI-TRiSM-001 不納入採用評估；僅追蹤能力與供應鏈訊號。2026-08-26 GLM-5.3-Flash（320B-A18B、1M context、MIT 授權）與 Qwen3.8-Flash-Next（125B + 51B N-gram）同日開放權重，單價壓至每百萬 token 0.15～0.5 美元級距。同時中國商務部正研議模型權重與訓練資料出口管制（草案，API／雲端存取擬維持）"
-    evidence: 第三方評論
+    state: "依 9SISMIP-AI-TRiSM-001 不納入採用評估；僅追蹤能力與供應鏈訊號。2026-08-26 GLM-5.3-Flash 與 Qwen3.8-Flash-Next 均有官方開放權重資料；Z.ai API 價格為輸入 $0.15／輸出 $0.50 per MTok。Qwen3.8-Flash 是另行託管的 production 版本，不與 Flash-Next 的權重、規格或價格混算"
+    evidence: 已證實（benchmark 仍屬廠商主張）
     source_date: "2026-08-26"
   - id: mhs-standard
     label: Model Hardware Standard（AI agent 操作實體設備規格）
