@@ -1,50 +1,48 @@
 {
   "id": "2026-W35",
   "title": {
-    "zh": "SRP 倒數 12 天仍未上線、CRA 標準交付期限延後兩個月、Citrix NetScaler 由 DoS 變成免認證 RCE 遭利用",
-    "en": "SRP Not Live with 12 Days to Go; CRA Standard Delivery Deadlines Slip Two Months; Citrix NetScaler Turns from DoS into Exploited Unauthenticated RCE"
+    "zh": "執委會發布首份 CRA 適用指引、SRP 倒數 12 天未上線、五機關警告 AI 生成腳本鎖定 Siemens S7 PLC、PaperCut 零日遭利用",
+    "en": "Commission Issues First CRA Application Guidance; SRP Not Live with 12 Days Left; Five Agencies Warn of AI-Generated Exploits Against Siemens S7 PLCs; PaperCut Zero-Days Exploited"
   },
   "period": "2026-08-24 ~ 2026-08-30",
   "publishedAt": "2026-08-30",
   "summary": {
-    "zh": "距 CRA 9/11 通報義務生效只剩 12 天，ENISA 單一通報平台（SRP）仍未上線：公開網址未公布、國家 CSIRT 協調員名單未公布、不提供 API。這代表義務生效當週，第一線只能靠人工介面通報，內部流程必須以「24 小時內完成人工提交」為前提設計，不能寄望自動化。CRA 標準面出現兩件方向相反的事：ETSI 已於 8/13 把 17 項產品類別標準（EN 304 617–627、631–636）送進公眾意見徵詢，是迄今最大一批進展；但執委會同時擬修訂標準化委託 M/606，把 2026 年的交付期限整體往後推兩個月（A 類與 B 類漏洞管理標準由 8/30 移到 10/31、C 類產品標準由 10/30 移到 12/31）。法規適用日一天都沒動，往後推的只有標準——換句話說，「等調和標準出來再開始準備」的空窗又拉長了兩個月，而 2027/12/11 的主要義務日不變。ISO 面，ISO/IEC 27017:2026 已於 7 月發布第二版，時隔 11 年首次改版並全面對齊 27002:2022 的控制結構，用雲端服務的組織需重新對照。漏洞面本週相當熱：CISA 三度更新 KEV 共新增 10 項，其中 Citrix NetScaler CVE-2026-8452 原本被列為 DoS，watchTowr 8/14 公布 PoC 後被證實可達免認證遠端執行，隨即遭實際利用投放 web shell；另有 JFrog Artifactory 路徑穿越漏洞入列，直接打在軟體供應鏈的建置產出物儲存庫上。",
-    "en": "With 12 days to the CRA's September 11 reporting obligations, ENISA's Single Reporting Platform is still not live: no public URL, no published list of national CSIRT coordinators, and no API. In practice that means the first week of the obligation will run on a manual interface, so internal processes must be designed around completing a human submission inside 24 hours rather than around automation. Two opposite things happened on CRA standards: ETSI put 17 product-category standards (EN 304 617–627 and 631–636) into Public Enquiry on August 13 — the largest batch of progress so far — while the Commission drafted an amendment to standardisation request M/606 that pushes the 2026 delivery deadlines back two months (Type A and the Type B vulnerability-management standards from August 30 to October 31; Type C product standards from October 30 to December 31). None of the regulation's application dates moved; only the standards did — so the gap in which \"wait for the harmonised standard\" is not a viable plan just grew by two months, with December 11, 2027 unchanged. On the ISO side, ISO/IEC 27017:2026 was published in July as the second edition — the first revision in eleven years — realigning cloud guidance onto the ISO/IEC 27002:2022 control structure, which organisations using cloud services will need to re-map. Vulnerabilities were busy: CISA updated the KEV catalog three times this week, adding ten entries. Among them, Citrix NetScaler CVE-2026-8452 was originally rated a DoS bug, but after watchTowr published a proof of concept on August 14 it was shown to allow unauthenticated remote code execution and was promptly exploited to drop web shells. A JFrog Artifactory path-traversal flaw also entered the catalog, landing squarely on the build-artifact repository at the heart of the software supply chain."
+    "zh": "（本期為 2026-09-05 重新查證後的改版，補入六則初版漏報的重要內容並更正一則舊敘述，涵蓋期間不變。）CRA 方面出現一份本站初版漏掉、但對製造商實務影響最大的文件：執委會已於 7 月 27 日發布首份 CRA 適用指引（Commission Decision C(2026) 5252 final 附件），約 84 頁、67 個實作範例，把四個爭議最大的問題定調——適用範圍與開源軟體、「實質修改（substantial modification）」的四要素判定、支援期長度與揭露方式（明確指出五年是**下限**而非預設值），以及與其他歐盟法規的交互。指引不具法律拘束力，但這是目前對「aware」「in scope」「substantially modified」最清楚的官方解釋。與此同時，距 9/11 通報義務生效僅 12 天，ENISA 單一通報平台仍未上線、網址未公布、CSIRT 協調員名單未公布、且確認不提供 API——通報流程必須以人工介面完成 24 小時時限來設計。標準面，ETSI 已於 8/13 把 17 項產品標準送進公眾意見徵詢，但執委會同時擬把 M/606 的 2026 年交付期限整體後推兩個月，A/B 類原訂的 8 月 30 日（即本期最後一天）已屆期而未交付。OT 面本期最該讀的是 CISA 等五個美國機關 8 月中旬發布的聯合警示 AA26-231A：攻擊者以公開工業自動化函式庫（snap7.dll、python-snap7）搭配 AI 生成腳本，偽裝成正常 OT 監控工具，針對網際網路可達的 Siemens S7 系列 PLC 進行偵察與能力開發，明確點名**關鍵製造業**為目標之一——這是官方首次在聯合警示中把生成式 AI 指為使 ICS 攻擊得以規模化的能力來源。漏洞面，PaperCut NG/MF 出現遭實際利用的零日漏洞鏈（CVE-2026-81578 認證繞過 + CVE-2026-82078 不安全動態類別載入，CVSS 8.8／9.4），全球逾 7 萬家組織使用，可達免認證遠端執行；加上 Citrix NetScaler CVE-2026-8452 由「DoS」被證實為免認證 RCE 並遭利用，本週兩起都是同一個教訓：廠商的嚴重性評級不能當成修補優先序的唯一依據。另本期就 NIS2「首波罰單」金額做出更正，詳見 NIS2 章節。",
+    "en": "(This is a revised edition re-verified on 2026-09-05, adding six significant items missed in the first edition and correcting one earlier statement; the coverage window is unchanged.) On the CRA side, one document our first edition missed turns out to matter most to manufacturers: on July 27 the Commission published its first guidance on applying the CRA (the Annex to Commission Decision C(2026) 5252 final), roughly 84 pages with 67 worked examples, settling four of the most contested questions — scope and free and open-source software, a four-factor test for \"substantial modification\", the length and disclosure of support periods (stating explicitly that five years is a **floor**, not a default), and how the Regulation interacts with other EU legislation. The guidance is non-binding, but it is the clearest official reading yet of \"aware\", \"in scope\" and \"substantially modified\". Meanwhile, with 12 days to the September 11 reporting obligations, ENISA's Single Reporting Platform is still not live, its URL and CSIRT coordinator list unpublished, and confirmed to offer no API — so the reporting process must be designed around meeting a 24-hour clock through a manual interface. On standards, ETSI put 17 product standards into Public Enquiry on August 13, while the Commission drafted a two-month slip to M/606's 2026 delivery deadlines; the original Type A/B date of August 30 — the last day of this period — passed without delivery. On the OT side, the most important read this period is joint advisory AA26-231A, issued in mid-August by five US agencies: threat actors are pairing public industrial automation libraries (snap7.dll, python-snap7) with AI-generated scripting to build tools disguised as legitimate OT monitoring software, conducting reconnaissance and capability development against internet-reachable Siemens S7 series PLCs, with **critical manufacturing** named among the targeted sectors — the first time a joint advisory has named generative AI as the capability enabling ICS exploitation at scale. On vulnerabilities, PaperCut NG/MF suffered an exploited zero-day chain (CVE-2026-81578 authentication bypass plus CVE-2026-82078 unsafe dynamic class loading, CVSS 8.8 and 9.4), used by more than 70,000 organisations worldwide and reachable to unauthenticated remote code execution. Together with Citrix NetScaler CVE-2026-8452, rated a DoS but shown to be unauthenticated RCE and exploited, both cases teach the same lesson: a vendor's severity rating cannot be the sole input to patch prioritisation. This edition also issues a correction on the reported NIS2 \"first fine\" amounts — see the NIS2 section."
   },
   "highlights": [
     {
-      "zh": "【重點追蹤】EU CRA：距 9/11 通報義務生效僅 **12 天**，ENISA 單一通報平台仍未上線、網址未公布、CSIRT 協調員名單未公布、**不提供 API**。通報流程請以「人工介面、24 小時內完成」為設計前提。",
-      "en": "[Watch] EU CRA: just **12 days** to the September 11 reporting obligations, and ENISA's Single Reporting Platform is still not live — no URL, no CSIRT coordinator list, and **no API**. Design your reporting process around a manual interface completed within 24 hours."
+      "zh": "執委會 7/27 發布**首份 CRA 適用指引**（C(2026) 5252 final 附件，約 84 頁、67 個實例）：定調適用範圍與開源軟體、「實質修改」四要素測試、支援期規則（**五年是下限不是預設**），以及與其他歐盟法規的交互。不具拘束力，但這是目前最清楚的官方解釋。",
+      "en": "On July 27 the Commission published its **first CRA application guidance** (Annex to C(2026) 5252 final, ~84 pages, 67 worked examples), settling scope and open-source software, a four-factor test for \"substantial modification\", support period rules (**five years is a floor, not a default**), and interaction with other EU legislation. Non-binding, but the clearest official reading available."
     },
     {
-      "zh": "【重點追蹤】CRA 調和標準：ETSI 8/13 將 17 項產品標準送進公眾意見徵詢（含路由器/交換器、作業系統、VPN、SIEM、密碼管理器、連網玩具等）；但執委會同時擬把 2026 年交付期限延後兩個月，**OJ 迄今仍無任何 CRA 調和標準**。",
-      "en": "[Watch] CRA harmonised standards: ETSI opened Public Enquiry on 17 product standards on August 13 (routers/switches, operating systems, VPNs, SIEM, password managers, connected toys and more), while the Commission drafted a two-month slip to the 2026 delivery deadlines. **Still nothing cited in the Official Journal.**"
+      "zh": "【重點追蹤】EU CRA：距 9/11 通報義務生效僅 **12 天**，ENISA 單一通報平台仍未上線、網址與 CSIRT 協調員名單未公布、**不提供 API**。通報流程請以「人工介面、24 小時內完成」為設計前提。",
+      "en": "[Watch] EU CRA: just **12 days** to the September 11 reporting obligations, and ENISA's Single Reporting Platform is still not live — URL and CSIRT coordinator list unpublished, and **no API**. Design your reporting process around a manual interface completed within 24 hours."
     },
     {
-      "zh": "Citrix NetScaler ADC/Gateway **CVE-2026-8452 已遭實際利用**：原廠 6/30 僅列為記憶體溢位與 DoS，watchTowr 8/14 公布 PoC 後證實可達免認證 RCE，攻擊者投放 web shell。CISA 8/26 列入 KEV，要求 8/29 前修補。設為 Gateway（SSL VPN／ICA Proxy／CVPN／RDP Proxy）或 AAA 虛擬伺服器者受影響。",
-      "en": "Citrix NetScaler ADC/Gateway **CVE-2026-8452 is being exploited in the wild.** Citrix rated it a memory-overflow DoS on June 30; after watchTowr published a PoC on August 14 it was shown to permit unauthenticated RCE, and attackers began dropping web shells. CISA added it to the KEV catalog on August 26 with an August 29 remediation date. Appliances configured as Gateway (SSL VPN, ICA Proxy, CVPN, RDP Proxy) or as an AAA virtual server are affected."
+      "zh": "CISA、NSA、FBI、能源部與環保署聯合警示 **AA26-231A**：攻擊者以 snap7.dll／python-snap7 搭配 **AI 生成腳本**，偽裝成正常 OT 監控工具，對網際網路可達的 **Siemens S7 系列 PLC** 進行偵察與能力開發，鎖定供水、能源與**關鍵製造業**。請立即確認廠內 S7 是否對外可達。",
+      "en": "Joint advisory **AA26-231A** from CISA, NSA, FBI, DOE and EPA: threat actors are pairing snap7.dll / python-snap7 with **AI-generated scripting** to build tools disguised as legitimate OT monitoring software, conducting reconnaissance and capability development against internet-reachable **Siemens S7 series PLCs** across water, energy and **critical manufacturing**. Verify immediately whether any plant S7 is externally reachable."
     },
     {
-      "zh": "ISO/IEC 27017:2026 發布（第二版，睽違 11 年改版）：獨立的雲端專屬（CLD）控制措施由 7 項精簡為 4 項，其餘併回 ISO/IEC 27002:2022 對應控制，結構全面對齊 27002:2022；歐洲同步採認為 EN ISO/IEC 27017:2026。",
-      "en": "ISO/IEC 27017:2026 has been published (second edition, the first revision in eleven years): the standalone cloud-specific (CLD) controls drop from seven to four, with the rest folded into their ISO/IEC 27002:2022 counterparts and the whole structure realigned to 27002:2022. Europe has adopted it in parallel as EN ISO/IEC 27017:2026."
+      "zh": "**PaperCut NG/MF 零日漏洞鏈遭實際利用**：CVE-2026-81578（認證繞過，CVSS 8.8）＋ CVE-2026-82078（不安全動態類別載入，CVSS 9.4）可串成免認證遠端執行；廠商 8/27 證實客戶遭攻擊、8/28 指派 CVE，並連續釋出三批緊急修補。全球逾 7 萬家組織使用該列印管理平台。",
+      "en": "**PaperCut NG/MF zero-day chain exploited in the wild:** CVE-2026-81578 (authentication bypass, CVSS 8.8) chained with CVE-2026-82078 (unsafe dynamic class loading, CVSS 9.4) yields unauthenticated remote code execution. The vendor confirmed customer incidents on August 27, assigned CVEs on August 28, and shipped three rounds of emergency patches. The print management platform is used by more than 70,000 organisations worldwide."
+    },
+    {
+      "zh": "【重點追蹤】CRA 標準：ETSI 8/13 將 17 項產品標準送進公眾意見徵詢；但 M/606 修訂草案把 2026 年交付期限後推兩個月，A/B 類原訂 **8/30 已屆期而未交付**，**OJ 迄今仍無任何 CRA 調和標準**。",
+      "en": "[Watch] CRA standards: ETSI opened Public Enquiry on 17 product standards on August 13, but the draft M/606 amendment pushes the 2026 delivery deadlines back two months — the original Type A/B date of **August 30 passed without delivery**, and **the OJ still carries no CRA harmonised standard**."
     }
   ],
   "sections": [
     {
       "topic": "eu-ai-act",
-      "name": {
-        "zh": "EU AI Act（歐盟人工智慧法案）",
-        "en": "EU AI Act"
-      },
+      "name": { "zh": "EU AI Act（歐盟人工智慧法案）", "en": "EU AI Act" },
       "items": [
         {
           "title": {
             "zh": "【重點追蹤】調和標準：OJ 仍無任何 AI Act 標準；prEN 18228（風險管理）意見徵詢已於 7/30 結束",
             "en": "[Watch] Harmonised standards: still nothing in the OJ; the prEN 18228 (risk management) enquiry closed on July 30"
           },
-          "date": {
-            "zh": "2026-07-30 意見徵詢截止，追蹤中",
-            "en": "Enquiry closed 2026-07-30, ongoing"
-          },
+          "date": { "zh": "2026-07-30 意見徵詢截止，追蹤中", "en": "Enquiry closed 2026-07-30, ongoing" },
           "importance": "medium",
           "content": {
             "zh": "本期無新的刊登動作：歐盟公報（OJ）迄今仍未刊登任何 EU AI Act 調和標準，Article 40 的合規推定對高風險系統提供者尚不可用。CEN-CENELEC JTC 21 的管線現況為：EN 18286（Article 17 品質管理系統）已於 7/12 核准發布、等待執委會評估與刊登決定；prEN 18228（AI 風險管理，對應 Article 9）的公眾意見徵詢已於 7 月 30 日結束，接下來是意見處理與正式表決；prEN 18229-1、prEN 18282 同處意見徵詢階段；對應 Article 10 資料治理的 prEN 18284 仍在起草。時間帳要算清楚：高風險義務因數位總括法（Digital Omnibus，2026-07-24 刊登 OJ、07-27 生效）已延至 Annex III 2027-12-02、Annex I 2028-08-02，標準必須在那之前完成「發布 → 執委會評估 → 刊登 OJ」三道程序才有推定效力，而目前連第一份都還沒走完第三道。",
@@ -55,22 +53,10 @@
             "en": "Providers of high-risk AI systems can already gap-assess against the EN 18286 text for Article 17, but must not claim a presumption of conformity in documentation or customer communications. Lay out your risk-management process against the published prEN 18228 draft now, so the formally voted version requires tuning rather than a rebuild. If your products fall under Annex I (AI embedded in goods covered by EU product-safety law), the substantive runway extends to 2028-08-02 — though supply-chain customers' contractual requirements typically land well before the legal deadline."
           },
           "sources": [
-            {
-              "title": "CEN-CENELEC JTC 21：歐洲 AI 標準化里程碑（官方）",
-              "url": "https://jtc21.eu/significant-milestone-for-european-ai-standardization/"
-            },
-            {
-              "title": "CEN-CENELEC：人工智慧領域工作頁（官方）",
-              "url": "https://www.cencenelec.eu/areas-of-work/cen-cenelec-topics/artificial-intelligence/"
-            },
-            {
-              "title": "Adam Leon Smith: prEN 18228 heads to Enquiry — the product-safety answer to AI risk management",
-              "url": "https://adamleonsmith.substack.com/p/pren-18228-heads-to-enquiry-the-product"
-            },
-            {
-              "title": "KLA Digital: JTC 21 Standards Tracker — CEN-CENELEC AI Act Deliverables",
-              "url": "https://kla.digital/blog/jtc-21-standards-tracker"
-            }
+            { "title": "CEN-CENELEC JTC 21：歐洲 AI 標準化里程碑（官方）", "url": "https://jtc21.eu/significant-milestone-for-european-ai-standardization/" },
+            { "title": "CEN-CENELEC：人工智慧領域工作頁（官方）", "url": "https://www.cencenelec.eu/areas-of-work/cen-cenelec-topics/artificial-intelligence/" },
+            { "title": "Adam Leon Smith: prEN 18228 heads to Enquiry — the product-safety answer to AI risk management", "url": "https://adamleonsmith.substack.com/p/pren-18228-heads-to-enquiry-the-product" },
+            { "title": "KLA Digital: JTC 21 Standards Tracker — CEN-CENELEC AI Act Deliverables", "url": "https://kla.digital/blog/jtc-21-standards-tracker" }
           ]
         },
         {
@@ -78,10 +64,7 @@
             "zh": "Article 50 透明度義務已生效：執委會 7/20 通過指引，並推出 AI 生成內容透明度自願行為準則",
             "en": "Article 50 transparency obligations are live: the Commission adopted guidelines on July 20 and issued a voluntary Code of Practice on transparency of AI-generated content"
           },
-          "date": {
-            "zh": "2026-07-20 指引通過、2026-08-02 義務生效",
-            "en": "Guidelines adopted 2026-07-20; obligations applicable 2026-08-02"
-          },
+          "date": { "zh": "2026-07-20 指引通過、2026-08-02 義務生效", "en": "Guidelines adopted 2026-07-20; obligations applicable 2026-08-02" },
           "importance": "medium",
           "content": {
             "zh": "AI Act Article 50 的透明度義務自 2026 年 8 月 2 日起適用，涵蓋四類情境：(1) 與人直接互動的 AI 系統須告知使用者正在與 AI 互動；(2) 生成合成音訊、影像、影片或文字者須以機器可讀方式標記；(3) 情緒辨識與生物特徵分類系統須告知被納入者；(4) 深偽內容與涉及公共利益議題的 AI 生成文字須揭露。條文本身用語開放，執委會已於 7 月 20 日通過 AI Office 起草的指引填補解釋空隙，並同步發布《AI 生成內容透明度自願行為準則》，為標記與偵測義務提供一條可主張的遵循路徑。同日起，執委會對通用 AI（GPAI）模型提供者的執法權亦告生效，AI Office 可要求提供文件、直接評測模型、命令改正、限制或撤出市場，並依 Article 101 課處最高 1,500 萬歐元或全球營業額 3% 之罰鍰——對 GPAI 模型而言，主管機關是執委會本身，而非各國市場監管機關。",
@@ -92,68 +75,60 @@
             "en": "Inventory every AI interface facing customers or employees — support chatbots, internal assistants, marketing-content generators — and confirm both interaction disclosure and content marking are actually implemented. This is the only AI Act obligation currently in force that does not wait on a harmonised standard, so the compliance exposure is immediate. If you procure third-party GPAI models, require suppliers to state contractually whether they have signed the GPAI Code of Practice and how generated content is marked, because a deployer's own disclosure duty cannot be discharged by a supplier's attestation."
           },
           "sources": [
-            {
-              "title": "European Commission：AI 生成內容透明度義務指引（官方）",
-              "url": "https://digital-strategy.ec.europa.eu/en/policies/guidelines-transparency-ai-generated-content"
-            },
-            {
-              "title": "European Commission：AI Act 執法架構（官方）",
-              "url": "https://digital-strategy.ec.europa.eu/en/policies/enforcement-ai-act"
-            },
-            {
-              "title": "Cooley: EU AI Act — Transparency Obligations Take Effect 2 August 2026",
-              "url": "https://www.cooley.com/news/insight/2026/2026-08-03-eu-ai-act-transparency-obligations-take-effect-2-august-2026"
-            },
-            {
-              "title": "EU Artificial Intelligence Act: The AI Act's Transparency Rules — A Practical Guide to Article 50",
-              "url": "https://artificialintelligenceact.eu/transparency-rules-article-50/"
-            }
+            { "title": "European Commission：AI 生成內容透明度義務指引（官方）", "url": "https://digital-strategy.ec.europa.eu/en/policies/guidelines-transparency-ai-generated-content" },
+            { "title": "European Commission：AI Act 執法架構（官方）", "url": "https://digital-strategy.ec.europa.eu/en/policies/enforcement-ai-act" },
+            { "title": "Cooley: EU AI Act — Transparency Obligations Take Effect 2 August 2026", "url": "https://www.cooley.com/news/insight/2026/2026-08-03-eu-ai-act-transparency-obligations-take-effect-2-august-2026" },
+            { "title": "EU Artificial Intelligence Act: The AI Act's Transparency Rules — A Practical Guide to Article 50", "url": "https://artificialintelligenceact.eu/transparency-rules-article-50/" }
           ]
         }
       ]
     },
     {
       "topic": "eu-cra",
-      "name": {
-        "zh": "EU CRA（歐盟網路韌性法案）",
-        "en": "EU CRA"
-      },
+      "name": { "zh": "EU CRA（歐盟網路韌性法案）", "en": "EU CRA" },
       "items": [
         {
           "title": {
             "zh": "【重點追蹤】SRP 距 9/11 生效僅 12 天仍未上線，且確定不提供 API",
             "en": "[Watch] SRP still not live with 12 days to the September 11 deadline — and confirmed to offer no API"
           },
-          "date": {
-            "zh": "截至 2026-08-30",
-            "en": "As of 2026-08-30"
-          },
+          "date": { "zh": "截至 2026-08-30", "en": "As of 2026-08-30" },
           "importance": "high",
           "content": {
             "zh": "距 CRA Article 14 通報義務生效只剩 12 天，ENISA 依 Article 16 建置的單一通報平台（SRP）仍未上線。三項關鍵資訊到本期為止都還沒有：平台公開網址未公布（ENISA 表示會在上線前公布於 SRP 專頁）、被指定為協調員的各國 CSIRT 名單未公布、且**現階段不提供通報 API**。ENISA 表示功能測試與資安測試進行中，並規劃在上線前約兩週舉辦說明會。義務內容本身沒有變：自 9 月 11 日起，製造商對「已遭實際利用的漏洞」與「重大資安事件」須於知悉後 24 小時內送出早期預警、72 小時內送出完整通報；已遭利用漏洞的最終報告不得晚於矯正措施可用後 14 日，重大事件則為一個月內。ENISA 8 月 3 日的指引更新另外釐清兩點：CSIRT 驗證並非通報的前提條件（即尚未完成驗證也必須照時限通報），跨境分享目前是人工步驟。無 API 這件事的實務含意最大——它意味著 24 小時時限完全落在人工作業上。",
             "en": "With 12 days to the CRA Article 14 reporting obligations, the Single Reporting Platform that ENISA is building under Article 16 is still not live. Three critical pieces are outstanding as of this issue: the platform's public URL is unpublished (ENISA says it will appear on the SRP hub before go-live), the list of national CSIRTs designated as coordinators has not been released, and **no reporting API is offered at this stage**. ENISA says functional and security testing are under way and plans a webinar roughly two weeks before the platform enters service. The obligation itself is unchanged: from September 11, manufacturers must submit an early warning within 24 hours of becoming aware of an actively exploited vulnerability or a severe incident, a full notification within 72 hours, a final report no later than 14 days after a corrective measure is available for actively exploited vulnerabilities, and within one month for severe incidents. ENISA's August 3 guidance update clarified two further points: CSIRT validation is not a precondition for reporting (so an unvalidated entity must still report on time), and cross-border sharing is currently a manual step. The absence of an API carries the largest practical consequence — it places the entire 24-hour clock on human effort."
           },
           "action": {
-            "zh": "本週就要把通報流程定案，不要再等平台：(1) 指定 24/7 可觸及的通報負責人與代理人，並確認其在 9/11 當週的可用性；(2) 以「人工填表」為前提演練一次 24 小時流程，量測從 PSIRT 判定「已遭利用」到送出早期預警所需時間，缺口通常在內部核准層級而非填表本身；(3) 事先備妥製造商識別資料與產品清單，避免上線後才發現註冊資料不齊；(4) 指派專人追蹤 ENISA SRP 專頁，網址公布與說明會日期都會先出現在該頁。切勿因平台未上線而假設義務會延後——法規適用日並未變更。",
-            "en": "Finalise the reporting process this week rather than waiting on the platform. First, name a 24/7 reachable reporting owner and deputy, and confirm their availability during the week of September 11. Second, rehearse the 24-hour flow assuming a manual form, measuring the time from your PSIRT declaring a vulnerability actively exploited to an early warning being submitted — the gap is usually in internal approval layers, not in filling the form. Third, prepare manufacturer identification data and the product list in advance, so registration gaps do not surface after go-live. Fourth, assign someone to watch ENISA's SRP hub, where both the URL and the webinar date will appear first. Do not assume the obligation slips because the platform has not shipped — the application date has not moved."
+            "zh": "本週就要把通報流程定案，不要再等平台：(1) 指定 24/7 可觸及的通報負責人與代理人，並確認其在 9/11 當週的可用性；(2) 以「人工填表」為前提演練一次 24 小時流程，量測從 PSIRT 判定「已遭利用」到送出早期預警所需時間，缺口通常在內部核准層級而非填表本身；(3) 事先備妥製造商識別資料與產品清單，避免上線後才發現註冊資料不齊；(4) 指派專人追蹤 ENISA SRP 專頁，網址公布與說明會日期都會先出現在該頁。「知悉（aware）」的判定門檻請一併對照執委會 7/27 指引（見本節下一則），那份文件是目前對這個詞最清楚的官方解釋。切勿因平台未上線而假設義務會延後——法規適用日並未變更。",
+            "en": "Finalise the reporting process this week rather than waiting on the platform. First, name a 24/7 reachable reporting owner and deputy, and confirm their availability during the week of September 11. Second, rehearse the 24-hour flow assuming a manual form, measuring the time from your PSIRT declaring a vulnerability actively exploited to an early warning being submitted — the gap is usually in internal approval layers, not in filling the form. Third, prepare manufacturer identification data and the product list in advance, so registration gaps do not surface after go-live. Fourth, assign someone to watch ENISA's SRP hub, where both the URL and the webinar date will appear first. Calibrate your threshold for \"aware\" against the Commission's July 27 guidance (the next item in this section), which is the clearest official reading of that term. And do not assume the obligation slips because the platform has not shipped — the application date has not moved."
           },
           "sources": [
-            {
-              "title": "ENISA：Single Reporting Platform (SRP) 專頁（官方）",
-              "url": "https://www.enisa.europa.eu/topics/product-security-and-certification/single-reporting-platform-srp"
-            },
-            {
-              "title": "ENISA：SRP 常見問答（官方）",
-              "url": "https://www.enisa.europa.eu/topics/product-security/single-reporting-platform-srp/frequently-asked-questions"
-            },
-            {
-              "title": "European Commission：CRA 通報義務頁（官方）",
-              "url": "https://digital-strategy.ec.europa.eu/en/policies/cra-reporting"
-            },
-            {
-              "title": "cyberresilienceact.eu: ENISA's 3 August 2026 Update Says CSIRT Validation Is Not a Precondition for Reporting",
-              "url": "https://www.cyberresilienceact.eu/news/enisa-srp-guidance-update-3-august-2026.html"
-            }
+            { "title": "ENISA：Single Reporting Platform (SRP) 專頁（官方）", "url": "https://www.enisa.europa.eu/topics/product-security-and-certification/single-reporting-platform-srp" },
+            { "title": "ENISA：SRP 常見問答（官方）", "url": "https://www.enisa.europa.eu/topics/product-security/single-reporting-platform-srp/frequently-asked-questions" },
+            { "title": "European Commission：CRA 通報義務頁（官方）", "url": "https://digital-strategy.ec.europa.eu/en/policies/cra-reporting" },
+            { "title": "cyberresilienceact.eu: ENISA's 3 August 2026 Update Says CSIRT Validation Is Not a Precondition for Reporting", "url": "https://www.cyberresilienceact.eu/news/enisa-srp-guidance-update-3-august-2026.html" }
+          ]
+        },
+        {
+          "title": {
+            "zh": "執委會 7/27 發布首份 CRA 適用指引：實質修改四要素測試、支援期五年是下限、開源軟體範圍定調",
+            "en": "The Commission published its first CRA application guidance on July 27: a four-factor substantial-modification test, five years as a support-period floor, and settled scope for open-source software"
+          },
+          "date": { "zh": "2026-07-27 發布", "en": "Published 2026-07-27" },
+          "importance": "medium",
+          "content": {
+            "zh": "本則為初版漏報之補充，也是目前對製造商實務影響最大的一份 CRA 文件。執委會於 2026 年 7 月 27 日發布首份 CRA 適用指引，形式為 Commission Decision C(2026) 5252 final 的附件，篇幅約 84 頁、含 67 個實作範例（較先前徵詢意見的草案版本明顯擴充：草案為 70 頁、55 個範例）。指引針對四個爭議最大的問題給出執委會的定見：第一，**適用範圍與自由開源軟體（FOSS）**——釐清哪些開源情境落入規範、哪些屬於免除；第二，**「實質修改（substantial modification）」的判定**，提出四要素測試，用以判斷一次軟體更新是否觸發重新符合性評鑑；第三，**支援期（support period）**的長度與揭露方式，明確指出五年是**下限**而非預設值，須依產品預期使用年限決定；第四，本法與其他歐盟法規的交互適用。文件同時對微型與中小企業給予特別著墨。必須注意其法律地位：**指引不具法律拘束力**，最終解釋權在歐洲法院，但它是目前對「aware（知悉）」「in scope（落入範圍）」「substantially modified（實質修改）」三個關鍵判定最清楚的官方訊號，實務上會成為市場監管機關與驗證機構的共同參照。",
+            "en": "This item was missed in our first edition, and it is the CRA document with the largest practical impact on manufacturers to date. On July 27, 2026 the Commission published its first guidance on applying the CRA, issued as the Annex to Commission Decision C(2026) 5252 final: roughly 84 pages with 67 worked examples, a substantial expansion on the consultation draft (70 pages, 55 examples). The guidance states the Commission's settled view on four of the most contested questions. First, **scope and free and open-source software** — which open-source situations fall within the Regulation and which are excluded. Second, the test for **\"substantial modification\"**, set out as four factors for deciding whether a software update triggers renewed conformity assessment. Third, the length and disclosure of the **support period**, with an explicit statement that five years is a **floor** rather than a default, to be set against the product's expected lifetime. Fourth, how the Regulation interacts with other EU legislation. The document also gives particular attention to microenterprises and SMEs. Its legal status matters: **the guidance is non-binding** and only the Court of Justice can rule definitively — but it is the clearest official signal yet on the three pivotal determinations of \"aware\", \"in scope\" and \"substantially modified\", and in practice it will become the shared reference for market surveillance authorities and notified bodies."
+          },
+          "action": {
+            "zh": "請產品法遵與研發主管本季完成三件事：(1) 以四要素測試重新檢視現行的軟體更新流程，明確界定哪些更新會觸發重新符合性評鑑——這直接決定 OTA 與韌體更新的作業成本，多數公司目前並未在版本管理中留下這個判定紀錄；(2) 逐一產品線核對已對外承諾的支援期，確認是依「預期使用年限」推導而非直接套用五年，工業與車用產品尤其容易低估；(3) 若產品含開源元件（幾乎必然），依指引重新確認上游貢獻者、散布者與商業製造商三種身分的義務界線，並反映到 SBOM 與供應商合約。指引全文與 67 個範例值得法遵團隊完整閱讀一次，它回答的正是內部最常爭執的邊界案例。",
+            "en": "Product compliance and engineering leads should complete three things this quarter. First, re-examine your software update process against the four-factor test and define explicitly which updates trigger renewed conformity assessment — this directly drives the operating cost of OTA and firmware updates, and most companies currently keep no record of that determination in version management. Second, check the support period publicly committed for each product line and confirm it derives from expected product lifetime rather than a blanket five years; industrial and automotive products are especially prone to under-estimation. Third, if your products contain open-source components (they almost certainly do), re-confirm against the guidance where obligations fall between upstream contributor, distributor and commercial manufacturer, and reflect that in your SBOM and supplier contracts. The full guidance and its 67 examples are worth a complete read by the compliance team: they address exactly the boundary cases that generate the most internal argument."
+          },
+          "sources": [
+            { "title": "European Commission：Cyber Resilience Act 政策頁（官方，指引發布處）", "url": "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act" },
+            { "title": "cyberresilienceact.eu: On 27 July 2026, the Commission Published Its First Official Guidance on Applying the Cyber Resilience Act", "url": "https://www.cyberresilienceact.eu/news/commission-cra-application-guidance-published-27-july-2026.html" },
+            { "title": "HLC: EU Cyber Resilience Act — European Commission publishes final CRA guidance", "url": "https://hlc.com/en/publications/eu-cyber-resilience-act-european-commission-publishes-final-cra-guidance" },
+            { "title": "CVD Portal: The Commission's CRA Guidance — Reading the Four-Factor Test and the Support Period Rules", "url": "https://cvdportal.com/blog/cra-commission-guidance-substantial-modification-support-period" }
           ]
         },
         {
@@ -161,10 +136,7 @@
             "zh": "【重點追蹤】ETSI 8/13 將 17 項 CRA 產品標準送進公眾意見徵詢，OJ 仍無任何刊登",
             "en": "[Watch] ETSI put 17 CRA product standards into Public Enquiry on August 13; the OJ still carries none"
           },
-          "date": {
-            "zh": "2026-08-13 啟動，程序至 9 月中～11 月中",
-            "en": "Opened 2026-08-13, running to mid-September–mid-November"
-          },
+          "date": { "zh": "2026-08-13 啟動，程序至 9 月中～11 月中", "en": "Opened 2026-08-13, running to mid-September–mid-November" },
           "importance": "medium",
           "content": {
             "zh": "ETSI 於 8 月 13 日宣布，17 份為 CRA 撰寫的垂直類最終草案標準進入公眾意見徵詢（Public Enquiry），編號為 EN 304 617 至 EN 304 627 與 EN 304 631 至 EN 304 636。涵蓋的產品類別包括：瀏覽器、密碼管理器、防毒與反惡意程式、VPN、網路管理系統、SIEM、開機管理程式、PKI 與憑證簽發軟體、網路介面、作業系統、路由器／數據機／交換器、智慧家庭語音助理、智慧家庭安全產品，以及連網玩具。草案已送交歐洲 41 個會員組織（含 EEA 各國標準機構）提出意見，程序依垂直類別不同跑到 2026 年 9 月中至 11 月中。這是 CRA 標準化迄今最大一批可見進展，但必須把三個里程碑分清楚：**公眾意見徵詢 ≠ 核准為 EN ≠ 刊登歐盟公報**。截至本期，OJ 尚未刊登任何 CRA 調和標準，Article 27 的合規推定對所有產品類別都還不可用。",
@@ -175,93 +147,79 @@
             "en": "First determine whether your products fall within these 17 verticals. If they do, the draft texts are available now: run a gap analysis against the technical requirements immediately and decide whether to comment through your national standards body — the enquiry is the only window in which the final text can still be influenced, and once it closes you simply live with the result. Products outside the 17 categories remain bound by the CRA's essential requirements in Annex I; they merely lack a category-specific standard and must argue conformity through their own technical documentation. Either way, do not treat OJ citation as the starting gun for preparation."
           },
           "sources": [
-            {
-              "title": "ETSI 新聞稿：ETSI launches approval process for 17 European Standards supporting the Cyber Resilience Act（官方）",
-              "url": "https://www.etsi.org/newsroom/press-releases/etsi-launches-approval-process-for-17-european-standards-supporting-the-cyber-resilience-act/"
-            },
-            {
-              "title": "TelecomTV: ETSI launches approval process for 17 European Standards supporting the Cyber Resilience Act",
-              "url": "https://www.telecomtv.com/content/security/etsi-launches-approval-process-for-17-european-standards-supporting-the-cyber-resilience-act-56122/"
-            },
-            {
-              "title": "CRA Evidence: What Are CRA Harmonised Standards? Status and Tracker",
-              "url": "https://craevidence.com/cra-compliance/harmonised-standards-status"
-            }
+            { "title": "ETSI 新聞稿：ETSI launches approval process for 17 European Standards supporting the Cyber Resilience Act（官方）", "url": "https://www.etsi.org/newsroom/press-releases/etsi-launches-approval-process-for-17-european-standards-supporting-the-cyber-resilience-act/" },
+            { "title": "TelecomTV: ETSI launches approval process for 17 European Standards supporting the Cyber Resilience Act", "url": "https://www.telecomtv.com/content/security/etsi-launches-approval-process-for-17-european-standards-supporting-the-cyber-resilience-act-56122/" },
+            { "title": "CRA Evidence: What Are CRA Harmonised Standards? Status and Tracker", "url": "https://craevidence.com/cra-compliance/harmonised-standards-status" }
           ]
         },
         {
           "title": {
-            "zh": "【重點追蹤】執委會擬修訂標準化委託 M/606，2026 年標準交付期限整體延後兩個月",
-            "en": "[Watch] The Commission has drafted an amendment to standardisation request M/606, slipping the 2026 delivery deadlines by two months"
+            "zh": "【重點追蹤】M/606 交付期限延後兩個月：原訂 8/30 的 A/B 類期限已屆期而未交付",
+            "en": "[Watch] M/606 delivery deadlines slip two months: the original August 30 date for Types A and B passed without delivery"
           },
-          "date": {
-            "zh": "2026-07 草案公布",
-            "en": "Draft published 2026-07"
-          },
+          "date": { "zh": "2026-07 草案公布；原期限 2026-08-30 已屆期", "en": "Draft published 2026-07; the original 2026-08-30 deadline has passed" },
           "importance": "medium",
           "content": {
-            "zh": "執委會於 7 月初公布標準化委託 M/606 的修訂草案，把 CRA 調和標準在 2026 年的起草交付期限往後推兩個月。原委託（2025 年初發給 CEN、CENELEC 與 ETSI）要求橫向 A 類標準與漏洞管理 B 類標準於 2026 年 8 月 30 日前交付、產品專屬 C 類標準於 2026 年 10 月 30 日前交付；修訂草案將 A 類與 B 類移至 2026 年 10 月 31 日、C 類移至 2026 年 12 月 31 日。要特別留意兩件事：第一，**法規本身的義務內容與適用日一天都沒有改變**——通報義務仍為 2026 年 9 月 11 日，主要義務仍為 2027 年 12 月 11 日；第二，交付只是流程的起點，標準要能主張 Article 27 合規推定，還須經執委會評估與正式刊登 OJ 決定，這中間通常再耗數月。實務上這代表：即使 C 類標準如期在年底交付，2027 年上半年才可能出現首批可用的合規推定，距 2027/12/11 只剩不到一年。",
-            "en": "In early July the Commission published a draft amendment to standardisation request M/606, pushing the 2026 drafting-delivery deadlines for CRA harmonised standards back by two months. The original request, issued to CEN, CENELEC and ETSI in early 2025, required the horizontal Type A standards and the Type B vulnerability-management standards by August 30, 2026, and the product-specific Type C standards by October 30, 2026. The draft amendment moves A and B to October 31, 2026 and C to December 31, 2026. Two points deserve emphasis. First, **nothing in the regulation's obligations or application dates has moved** — reporting still starts September 11, 2026, and the main obligations still apply from December 11, 2027. Second, delivery is only the start of the process: before a standard confers the Article 27 presumption it must still pass Commission assessment and a formal OJ citation decision, which typically consumes several more months. Practically, that means even if the Type C standards land on time at year-end, the first usable presumptions of conformity are unlikely before the first half of 2027 — leaving under a year to December 11, 2027."
+            "zh": "執委會於 7 月初公布標準化委託 M/606 的修訂草案，把 CRA 調和標準在 2026 年的起草交付期限往後推兩個月。原委託（2025 年初發給 CEN、CENELEC 與 ETSI）要求橫向 A 類標準與漏洞管理 B 類標準於 2026 年 8 月 30 日前交付、產品專屬 C 類標準於 2026 年 10 月 30 日前交付；修訂草案將 A 類與 B 類移至 2026 年 10 月 31 日、C 類移至 2026 年 12 月 31 日。本期正好跨過原訂的 8 月 30 日：該日已屆期，未見任何 A 類或 B 類標準交付執委會，修訂草案本身也尚未見正式通過的公告。要特別留意兩件事：第一，**法規本身的義務內容與適用日一天都沒有改變**——通報義務仍為 2026 年 9 月 11 日，主要義務仍為 2027 年 12 月 11 日；第二，交付只是流程的起點，標準要能主張 Article 27 合規推定，還須經執委會評估與正式刊登 OJ 決定，這中間通常再耗數月。實務上這代表：即使 C 類標準如期在年底交付，2027 年上半年才可能出現首批可用的合規推定，距 2027/12/11 只剩不到一年。工控領域的具體落點見本期 IEC 62443 章節——CENELEC 原訂同樣在 8 月 30 日採納的兩份標準亦一併延後。",
+            "en": "In early July the Commission published a draft amendment to standardisation request M/606, pushing the 2026 drafting-delivery deadlines for CRA harmonised standards back by two months. The original request, issued to CEN, CENELEC and ETSI in early 2025, required the horizontal Type A standards and the Type B vulnerability-management standards by August 30, 2026, and the product-specific Type C standards by October 30, 2026. The draft amendment moves A and B to October 31, 2026 and C to December 31, 2026. This period spans that original August 30 date: it passed with no Type A or Type B standard delivered to the Commission, and with no announcement that the draft amendment itself has been formally adopted. Two points deserve emphasis. First, **nothing in the regulation's obligations or application dates has moved** — reporting still starts September 11, 2026, and the main obligations still apply from December 11, 2027. Second, delivery is only the start of the process: before a standard confers the Article 27 presumption it must still pass Commission assessment and a formal OJ citation decision, which typically consumes several more months. Practically, that means even if the Type C standards land on time at year-end, the first usable presumptions of conformity are unlikely before the first half of 2027 — leaving under a year to December 11, 2027. For where this lands in the industrial domain, see this issue's IEC 62443 section: the two CENELEC standards also scheduled for adoption on August 30 slip with it."
           },
           "action": {
-            "zh": "把合規路徑的規劃假設改成「沒有調和標準也要能出貨」：以 CRA Annex I 必要要求為基準自行建立技術文件與風險評鑑，並在需要技術依據時引用既有的成熟標準（工控產品用 IEC 62443-4-1／4-2，一般產品可參考 EN 18031 系列與 ISO/IEC 27034）。同時把「標準延後」寫進管理層報告的風險項——這不是好消息，它壓縮的是刊登後到義務日之間的緩衝，而非放寬義務。",
-            "en": "Reset your compliance-path assumption to \"ship without a harmonised standard.\" Build technical documentation and risk assessment directly against the CRA's Annex I essential requirements, citing established standards where a technical basis is needed (IEC 62443-4-1/4-2 for industrial products; the EN 18031 series and ISO/IEC 27034 as references for general products). Also record the standards slip as a risk item in management reporting — this is not good news: it compresses the buffer between citation and the obligation date rather than relaxing the obligation."
+            "zh": "把合規路徑的規劃假設改成「沒有調和標準也要能出貨」：以 CRA Annex I 必要要求為基準自行建立技術文件與風險評鑑，並在需要技術依據時引用既有的成熟標準（工控產品用 IEC 62443-4-1／4-2，一般產品可參考 EN 18031 系列與 ISO/IEC 27034），同時把執委會 7/27 指引的四要素測試與支援期規則納入文件邏輯。請把「標準延後」寫進管理層報告的風險項——這不是好消息，它壓縮的是刊登後到義務日之間的緩衝，而非放寬義務。下期起本站將持續追蹤修訂案是否正式通過、以及 10/31 新期限是否再度跳票。",
+            "en": "Reset your compliance-path assumption to \"ship without a harmonised standard.\" Build technical documentation and risk assessment directly against the CRA's Annex I essential requirements, citing established standards where a technical basis is needed (IEC 62443-4-1/4-2 for industrial products; the EN 18031 series and ISO/IEC 27034 as references for general products), and fold the Commission's July 27 four-factor test and support-period rules into that documentation logic. Record the standards slip as a risk item in management reporting — this is not good news: it compresses the buffer between citation and the obligation date rather than relaxing the obligation. From next issue we will keep tracking whether the amendment is formally adopted and whether the new October 31 date slips again."
           },
           "sources": [
-            {
-              "title": "European Commission：Cyber Resilience Act 政策頁（官方）",
-              "url": "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act"
-            },
-            {
-              "title": "cyberresilienceact.eu: The Commission's Draft Amendment Pushes the CRA's 2026 Harmonised-Standard Deadlines Back by Two Months",
-              "url": "https://www.cyberresilienceact.eu/news/cra-standardisation-deadlines-pushed-back-two-months.html"
-            },
-            {
-              "title": "IBF Solutions: Current status of standardisation for the Cyber Resilience Act",
-              "url": "https://www.ibf-solutions.com/en/news-and-knowledge/technical-papers-and-news-on-ce-marking/current-status-of-standardisation-for-the-cyber-resilience-act"
-            }
+            { "title": "European Commission：Cyber Resilience Act 政策頁（官方）", "url": "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act" },
+            { "title": "cyberresilienceact.eu: The Commission's Draft Amendment Pushes the CRA's 2026 Harmonised-Standard Deadlines Back by Two Months", "url": "https://www.cyberresilienceact.eu/news/cra-standardisation-deadlines-pushed-back-two-months.html" },
+            { "title": "IBF Solutions: Current status of standardisation for the Cyber Resilience Act", "url": "https://www.ibf-solutions.com/en/news-and-knowledge/technical-papers-and-news-on-ce-marking/current-status-of-standardisation-for-the-cyber-resilience-act" }
           ]
         }
       ]
     },
     {
       "topic": "nis2",
-      "name": {
-        "zh": "EU NIS2（歐盟網路與資訊安全指令 2.0）",
-        "en": "EU NIS2"
-      },
+      "name": { "zh": "EU NIS2（歐盟網路與資訊安全指令 2.0）", "en": "EU NIS2" },
       "items": [
         {
           "title": {
             "zh": "【重點追蹤】四國訴訟案：本期 CJEU 無公開程序進展，三國轉換時程仍不明",
             "en": "[Watch] Four-country case: no public CJEU procedural progress this period; three states' timelines remain unclear"
           },
-          "date": {
-            "zh": "2026-07-08 移送，追蹤中",
-            "en": "Referred 2026-07-08, ongoing"
-          },
+          "date": { "zh": "2026-07-08 移送，追蹤中", "en": "Referred 2026-07-08, ongoing" },
           "importance": "medium",
           "content": {
             "zh": "本期查無新的 CJEU 程序公開資訊——案件登錄、言詞辯論日期、佐審官意見均未見公布，執委會亦未公告撤回對荷蘭的案件。三國轉換進度：愛爾蘭表示預期在 2026 年底前完成通知；西班牙尚無 NIS2 法律生效，預期落在 2026 年底、法案迄今未刊登於官方公報（BOE）；法國仍未公布明確時程，是四國中進度最落後者。荷蘭則已於 8 月 15 日讓 Cyberbeveiligingswet 生效，是否撤案取決於是否已向執委會完成「正式通知轉換」。由於執委會請求的是一次性罰款加按日計罰、計至各國完成通知為止，愛爾蘭、西班牙、法國每多拖一週，潛在罰額就持續累積。需提醒的是，訴訟針對的是成員國而非企業，但指令的實質要求並不因本國法未到位而對企業失效——在這三國營運的組織仍處於「義務存在、但監管機關與登記機制尚未成形」的空窗狀態。",
             "en": "No new public CJEU procedural information surfaced this period: no case registration details, hearing date or Advocate General opinion, and no Commission announcement withdrawing the case against the Netherlands. On transposition, Ireland has signalled it expects to notify by the end of 2026; Spain has no NIS2 law in force, expects late 2026, and its bill has still not appeared in the official gazette (BOE); France has published no firm timeline and remains the furthest behind of the four. The Netherlands brought its Cyberbeveiligingswet into force on August 15, so withdrawal turns on whether it has completed formal notification of transposition to the Commission. Because the Commission is seeking a lump sum plus daily penalties running until notification, every additional week adds to the exposure of Ireland, Spain and France. Note that the action targets member states, not companies — but the directive's substantive requirements do not lapse for companies just because national law is missing. Organisations operating in those three states sit in a gap where the obligations exist while the supervisory authority and registration machinery do not."
           },
           "action": {
-            "zh": "在愛爾蘭、西班牙、法國有據點者，不要等本國立法：以指令本文 Article 21（風險管理措施）與 Article 23（事件通報）自評，並參考 NIS Cooperation Group 的 Article 21 參考文件建立控制清單；本國法一旦公布，登記期限通常只有數週到數月，事前備妥實體分類（essential／important）判定依據與聯絡窗口資料，可避免屆時倉促。撤案、判決或任一國完成立法，本站將以高度關注回報。",
-            "en": "If you have entities in Ireland, Spain or France, do not wait for national law: self-assess against Articles 21 (risk-management measures) and 23 (incident reporting) of the directive itself, and build your control list against the NIS Cooperation Group's Article 21 reference document. Once a national law does appear, registration windows are typically only weeks to months, so preparing your essential/important classification rationale and contact data in advance avoids a scramble. A withdrawal, a judgment, or any of the three completing transposition will be reported here as a priority."
+            "zh": "在愛爾蘭、西班牙、法國有據點者，不要等本國立法：以指令本文 Article 21（風險管理措施）與 Article 23（事件通報）自評，並參考 NIS Cooperation Group 的 Article 21 參考文件與 ENISA 於 2025-06-26 發布的技術實作指引（170 頁，涵蓋 13 個主題領域並附證據範例）建立控制清單；本國法一旦公布，登記期限通常只有數週到數月，事前備妥實體分類（essential／important）判定依據與聯絡窗口資料，可避免屆時倉促。撤案、判決或任一國完成立法，本站將以高度關注回報。",
+            "en": "If you have entities in Ireland, Spain or France, do not wait for national law: self-assess against Articles 21 (risk-management measures) and 23 (incident reporting) of the directive itself, and build your control list from the NIS Cooperation Group's Article 21 reference document together with ENISA's technical implementation guidance of 2025-06-26 (170 pages covering 13 thematic areas with evidence examples). Once a national law appears, registration windows are typically only weeks to months, so preparing your essential/important classification rationale and contact data in advance avoids a scramble. A withdrawal, a judgment, or any of the three completing transposition will be reported here as a priority."
           },
           "sources": [
-            {
-              "title": "European Commission：移送愛爾蘭、西班牙、法國與荷蘭至歐洲法院新聞稿（官方）",
-              "url": "https://digital-strategy.ec.europa.eu/en/news/commission-refers-ireland-spain-france-and-netherlands-court-justice-failing-transpose-rules"
-            },
-            {
-              "title": "ECSO: NIS2 Directive Transposition Tracker",
-              "url": "https://ecs-org.eu/policy/nis2-directive-transposition-tracker/"
-            },
-            {
-              "title": "NIS Solutions: NIS2 Spain 2026 — Still Not in the BOE",
-              "url": "https://nis-solutions.eu/countries/spain/"
-            }
+            { "title": "European Commission：移送愛爾蘭、西班牙、法國與荷蘭至歐洲法院新聞稿（官方）", "url": "https://digital-strategy.ec.europa.eu/en/news/commission-refers-ireland-spain-france-and-netherlands-court-justice-failing-transpose-rules" },
+            { "title": "ENISA：NIS2 實施法網路安全措施技術指引（官方）", "url": "https://www.enisa.europa.eu/news/asking-for-your-feedback-enisa-technical-guidance-for-the-cybersecurity-measures-of-the-nis2-implementing-act" },
+            { "title": "ECSO: NIS2 Directive Transposition Tracker", "url": "https://ecs-org.eu/policy/nis2-directive-transposition-tracker/" },
+            { "title": "NIS Solutions: NIS2 Spain 2026 — Still Not in the BOE", "url": "https://nis-solutions.eu/countries/spain/" }
+          ]
+        },
+        {
+          "title": {
+            "zh": "【更正】NIS2「首波罰單」金額存疑：來源自述含估算值，無主管機關公告可佐證",
+            "en": "[Correction] The NIS2 \"first fines\" figures are questionable: the source describes them as partly estimated, with no authority announcement to corroborate"
+          },
+          "date": { "zh": "2026-09-05 重新查證", "en": "Re-verified 2026-09-05" },
+          "importance": "medium",
+          "content": {
+            "zh": "本站第 33 週曾以「NIS2 首波罰單出爐：比利時、義大利、匈牙利已開罰」為題，引用比利時 18.5 萬歐元、義大利 45 萬歐元、匈牙利 7.8 萬歐元三筆金額。重新查證後必須更正這則的確定性：這三個數字（以及後續出現的立陶宛 5.2 萬歐元）目前**只能追溯到單一個彙整型追蹤網站**，而該站自述其金額「彙整自國家主管機關、ENISA 通報與媒體報導的**已報導與估算**數字」，並建議讀者向各國主管機關查證具拘束力的個案。另有分析明確表示，截至 2026 年年中，**沒有任何國家主管機關（比利時 CCB、德國 BSI、法國 ANSSI、義大利 ACN 等）公布過已定案的 NIS2 行政罰**。同一來源內部也存在不一致：例如同時聲稱「23 個成員國已完成轉換」與「德國、荷蘭、法國已展開執法」，但法國迄今根本未完成轉換、且正因此被移送 CJEU。結構性原因在於：NIS2 的裁罰權分散於各國主管機關與 CSIRT，多數並不維護公開的裁罰登錄，因此第三方彙整與實際公告之間必然存在落差。**本站的立場更正為：NIS2 罰則制度已經上路、各國主管機關具備開罰權且已展開稽核，但「首波罰單金額」目前無法以一手來源證實，讀者不宜引用這些數字作為內部風險量化的依據。**",
+            "en": "Our Week 33 issue ran an item titled \"First NIS2 fines land: Belgium, Italy and Hungary have penalised\", citing EUR 185,000 in Belgium, EUR 450,000 in Italy and EUR 78,000 in Hungary. On re-verification the confidence attached to that item must be corrected. Those three figures (and a subsequently reported EUR 52,000 in Lithuania) currently trace back to **a single aggregator site**, which itself states that its amounts \"aggregate **reported and estimated** figures from national authorities, ENISA reporting and press coverage\" and advises readers to consult national competent authorities for binding confirmation of any specific sanction. A separate analysis states plainly that as of mid-2026 **no national authority — Belgium's CCB, Germany's BSI, France's ANSSI, Italy's ACN and peers — has published a finalised NIS2 administrative fine.** The same aggregator is internally inconsistent as well, asserting both that 23 member states have fully transposed and that enforcement has begun in Germany, the Netherlands and France, when France has not transposed at all and is being referred to the CJEU precisely for that. The structural cause is that NIS2 sanctioning power is dispersed across national authorities and CSIRTs, most of which maintain no public penalty register, so a gap between third-party aggregation and actual announcements is inevitable. **Our corrected position: the NIS2 penalty regime is live, national authorities hold the power to fine and have begun audit programmes, but the \"first fine\" amounts cannot presently be confirmed from primary sources, and readers should not use those figures as the basis for internal risk quantification.**"
+          },
+          "action": {
+            "zh": "若貴司的 NIS2 風險評估、董事會簡報或預算申請曾引用上述金額，請改以**法定罰則上限**作為量化基礎（必要實體：至少 1,000 萬歐元或全球年營業額 2%，取高者；重要實體：700 萬歐元或 1.4%），這是有法源依據且可稽核的數字。同時把「管理階層個人責任」納入評估——NIS2 允許主管機關對必要實體的管理職務人員暫時停職，這一項的實質嚇阻力往往高於罰鍰。制度面建議：內部情資引用第三方彙整型追蹤網站時，一律要求標註原始一手來源；查無主管機關公告者，在簡報中明確標示為「未經一手證實」。本站往後對此類數字亦比照辦理。",
+            "en": "If your NIS2 risk assessment, board briefing or budget request cited those amounts, re-base the quantification on the **statutory maximum penalties** instead (essential entities: at least EUR 10 million or 2% of global annual turnover, whichever is higher; important entities: EUR 7 million or 1.4%). Those figures have a legal basis and are auditable. Also fold **personal liability of management** into the assessment — NIS2 lets authorities temporarily bar individuals from management functions at essential entities, and that deterrent typically bites harder than a fine. As a matter of process, require that any internal intelligence citing a third-party aggregator names its primary source, and mark figures with no authority announcement behind them as \"not confirmed from primary sources\" in briefing material. We will apply the same rule to such figures from here on."
+          },
+          "sources": [
+            { "title": "Legiscope: NIS2 Enforcement Tracker 2026（金額來源，該站自述含估算值）", "url": "https://www.legiscope.com/blog/nis2-enforcement-tracker-2026.html" },
+            { "title": "CCB Belgium：NIS2 下的行政措施與罰則（官方，說明程序而非個案）", "url": "https://ccb.belgium.be/news/administrative-measures-and-fines-under-nis2-0" },
+            { "title": "Ropes & Gray: The EU's NIS2 Directive is in Force – but can it be Enforced?", "url": "https://www.ropesgray.com/en/insights/viewpoints/102jqo9/the-eus-nis2-directive-is-in-force-but-can-it-be-enforced" }
           ]
         },
         {
@@ -269,296 +227,273 @@
             "zh": "【續報】荷蘭 Cbw 登記已轉為強制：逾 8,000 家在範圍內、需 eHerkenning EH3、無寬限期",
             "en": "[Follow-up] Dutch Cbw registration is now mandatory: 8,000+ entities in scope, eHerkenning EH3 required, no grace period"
           },
-          "date": {
-            "zh": "2026-08-15 生效",
-            "en": "In force 2026-08-15"
-          },
+          "date": { "zh": "2026-08-15 生效", "en": "In force 2026-08-15" },
           "importance": "medium",
           "content": {
-            "zh": "上期已報導荷蘭 Cyberbeveiligingswet（Cbw）於 8 月 15 日生效，本期補上實際操作細節。8 月 15 日之前，必要實體、重要實體與網域註冊服務提供者可自願向國家網路安全中心（NCSC）登記；**自該日起登記轉為強制**。荷蘭官方估計超過 8,000 家組織落入適用範圍。登記須透過 Mijn.NCSC.nl 進行，並需具備 eHerkenning 等級 EH3 或以上的身分驗證憑證。關鍵在於：**沒有一般性的寬限期**——登記、照護義務（duty of care）與事件通報義務全部自生效日起同步適用，不存在「先登記、義務稍後」的緩衝。對製造業供應鏈而言，這件事的意義不只在荷蘭子公司本身：荷蘭客戶一旦進入 NIS2 監管，其供應鏈安全條款（Article 21(2)(d)）的稽核與合約要求會直接傳導到上游供應商。",
-            "en": "Last issue reported that the Dutch Cyberbeveiligingswet (Cbw) entered into force on August 15; this issue adds the operational detail. Before August 15, essential entities, important entities and domain-name registration service providers could register with the National Cyber Security Centre (NCSC) voluntarily; **from that date registration became mandatory.** Dutch authorities estimate more than 8,000 organisations fall in scope. Registration runs through Mijn.NCSC.nl and requires an eHerkenning credential at level EH3 or higher. The critical point: **there is no general grace period** — registration, the duty of care and incident reporting all apply from day one, with no \"register now, comply later\" buffer. For manufacturing supply chains the significance extends beyond Dutch subsidiaries themselves: once Dutch customers fall under NIS2 supervision, the audit and contractual requirements flowing from the supply-chain security provision (Article 21(2)(d)) pass straight up to their suppliers."
+            "zh": "上期已報導荷蘭 Cyberbeveiligingswet（Cbw）於 8 月 15 日生效，本期補上實際操作細節。8 月 15 日之前，必要實體、重要實體與網域註冊服務提供者可自願向國家網路安全中心（NCSC）登記；**自該日起登記轉為強制**。荷蘭官方估計超過 8,000 家組織落入適用範圍。登記須透過 Mijn.NCSC.nl 進行，並需具備 eHerkenning 等級 EH3 或以上的身分驗證憑證。關鍵在於：**沒有一般性的寬限期**——登記、照護義務（duty of care）與事件通報義務全部自生效日起同步適用，不存在「先登記、義務稍後」的緩衝。可資對照的是盧森堡：其轉換法於 2026 年 5 月 5 日通過、5 月 10 日生效，適用實體須於 7 月 10 日前完成自我登記，等於給了兩個月的作業期；荷蘭則是生效日即義務日。對製造業供應鏈而言，這件事的意義不只在荷蘭子公司本身：荷蘭客戶一旦進入 NIS2 監管，其供應鏈安全條款（Article 21(2)(d)）的稽核與合約要求會直接傳導到上游供應商。",
+            "en": "Last issue reported that the Dutch Cyberbeveiligingswet (Cbw) entered into force on August 15; this issue adds the operational detail. Before August 15, essential entities, important entities and domain-name registration service providers could register with the National Cyber Security Centre (NCSC) voluntarily; **from that date registration became mandatory.** Dutch authorities estimate more than 8,000 organisations fall in scope. Registration runs through Mijn.NCSC.nl and requires an eHerkenning credential at level EH3 or higher. The critical point: **there is no general grace period** — registration, the duty of care and incident reporting all apply from day one, with no \"register now, comply later\" buffer. Luxembourg offers a useful contrast: its transposition law passed on May 5, 2026 and took effect on May 10, with covered entities required to self-register by July 10 — a two-month runway. The Netherlands made the effective date the obligation date. For manufacturing supply chains the significance extends beyond Dutch subsidiaries themselves: once Dutch customers fall under NIS2 supervision, the audit and contractual requirements flowing from the supply-chain security provision (Article 21(2)(d)) pass straight up to their suppliers."
           },
           "action": {
             "zh": "在荷蘭設有法人或提供服務者，本週確認三件事：(1) 是否已完成 Mijn.NCSC.nl 登記，若尚未，先確認 eHerkenning EH3 憑證已申請（憑證核發本身需作業時間，常是實際卡關點）；(2) 事件通報流程是否已對接 NCSC 的時限要求；(3) 照護義務所要求的風險管理措施是否有可稽核的文件證據。同時提醒業務與採購單位：荷蘭客戶的供應鏈安全問卷與合約條款預期在未來一至兩季明顯增加，宜提前備妥 ISO 27001 證書、SBOM 與漏洞揭露政策等標準回覆素材。",
             "en": "If you have a Dutch legal entity or provide services there, confirm three things this week. First, whether Mijn.NCSC.nl registration is complete — and if not, whether the eHerkenning EH3 credential has been applied for, since issuance takes time and is the usual bottleneck. Second, whether your incident-reporting process is wired to the NCSC's deadlines. Third, whether the risk-management measures required by the duty of care are backed by auditable documentary evidence. Also warn sales and procurement: supply-chain security questionnaires and contract clauses from Dutch customers should increase noticeably over the next one to two quarters, so prepare standard response material — ISO 27001 certificates, SBOMs, vulnerability disclosure policy — in advance."
           },
           "sources": [
-            {
-              "title": "Eversheds Sutherland: EU NIS2 Directive — Netherlands",
-              "url": "https://ezine.eversheds-sutherland.com/eu-nis2-directive/netherlands"
-            },
-            {
-              "title": "ISOPlanner: NIS2 Is Now Dutch Law — What Changes on 15 August 2026",
-              "url": "https://isoplanner.app/blog/nis2-is-now-dutch-law"
-            },
-            {
-              "title": "RegDossier: NIS2 in the Netherlands, Cyberbeveiligingswet 2026",
-              "url": "https://regdossier.eu/nis2-netherlands/"
-            }
+            { "title": "Eversheds Sutherland: EU NIS2 Directive — Netherlands", "url": "https://ezine.eversheds-sutherland.com/eu-nis2-directive/netherlands" },
+            { "title": "ISOPlanner: NIS2 Is Now Dutch Law — What Changes on 15 August 2026", "url": "https://isoplanner.app/blog/nis2-is-now-dutch-law" },
+            { "title": "RegDossier: NIS2 in the Netherlands, Cyberbeveiligingswet 2026", "url": "https://regdossier.eu/nis2-netherlands/" }
           ]
         }
       ]
     },
     {
       "topic": "cmmc",
-      "name": {
-        "zh": "CMMC（美國國防部網路安全成熟度模型認證）",
-        "en": "CMMC"
-      },
+      "name": { "zh": "CMMC（美國國防部網路安全成熟度模型認證）", "en": "CMMC" },
       "items": [
         {
           "title": {
-            "zh": "【重點追蹤】改革小組報告倒數兩週：9/13 前後送交，Phase 1 義務全數維持有效",
-            "en": "[Watch] Two weeks to the reform task force report, due around September 13; all Phase 1 obligations remain in force"
+            "zh": "【重點追蹤】改革小組報告倒數兩週：9/13 前後送交 DoW CIO",
+            "en": "[Watch] Two weeks to the reform task force report, due to the DoW CIO around September 13"
           },
-          "date": {
-            "zh": "預計 2026-09-13 前後",
-            "en": "Expected on or about 2026-09-13"
-          },
+          "date": { "zh": "預計 2026-09-13 前後", "en": "Expected on or about 2026-09-13" },
           "importance": "medium",
           "content": {
-            "zh": "本期無新的官方公告。時程確認如下：DoD 於 7 月 13 日發布兩份備忘錄，立即暫停 CMMC 後續實施期限（含原訂 2026 年 11 月 10 日進入 Phase 2），並成立 60 天改革小組；意見徵詢（RFI）已於 8 月 14 日截止，蒐集業界對合規成本驅動因素、行政負擔、控制措施與實際成效對應、商用解決方案可用性及具體政策改革建議的回饋；改革小組須於 60 天內向 DoW CIO 提交建議，即 9 月 13 日前後（部分分析認為實際公開時間可能落在 9 月中至 10 月初）。必須反覆強調的是：**這是政策暫停，不是廢止**。Phase 1 自評、SPRS 分數維護與年度確認、NIST SP 800-171 Rev. 2 實作、以及 DFARS 252.204-7012 的保護與通報義務全部維持完全有效，違反這些仍構成合約違約風險。暫停的只有第三方評鑑（C3PAO）強制化的時程。",
-            "en": "No new official announcement this period. The timeline stands as follows. On July 13 the DoD issued two memoranda immediately suspending upcoming CMMC implementation deadlines, including the planned November 10, 2026 move to Phase 2, and standing up a 60-day reform task force. The Request for Information closed on August 14, gathering industry input on compliance cost drivers, administrative burden, which controls map to tangible outcomes, availability of commercial solutions, and concrete policy reform recommendations. The task force must deliver its recommendations to the DoW CIO within 60 days — on or about September 13, though some analyses expect public release between mid-September and early October. It bears repeating: **this is a policy pause, not a repeal.** Phase 1 self-assessments, SPRS score maintenance and annual affirmations, NIST SP 800-171 Rev. 2 implementation, and the safeguarding and reporting duties of DFARS 252.204-7012 all remain fully in force, and failing them still carries contract-breach risk. Only the timeline for mandatory third-party (C3PAO) assessment is suspended."
+            "zh": "本期無新的官方公告。時程確認如下：DoD 於 7 月 13 日發布兩份備忘錄，立即暫停 CMMC 後續實施期限（含原訂 2026 年 11 月 10 日進入 Phase 2），並成立 60 天改革小組；意見徵詢（RFI）已於 8 月 14 日截止，蒐集業界對合規成本驅動因素、行政負擔、控制措施與實際成效對應、商用解決方案可用性及具體政策改革建議的回饋；改革小組須於 60 天內向 DoW CIO 提交建議，即 9 月 13 日前後（部分分析認為實際公開時間可能落在 9 月中至 10 月初）。必須反覆強調的是：**這是政策暫停，不是廢止**。暫停的只有第三方評鑑（C3PAO）強制化的時程與 Level 2／Level 3 要求的指定，未受影響的部分見本節下一則。",
+            "en": "No new official announcement this period. The timeline stands as follows. On July 13 the DoD issued two memoranda immediately suspending upcoming CMMC implementation deadlines, including the planned November 10, 2026 move to Phase 2, and standing up a 60-day reform task force. The Request for Information closed on August 14, gathering industry input on compliance cost drivers, administrative burden, which controls map to tangible outcomes, availability of commercial solutions, and concrete policy reform recommendations. The task force must deliver its recommendations to the DoW CIO within 60 days — on or about September 13, though some analyses expect public release between mid-September and early October. It bears repeating: **this is a policy pause, not a repeal.** What is suspended is the timeline for mandatory third-party (C3PAO) assessment and the designation of Level 2 and Level 3 requirements; what is not affected is covered in the next item."
           },
           "action": {
-            "zh": "持有或競標美國國防合約者，這兩週不要停下 800-171 的實作與 SPRS 分數維護——暫停的是評鑑時程，不是控制要求，而報告出爐後若恢復時程，落後的差距只會更難補。已排定 C3PAO 評鑑者，建議與評鑑機構確認排程與費用在政策明朗前如何處理，避免預付款項卡在暫停期。報告發布當期本站將以高度關注回報，重點看四件事：C3PAO 認證是恢復、取代或分級化；Level 2／Level 3 要求是否鬆綁；是否啟動 DFARS 或 32 CFR 修訂程序；Phase 2 是否給出新的生效日。",
-            "en": "If you hold or bid on US defense contracts, do not pause your 800-171 implementation or SPRS score maintenance over the next two weeks — what is suspended is the assessment timeline, not the control requirements, and if the report restores a schedule, a widened gap only gets harder to close. If a C3PAO assessment is already booked, confirm with the assessment body how scheduling and fees will be handled until the policy clears, so prepayments are not stranded through the pause. We will report the release as a priority, watching four things: whether C3PAO certification is restored, replaced or tiered; whether Level 2 and Level 3 requirements are relaxed; whether a DFARS or 32 CFR rulemaking is initiated; and whether Phase 2 gets a new effective date."
+            "zh": "持有或競標美國國防合約者，這兩週不要停下 NIST SP 800-171 的實作與 SPRS 分數維護——暫停的是評鑑時程，不是控制要求，而報告出爐後若恢復時程，落後的差距只會更難補。報告發布當期本站將以高度關注回報，重點看四件事：C3PAO 認證是恢復、取代或分級化；Level 2／Level 3 要求是否鬆綁；是否啟動 DFARS 或 32 CFR 修訂程序；Phase 2 是否給出新的生效日。",
+            "en": "If you hold or bid on US defense contracts, do not pause NIST SP 800-171 implementation or SPRS score maintenance over the next two weeks — what is suspended is the assessment timeline, not the control requirements, and if the report restores a schedule, a widened gap only gets harder to close. We will report the release as a priority, watching four things: whether C3PAO certification is restored, replaced or tiered; whether Level 2 and Level 3 requirements are relaxed; whether a DFARS or 32 CFR rulemaking is initiated; and whether Phase 2 gets a new effective date."
           },
           "sources": [
-            {
-              "title": "SBA Office of Advocacy：DoW 為 CMMC 改革小組發出資訊徵詢（官方）",
-              "url": "https://advocacy.sba.gov/2026/07/20/dow-requests-information-for-cmmc-reform-task-force/"
-            },
-            {
-              "title": "Greenberg Traurig: DoD Suspends CMMC Deadlines and Seeks to Reassess Requirements",
-              "url": "https://www.gtlaw.com/en/insights/2026/7/dod-suspends-cmmc-deadlines-and-seeks-to-reassess-requirements"
-            },
-            {
-              "title": "Washington Technology: DOD suspends CMMC Phase 2, launches 60-day 'reform' review",
-              "url": "https://www.washingtontechnology.com/contracts/2026/07/dod-suspends-cmmc-phase-2-launches-60-day-reform-review/414739/"
-            }
+            { "title": "SBA Office of Advocacy：DoW 為 CMMC 改革小組發出資訊徵詢（官方）", "url": "https://advocacy.sba.gov/2026/07/20/dow-requests-information-for-cmmc-reform-task-force/" },
+            { "title": "Greenberg Traurig: DoD Suspends CMMC Deadlines and Seeks to Reassess Requirements", "url": "https://www.gtlaw.com/en/insights/2026/7/dod-suspends-cmmc-deadlines-and-seeks-to-reassess-requirements" },
+            { "title": "Washington Technology: DOD suspends CMMC Phase 2, launches 60-day 'reform' review", "url": "https://www.washingtontechnology.com/contracts/2026/07/dod-suspends-cmmc-phase-2-launches-60-day-reform-review/414739/" }
+          ]
+        },
+        {
+          "title": {
+            "zh": "被誤讀的暫停範圍：DFARS 252.204-7021 全數有效，SPRS 與 eMASS 續行，C3PAO 評鑑仍在進行",
+            "en": "The pause is being misread: DFARS 252.204-7021 remains fully in force, SPRS and eMASS keep running, and C3PAO assessments continue"
+          },
+          "date": { "zh": "2026-07-13 暫停生效，範圍如下", "en": "Pause effective 2026-07-13; scope as follows" },
+          "importance": "medium",
+          "content": {
+            "zh": "本則為初版漏報之補充，也是本期實務上最容易出錯的地方。7 月 13 日的暫停公告在承包商之間造成兩種誤讀：以為 CMMC「取消了」、或以為 C3PAO 評鑑已停辦。實際情形是：**DFARS 252.204-7021 未被暫停**——承包商仍須在 SPRS 中維持有效的自我評鑑分數，並每年提交「持續符合性確認（affirmation of continuous compliance）」。條文近期還有兩處收緊值得注意：其一，「current（有效）」的定義經修訂，明確界定為對 32 CFR Part 170 要求的符合狀態未發生變動，並釐清其在「Conditional CMMC Status」「Final CMMC Status」與年度確認三種情境下的意義；其二，DFARS 252.204-7021(d)(1) 的文字**不再排除分包商**提交持續符合性確認的義務——換言之，分包商的年度確認義務被明確化了。此外，SPRS 與 eMASS 系統維持完全運作，C3PAO 評鑑亦持續進行（暫停的是「強制要求」的時程，不是評鑑活動本身）。加上 Phase 1 自評與 DFARS 252.204-7012 的保護與 72 小時通報義務不變，違反這些仍構成合約違約風險。",
+            "en": "This item was missed in our first edition, and it is where practical mistakes are most likely this period. The July 13 pause produced two misreadings among contractors: that CMMC has been \"cancelled\", or that C3PAO assessments have stopped. Neither is correct. **DFARS 252.204-7021 was not suspended** — contractors must still maintain a current self-assessment score in SPRS and submit an annual affirmation of continuous compliance. Two recent tightenings in the clause deserve attention. First, the definition of \"current\" was revised to mean that there has been no change in compliance with the requirements at 32 CFR Part 170, clarifying what it means in the context of Conditional CMMC Status, Final CMMC Status and the annual affirmation. Second, the language at DFARS 252.204-7021(d)(1) **no longer excludes subcontractors** from the affirmation of continuous compliance — their annual affirmation duty has been made explicit. Beyond that, SPRS and eMASS remain fully operational and C3PAO assessments continue (what was paused is the timeline for making them mandatory, not the assessment activity itself). Together with unchanged Phase 1 self-assessment duties and the safeguarding and 72-hour reporting obligations of DFARS 252.204-7012, failing any of these still carries contract-breach risk."
+          },
+          "action": {
+            "zh": "三件事本季必須確認：(1) SPRS 分數是否仍屬「current」——若環境或控制實作在暫停期間有任何變動（例如換雲端服務、調整存取控制），分數就不再有效，須重新評分並更新；(2) 年度持續符合性確認是否如期提交，**並向下檢查分包商是否也提交**，這是條文近期修訂後最容易漏掉的一項；(3) 已排定的 C3PAO 評鑑不需取消，若貴司計畫於 Phase 2 恢復後競標 Level 2 合約，在暫停期間完成評鑑反而是排隊優勢。請把「CMMC 暫停」四個字從內部溝通中拿掉，改為「Phase 2 時程暫停，Phase 1 與 DFARS 義務不變」，避免下游單位誤判而鬆手。",
+            "en": "Three things to confirm this quarter. First, whether your SPRS score is still \"current\" — if the environment or control implementation changed at all during the pause (a new cloud service, revised access controls), the score is no longer current and must be re-scored and updated. Second, whether the annual affirmation of continuous compliance was filed on time, **and check down the chain that subcontractors filed too**, since that is the easiest duty to miss after the recent clause revision. Third, do not cancel a booked C3PAO assessment: if you intend to bid on Level 2 contracts once Phase 2 resumes, completing an assessment during the pause is a queue advantage. Drop the phrase \"CMMC is paused\" from internal communications in favour of \"the Phase 2 timeline is paused; Phase 1 and DFARS obligations are unchanged\", so downstream teams do not stand down on the strength of a misreading."
+          },
+          "sources": [
+            { "title": "eCFR：32 CFR 170.22 — Affirmation（官方）", "url": "https://www.ecfr.gov/current/title-32/subtitle-A/chapter-I/subchapter-G/part-170/subpart-D/section-170.22" },
+            { "title": "Federal Register：DFARS Case 2019-D041 — Assessing Contractor Implementation of Cybersecurity Requirements（官方）", "url": "https://www.federalregister.gov/documents/2025/09/10/2025-17359/defense-federal-acquisition-regulation-supplement-assessing-contractor-implementation-of" },
+            { "title": "Secureframe: A Guide to the DFARS Clauses Behind CMMC & How They've Changed in 2026", "url": "https://secureframe.com/blog/dfars" },
+            { "title": "Secureframe: SPRS Scoring — How to Get a Current CMMC Status and Stay Eligible for Defense Contracts", "url": "https://secureframe.com/blog/cmmc-sprs" }
           ]
         }
       ]
     },
     {
       "topic": "iso27000",
-      "name": {
-        "zh": "ISO 27000 系列（資訊安全標準）",
-        "en": "ISO 27000 Series"
-      },
+      "name": { "zh": "ISO 27000 系列（資訊安全標準）", "en": "ISO 27000 Series" },
       "items": [
         {
           "title": {
             "zh": "ISO/IEC 27017:2026 發布：睽違 11 年改版，雲端專屬控制由 7 項精簡為 4 項並全面對齊 27002:2022",
             "en": "ISO/IEC 27017:2026 published: the first revision in eleven years cuts cloud-specific controls from seven to four and realigns to 27002:2022"
           },
-          "date": {
-            "zh": "2026-07 發布（第二版）",
-            "en": "Published 2026-07 (second edition)"
-          },
+          "date": { "zh": "2026-07 發布（第二版）", "en": "Published 2026-07 (second edition)" },
           "importance": "medium",
           "content": {
-            "zh": "ISO/IEC 27017:2026 已發布為第二版，取代 2015 年初版，是該標準十一年來首次改版。核心變動是結構性的：初版採用 ISO/IEC 27002:2013 的章節架構並額外定義 7 項雲端專屬（CLD）控制措施；2026 年版改採 ISO/IEC 27002:2022 的四大類（組織、人員、實體、技術）結構，僅保留 4 項獨立的雲端專屬控制，其餘原本以 CLD 形式單列的主題，改為併入對應的 27002:2022 控制之內以附加指引方式處理。歐洲同步採認為 EN ISO/IEC 27017:2026。實務含意有兩層：對已依 27002:2022 重整控制清單的組織，27017 的導入與對應工作明顯變簡單，不必再維護兩套編號體系；但對現行以 27017:2015 的 CLD 編號撰寫雲端控制矩陣、供應商問卷或客戶稽核回覆的組織，這些文件的編號對應會全面失效，需要重新映射。此外提醒，27017 是指引性標準（guidance），本身不提供可驗證的認證，其價值在於作為 ISMS 範圍內雲端控制的實作依據與稽核佐證。",
-            "en": "ISO/IEC 27017:2026 has been published as the second edition, replacing the 2015 original — the standard's first revision in eleven years. The core change is structural. The first edition followed the clause architecture of ISO/IEC 27002:2013 and added seven cloud-specific (CLD) controls; the 2026 edition adopts the four-theme structure of ISO/IEC 27002:2022 (organisational, people, physical, technological) and retains only four standalone cloud-specific controls, folding the remaining topics that were previously separate CLD entries into the corresponding 27002:2022 controls as additional guidance. Europe has adopted it in parallel as EN ISO/IEC 27017:2026. There are two practical consequences. For organisations that have already restructured their control set onto 27002:2022, implementing and mapping 27017 becomes markedly simpler, with no need to maintain two numbering schemes. But for those whose cloud control matrices, supplier questionnaires or customer audit responses are written against 27017:2015 CLD numbers, that numbering correspondence breaks entirely and must be re-mapped. Note also that 27017 is a guidance standard offering no certifiable requirements of its own; its value lies in underpinning and evidencing cloud controls within an ISMS scope."
+            "zh": "ISO/IEC 27017:2026 已發布為第二版，取代 2015 年初版，是該標準十一年來首次改版。核心變動是結構性的：初版採用 ISO/IEC 27002:2013 的章節架構並額外定義 7 項雲端專屬（CLD）控制措施；2026 年版改採 ISO/IEC 27002:2022 的四大類（組織、人員、實體、技術）結構與屬性標示法，僅保留 **4 項**獨立的雲端專屬控制，其餘原本以 CLD 形式單列的主題，改為併入對應的 27002:2022 控制之內以附加指引方式處理，過程中有控制被合併、有被移除，也新增了數項。實務上最有用的一點是：**新版 Annex B 提供與 27017:2015 的回溯對照表**，重新映射不必從零做起。歐洲同步採認為 EN ISO/IEC 27017:2026。含意有兩層：對已依 27002:2022 重整控制清單的組織，27017 的導入與對應明顯變簡單，不必再維護兩套編號體系；但對現行以 27017:2015 的 CLD 編號撰寫雲端控制矩陣、供應商問卷或客戶稽核回覆的組織，這些文件的編號對應會全面失效。另提醒，27017 是指引性標準（guidance），本身不提供可驗證的認證，其價值在於作為 ISMS 範圍內雲端控制的實作依據與稽核佐證。這次改版也呼應 7 月 3 日發布的 ISO/IEC 27000:2026（第六版）——該版更新了整個系列的術語與概念架構，其他分冊將陸續向其對齊。",
+            "en": "ISO/IEC 27017:2026 has been published as the second edition, replacing the 2015 original — the standard's first revision in eleven years. The core change is structural. The first edition followed the clause architecture of ISO/IEC 27002:2013 and added seven cloud-specific (CLD) controls; the 2026 edition adopts the four-theme structure and attribute taxonomy of ISO/IEC 27002:2022 (organisational, people, physical, technological) and retains only **four** standalone cloud-specific controls, folding the remaining topics that were previously separate CLD entries into the corresponding 27002:2022 controls as additional guidance — with some controls merged, some removed and several added. The most useful practical detail: **Annex B of the new edition provides a backwards-compatibility mapping to 27017:2015**, so re-mapping does not start from zero. Europe has adopted it in parallel as EN ISO/IEC 27017:2026. There are two consequences. For organisations that have already restructured their control set onto 27002:2022, implementing and mapping 27017 becomes markedly simpler, with no need to maintain two numbering schemes. But for those whose cloud control matrices, supplier questionnaires or customer audit responses are written against 27017:2015 CLD numbers, that numbering correspondence breaks entirely. Note also that 27017 is a guidance standard offering no certifiable requirements of its own; its value lies in underpinning and evidencing cloud controls within an ISMS scope. The revision also follows ISO/IEC 27000:2026 (sixth edition, published July 3), which refreshed the vocabulary and conceptual framework for the whole family, with other parts due to align to it progressively."
           },
           "action": {
-            "zh": "使用公有雲或提供雲端服務者，安排一次映射作業：把現行雲端控制矩陣由 27017:2015 的 CLD 編號改對應 27017:2026 與 27002:2022，優先處理對外文件（客戶稽核回覆、供應商安全問卷、雲端服務合約附件），因為這些一旦編號失效最容易在稽核現場被質疑。同時通知內部稽核與資安治理單位更新查檢表。若貴司同時受 CRA 或 NIS2 供應鏈條款拘束，這次改版是把雲端控制證據一次整理到位的好時機——兩者的稽核都會問到雲端環境的責任分界與控制實作。",
-            "en": "If you use public cloud or provide cloud services, schedule a mapping exercise: move your cloud control matrix from 27017:2015 CLD numbering onto 27017:2026 and 27002:2022, prioritising outward-facing documents — customer audit responses, supplier security questionnaires, cloud contract annexes — since broken numbering in those is what gets challenged during an audit. Tell internal audit and security governance to refresh their checklists. If you are also subject to CRA or NIS2 supply-chain provisions, this revision is a good moment to consolidate cloud control evidence in one pass, as both regimes' audits ask about responsibility boundaries and control implementation in cloud environments."
+            "zh": "使用公有雲或提供雲端服務者，安排一次映射作業，**直接用新版 Annex B 的對照表**把現行雲端控制矩陣由 27017:2015 的 CLD 編號轉到 27017:2026 與 27002:2022。優先處理對外文件（客戶稽核回覆、供應商安全問卷、雲端服務合約附件），因為這些一旦編號失效最容易在稽核現場被質疑；同時通知內部稽核與資安治理單位更新查檢表。若貴司同時受 CRA 或 NIS2 供應鏈條款拘束，這次改版是把雲端控制證據一次整理到位的好時機——兩者的稽核都會問到雲端環境的責任分界與控制實作。",
+            "en": "If you use public cloud or provide cloud services, schedule a mapping exercise and **use the new Annex B correspondence table directly** to move your cloud control matrix from 27017:2015 CLD numbering onto 27017:2026 and 27002:2022. Prioritise outward-facing documents — customer audit responses, supplier security questionnaires, cloud contract annexes — since broken numbering in those is what gets challenged during an audit, and tell internal audit and security governance to refresh their checklists. If you are also subject to CRA or NIS2 supply-chain provisions, this revision is a good moment to consolidate cloud control evidence in one pass, as both regimes' audits ask about responsibility boundaries and control implementation in cloud environments."
           },
           "sources": [
-            {
-              "title": "ISO：ISO/IEC 27017:2026 標準頁（官方）",
-              "url": "https://www.iso.org/standard/27017"
-            },
-            {
-              "title": "IEC Webstore：ISO/IEC 27017:2026（官方）",
-              "url": "https://webstore.iec.ch/en/publication/115400"
-            },
-            {
-              "title": "CEN：EN ISO/IEC 27017:2026 歐洲採認版目錄",
-              "url": "https://standards.iteh.ai/catalog/standards/cen/c7a14ce5-5df4-43a3-a552-fe0a53590ab4/en-iso-iec-27017-2026"
-            },
-            {
-              "title": "Assent Risk Management: ISO 27017:2026 Explained — Key Changes, New Cloud Controls, and What It Means for Certification",
-              "url": "https://www.assentriskmanagement.co.uk/iso-270172026-explained-key-changes-new-cloud-controls-and-what-it-means-for-certification/"
-            }
+            { "title": "ISO：ISO/IEC 27017:2026 標準頁（官方）", "url": "https://www.iso.org/standard/27017" },
+            { "title": "IEC Webstore：ISO/IEC 27017:2026（官方）", "url": "https://webstore.iec.ch/en/publication/115400" },
+            { "title": "CEN：EN ISO/IEC 27017:2026 歐洲採認版目錄", "url": "https://standards.iteh.ai/catalog/standards/cen/c7a14ce5-5df4-43a3-a552-fe0a53590ab4/en-iso-iec-27017-2026" },
+            { "title": "Assent Risk Management: ISO 27017:2026 Explained — Key Changes, New Cloud Controls, and What It Means for Certification", "url": "https://www.assentriskmanagement.co.uk/iso-270172026-explained-key-changes-new-cloud-controls-and-what-it-means-for-certification/" }
           ]
         }
       ]
     },
     {
       "topic": "iso42001",
-      "name": {
-        "zh": "ISO 42001（人工智慧管理系統）",
-        "en": "ISO 42001"
-      },
+      "name": { "zh": "ISO 42001（人工智慧管理系統）", "en": "ISO 42001" },
       "items": [
+        {
+          "title": {
+            "zh": "EN ISO/IEC 42001:2026 已完成歐洲採認，但採認不等於調和——執委會另訂 EN 18286 的原因",
+            "en": "EN ISO/IEC 42001:2026 has been adopted in Europe, but adoption is not harmonisation — why the Commission commissioned EN 18286 instead"
+          },
+          "date": { "zh": "2026-03-13 CEN 核准、2026-03-18 發布", "en": "Approved by CEN 2026-03-13, published 2026-03-18" },
+          "importance": "medium",
+          "content": {
+            "zh": "本則為初版漏報之補充，直接回應「ISO 42001 到底能不能用來對接 AI Act」這個實務問題。ISO/IEC 42001:2023 已由 CEN 於 2026 年 3 月 13 日核准、3 月 18 日發布為 **EN ISO/IEC 42001:2026**，34 個國家須於 2026 年 9 月前賦予其國家標準地位（因此近期會陸續出現各國版本，例如 SIST EN ISO/IEC 42001:2026）。但必須把兩件事分清楚：**歐洲採認（EN 化）不等於調和標準（harmonised standard）**。調和標準需經執委會標準化委託、評估與刊登歐盟公報三道程序，刊登後才產生合規推定；截至本期，OJ 未刊登任何 AI Act 調和標準，ISO 42001 亦不在其列。更關鍵的是背景：執委會在評估後認為 **ISO/IEC 42001 的目標與定義與 AI Act Article 17 的品質管理系統要求並不對齊**，因此 JTC 21 才另行撰寫專屬的歐洲標準（即 prEN 18286，已於 2026-07-12 核准發布為 EN 18286:2026），而非直接採認 42001。這代表 42001 認證在 AI Act 下的定位是**互補而非替代**：它證明貴司有可稽核的 AI 治理制度，但不證明符合 Article 17。",
+            "en": "This item was missed in our first edition and answers a practical question directly: can ISO 42001 be used to meet the AI Act? ISO/IEC 42001:2023 was approved by CEN on March 13, 2026 and published on March 18 as **EN ISO/IEC 42001:2026**, with 34 countries required to give it national-standard status by September 2026 (hence national versions such as SIST EN ISO/IEC 42001:2026 appearing now). But two things must be kept apart: **European adoption as an EN is not the same as being a harmonised standard.** A harmonised standard requires a Commission standardisation request, assessment and citation in the Official Journal, and only citation creates the presumption of conformity. As of this issue the OJ carries no AI Act harmonised standard, and ISO 42001 is not among them. The background matters more: after assessment the Commission concluded that **ISO/IEC 42001's goals and definitions are not aligned with the AI Act's Article 17 quality-management requirement**, which is why JTC 21 drafted a bespoke European standard (prEN 18286, approved and published as EN 18286:2026 on 2026-07-12) rather than adopting 42001 directly. So ISO 42001 certification sits **complementary to, not substituting for**, AI Act conformity: it evidences an auditable AI governance system, but it does not evidence compliance with Article 17."
+          },
+          "action": {
+            "zh": "已取得或規劃 ISO 42001 認證者，把它定位為「AI 治理制度的證據」，並在對外文件與客戶問卷中明確寫出「本認證不構成 EU AI Act 的合規推定」——這句話省下的是日後法務爭議。若貴司產品含高風險 AI 系統，Article 17 的差距分析請直接對 **EN 18286:2026** 做，不要以 42001 的條文替代；兩者可共用大部分的流程與紀錄，但要求文字不同，稽核時會被逐條比對。採購端亦同：審查供應商時，把「是否持有 42001」與「是否已對 EN 18286 做過差距分析」列為兩個獨立問題。",
+            "en": "If you hold or plan ISO 42001 certification, position it as evidence of an AI governance system and state explicitly in external documents and customer questionnaires that **the certification does not constitute a presumption of conformity under the EU AI Act** — that sentence saves later legal argument. If your products contain high-risk AI systems, run the Article 17 gap analysis directly against **EN 18286:2026** rather than substituting 42001's clauses; the two share most of the process and records but differ in requirement wording, and auditors will compare clause by clause. The same applies on the buying side: when assessing suppliers, treat \"do they hold 42001\" and \"have they gap-assessed against EN 18286\" as two separate questions."
+          },
+          "sources": [
+            { "title": "CEN：EN ISO/IEC 42001:2026 歐洲採認版目錄", "url": "https://standards.iteh.ai/catalog/standards/cen/adc675e8-4669-4965-b4c1-c8f724832217/en-iso-iec-42001-2026" },
+            { "title": "CEN-CENELEC JTC 21：AI 標準完整概覽（官方）", "url": "https://jtc21.eu/wp-content/uploads/2025/06/CEN-CENELEC-JTC21-AI-Standards-Complete-Detailed-Overview.pdf" },
+            { "title": "lawandtechnology.eu: ISO/IEC 42001 and the AI Act — why certification is not (yet) a presumption of conformity", "url": "https://lawandtechnology.eu/en/iso-iec-42001-and-the-ai-act-why-certification-is-not-yet-a-presumption-of-conformity/" }
+          ]
+        },
         {
           "title": {
             "zh": "【背景補充】ISO/IEC 42006 才是決定 42001 證書可信度的那份標準",
             "en": "[Background] ISO/IEC 42006 is the standard that actually determines whether an ISO 42001 certificate means anything"
           },
-          "date": {
-            "zh": "42006:2025 已發布，各國認可方案於 2026 年陸續上線",
-            "en": "42006:2025 published; national accreditation programmes rolling out through 2026"
-          },
+          "date": { "zh": "42006:2025 已發布，各國認可方案於 2026 年陸續上線", "en": "42006:2025 published; national accreditation programmes rolling out through 2026" },
           "importance": "low",
           "content": {
-            "zh": "隨著 ISO/IEC 42001 證書在供應鏈問卷與標案中出現得愈來愈頻繁，值得補充一個常被忽略的環節：證書的可信度不是由 42001 本身決定，而是由 ISO/IEC 42006 決定。42006 規定「執行 AIMS 稽核與驗證的機構」須具備的額外要求，建構於 ISO/IEC 17021-1 之上，涵蓋稽核員能力、稽核工時、驗證範圍界定等——換言之，它是驗證機構的驗證標準。該標準已發布為 ISO/IEC 42006:2025，並陸續被各國採認（例如 SIST ISO/IEC 42006:2026）。認可機構（如美國 ANAB）據此建立 ISO/IEC 42001 驗證機構的認可方案，2026 年間陸續上線。實務上的分辨方式很簡單：一張由「已取得認可（accredited）之驗證機構」簽發的 42001 證書，與一張由未經認可機構簽發的證書，在稽核與採購審查中的份量差距很大，而供應鏈問卷通常不會替你分辨。另需提醒：ISO 42001 至今**不是** EU AI Act 的調和標準，取得認證不產生任何合規推定效果。",
-            "en": "As ISO/IEC 42001 certificates turn up more often in supply-chain questionnaires and tenders, one frequently overlooked link is worth spelling out: a certificate's credibility is determined not by 42001 itself but by ISO/IEC 42006. That standard sets the additional requirements for bodies performing AIMS audit and certification, building on ISO/IEC 17021-1 and covering auditor competence, audit duration and scope definition — in other words, it is the standard against which certification bodies themselves are assessed. It has been published as ISO/IEC 42006:2025 and is being adopted nationally (for example SIST ISO/IEC 42006:2026). Accreditation bodies such as ANAB in the United States are using it to build accreditation programmes for ISO/IEC 42001 certification bodies, which are coming online through 2026. The practical distinction is simple: a 42001 certificate issued by an accredited certification body carries substantially more weight in audits and procurement review than one issued by an unaccredited body — and supply-chain questionnaires usually will not make that distinction for you. Note also that ISO 42001 is still **not** a harmonised standard under the EU AI Act, so certification confers no presumption of conformity."
+            "zh": "隨著 ISO/IEC 42001 證書在供應鏈問卷與標案中出現得愈來愈頻繁，值得補充一個常被忽略的環節：證書的可信度不是由 42001 本身決定，而是由 ISO/IEC 42006 決定。42006 規定「執行 AIMS 稽核與驗證的機構」須具備的額外要求，建構於 ISO/IEC 17021-1 之上，涵蓋稽核員能力、稽核工時、驗證範圍界定等——換言之，它是驗證機構的驗證標準。該標準已發布為 ISO/IEC 42006:2025，並陸續被各國採認（例如 SIST ISO/IEC 42006:2026）。認可機構（如美國 ANAB）據此建立 ISO/IEC 42001 驗證機構的認可方案，2026 年間陸續上線。實務上的分辨方式很簡單：一張由「已取得認可（accredited）之驗證機構」簽發的 42001 證書，與一張由未經認可機構簽發的證書，在稽核與採購審查中的份量差距很大，而供應鏈問卷通常不會替你分辨。",
+            "en": "As ISO/IEC 42001 certificates turn up more often in supply-chain questionnaires and tenders, one frequently overlooked link is worth spelling out: a certificate's credibility is determined not by 42001 itself but by ISO/IEC 42006. That standard sets the additional requirements for bodies performing AIMS audit and certification, building on ISO/IEC 17021-1 and covering auditor competence, audit duration and scope definition — in other words, it is the standard against which certification bodies themselves are assessed. It has been published as ISO/IEC 42006:2025 and is being adopted nationally (for example SIST ISO/IEC 42006:2026). Accreditation bodies such as ANAB in the United States are using it to build accreditation programmes for ISO/IEC 42001 certification bodies, which are coming online through 2026. The practical distinction is simple: a 42001 certificate issued by an accredited certification body carries substantially more weight in audits and procurement review than one issued by an unaccredited body — and supply-chain questionnaires usually will not make that distinction for you."
           },
           "action": {
-            "zh": "若貴司規劃導入 ISO 42001，選擇驗證機構時明確確認其是否已取得 42006 為基礎的認可（可向該國認可機構查證，而非僅信任機構自述）。若貴司是在審查供應商，把「驗證機構名稱與認可機構」列入問卷欄位，而非只收一張證書 PDF。同時在對外溝通中避免把 42001 認證與 AI Act 合規劃上等號——那會在客戶法務審查時造成不必要的爭議。",
-            "en": "If you are planning an ISO 42001 implementation, verify explicitly that your chosen certification body holds accreditation based on 42006 — check with that country's accreditation body rather than relying on the certifier's own claim. If you are the one reviewing suppliers, add fields for the certification body's name and its accreditation body to your questionnaire instead of accepting a certificate PDF alone. And avoid equating 42001 certification with AI Act compliance in external communications; that creates avoidable friction in customers' legal reviews."
+            "zh": "若貴司規劃導入 ISO 42001，選擇驗證機構時明確確認其是否已取得 42006 為基礎的認可（可向該國認可機構查證，而非僅信任機構自述）。若貴司是在審查供應商，把「驗證機構名稱與認可機構」列入問卷欄位，而非只收一張證書 PDF。",
+            "en": "If you are planning an ISO 42001 implementation, verify explicitly that your chosen certification body holds accreditation based on 42006 — check with that country's accreditation body rather than relying on the certifier's own claim. If you are the one reviewing suppliers, add fields for the certification body's name and its accreditation body to your questionnaire instead of accepting a certificate PDF alone."
           },
           "sources": [
-            {
-              "title": "ISO：ISO/IEC 42006 標準頁（官方）",
-              "url": "https://www.iso.org/standard/42006"
-            },
-            {
-              "title": "ANAB：ISO/IEC 42001 人工智慧管理系統驗證機構認可（官方）",
-              "url": "https://anab.ansi.org/accreditation/iso-iec-42001-artificial-intelligence-management-systems/"
-            },
-            {
-              "title": "CQI/IRCA: New benchmark for bodies certifying AI management systems",
-              "url": "https://www.quality.org/article/new-benchmark-bodies-certifying-ai-management-systems"
-            }
+            { "title": "ISO：ISO/IEC 42006 標準頁（官方）", "url": "https://www.iso.org/standard/42006" },
+            { "title": "ANAB：ISO/IEC 42001 人工智慧管理系統驗證機構認可（官方）", "url": "https://anab.ansi.org/accreditation/iso-iec-42001-artificial-intelligence-management-systems/" },
+            { "title": "CQI/IRCA: New benchmark for bodies certifying AI management systems", "url": "https://www.quality.org/article/new-benchmark-bodies-certifying-ai-management-systems" }
           ]
         }
       ]
     },
     {
       "topic": "tisax",
-      "name": {
-        "zh": "TISAX（汽車產業資訊安全評鑑）",
-        "en": "TISAX"
-      },
+      "name": { "zh": "TISAX（汽車產業資訊安全評鑑）", "en": "TISAX" },
       "items": [
         {
           "title": {
-            "zh": "【續報】ISA 2027 內容細節公開：46 項控制中 44 項改寫、多項要求由 should 升格為 must",
-            "en": "[Follow-up] ISA 2027 detail emerges: 44 of 46 controls rewritten, with requirements promoted from should to must"
+            "zh": "VDA ISA 2027 已於 7/1 正式發布：46 項控制中 44 項改寫、多項要求由 should 升格為 must、供應鏈成為重點",
+            "en": "VDA ISA 2027 was formally released on July 1: 44 of 46 controls rewritten, requirements promoted from should to must, and the supply chain moves into focus"
           },
-          "date": {
-            "zh": "2027-01-01 起新案強制適用",
-            "en": "Mandatory for new assessments from 2027-01-01"
-          },
+          "date": { "zh": "2026-07-01 發布，2027-01-01 起新案強制適用", "en": "Released 2026-07-01; mandatory for new assessments from 2027-01-01" },
           "importance": "medium",
           "content": {
-            "zh": "上期已報導 VDA ISA 2027 自 2027 年 1 月 1 日起對新開案的 TISAX 評鑑強制適用、且版本編號改為年份制（取代 ISA 6.0／6.0.3 的舊編號）並改採年度發布週期。本期補上內容差異：資訊安全模組的控制數量維持 46 項不變，但其中 **44 項有文字修訂**，25 項的要求內容出現實質變動（新增、刪除或移位）。變動的主要模式是**要求層級上調**——原本屬「應該（should）」層級的要求被改列為「必須（must）」，例如控制 1.1.1 關於資安政策與員工溝通的部分。原型保護模組則由 22 項縮減為 20 項並完成整體重構。時程上，在 ENX 另行公告前，現行進行中的評鑑仍依 ISA 6 執行，既有的 TISAX 標章不會因改版自動失效。要注意的是「維持 46 項」這個數字容易造成誤判——控制數量沒變不代表工作量沒變，實際落差來自 should 升 must 的部分，那些原本可以用「已評估、暫不實施」帶過的項目，改版後將成為不符合事項。",
-            "en": "Last issue reported that VDA ISA 2027 becomes mandatory for newly ordered TISAX assessments from January 1, 2027, that version numbering moves to a year-based scheme (replacing ISA 6.0 / 6.0.3), and that publication shifts to an annual cycle. This issue adds the content delta. The information security module keeps 46 controls, but **44 of them have been edited**, and 25 carry substantive changes to their requirements — added, removed or relocated. The dominant pattern is an **escalation of requirement level**: items previously at \"should\" have been moved to \"must\", for instance in control 1.1.1 covering security policy and employee communication. The prototype protection module shrinks from 22 controls to 20 and has been restructured throughout. On timing, assessments already under way continue on ISA 6 until ENX announces otherwise, and existing TISAX labels do not lapse automatically because of the revision. Be careful with the \"still 46 controls\" figure — an unchanged control count does not mean unchanged effort. The real delta sits in the should-to-must promotions: items you could previously close out as \"assessed, not implemented for now\" become non-conformities after the revision."
+            "zh": "德國汽車工業協會（VDA）已於 2026 年 7 月 1 日正式發布 VDA ISA 6 的後繼版本，ENX 以「10 Years of TISAX – VDA ISA2027 Released」公告之。版本命名改採年份制，官方名稱為 **ISA 2027**（而非市場上常見的誤稱「ISA 7.0」），並改為年度發布週期。適用時點明確：**自 2027 年 1 月 1 日起，所有新申請的 TISAX 評鑑一律適用 ISA 2027**，這是 VDA 與 ENX 設定的正式截止點，非指示性日期；在 ENX 另行公告前，已在進行中的評鑑仍依 ISA 6 執行，既有 TISAX 標章不會因改版自動失效。內容差異：資訊安全模組的控制數量維持 46 項不變，但其中 **44 項有文字修訂**，25 項的要求內容出現實質變動（新增、刪除或移位）。變動的主要模式是**要求層級上調**——原本屬「應該（should）」層級的要求被改列為「必須（must）」，例如控制 1.1.1 關於資安政策與員工溝通的部分；同時**供應鏈安全的著墨明顯加重**。原型保護模組則由 22 項縮減為 20 項並完成整體重構。要注意「維持 46 項」這個數字容易造成誤判——控制數量沒變不代表工作量沒變，實際落差來自 should 升 must 的部分，那些原本可以用「已評估、暫不實施」帶過的項目，改版後將成為不符合事項。",
+            "en": "The German automotive association VDA formally released the successor to VDA ISA 6 on July 1, 2026, announced by ENX as \"10 Years of TISAX – VDA ISA2027 Released\". Version naming moves to a year-based scheme, with the official name **ISA 2027** (not \"ISA 7.0\", a common misnomer), on an annual publication cycle. The applicability point is explicit: **from January 1, 2027, every newly ordered TISAX assessment runs on ISA 2027** — a formal cut-off set by VDA and ENX, not an indicative date. Until ENX announces otherwise, assessments already under way continue on ISA 6, and existing TISAX labels do not lapse because of the revision. On content: the information security module keeps 46 controls, but **44 of them have been edited**, and 25 carry substantive changes to their requirements — added, removed or relocated. The dominant pattern is an **escalation of requirement level**: items previously at \"should\" have been moved to \"must\", for instance in control 1.1.1 covering security policy and employee communication, and **supply-chain security receives markedly more weight**. The prototype protection module shrinks from 22 controls to 20 and has been restructured throughout. Be careful with the \"still 46 controls\" figure — an unchanged control count does not mean unchanged effort. The real delta sits in the should-to-must promotions: items you could previously close out as \"assessed, not implemented for now\" become non-conformities under the new catalogue."
           },
           "action": {
-            "zh": "有 TISAX 標章或計畫申請者，現在就做一件事：把現行 ISA 6 自評結果中所有標記為「should 但未實施」或「部分實施」的控制項拉出清單，這批就是 2027 版最可能變成不符合事項的候選。若標章到期日落在 2027 年且需重新評鑑，實質準備期只剩約四個月，建議把差距補實的工作排進 Q4 而非等到明年。原型保護標章持有者另須留意模組重構後的對應關係，宜與稽核機構先確認新舊控制的映射。",
-            "en": "If you hold a TISAX label or plan to apply, do one thing now: pull a list of every control in your current ISA 6 self-assessment marked \"should, not implemented\" or \"partially implemented.\" That set is the most likely source of non-conformities under the 2027 catalogue. If your label expires during 2027 and requires reassessment, the substantive runway is roughly four months, so schedule the remediation into Q4 rather than deferring to next year. Holders of prototype protection labels should additionally confirm the old-to-new control mapping with their audit provider given the module restructuring."
+            "zh": "有 TISAX 標章或計畫申請者，現在就做一件事：把現行 ISA 6 自評結果中所有標記為「should 但未實施」或「部分實施」的控制項拉出清單，這批就是 2027 版最可能變成不符合事項的候選。距強制適用只剩約四個月，若標章到期日落在 2027 年且需重新評鑑，建議把差距補實的工作排進 Q4 而非等到明年。供應鏈相關要求加重這一點請一併通知採購與供應商管理單位——它會延伸為對二階供應商的要求。原型保護標章持有者另須留意模組重構後的對應關係，宜與稽核機構先確認新舊控制的映射。",
+            "en": "If you hold a TISAX label or plan to apply, do one thing now: pull a list of every control in your current ISA 6 self-assessment marked \"should, not implemented\" or \"partially implemented.\" That set is the most likely source of non-conformities under the 2027 catalogue. With roughly four months to mandatory application, and if your label expires during 2027 and requires reassessment, schedule the remediation into Q4 rather than deferring to next year. Flag the heavier supply-chain requirements to procurement and supplier management — they will extend into demands on tier-two suppliers. Holders of prototype protection labels should additionally confirm the old-to-new control mapping with their audit provider given the module restructuring."
           },
           "sources": [
-            {
-              "title": "VDA：資訊安全主題頁（官方，ISA 目錄發行者）",
-              "url": "https://www.vda.de/en/topics/digitization/data/information-security"
-            },
-            {
-              "title": "ENX Portal：ISA 版本與 TISAX 標章變更公告（官方）",
-              "url": "https://www.enx.com/en-US/news/Changes-to-TISAX-Labels-ISA-six-Release/"
-            },
-            {
-              "title": "360dt: VDA ISA 2027 — The Most Important Changes in the TISAX Catalogue",
-              "url": "https://360dt.de/en/vda-isa-2027-changes/"
-            },
-            {
-              "title": "Syngenity: VDA ISA2027 — 5 Key Changes for TISAX Starting in 2027",
-              "url": "https://www.syngenity.com/en/vda-isa2027-5-key-changes-for-tisax-starting-in-2027/"
-            }
+            { "title": "ENX Portal：10 Years of TISAX – VDA ISA2027 Released（官方）", "url": "https://enx.com/en-US/news/isa2027/" },
+            { "title": "VDA：資訊安全主題頁（官方，ISA 目錄發行者）", "url": "https://www.vda.de/en/topics/digitization/data/information-security" },
+            { "title": "360dt: VDA ISA 2027 — The Most Important Changes in the TISAX Catalogue", "url": "https://360dt.de/en/vda-isa-2027-changes/" },
+            { "title": "Syngenity: VDA ISA2027 — 5 Key Changes for TISAX Starting in 2027", "url": "https://www.syngenity.com/en/vda-isa2027-5-key-changes-for-tisax-starting-in-2027/" }
           ]
         }
       ]
     },
     {
       "topic": "iec62443",
-      "name": {
-        "zh": "IEC 62443（工控與 OT 資安標準）",
-        "en": "IEC 62443"
-      },
+      "name": { "zh": "IEC 62443（工控與 OT 資安標準）", "en": "IEC 62443" },
       "items": [
         {
           "title": {
-            "zh": "CISA 8/27 一次發布 7 則 ICS 建議通報，含三菱電機多項 FA 產品",
-            "en": "CISA issued seven ICS advisories on August 27, including multiple Mitsubishi Electric FA products"
+            "zh": "五機關聯合警示 AA26-231A：攻擊者以 AI 生成腳本鎖定 Siemens S7 PLC，關鍵製造業列為目標",
+            "en": "Five-agency joint advisory AA26-231A: attackers use AI-generated scripts against Siemens S7 PLCs, with critical manufacturing named as a target"
           },
-          "date": {
-            "zh": "2026-08-27",
-            "en": "2026-08-27"
-          },
-          "importance": "medium",
+          "date": { "zh": "2026-08 中旬發布（各方報導日期介於 8/18～8/20）", "en": "Issued mid-August 2026 (reports date it between Aug 18 and Aug 20)" },
+          "importance": "high",
           "content": {
-            "zh": "CISA 於 8 月 27 日一次發布 7 則工業控制系統（ICS）建議通報（編號 ICSA-26-239-01 起），涵蓋多個產業別使用的產品，其中包含三菱電機多項工廠自動化（FA）產品，以及 Applied Systems Engineering ASE2000 V2 通訊測試儀。以 ICSA-26-239-01（Xiiaozet LK100W）為例，該產品的網頁式管理介面存在作業系統命令注入漏洞，影響 LK100W 2.1.240 以前版本，已通過驗證的攻擊者可以提升後的權限執行任意作業系統命令，可能導致敏感資訊外洩或裝置完全淪陷。本期無新的 IEC 62443 標準改版或 ISASecure 方案公告。從 IEC 62443 的角度看，這批通報反覆指向同一組基本控制的落實程度：62443-4-2 的元件要求（CR 1.x 識別與鑑別、CR 2.x 使用控制）與 62443-3-3 的系統要求（SR 5.1 網路分割），而網頁管理介面上的命令注入之所以能造成完整淪陷，往往正是因為該介面本不該從一般網段直接可達。",
-            "en": "On August 27 CISA released seven Industrial Control Systems advisories in a single batch (beginning with ICSA-26-239-01), covering products used across multiple sectors, among them several Mitsubishi Electric factory automation (FA) products and the Applied Systems Engineering ASE2000 V2 Communications Test Set. Taking ICSA-26-239-01 (Xiiaozet LK100W) as an example, its web-based management interface carries an OS command injection flaw affecting versions before LK100W 2.1.240; an authenticated attacker may execute arbitrary operating system commands with elevated privileges, potentially leading to disclosure of sensitive information or full device compromise. There were no new IEC 62443 standard revisions or ISASecure scheme announcements this period. Viewed through IEC 62443, this batch keeps pointing at the same set of basic controls: the component requirements of 62443-4-2 (CR 1.x identification and authentication, CR 2.x use control) and the system requirements of 62443-3-3 (SR 5.1 network segmentation). Command injection on a web management interface escalates to full compromise largely because that interface should not have been directly reachable from a general network segment in the first place."
+            "zh": "本則為初版漏報之補充，是本期對製造業最重要的一則。美國國家安全局（NSA）、網路安全暨基礎設施安全局（CISA）、聯邦調查局（FBI）、能源部（DOE）與環境保護署（EPA）於 8 月中旬聯合發布警示 **AA26-231A「Defending Against an Active Threat to Siemens S7 Series PLCs」**，指出攻擊者正對美國境內的 Siemens S7 系列 PLC 進行偵察與攻擊能力開發。手法值得逐字理解：攻擊者把**公開可得的工業自動化函式庫**（具體點名 `snap7.dll` 與 `python-snap7`）與 **AI 輔助生成的腳本**結合，產出**偽裝成正常 OT 監控軟體**的自製工具。五機關評估，這種組合「大幅降低了開發可用 ICS 攻擊腳本所需的技術門檻與時間」。鎖定的產業為供水、能源與**關鍵製造業**——EPA 列名其中，顯示供水事業是主要受眾之一。這是官方首次在聯合警示中明確把生成式 AI 指為使 ICS 攻擊得以規模化的能力來源。（發布日期方面，各方報導介於 8 月 18 日至 8 月 20 日之間，以 CISA 官方頁面為準。）同期 CISA 亦於 8 月 27 日一次發布 7 則 ICS 建議通報（ICSA-26-239-01 起），涵蓋三菱電機多項工廠自動化（FA）產品與 Applied Systems Engineering ASE2000 V2 通訊測試儀，其中 Xiiaozet LK100W 的網頁式管理介面存在作業系統命令注入漏洞（影響 2.1.240 前版本），已通過驗證的攻擊者可以提升後的權限執行任意命令。兩件事指向同一組 IEC 62443 基本控制：62443-4-2 的元件要求（CR 1.x 識別與鑑別、CR 2.x 使用控制）與 62443-3-3 的系統要求（SR 5.1 網路分割）。",
+            "en": "This item was missed in our first edition and is the period's most important entry for manufacturers. In mid-August the US National Security Agency, Cybersecurity and Infrastructure Security Agency, Federal Bureau of Investigation, Department of Energy and Environmental Protection Agency jointly issued advisory **AA26-231A, \"Defending Against an Active Threat to Siemens S7 Series PLCs\"**, warning that threat actors are conducting reconnaissance and capability development against Siemens S7 series PLCs in the United States. The tradecraft is worth reading literally: attackers pair **publicly available industrial automation libraries** — `snap7.dll` and `python-snap7` are named specifically — with **AI-assisted scripting** to produce custom tools **disguised as legitimate OT monitoring software**. The five agencies assess that this combination \"dramatically reduces the technical expertise and time required to develop working ICS exploitation scripts.\" The targeted sectors are water, energy and **critical manufacturing**; the EPA's inclusion signals water utilities as a primary audience. This is the first time a joint advisory has explicitly named generative AI as the capability enabling ICS exploitation at scale. (On the publication date, reports vary between August 18 and August 20; treat the CISA page as authoritative.) In the same period CISA also released seven ICS advisories in a single batch on August 27 (beginning ICSA-26-239-01), covering several Mitsubishi Electric factory automation products and the Applied Systems Engineering ASE2000 V2 Communications Test Set; among them the Xiiaozet LK100W carries an OS command injection flaw in its web management interface (versions before 2.1.240) allowing an authenticated attacker to execute arbitrary commands with elevated privileges. Both point at the same set of IEC 62443 fundamentals: the component requirements of 62443-4-2 (CR 1.x identification and authentication, CR 2.x use control) and the system requirements of 62443-3-3 (SR 5.1 network segmentation)."
           },
           "action": {
-            "zh": "OT 資安負責人本週檢視三件事：(1) 比對 8/27 這批通報的受影響產品清單與廠內資產清冊，三菱電機 FA 產品在製造現場普遍存在，優先確認版本；(2) 針對無法立即更新韌體的設備（產線停機成本高，這是常態），以補償控制處理——限制管理介面僅由跳板機存取、關閉不需要的網頁管理服務、於區段邊界加上存取控制清單；(3) 若貴司同時是工控產品的製造商，這類通報正是 CRA 生效後的通報素材型態，建議以此為例演練一次 SRP 的 24 小時流程判定：什麼情況算「已遭實際利用」、由誰決定、多久能決定。",
-            "en": "OT security owners should check three things this week. First, cross-reference the affected product list from the August 27 batch against your plant asset inventory — Mitsubishi Electric FA products are widespread on manufacturing floors, so confirm versions first. Second, for equipment that cannot be patched immediately (line downtime cost makes this the norm), apply compensating controls: restrict management interfaces to jump-host access, disable unneeded web management services, and add access control lists at segment boundaries. Third, if you also manufacture industrial products, advisories like these are exactly the material that will drive reporting once the CRA applies — use this batch to rehearse the SRP 24-hour decision: what counts as \"actively exploited\", who decides, and how fast that decision can be made."
+            "zh": "本週就要做，不要排進下季：(1) **確認廠內所有 Siemens S7 系列 PLC 是否可從網際網路直接觸及**——用外部視角掃描而非只看內部網段圖，實務上最常見的破口是遠端維運通道、供應商代管的閘道與臨時開通後忘記關閉的埠；(2) 檢視 S7 通訊（TCP 102／ISO-TSAP）是否僅限於明確定義的來源，並在區段邊界加上存取控制清單；(3) 由於攻擊工具**偽裝成正常 OT 監控軟體**，僅靠程序名稱或流量特徵不足以識別，請把 S7 讀寫指令的異常來源與異常頻率納入監控基線；(4) 通知委外的自動化系統整合商同步檢查其代管環境——這是本次警示中最容易被漏掉的一塊。同時把 8/27 那批 ICS 通報的受影響產品清單與資產清冊比對，三菱電機 FA 產品在製造現場普遍存在，優先確認版本；無法立即更新韌體者，以限制管理介面僅由跳板機存取、關閉不需要的網頁管理服務作為補償控制。",
+            "en": "Do this week, not next quarter. First, **confirm whether any Siemens S7 series PLC in your plants is reachable directly from the internet** — scan from an external perspective rather than reading internal network diagrams, since in practice the usual holes are remote maintenance channels, vendor-hosted gateways, and ports opened temporarily and never closed. Second, verify that S7 communication (TCP 102 / ISO-TSAP) is restricted to explicitly defined sources, with access control lists at segment boundaries. Third, because the tooling is **disguised as legitimate OT monitoring software**, process names and traffic signatures alone will not identify it: add anomalous source and frequency of S7 read/write commands to your monitoring baseline. Fourth, tell your outsourced automation system integrators to check their hosted environments too — that is the piece most often missed. In parallel, cross-reference the affected product list from the August 27 ICS batch against your asset inventory; Mitsubishi Electric FA products are widespread on manufacturing floors, so confirm versions first, and where firmware cannot be updated immediately, apply compensating controls by restricting management interfaces to jump-host access and disabling unneeded web management services."
           },
           "sources": [
-            {
-              "title": "CISA：ICS Advisories 總覽（官方）",
-              "url": "https://www.cisa.gov/news-events/ics-advisories"
-            },
-            {
-              "title": "CISA：ICSA-26-239-01 Xiiaozet LK100W（官方）",
-              "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-01"
-            },
-            {
-              "title": "WaterISAC: CISA ICS Advisories, Additional Alerts, Updates, and Bulletins – August 27, 2026",
-              "url": "https://www.waterisac.org/tlpclear-cisa-ics-advisories-additional-alerts-updates-and-bulletins-august-27-2026"
-            }
+            { "title": "CISA：AA26-231A Defending Against an Active Threat to Siemens S7 Series PLCs（官方）", "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-231a" },
+            { "title": "CISA：ICSA-26-239-01 Xiiaozet LK100W（官方）", "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-239-01" },
+            { "title": "Tenable: Frequently Asked Questions About the Active Threat to Siemens S7 Series PLCs", "url": "https://www.tenable.com/blog/frequently-asked-questions-about-the-active-threat-to-siemens-s7-series-plcs" },
+            { "title": "Axonius: CISA Advisory AA26-231A — How to Protect Siemens S7 PLCs from AI-Assisted OT Attacks", "url": "https://www.axonius.com/blog/cisa-advisory-aa26-231a-how-to-protect-siemens-s7-plcs-from-ai-assisted-ot-attacks" }
+          ]
+        },
+        {
+          "title": {
+            "zh": "CENELEC CLC/TC 65X 正把 EN IEC 62443 系列調適為 CRA 調和標準，原訂 8/30 採納日隨 M/606 一併延後",
+            "en": "CENELEC CLC/TC 65X is adapting the EN IEC 62443 series into CRA harmonised standards; the original August 30 adoption date slips with M/606"
+          },
+          "date": { "zh": "工作計畫原訂 2026-08-30 採納，隨 M/606 修訂延後", "en": "Work programme originally set adoption at 2026-08-30; slips with the M/606 amendment" },
+          "importance": "medium",
+          "content": {
+            "zh": "本則為初版漏報之補充，也是本站 Watchlist 第六項（M/606 期限延後）在工控領域的具體落點。CENELEC 的 **CLC/TC 65X WG3** 正主導把國際上已廣泛採用的 EN IEC 62443 系列調適為符合 CRA 必要要求的歐洲調和標準（hEN）。具體進度有三條線：第一，既有標準的修訂——EN IEC 62443-4-2:2019 修訂為 **A11:2026**（元件技術安全要求），EN IEC 62443-4-1:2018 同步修訂為 **A11:2026**（安全開發流程），這兩份是工控與關鍵數位產品技術安全要求的基礎。第二，工作計畫原訂於 **2026 年 8 月 30 日**採納「資安韌性原則」標準與「漏洞處理」標準、2027 年 10 月 30 日採納通用安全要求標準——前者正是 M/606 修訂草案要往後推兩個月的那個日期，本期已屆期而未見採納公告。第三，CLC/TC 65X 正並行為四個垂直類別產出以 62443 為基礎的安全剖繪（security profile）：**VPN、網路管理、SIEM 與防火牆**，與 ETSI 的 EN 304 6xx 系列在這幾類上形成兩條並行路線。整體判斷：首批 CRA 調和標準的發布預計不早於 2026 年底，而刊登歐盟公報（取得合規推定的必要條件）還要再數月。",
+            "en": "This item was missed in our first edition and is where our sixth watchlist target (the M/606 slip) lands concretely in the industrial domain. CENELEC's **CLC/TC 65X WG3** is leading the adaptation of the widely adopted EN IEC 62443 series into European harmonised standards (hENs) meeting the CRA's essential requirements. Three threads are in motion. First, amendments to existing standards: EN IEC 62443-4-2:2019 is being amended to **A11:2026** (component technical security requirements) and EN IEC 62443-4-1:2018 to **A11:2026** (secure development lifecycle) — together the foundation for technical security requirements in industrial and critical digital products. Second, the work programme originally set adoption of the cyber resilience principles standard and the vulnerability handling standard at **August 30, 2026**, with the generic security requirements standard at October 30, 2027 — and that August 30 date is precisely what the draft M/606 amendment pushes back by two months; it passed during this period with no adoption announcement. Third, CLC/TC 65X is in parallel producing 62443-based security profiles for four verticals: **VPN, network management, SIEM and firewalls**, which run alongside ETSI's EN 304 6xx series in those same categories. Overall assessment: publication of the first CRA harmonised standards is expected no earlier than late 2026, and citation in the Official Journal — the precondition for a presumption of conformity — will take several further months."
+          },
+          "action": {
+            "zh": "工控產品製造商請把 IEC 62443 的投資與 CRA 合規路徑合併規劃，而不是當成兩件事：(1) 若貴司產品的安全開發流程已依 62443-4-1 建立、元件要求已對 62443-4-2 做過差距分析，這些工作在 hEN 完成後大致可直接沿用，現在補做的成本遠低於等標準出來再做；(2) 特別留意 A11:2026 兩份修訂的差異內容——A11 是為了對接歐盟法規要求而加的附加條款，與原國際版本並不完全相同，僅依 IEC 原版建立的證據可能不足以支撐 CRA 主張；(3) 產品若落在 VPN、網路管理、SIEM 或防火牆四類，請同時追蹤 CLC/TC 65X 的安全剖繪與 ETSI 的 EN 304 6xx 草案，兩條路線的技術要求未必一致，選錯依據會浪費一輪文件工作。",
+            "en": "Industrial product manufacturers should plan IEC 62443 investment and the CRA compliance path as one exercise rather than two. First, if your secure development lifecycle is already built to 62443-4-1 and your components have been gap-assessed against 62443-4-2, that work should largely carry over once the hENs land — and doing it now costs far less than waiting for the standards. Second, pay particular attention to what the two A11:2026 amendments actually add: A11 clauses exist to bridge to EU regulatory requirements and do not match the original international versions exactly, so evidence built solely against the IEC base editions may not support a CRA claim. Third, if your products fall into the VPN, network management, SIEM or firewall categories, track both the CLC/TC 65X security profiles and ETSI's EN 304 6xx drafts: the technical requirements of the two routes need not agree, and choosing the wrong basis wastes a round of documentation work."
+          },
+          "sources": [
+            { "title": "CEN-CENELEC：From EN IEC 62443 to CRA — OT 資安研討會簡報（官方）", "url": "https://www.cencenelec.eu/media/CEN-CENELEC/Events/Webinars/2025/2025-09-08_webinar_unlocking_cra_iec62443-series-for-cra.pdf" },
+            { "title": "CEN-CENELEC：CRA Standards Unlocked — From EN IEC 62443 to CRA 活動頁（官方）", "url": "https://www.cencenelec.eu/news-events/events/2025/2025-09-09-en-iec-62443-to-cra/" },
+            { "title": "IBF Solutions: Current status of standardisation for the Cyber Resilience Act", "url": "https://www.ibf-solutions.com/en/news-and-knowledge/technical-papers-and-news-on-ce-marking/current-status-of-standardisation-for-the-cyber-resilience-act" },
+            { "title": "exida: Bridging the Gap — Navigating the Harmonization of IEC 62443 and the EU Cyber Resilience Act", "url": "https://www.exida.com/Blog/bridging-the-gap-navigating-the-harmonization-of-iec-62443-and-the-eu-cyber-resilience-act" }
           ]
         }
       ]
     },
     {
       "topic": "incidents",
-      "name": {
-        "zh": "重大資安事件與其他動態",
-        "en": "Major Incidents & Other Developments"
-      },
+      "name": { "zh": "重大資安事件與其他動態", "en": "Major Incidents & Other Developments" },
       "items": [
+        {
+          "title": {
+            "zh": "PaperCut NG/MF 零日漏洞鏈遭實際利用：免認證遠端執行，全球逾 7 萬家組織受影響",
+            "en": "PaperCut NG/MF zero-day chain exploited in the wild: unauthenticated RCE affecting more than 70,000 organisations"
+          },
+          "date": { "zh": "2026-08-27 廠商證實遭利用、2026-08-28 指派 CVE", "en": "Exploitation confirmed by the vendor 2026-08-27; CVEs assigned 2026-08-28" },
+          "importance": "high",
+          "content": {
+            "zh": "本則為初版漏報之補充。列印管理平台 PaperCut 於 8 月 27 日發布緊急安全公告，證實正在調查影響 PaperCut NG 與 PaperCut MF 的漏洞遭實際利用，並確認已有客戶遭攻擊；8 月 28 日指派兩個 CVE，構成一條攻擊鏈：**CVE-2026-81578**（網頁管理介面的存取控制不當，CVSS 8.8）——特定條件下攻擊者可在應用程式完成安全檢查前執行部分管理動作，形成認證繞過；**CVE-2026-82078**（資料庫連線元件的不安全動態類別載入，CVSS 9.4）——攻擊者若能修改相關組態設定，應用程式可能載入並執行伺服器上既有的 Java 程式碼。兩者串連的結果是**免認證遠端程式碼執行**，且所有 NG 與 MF 版本均受影響。PaperCut 在一週內連續釋出三批緊急修補，官方說法是為了「讓無法把伺服器移出網際網路的客戶盡快取得緩解措施」。該平台全球逾 7 萬家組織使用，且典型部署位置正是內網中權限偏高、卻少被納入弱點管理重點的印表伺服器。攻擊已被觀察用於資料竊取。補充說明：本期截稿後，CISA 已於 8 月 31 日將這兩個 CVE 列入已遭利用漏洞（KEV）目錄。",
+            "en": "This item was missed in our first edition. On August 27 the print management vendor PaperCut published an urgent security advisory confirming it was investigating active exploitation of a vulnerability affecting PaperCut NG and PaperCut MF, with customer incidents confirmed. On August 28 it assigned two CVEs forming an exploit chain: **CVE-2026-81578** (improper access control in the web management interface, CVSS 8.8), where under specific conditions an attacker can perform certain administrative actions before the application completes its security checks — an authentication bypass; and **CVE-2026-82078** (unsafe dynamic class loading in the database connection utilities, CVSS 9.4), where an attacker able to modify the relevant configuration settings can cause the application to load and execute Java code already present on the server. Chained, they yield **unauthenticated remote code execution**, and all NG and MF versions are affected. PaperCut shipped three rounds of emergency patches within a week, saying the aim was to rush mitigations to customers unable to take their servers off the internet. The platform is used by more than 70,000 organisations worldwide, and its typical deployment — a print server holding relatively high privileges but rarely prioritised in vulnerability management — is exactly the kind of host that slips through. Attacks have been observed being used for data theft. For completeness: after our cut-off, CISA added both CVEs to the Known Exploited Vulnerabilities catalog on August 31."
+          },
+          "action": {
+            "zh": "(1) 立即清點 PaperCut NG／MF 伺服器並套用最新一批修補——注意廠商連續發了三批，只套到第一批並不足夠，請確認版本為最終修補版；(2) 在修補完成前，把 PaperCut 管理介面自網際網路移除，僅允許內網或 VPN 存取；(3) **假設已遭入侵並進行跡證檢視**：檢查資料庫連線組態是否遭竄改、伺服器上是否出現非預期的 Java 類別或 JAR 檔、管理帳號是否有新增或權限變更、以及是否有異常的大量列印工作資料存取（攻擊已被用於資料竊取）；(4) 制度面請把「印表／文件管理伺服器」納入與檔案伺服器同級的弱點管理與監控範圍——這類系統長期被視為周邊設備，但它們持有的是全公司的文件流。",
+            "en": "First, inventory PaperCut NG/MF servers and apply the latest patch round — the vendor shipped three, and applying only the first is not sufficient, so confirm you are on the final fixed version. Second, until patching is complete, remove the PaperCut management interface from the internet and allow access only from the internal network or VPN. Third, **assume compromise and hunt**: check whether database connection configuration has been tampered with, whether unexpected Java classes or JAR files have appeared on the server, whether admin accounts have been added or had privileges changed, and whether there has been anomalous bulk access to print job data (the attacks have been used for data theft). Fourth, as a matter of policy, bring print and document management servers into the same vulnerability management and monitoring tier as file servers — they are habitually treated as peripheral infrastructure, yet they hold the document flow of the entire company."
+          },
+          "sources": [
+            { "title": "Rapid7: PaperCut NG/MF Critical Zero-Day Exploited in the Wild", "url": "https://www.rapid7.com/blog/post/etr-papercut-ng-mf-critical-zero-day-exploited-in-the-wild/" },
+            { "title": "Help Net Security: PaperCut NG/MF vulnerabilities exploited in zero-day attacks", "url": "https://www.helpnetsecurity.com/2026/08/27/papercut-ng-mf-vulnerability-attack/" },
+            { "title": "SecurityWeek: More Details Emerge on Exploited PaperCut Vulnerabilities", "url": "https://www.securityweek.com/more-details-emerge-on-exploited-papercut-vulnerabilities/" },
+            { "title": "BleepingComputer: Recently patched PaperCut zero-days used in data theft attacks", "url": "https://www.bleepingcomputer.com/news/security/recently-patched-papercut-zero-days-used-in-data-theft-attacks/" }
+          ]
+        },
         {
           "title": {
             "zh": "Citrix NetScaler CVE-2026-8452 遭實際利用：原列 DoS，PoC 公布後證實可達免認證 RCE",
             "en": "Citrix NetScaler CVE-2026-8452 exploited in the wild: rated a DoS, but shown to allow unauthenticated RCE after a PoC dropped"
           },
-          "date": {
-            "zh": "2026-08-26 列入 KEV",
-            "en": "Added to KEV 2026-08-26"
-          },
+          "date": { "zh": "2026-08-26 列入 KEV", "en": "Added to KEV 2026-08-26" },
           "importance": "high",
           "content": {
             "zh": "CISA 於 8 月 26 日將 Citrix NetScaler ADC 與 NetScaler Gateway 的 CVE-2026-8452 列入已遭利用漏洞（KEV）目錄，並要求聯邦機關於 8 月 29 日前完成修補——三天的修補期限反映其判定的急迫性。這個案例值得所有資安主管注意的是嚴重性判定的落差：Citrix 於 2026 年 6 月 30 日揭露並同日釋出修補（14.1-72.61、13.1-63.18、13.1-37.272），官方公告將其描述為可導致行為異常與阻斷服務（DoS）的記憶體溢位漏洞；但 watchTowr Labs 於 8 月 14 日公布技術分析與可運作的概念驗證程式碼，證實該漏洞可被利用達成**免認證遠端程式碼執行**。PoC 公開後不久即出現實際攻擊，資安廠商觀察到攻擊者藉此投放 web shell。受影響條件為設備配置為 Gateway（SSL VPN、ICA Proxy、CVPN、RDP Proxy）或 AAA 虛擬伺服器。這是今年第二次在本站報導 SSL VPN 類設備遭利用（上月為 Cisco ASA/FTD），模式一致：網際網路可達的遠端存取閘道，一旦有 PoC 就會在數日內被大規模掃描。",
             "en": "On August 26 CISA added CVE-2026-8452 in Citrix NetScaler ADC and NetScaler Gateway to the Known Exploited Vulnerabilities catalog, directing federal agencies to remediate by August 29 — a three-day window that reflects how urgent it judged the situation. What makes this case worth every security leader's attention is the severity gap. Citrix disclosed the issue on June 30, 2026, shipping patches the same day (14.1-72.61, 13.1-63.18, 13.1-37.272) and describing it in its advisory as a memory-overflow flaw leading to unpredictable or erroneous behaviour and denial of service. But on August 14 watchTowr Labs published a technical writeup together with working proof-of-concept code demonstrating that the flaw can be exploited for **unauthenticated remote code execution**. Real attacks followed shortly after the PoC went public, with security firms observing attackers using it to drop web shells. Exploitation requires the appliance to be configured as a Gateway (SSL VPN, ICA Proxy, CVPN, RDP Proxy) or as an AAA virtual server. This is the second time this year we have reported exploitation of an SSL VPN-class appliance (Cisco ASA/FTD last month), and the pattern is identical: internet-reachable remote access gateways get mass-scanned within days of a PoC appearing."
           },
           "action": {
-            "zh": "立即清點所有 NetScaler ADC／Gateway 設備並確認版本是否已達 14.1-72.61、13.1-63.18 或 13.1-37.272 以上；由於修補已釋出兩個月，重點不是「有沒有修補程式」，而是「6 月 30 日那批修補當時是否被當成 DoS 而降級處理、因而延後或跳過」。已修補者仍應進行入侵跡證檢視（web shell、異常設定變更、管理帳號新增），因為攻擊窗口從 8 月中就已開啟。制度面的教訓更重要：把「廠商評定為 DoS」的漏洞自動歸為低優先，是這次事件的根本成因；建議把「網際網路可達的遠端存取設備」設為例外類別，不論廠商評級一律於短期內修補。",
-            "en": "Inventory every NetScaler ADC/Gateway appliance immediately and confirm versions are at or above 14.1-72.61, 13.1-63.18 or 13.1-37.272. Since the patch has been out for two months, the question is not whether a fix exists but whether the June 30 batch was deprioritised or skipped because it was classed as a DoS issue. Even if patched, hunt for indicators of compromise — web shells, unexpected configuration changes, newly added admin accounts — because the exploitation window opened in mid-August. The systemic lesson matters more: automatically treating vendor-rated DoS bugs as low priority is the root cause here. Make internet-reachable remote access appliances an exception class, patched on a short clock regardless of the vendor's severity rating."
+            "zh": "立即清點所有 NetScaler ADC／Gateway 設備並確認版本是否已達 14.1-72.61、13.1-63.18 或 13.1-37.272 以上；由於修補已釋出兩個月，重點不是「有沒有修補程式」，而是「6 月 30 日那批修補當時是否被當成 DoS 而降級處理、因而延後或跳過」。已修補者仍應進行入侵跡證檢視（web shell、異常設定變更、管理帳號新增），因為攻擊窗口從 8 月中就已開啟。制度面的教訓更重要：把「廠商評定為 DoS」的漏洞自動歸為低優先，是這次事件的根本成因。本期的 PaperCut 與 JFrog Artifactory（CVSS 僅 5.3 卻已遭利用）是同一個教訓的另外兩個版本——建議把「網際網路可達的遠端存取設備」與「建置／文件基礎設施」設為例外類別，不論廠商評級或 CVSS 分數一律於短期內修補。",
+            "en": "Inventory every NetScaler ADC/Gateway appliance immediately and confirm versions are at or above 14.1-72.61, 13.1-63.18 or 13.1-37.272. Since the patch has been out for two months, the question is not whether a fix exists but whether the June 30 batch was deprioritised or skipped because it was classed as a DoS issue. Even if patched, hunt for indicators of compromise — web shells, unexpected configuration changes, newly added admin accounts — because the exploitation window opened in mid-August. The systemic lesson matters more: automatically treating vendor-rated DoS bugs as low priority is the root cause here. This period's PaperCut case and the JFrog Artifactory flaw (CVSS just 5.3, yet exploited) are two further versions of the same lesson — make internet-reachable remote access appliances and build/document infrastructure exception classes, patched on a short clock regardless of vendor rating or CVSS score."
           },
           "sources": [
-            {
-              "title": "CISA：8/26 新增六個已遭利用漏洞公告（官方）",
-              "url": "https://www.cisa.gov/news-events/alerts/2026/08/26/cisa-adds-six-known-exploited-vulnerabilities-catalog"
-            },
-            {
-              "title": "Help Net Security: Previously patched Citrix NetScaler flaw exploited in the wild (CVE-2026-8452)",
-              "url": "https://www.helpnetsecurity.com/2026/08/27/netscaler-adc-gateway-cve-2026-8452/"
-            },
-            {
-              "title": "SecurityWeek: Recent Citrix NetScaler Vulnerability Exploited in the Wild",
-              "url": "https://www.securityweek.com/recent-citrix-netscaler-vulnerability-exploited-in-the-wild/"
-            },
-            {
-              "title": "BleepingComputer: CISA — hackers now exploiting Citrix NetScaler RCE flaw in attacks",
-              "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploiting-citrix-netscaler-rce-flaw-in-attacks/"
-            }
+            { "title": "CISA：8/26 新增六個已遭利用漏洞公告（官方）", "url": "https://www.cisa.gov/news-events/alerts/2026/08/26/cisa-adds-six-known-exploited-vulnerabilities-catalog" },
+            { "title": "Help Net Security: Previously patched Citrix NetScaler flaw exploited in the wild (CVE-2026-8452)", "url": "https://www.helpnetsecurity.com/2026/08/27/netscaler-adc-gateway-cve-2026-8452/" },
+            { "title": "SecurityWeek: Recent Citrix NetScaler Vulnerability Exploited in the Wild", "url": "https://www.securityweek.com/recent-citrix-netscaler-vulnerability-exploited-in-the-wild/" },
+            { "title": "BleepingComputer: CISA — hackers now exploiting Citrix NetScaler RCE flaw in attacks", "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploiting-citrix-netscaler-rce-flaw-in-attacks/" }
           ]
         },
         {
@@ -566,69 +501,21 @@
             "zh": "CISA 本週三度更新 KEV 共新增 10 項，JFrog Artifactory 路徑穿越直擊軟體供應鏈",
             "en": "CISA updated the KEV catalog three times this week, adding ten entries — including a JFrog Artifactory path traversal hitting the software supply chain"
           },
-          "date": {
-            "zh": "2026-08-25 / 08-26 / 08-27",
-            "en": "2026-08-25 / 08-26 / 08-27"
-          },
+          "date": { "zh": "2026-08-25 / 08-26 / 08-27", "en": "2026-08-25 / 08-26 / 08-27" },
           "importance": "high",
           "content": {
-            "zh": "CISA 本週連續三個工作日更新已遭利用漏洞目錄，合計新增 10 項：8 月 25 日新增 1 項（CVE-2026-60004，Gitea 程式碼注入）；8 月 26 日新增 6 項（CVE-2015-3246 Red Hat Libuser 競爭條件、CVE-2015-5287 Red Hat ABRT 權限提升、CVE-2019-1068 Microsoft SQL Server 遠端程式碼執行、CVE-2021-23758 Ajax.NET Professional 不安全反序列化、CVE-2022-0995 Linux Kernel 越界寫入，以及前述 Citrix NetScaler CVE-2026-8452）；8 月 27 日再新增 3 項（CVE-2023-49105 ownCloud 身分驗證缺陷、CVE-2026-53362 Linux Kernel 漏洞、CVE-2026-66384 JFrog Artifactory 路徑穿越），修補期限訂於 9 月 10 日。其中最值得製造業與研發單位注意的是 JFrog Artifactory：CVE-2026-66384 是 Docker 快取處理的路徑穿越漏洞（CWE-22，CVSS 5.3），已通過驗證的使用者可在特定遠端儲存庫條件下把資料寫到預期的 Docker 快取路徑之外；影響 7.146.35 之前版本與 7.161.0 至 7.161.16，自架環境須升級至 7.146.35 或 7.161.16。CVSS 只有 5.3 卻已遭實際利用，正說明分數不等於風險——Artifactory 是建置產出物的儲存庫，能寫入非預期路徑意味著能污染下游所有取用該產出物的建置流程。另一個模式值得注意：本週新增的 10 項中有 5 項是 2015 至 2022 年的舊漏洞，攻擊者正在系統性地掃描長期未修補的資產。",
-            "en": "CISA updated the Known Exploited Vulnerabilities catalog on three consecutive business days this week, adding ten entries in total. August 25 brought one (CVE-2026-60004, Gitea code injection). August 26 brought six (CVE-2015-3246 Red Hat Libuser race condition, CVE-2015-5287 Red Hat ABRT privilege escalation, CVE-2019-1068 Microsoft SQL Server remote code execution, CVE-2021-23758 Ajax.NET Professional insecure deserialization, CVE-2022-0995 Linux kernel out-of-bounds write, plus the Citrix NetScaler CVE-2026-8452 above). August 27 brought three (CVE-2023-49105 ownCloud improper authentication, CVE-2026-53362 Linux kernel, and CVE-2026-66384 JFrog Artifactory path traversal), with a September 10 remediation date. The entry manufacturing and R&D organisations should look at hardest is JFrog Artifactory: CVE-2026-66384 is a path-traversal flaw in Docker cache handling (CWE-22, CVSS 5.3) letting an authenticated user write data outside the intended Docker cache path under specific remote-repository conditions. It affects versions before 7.146.35 and 7.161.0 through 7.161.16; self-hosted instances must move to 7.146.35 or 7.161.16. A CVSS of just 5.3 that is nonetheless being exploited illustrates that a score is not a risk assessment — Artifactory holds build artifacts, so writing outside the expected path means poisoning every downstream build that consumes them. One further pattern is worth noting: five of the ten additions this week are vulnerabilities from 2015 to 2022, evidence that attackers are systematically sweeping for long-unpatched assets."
+            "zh": "CISA 本週連續三個工作日更新已遭利用漏洞目錄，合計新增 10 項：8 月 25 日新增 1 項（CVE-2026-60004，Gitea 程式碼注入）；8 月 26 日新增 6 項（CVE-2015-3246 Red Hat Libuser 競爭條件、CVE-2015-5287 Red Hat ABRT 權限提升、CVE-2019-1068 Microsoft SQL Server 遠端程式碼執行、CVE-2021-23758 Ajax.NET Professional 不安全反序列化、CVE-2022-0995 Linux Kernel 越界寫入，以及前述 Citrix NetScaler CVE-2026-8452）；8 月 27 日再新增 3 項（CVE-2023-49105 ownCloud 身分驗證缺陷、CVE-2026-53362 Linux Kernel 漏洞、CVE-2026-66384 JFrog Artifactory 路徑穿越），修補期限訂於 9 月 10 日。其中最值得製造業與研發單位注意的是 JFrog Artifactory：CVE-2026-66384 是 Docker 快取處理的路徑穿越漏洞（CWE-22，CVSS 5.3），已通過驗證的使用者可在特定遠端儲存庫條件下把資料寫到預期的 Docker 快取路徑之外；影響 7.146.35 之前版本與 7.161.0 至 7.161.16，自架環境須升級至 7.146.35 或 7.161.16。CVSS 只有 5.3 卻已遭實際利用，正說明分數不等於風險——Artifactory 是建置產出物的儲存庫，能寫入非預期路徑意味著能污染下游所有取用該產出物的建置流程。ownCloud 的 CVE-2023-49105 亦有具體受害案例，被用於竊取某菲律賓研究機構的核能相關紀錄。另一個模式值得注意：本週新增的 10 項中有 5 項是 2015 至 2022 年的舊漏洞，攻擊者正在系統性地掃描長期未修補的資產。",
+            "en": "CISA updated the Known Exploited Vulnerabilities catalog on three consecutive business days this week, adding ten entries in total. August 25 brought one (CVE-2026-60004, Gitea code injection). August 26 brought six (CVE-2015-3246 Red Hat Libuser race condition, CVE-2015-5287 Red Hat ABRT privilege escalation, CVE-2019-1068 Microsoft SQL Server remote code execution, CVE-2021-23758 Ajax.NET Professional insecure deserialization, CVE-2022-0995 Linux kernel out-of-bounds write, plus the Citrix NetScaler CVE-2026-8452 above). August 27 brought three (CVE-2023-49105 ownCloud improper authentication, CVE-2026-53362 Linux kernel, and CVE-2026-66384 JFrog Artifactory path traversal), with a September 10 remediation date. The entry manufacturing and R&D organisations should look at hardest is JFrog Artifactory: CVE-2026-66384 is a path-traversal flaw in Docker cache handling (CWE-22, CVSS 5.3) letting an authenticated user write data outside the intended Docker cache path under specific remote-repository conditions. It affects versions before 7.146.35 and 7.161.0 through 7.161.16; self-hosted instances must move to 7.146.35 or 7.161.16. A CVSS of just 5.3 that is nonetheless being exploited illustrates that a score is not a risk assessment — Artifactory holds build artifacts, so writing outside the expected path means poisoning every downstream build that consumes them. The ownCloud flaw CVE-2023-49105 also has a concrete victim: it was used to steal nuclear-related records from a Philippine research body. One further pattern is worth noting: five of the ten additions this week are vulnerabilities from 2015 to 2022, evidence that attackers are systematically sweeping for long-unpatched assets."
           },
           "action": {
             "zh": "研發與 DevOps 單位本週處理兩件事：(1) 確認自架 JFrog Artifactory 版本並排定升級，同時檢視遠端儲存庫（remote repository）設定是否符合觸發條件，以及 Docker 快取目錄是否有非預期檔案；由於這牽涉建置產出物完整性，建議一併檢視近期建置產物的雜湊值。(2) 針對本週入列的五項舊漏洞（2015–2022），以資產清冊比對而非僅依賴弱點掃描結果——這類長年未修補的系統往往正是掃描器涵蓋不到的邊緣資產（測試機、停用但未下架的服務、外包廠商代管環境）。另建議把 KEV 目錄納入例行流程：它是唯一以「已遭實際利用」為納入標準的公開清單，優先序價值高於 CVSS 分數。",
             "en": "Development and DevOps should handle two things this week. First, confirm your self-hosted JFrog Artifactory version and schedule the upgrade, while reviewing whether remote repository configuration matches the triggering conditions and whether the Docker cache directory holds unexpected files; because build-artifact integrity is at stake, also review hashes of recently produced artifacts. Second, address the five older vulnerabilities (2015–2022) added this week by cross-referencing your asset inventory rather than relying on scanner output alone — systems unpatched for that long are typically the edge assets scanners miss: test machines, decommissioned-but-not-removed services, outsourced hosting environments. It is also worth building the KEV catalog into routine process: it is the only public list whose inclusion criterion is actual exploitation, which makes it more valuable for prioritisation than a CVSS score."
           },
           "sources": [
-            {
-              "title": "CISA：8/25 新增一個已遭利用漏洞公告（官方）",
-              "url": "https://www.cisa.gov/news-events/alerts/2026/08/25/cisa-adds-one-known-exploited-vulnerability-catalog"
-            },
-            {
-              "title": "CISA：8/27 新增三個已遭利用漏洞公告（官方）",
-              "url": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog"
-            },
-            {
-              "title": "Security Affairs: U.S. CISA adds ownCloud, Linux Kernel, and JFrog Artifactory flaws to its KEV catalog",
-              "url": "https://securityaffairs.com/198014/hacking/u-s-cisa-adds-owncloud-linux-kernel-and-jfrog-artifactory-flaws-to-its-known-exploited-vulnerabilities-catalog.html"
-            },
-            {
-              "title": "Infosecurity Magazine: CISA Warns of Six Exploited Flaws in Microsoft, Linux and Citrix",
-              "url": "https://www.infosecurity-magazine.com/news/cisa-kev-microsoft-citrix/"
-            }
-          ]
-        },
-        {
-          "title": {
-            "zh": "美國 ATF 確認遭 Qilin 勒索攻擊，司法部認定為「重大事件」",
-            "en": "The US ATF confirms a Qilin ransomware breach; the Justice Department declares it a \"major incident\""
-          },
-          "date": {
-            "zh": "2026-08-27",
-            "en": "2026-08-27"
-          },
-          "importance": "medium",
-          "content": {
-            "zh": "美國菸酒槍炮及爆裂物管理局（ATF）於 8 月 27 日確認其一套電腦系統遭入侵，此前俄羅斯關聯的勒索軟體集團 Qilin 已在暗網外洩網站上列出該機構。據報導，遭入侵的系統存放 ATF 刑事調查對象的資訊，但該機構表示該系統為與主要企業網路隔離的獨立環境，目前無跡象顯示 ATF 企業網路、eForms 系統或其他系統受到影響。司法部資深官員依聯邦準則將此事件認定為「重大事件（major incident）」——這是有法律定義的正式分級，會觸發向國會議員的正式通報程序。產業追蹤顯示 Qilin 今年大幅升高對美國目標的攻擊，2026 年已宣稱攻擊約 40 家美國企業，其中包含四家財星 500 大公司。此事件對一般企業的參考價值在於「隔離環境」這個說法：ATF 強調受害系統與企業網路隔離，這確實限制了損害範圍，但也提醒一件事——隔離環境往往因為「反正是隔離的」而在修補、監控與存取管理上被降級對待，反而成為最容易被打穿的一環。",
-            "en": "The US Bureau of Alcohol, Tobacco, Firearms and Explosives confirmed on August 27 that one of its computer systems had been breached, after the Russia-linked ransomware group Qilin listed the agency on its dark web leak site. The compromised system reportedly held information on subjects of ATF criminal investigations, though the bureau says it was an isolated environment separated from its main enterprise network, with no indication that the ATF enterprise network, the eForms system or any other system was affected. Senior Justice Department officials classified the breach as a \"major incident\" under federal guidelines — a formal, legally defined designation that triggers notification to members of Congress. Industry tracking shows Qilin has sharply escalated its US targeting this year, claiming attacks on roughly 40 American businesses in 2026, four of them Fortune 500 companies. The value of this case for ordinary enterprises lies in the phrase \"isolated environment\": ATF stresses that the affected system was separated from the enterprise network, which genuinely limited the blast radius — but it is also a reminder that isolated environments are frequently deprioritised for patching, monitoring and access management precisely because they are isolated, which is what makes them the easiest segment to break."
-          },
-          "action": {
-            "zh": "盤點貴司被歸類為「隔離」或「獨立」的環境——研發實驗網段、產線離線系統、併購後尚未整併的子公司網路、外包廠商代管的專案環境——確認它們是否確實納入弱點管理、日誌蒐集與存取覆核的常規範圍。多數組織會發現這類環境的修補週期與監控覆蓋率明顯低於主網路。另建議檢視隔離的實際程度：許多「隔離」環境仍保有管理用的跳板通道、共用的身分目錄或共用的備份基礎設施，任何一條都足以讓隔離在事件發生時失效。",
-            "en": "Inventory the environments your organisation classifies as \"isolated\" or \"standalone\" — R&D lab segments, offline production systems, subsidiary networks not yet integrated after acquisition, project environments hosted by outsourced vendors — and confirm they are genuinely inside your routine scope for vulnerability management, log collection and access review. Most organisations find patch cadence and monitoring coverage in these environments run visibly behind the main network. Also test how isolated they actually are: many \"isolated\" environments retain a management jump path, a shared identity directory or shared backup infrastructure, and any one of those is enough to void the isolation when an incident occurs."
-          },
-          "sources": [
-            {
-              "title": "BleepingComputer: ATF confirms \"major incident\" after recent Qilin breach claims",
-              "url": "https://www.bleepingcomputer.com/news/security/atf-confirms-major-incident-after-recent-qilin-breach-claims/"
-            },
-            {
-              "title": "TechCrunch: ATF declares 'major incident' as ransomware gang claims hack",
-              "url": "https://techcrunch.com/2026/08/27/atf-declares-major-incident-as-ransomware-gang-claims-hack/"
-            },
-            {
-              "title": "Nextgov/FCW: ATF investigating 'major' cyber incident after ransomware group claim",
-              "url": "https://www.nextgov.com/cybersecurity/2026/08/atf-investigating-major-cyber-incident-after-ransomware-group-claim/415668/"
-            }
+            { "title": "CISA：8/25 新增一個已遭利用漏洞公告（官方）", "url": "https://www.cisa.gov/news-events/alerts/2026/08/25/cisa-adds-one-known-exploited-vulnerability-catalog" },
+            { "title": "CISA：8/27 新增三個已遭利用漏洞公告（官方）", "url": "https://www.cisa.gov/news-events/alerts/2026/08/27/cisa-adds-three-known-exploited-vulnerabilities-catalog" },
+            { "title": "Security Affairs: U.S. CISA adds ownCloud, Linux Kernel, and JFrog Artifactory flaws to its KEV catalog", "url": "https://securityaffairs.com/198014/hacking/u-s-cisa-adds-owncloud-linux-kernel-and-jfrog-artifactory-flaws-to-its-known-exploited-vulnerabilities-catalog.html" },
+            { "title": "Infosecurity Magazine: CISA Warns of Six Exploited Flaws in Microsoft, Linux and Citrix", "url": "https://www.infosecurity-magazine.com/news/cisa-kev-microsoft-citrix/" }
           ]
         }
       ]
