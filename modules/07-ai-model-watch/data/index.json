@@ -19,7 +19,8 @@
       "week": "2026-W34",
       "period_end": "2026-08-24",
       "mode": "baseline",
-      "file": "weeks/2026/2026-W34.json"
+      "file": "weeks/2026/2026-W34.json",
+      "note": "舊定義（觀測窗起始週）；依現行「產出當週一的 ISO 週」規則本期應為 W35，故與 W36 之間沒有缺週。"
     }
   ]
 }

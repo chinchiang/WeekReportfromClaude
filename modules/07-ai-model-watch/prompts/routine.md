@@ -11,13 +11,13 @@ repo 內因此不再有任何 API 金鑰，`.github/workflows/` 只剩稽核。
 
 ## 一、建立 Routine
 
-> **本站的 Routine 已建立**：`trig_018iBg6gypZGd7AnG4qsnz7a`（名稱「模組 07 週報」，
-> 環境 `Danger1`，cron `0 0 * * 1` = 每週一 08:00 Asia/Taipei，完成時推播通知）。
+> **本站的 Routine 已建立並完成切換**：`trig_018iBg6gypZGd7AnG4qsnz7a`（現名
+> 「AI 模型觀測週報 m07（WeekReportfromClaude）」，環境 `Danger1`，cron `0 0 * * 1` =
+> 每週一 08:00 Asia/Taipei，完成時推播通知）。Repositories 與 Instructions 已於 2026-09-03 前
+> 改指向本 repo 的 `modules/07-ai-model-watch/`（W36 起在此產出）。
 >
-> **⚠️ 模組 07 已併入 `chinchiang/WeekReportfromClaude` 的 `modules/07-ai-model-watch/`
-> 子目錄。既有 Routine 的 Repositories 仍指向舊的獨立 repo，Instructions 也還是舊的
-> 根目錄路徑 —— 兩者都必須到 [claude.ai/code/routines](https://claude.ai/code/routines)
-> 手動更新（Instructions 存在 Anthropic 帳號那邊，不在 repo 裡，不會隨這次搬遷生效）。**
+> **產出流程有人工 gate**：Routine 只會在 `claude/*` 分支開 PR（例：W36 的 PR #3），
+> 需要有人於週一當日 review 並 merge 到 `main`，站台才會更新（W36 於 09-04 才合併）。
 > 下面這節是給重建或另建一份時用的。改 Instructions 請一併改這個檔，兩邊要一致。
 
 到 [claude.ai/code/routines](https://claude.ai/code/routines) → **New routine**，或在 CLI 執行 `/schedule`
