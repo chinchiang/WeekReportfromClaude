@@ -85,7 +85,7 @@ git push -u origin main
 
 | 欄位 | 值 |
 |---|---|
-| Name | `模組 07 週報` |
+| Name | `AI 模型觀測週報 m07（WeekReportfromClaude）`（原「模組 07 週報」） |
 | Instructions | `prompts/routine.md` 第二節整段貼上 |
 | Repositories | `<OWNER>/WeekReportfromClaude` |
 | Environment | **Network access 改為 Full** —— 見下 |
