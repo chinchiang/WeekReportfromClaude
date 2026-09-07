@@ -1,0 +1,380 @@
+{
+  "module": "07",
+  "week": "2026-W37",
+  "period": {
+    "start": "2026-08-31",
+    "end": "2026-09-07"
+  },
+  "mode": "delta",
+  "exec_summary": "觀測期間（2026-08-31～09-07）出現三家前沿模型同步升級：Anthropic 於 9/1 發布 Claude Fable 5.1 與 Mythos 5.1（後者仍限 Glasswing）；OpenAI 於 9/3 推出 GPT-6 Astra（API 定價 $10/$50，分階段開放）；Google 於 9/2 發布 Gemini 3.8 Flash 與專用資安變體 3.8 Flash Cyber（Fairwind 計畫）。企業條件方面，Anthropic 同日宣布 Enterprise Frontier Safeguards，允許客戶自管雲端儲存以兼顧 ZDR 與跨 session 安全監測，過渡期對 Fable 5/5.1 提供 ZDR。Glasswing 累計發現量本期無新官方數據。EU AI Act 對 GPAI 的執法權已自 8/2 生效，屬持續追蹤事項。",
+  "tracks": {
+    "A": {
+      "name": "模型發布與能力變更",
+      "status": "changed",
+      "note": "Anthropic Fable/Mythos 5.1、OpenAI GPT-6 Astra、Google Gemini 3.8 Flash/Cyber 均於觀測窗內發布。"
+    },
+    "B": {
+      "name": "AI 資安能力與相關計畫",
+      "status": "changed",
+      "note": "Mythos 5.1 接續 Glasswing；Google 推出 Fairwind 與 3.8 Flash Cyber。Glasswing 累計數字無更新。"
+    },
+    "C": {
+      "name": "企業導入與供應條件變更",
+      "status": "changed",
+      "note": "Anthropic Enterprise Frontier Safeguards（EFS）宣布，過渡期對 Fable 提供 ZDR；OpenAI Private Safety Processing 仍屬預覽。"
+    },
+    "D": {
+      "name": "監理與標準連動",
+      "status": "unchanged",
+      "note": "EU AI Act GPAI 執法權已於 2026-08-02 生效，本觀測窗無新義務門檻變更；僅持續追蹤。"
+    }
+  },
+  "entries": [
+    {
+      "id": "m07-2026W37-01",
+      "track": "A",
+      "target": "anthropic-frontier-tier",
+      "title": "Anthropic 發布 Claude Fable 5.1 與 Mythos 5.1",
+      "prev_state": "Mythos 5（limited availability）／Fable 5 為前沿世代；claude-mythos-preview 已 deprecated 並指向 claude-mythos-5；claude-fable-5 為 Active，退役不早於 2027-06-09",
+      "curr_state": "Claude Fable 5.1（claude-fable-5-1）與 Mythos 5.1（claude-mythos-5-1，Glasswing 限定）於 2026-09-01 發布；1M context、128k max output、always-on adaptive thinking；定價維持 $10/$50 per MTok，cache reads 降至 $0.25/MTok；Fable 5.1 已上架 Claude API、Bedrock、Google Cloud、Microsoft Foundry",
+      "evidence": "verified",
+      "priority": "P1",
+      "detail": "官方 release notes 與定價頁確認 Fable 5.1 為 Fable 5 後繼，適用長時程 agentic coding／知識工作；Mythos 5.1 仍僅限 Project Glasswing 參與者。兩模型均要求 30 日資料留存，ZDR 需另行授權。tool_choice 的 any／tool 型別在此二模型回傳 400。",
+      "impact": ["採用政策", "架構韌性", "SDL"],
+      "sources": [
+        {
+          "org": "Anthropic",
+          "title": "Claude Platform release notes — September 1, 2026",
+          "url": "https://platform.claude.com/docs/en/release-notes/overview",
+          "date": "2026-09-01",
+          "tier": 1
+        },
+        {
+          "org": "Anthropic",
+          "title": "Claude Platform Docs — Pricing",
+          "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "date": "2026-09-01",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W37-02",
+      "track": "A",
+      "target": "openai-frontier-tier",
+      "title": "OpenAI 發布 GPT-6 Astra",
+      "prev_state": "GPT-5.6 系列為現行旗艦（含 Sol／Luna／Terra 分軌）；o3 已於 2026-08-26 自 ChatGPT 退役。定價未於本次修訂覆核；Daybreak 官方頁面已於 2026-09-04 重新驗證可讀，修正原 HTTP 403 限制",
+      "curr_state": "GPT-6 Astra（gpt-6-astra）於 2026-09-03 限量預覽、09-04 起分階段對 Plus／Pro／Business／Enterprise 與 API／Bedrock／Azure 開放；官方宣稱 computer use、瀏覽、軟體工程、資安、科學與專業工作 SOTA；API 定價 $10/$50 per MTok；支援 Zero Data Retention（符合資格客戶）",
+      "evidence": "verified",
+      "priority": "P0",
+      "detail": "OpenAI 官方公告與開發者 changelog 確認模型 ID 與可用性。廠商自評 saturates FrontierMath Tier 4（98%）、ARC-AGI-3（99.9%）、ExploitBench（100%），屬 vendor 主張，第三方獨立復現尚未見公開。分階段 rollout，早期優先 Daybreak 與 trusted organizations。",
+      "impact": ["採用政策", "架構韌性", "PSIRT", "SOC 工具鏈"],
+      "sources": [
+        {
+          "org": "OpenAI",
+          "title": "GPT-6 Astra: A new generation of intelligence",
+          "url": "https://openai.com/index/gpt-6-astra/",
+          "date": "2026-09-03",
+          "tier": 1
+        },
+        {
+          "org": "OpenAI",
+          "title": "OpenAI API changelog — September 2026",
+          "url": "https://developers.openai.com/api/docs/changelog.md",
+          "date": "2026-09-03",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W37-03",
+      "track": "A",
+      "target": "google-frontier-tier",
+      "title": "Google 發布 Gemini 3.8 Flash 與 3.8 Flash Cyber",
+      "prev_state": "Gemini 3.x 系列：3.7 Flash（2026-08-13）、3.6 Flash 與 3.5 Flash-Lite 已 GA；gemini-robotics-er-1.6-preview 於 2026-08-31 停用。本觀測期間無新發布。定價未覆核，來源為第三方追蹤站",
+      "curr_state": "Gemini 3.8 Flash（gemini-3.8-flash）於 2026-09-02 GA；1M context、65k max output；introductory 定價 $0.75/$3.75 per MTok 至 2026-12-31（其後 $1.50/$7.50）。同日推出 3.8 Flash Cyber，僅透過 Fairwind 計畫對 trusted defenders 開放",
+      "evidence": "verified",
+      "priority": "P1",
+      "detail": "官方 blog 與 Gemini API 文件確認 3.8 Flash 為第三代 Flash 迭代（六週內第三次），強調 long-horizon software engineering 與 agentic 能力。3.8 Flash Cyber 搭配 CodeMender，定位漏洞發現與自動修補，存取限 Fairwind。",
+      "impact": ["採用政策", "SDL", "SOC 工具鏈"],
+      "sources": [
+        {
+          "org": "Google",
+          "title": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+          "date": "2026-09-02",
+          "tier": 1
+        },
+        {
+          "org": "Google",
+          "title": "Gemini 3.8 Flash model page — Gemini API",
+          "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash",
+          "date": "2026-09-02",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W37-04",
+      "track": "B",
+      "target": "glasswing-program",
+      "title": "Mythos 5.1 接續 Project Glasswing；Google Fairwind 啟動",
+      "prev_state": "封閉夥伴計畫，非一般商業銷售；Bedrock 為 gated research preview（本期無更新）",
+      "curr_state": "Mythos 5.1 於 2026-09-01 取代 Mythos 5 作為 Glasswing 參與者可用模型；同日 Google 啟動 Fairwind Program，以 Gemini 3.8 Flash Cyber + CodeMender 提供 trusted defenders 漏洞發現與自動修補能力。Glasswing 夥伴規模與累計發現量本期無新官方數字",
+      "evidence": "verified",
+      "priority": "P1",
+      "detail": "Anthropic release notes 明確將 Mythos 5.1 標為 Glasswing participants 用。Google Fairwind 為獨立計畫，對象為 governments and trusted partners，非開放商業產品。兩計畫均屬受管存取，非一般 API 可購。",
+      "impact": ["PSIRT", "SOC 工具鏈", "採用政策"],
+      "sources": [
+        {
+          "org": "Anthropic",
+          "title": "Claude Platform release notes — September 1, 2026",
+          "url": "https://platform.claude.com/docs/en/release-notes/overview",
+          "date": "2026-09-01",
+          "tier": 1
+        },
+        {
+          "org": "Google",
+          "title": "Google’s Fairwind Program: Cyber defense tools for trusted partners",
+          "url": "https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/",
+          "date": "2026-09-02",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W37-05",
+      "track": "B",
+      "target": "glasswing-findings",
+      "title": "Glasswing 累計發現量本期無更新",
+      "prev_state": "夥伴端逾 10,000 件高風險/重大；OSS 掃描 23,019 件、其中 6,202 件高風險/重大（本期無新的累計數據公布）",
+      "curr_state": "查無公開資料：2026-08-31 至 09-07 期間 Anthropic 未發布新的 Glasswing 累計發現量或夥伴規模更新",
+      "evidence": "unverified",
+      "priority": "P3",
+      "detail": "已檢索 Anthropic 官方 news、Glasswing 相關頁面與 release notes，僅見模型版本升級，無新的 10k／23k 級數字修訂。",
+      "impact": ["PSIRT"],
+      "sources": [
+        {
+          "org": "Anthropic",
+          "title": "Claude Platform release notes overview",
+          "url": "https://platform.claude.com/docs/en/release-notes/overview",
+          "date": "2026-09-03",
+          "tier": 1
+        },
+        {
+          "org": "Anthropic",
+          "title": "Expanding Project Glasswing（上期基準）",
+          "url": "https://www.anthropic.com/news/expanding-project-glasswing",
+          "date": "2026-06-02",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W37-06",
+      "track": "C",
+      "target": "data-retention-terms",
+      "title": "Anthropic 宣布 Enterprise Frontier Safeguards（EFS）",
+      "prev_state": "Anthropic：媒體報導 covered-model 資料未來可由企業存於自有雲，尚待 Anthropic 一手條款覆核。OpenAI：官方確認 Zero Data Retention 相容的 Private Safety Processing（PSP）正 early testing，預計 2026-09 起分階段擴大；preview 不等同 GA",
+      "curr_state": "Anthropic 於 2026-09-01 正式宣布 Enterprise Frontier Safeguards：資料存於客戶自管雲（S3／Azure Blob／GCS）並由客戶金鑰加密，自動化安全監測不經 Anthropic 人員審閱；過渡期對符合資格客戶就 Fable 5／5.1 提供 ZDR，EFS 預計今秋分階段上線。OpenAI Private Safety Processing 仍為 preview，官方預告 9 月擴大與白皮書",
+      "evidence": "verified",
+      "priority": "P0",
+      "detail": "EFS 直接回應 covered models（Fable／Mythos 級）30 日留存要求與企業 ZDR 需求的衝突。OpenAI 側 PSP 仍屬 early testing，尚未 GA。兩者均影響採用政策與資料治理評估。",
+      "impact": ["採用政策", "架構韌性"],
+      "sources": [
+        {
+          "org": "Anthropic",
+          "title": "Developing Enterprise Frontier Safeguards with our customers",
+          "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
+          "date": "2026-09-01",
+          "tier": 1
+        },
+        {
+          "org": "Anthropic",
+          "title": "Data retention practices for Covered Models",
+          "url": "https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models",
+          "date": "2026-09-05",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "id": "m07-2026W37-07",
+      "track": "A",
+      "target": "anthropic-pricing",
+      "title": "Fable 5.1 cache reads 定價下調；Sonnet 5 維持 $2/$10",
+      "prev_state": "Fable 5／Mythos 5 $10／$50 per MTok；Opus 5 $5／$25；Sonnet 5 $2／$10（introductory 轉常態，取消原訂 2026-09-01 漲至 $3／$15）；Haiku 4.5 $1／$5。4.6 以後模型與 Mythos Preview 使用新 tokenizer，相同文本約多 30% token。最近一次退役公告為 2026-06-05 的 Opus 4.1（2026-08-05 退役），本期無新公告",
+      "curr_state": "Fable 5.1／Mythos 5.1 維持 $10/$50，prompt cache reads 降至 $0.25/MTok（0.025x base）；Sonnet 5 已確認永久 $2/$10（原訂 9/1 漲價已取消，上期已記錄）；本期無新 deprecation 公告",
+      "evidence": "verified",
+      "priority": "P2",
+      "detail": "官方定價頁與 9/1 release notes 一致。Cache read 降價對長 prompt／agentic 工作負載成本有實質影響。",
+      "impact": ["採用政策"],
+      "sources": [
+        {
+          "org": "Anthropic",
+          "title": "Claude Platform Docs — Pricing",
+          "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "date": "2026-09-01",
+          "tier": 1
+        },
+        {
+          "org": "Anthropic",
+          "title": "Claude Platform release notes — September 1, 2026",
+          "url": "https://platform.claude.com/docs/en/release-notes/overview",
+          "date": "2026-09-01",
+          "tier": 1
+        }
+      ]
+    }
+  ],
+  "counter_views": [
+    {
+      "point": "廠商自評 benchmark（如 GPT-6 Astra 的 ARC-AGI-3 99.9%、ExploitBench 100%）在缺乏獨立第三方復現前，不應直接作為採用決策依據；歷史上多起自評分數在外部 harness 下明顯回落。",
+      "source": {
+        "org": "模組 07 規格",
+        "title": "證據分級：廠商自評 benchmark 一律為 vendor",
+        "url": "",
+        "date": "2026-09-07",
+        "tier": 3
+      }
+    },
+    {
+      "point": "Anthropic EFS 與 OpenAI PSP 均尚未全面 GA，過渡期安排（Fable ZDR、PSP early testing）可能因客戶規模或區域而有落差，企業在簽約前應取得書面適用範圍確認。",
+      "source": {
+        "org": "Anthropic",
+        "title": "Developing Enterprise Frontier Safeguards with our customers",
+        "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
+        "date": "2026-09-01",
+        "tier": 1
+      }
+    }
+  ],
+  "snapshot_targets": [
+    {
+      "id": "anthropic-frontier-tier",
+      "label": "Anthropic 前沿模型世代",
+      "state": "Claude Fable 5.1（claude-fable-5-1，GA）與 Mythos 5.1（claude-mythos-5-1，Glasswing limited）；1M context、128k max output、always-on adaptive thinking；$10/$50 per MTok，cache reads $0.25",
+      "evidence": "已證實",
+      "source_date": "2026-09-01"
+    },
+    {
+      "id": "anthropic-pricing",
+      "label": "Anthropic 公開 API 定價與 deprecation 排程",
+      "state": "Fable 5.1／Mythos 5.1 $10/$50；Opus 5 $5/$25；Sonnet 5 永久 $2/$10；Haiku 4.5 $1/$5。Fable／Mythos 5.1 cache reads $0.25。本期無新 deprecation 公告",
+      "evidence": "已證實",
+      "source_date": "2026-09-01"
+    },
+    {
+      "id": "glasswing-scope",
+      "label": "Project Glasswing 夥伴規模",
+      "state": "約 50 家 + 再增約 150 家組織，分布 15 國以上（本期無更新）",
+      "evidence": "已證實",
+      "source_date": "2026-06-02"
+    },
+    {
+      "id": "glasswing-findings",
+      "label": "Glasswing 累計發現量",
+      "state": "夥伴端逾 10,000 件高風險/重大；OSS 掃描 23,019 件、其中 6,202 件高風險/重大（本期無新的累計數據公布）",
+      "evidence": "已證實",
+      "source_date": "2026-05-26"
+    },
+    {
+      "id": "glasswing-program",
+      "label": "Project Glasswing 存取模式",
+      "state": "封閉夥伴計畫；Mythos 5.1 為現行 Glasswing 模型；Bedrock 仍為 gated research preview（本期無更新）",
+      "evidence": "已證實",
+      "source_date": "2026-09-01"
+    },
+    {
+      "id": "glasswing-field-results",
+      "label": "夥伴實測回報",
+      "state": "能力真實但護欄不一致；掃描流程需設計重試與人工覆核（本期無更新）",
+      "evidence": "第三方評論",
+      "source_date": "2026-05-18"
+    },
+    {
+      "id": "anthropic-enterprise-security",
+      "label": "Claude Security 產品線狀態",
+      "state": "public beta，對 Claude Enterprise 客戶開放；掃描可由前沿模型驅動。Enterprise Frontier Safeguards（EFS）於 2026-09-01 宣布，過渡期對 Fable 提供 ZDR",
+      "evidence": "已證實",
+      "source_date": "2026-09-01"
+    },
+    {
+      "id": "openai-cyber-model",
+      "label": "OpenAI 資安導向模型",
+      "state": "GPT-5.6-Cyber 經 Daybreak Red 提供；GPT-6 Astra 官方宣稱 cybersecurity SOTA 並優先向 Daybreak 組織開放。存取須身分驗證、監控、用途限制",
+      "evidence": "已證實",
+      "source_date": "2026-09-03"
+    },
+    {
+      "id": "openai-frontier-tier",
+      "label": "OpenAI 前沿模型世代與定價",
+      "state": "GPT-6 Astra（gpt-6-astra）為現行旗艦，2026-09-03 起分階段開放；API $10/$50 per MTok；GPT-5.6 Sol／Terra／Luna 仍可用。o3 已於 2026-08-26 自 ChatGPT 退役",
+      "evidence": "已證實",
+      "source_date": "2026-09-03"
+    },
+    {
+      "id": "google-frontier-tier",
+      "label": "Google DeepMind 前沿模型世代與定價",
+      "state": "Gemini 3.8 Flash（gemini-3.8-flash）2026-09-02 GA，$0.75/$3.75 intro 至 2026-12-31；3.8 Flash Cyber 僅 Fairwind。3.7／3.6／3.5 Flash 系列仍可用",
+      "evidence": "已證實",
+      "source_date": "2026-09-02"
+    },
+    {
+      "id": "data-retention-terms",
+      "label": "主要廠商企業版資料留存與訓練使用條款",
+      "state": "Anthropic：EFS 宣布（客戶自管雲 + 自動化監測），過渡期 Fable 5/5.1 ZDR；covered models 預設 30 日留存。OpenAI：ZDR 相容 Private Safety Processing 仍 early testing／preview，預計 2026-09 擴大",
+      "evidence": "已證實",
+      "source_date": "2026-09-01"
+    },
+    {
+      "id": "onprem-options",
+      "label": "可地端／VPC 部署的模型選項",
+      "state": "查無公開資料：本期未取得主要廠商在地端或 VPC 部署條件上的新變更。最接近者為雲端區域端點與客戶自管儲存（EFS／PSP）",
+      "evidence": "尚未證實",
+      "source_date": "2026-09-07"
+    },
+    {
+      "id": "model-access-geopolitics",
+      "label": "模型存取的地緣政治風險",
+      "state": "曾於 2026-06-12 因美國出口管制暫停，06-30 解除、07-01 恢復；本期無經 Tier 1 證實的新變更",
+      "evidence": "已證實",
+      "source_date": "2026-06-30"
+    },
+    {
+      "id": "china-models-observation",
+      "label": "中國廠商模型（情報觀察區）",
+      "state": "依 9SISMIP-AI-TRiSM-001 不納入採用評估；本期觀測窗內查無經 Tier 1 證實的重大新發布",
+      "evidence": "尚未證實",
+      "source_date": "2026-09-07"
+    },
+    {
+      "id": "mhs-standard",
+      "label": "Model Hardware Standard（AI agent 操作實體設備規格）",
+      "state": "查無公開資料（本期無更新）",
+      "evidence": "尚未證實",
+      "source_date": "2026-09-07"
+    },
+    {
+      "id": "ai-agent-browser-surface",
+      "label": "AI agent 瀏覽器操作介面",
+      "state": "Anthropic browser use toolset（browser_toolset_20260801）已於 2026-08 出 beta；OpenAI GPT-6 Astra 官方強調 computer／browser use SOTA",
+      "evidence": "已證實",
+      "source_date": "2026-09-03"
+    },
+    {
+      "id": "compliance-api-coverage",
+      "label": "Anthropic 企業治理與稽核介面覆蓋範圍",
+      "state": "Compliance API 對 Cowork 與 Claude Code GA；M365 add-ins 與 Claude Science 為 beta；inference hooks 為 Enterprise beta（本期無重大變更）",
+      "evidence": "廠商主張",
+      "source_date": "2026-08-26"
+    },
+    {
+      "id": "google-fairwind",
+      "label": "Google Fairwind 資安防禦計畫",
+      "state": "2026-09-02 啟動；提供 Gemini 3.8 Flash Cyber + CodeMender 給 governments and trusted partners，用於漏洞發現與自動修補",
+      "evidence": "已證實",
+      "source_date": "2026-09-02"
+    }
+  ]
+}
