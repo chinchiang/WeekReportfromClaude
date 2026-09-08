@@ -27,6 +27,10 @@
   - `python3 scripts/period.py --json`：決定期別；非零退出＝停下來回報（昨天非週日／該期已存在／index 連號不上）。
   - `python3 scripts/validate_report.py 2026-W36`：schema 與品質守則檢查，有 ERROR 不得 commit。
   - `areas/watchlist.json`：六個 Watchlist 標的的現況與歷史，每期回寫；驗證器據此檢查【重點追蹤】項目是否齊全。
+  - `python3 scripts/csp_hash.py --write`：**改動 `index.html` 的 inline script 後必跑**，重算 CSP 的 script-src hash；
+    忘了跑整站 JS 會被 CSP 擋掉。`--check` 供 CI 用。
+- CI：`.github/workflows/reports-validate.yml` 在 `reports/**`、`areas/**`、`scripts/**`、`index.html` 變動時
+  跑全部期別的驗證器、最新一期的 Watchlist 檢查、CSP hash 檢查與同業觀測渲染 smoke test。
 
 ### `peer-odm` 區塊（同業觀測）
 - 由**獨立的 Routine**產出，寫入的是**同一份** `reports/<期別>.json` 的第 10 個 section

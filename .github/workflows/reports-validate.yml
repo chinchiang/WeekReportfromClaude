@@ -1,0 +1,63 @@
+name: 資安合規週報 資料稽核
+
+# 產出不在這裡。每週一 23:30 的週報由 Claude Routine 產出（見 prompts/weekly-routine.md），
+# 本工作流程只做稽核，不呼叫任何 API、不需要金鑰。
+#
+# 稽核內容：
+# - 每一期 reports/YYYY-Www.json 的 schema 與品質守則（scripts/validate_report.py）；
+#   最新一期另檢查六個 Watchlist 標的是否都有【重點追蹤】項目
+# - index.html 的 CSP script-src hash 與 inline script 一致（scripts/csp_hash.py --check）
+# - 最新一期的同業觀測可被 scripts/render_peer_watch.py 渲染（smoke test）
+
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "reports/**"
+      - "areas/**"
+      - "scripts/**"
+      - "index.html"
+      - ".github/workflows/reports-validate.yml"
+  pull_request:
+    paths:
+      - "reports/**"
+      - "areas/**"
+      - "scripts/**"
+      - "index.html"
+      - ".github/workflows/reports-validate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reports-validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 每一期 schema 與品質守則
+        run: |
+          set -e
+          for f in reports/2*-W*.json; do
+            python3 scripts/validate_report.py "$f" --no-watchlist
+          done
+      - name: 最新一期含 Watchlist 檢查
+        run: |
+          latest=$(python3 -c "import json;print(json.load(open('reports/index.json'))[0]['id'])")
+          python3 scripts/validate_report.py "$latest"
+      - name: index.html CSP hash
+        run: python3 scripts/csp_hash.py --check
+      - name: 同業觀測渲染 smoke test
+        run: |
+          latest=$(python3 -c "import json;print(json.load(open('reports/index.json'))[0]['id'])")
+          python3 scripts/render_peer_watch.py "$latest" -o /tmp/peer.html

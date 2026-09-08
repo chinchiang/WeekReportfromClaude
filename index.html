@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- CSP：script-src 只放行本頁唯一一段 inline script 的 SHA-256；改動該段程式後執行
+     python3 scripts/csp_hash.py --write 重算，CI 以 --check 驗證。connect-src 'self' 擋住
+     任何被注入的程式碼對 api.github.com 等外部端點的呼叫。 -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-ktWP5TR7KY+LTOMIbIp+olaB6im1i2Rjtkr2iiBUu6w='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>資安合規週報 | Security &amp; Compliance Weekly</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
 <style>
@@ -566,7 +570,7 @@
 </svg>
 
 <header class="site-header">
-  <span class="logo-avatar" title="Sindy"><svg viewBox="96 58 108 108"><use href="#sindy-art" width="300" height="400"/></svg><img src="assets/sindy.png" alt="Sindy" onerror="this.style.display='none'"></span>
+  <span class="logo-avatar" title="Sindy"><svg viewBox="96 58 108 108"><use href="#sindy-art" width="300" height="400"/></svg><img src="assets/sindy.png" alt="Sindy" id="sindyImg"></span>
   <span class="logo" id="siteLogo">🛡️ 資安合規<span class="accent">週報</span></span>
   <span class="header-sub">EU AI Act · CRA · NIS2 · CMMC · ISO 27000 系列 · ISO 42001 · TISAX · IEC 62443</span>
   <div class="header-right">
@@ -797,6 +801,16 @@ function esc(s) {
   return d.innerHTML;
 }
 
+// 來源連結只放行 http(s)：報告 JSON 由 Routine 寫入且 repo 公開，
+// 這裡是最後一道擋 javascript:／data: 等協定的關卡。
+function safeUrl(u) {
+  try {
+    const p = new URL(String(u), location.href);
+    if (p.protocol === "http:" || p.protocol === "https:") return p.href;
+  } catch (e) { /* fall through */ }
+  return "#";
+}
+
 function renderReport(r) {
   const t = UI[lang];
   const main = document.getElementById("main");
@@ -846,7 +860,7 @@ function renderReport(r) {
           <p class="content">${esc(L(it.content))}</p>
           ${it.action ? `<div class="action-box"><span class="icon">💡</span><div><strong>${t.action}</strong>${esc(L(it.action))}</div></div>` : ""}
           ${(it.sources && it.sources.length) ? `<div class="sources"><span class="label">${t.sources}</span>` +
-            it.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.title)}">${esc(s.title)} ↗</a>`).join("") +
+            it.sources.map(s => `<a href="${esc(safeUrl(s.url))}" target="_blank" rel="noopener noreferrer" title="${esc(s.title)}">${esc(s.title)} ↗</a>`).join("") +
             `</div>` : ""}
         </article>`;
       }
@@ -889,6 +903,15 @@ document.getElementById("langToggle").addEventListener("click", () => {
 
 applyChrome();
 loadIndex();
+
+// 頭像圖檔缺失時隱藏（原本是 inline onerror，CSP 不放行 inline handler）
+(function () {
+  const img = document.getElementById("sindyImg");
+  if (!img) return;
+  const hide = () => { img.style.display = "none"; };
+  img.addEventListener("error", hide);
+  if (img.complete && img.naturalWidth === 0) hide();
+})();
 </script>
 </body>
 </html>
