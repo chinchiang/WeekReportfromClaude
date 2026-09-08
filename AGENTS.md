@@ -37,6 +37,9 @@
 - 去重帳本放在 repo 內的 [`areas/peer-odm-watch.md`](areas/peer-odm-watch.md)（不用 memory 工具）：
   執行前先讀，產出後回寫「已報過的項目」「追蹤中的懸案」「已檢索但無所獲的方向」，
   與該期 JSON 一起 commit。
+- 單獨渲染某一期的同業觀測：`python3 scripts/render_peer_watch.py 2026-W36`
+  → `build/peer-watch-2026-W36.html`（`build/` 不進版控；加 `--fragment` 可得 Artifact 用的片段）。
+  內容直接取自該期 JSON，不改寫；頁尾另列該期各章節標題帶【重點追蹤】的 Watchlist 項目。
 
 ## 模組 07 — 全球 AI 模型與產業動態觀測
 
