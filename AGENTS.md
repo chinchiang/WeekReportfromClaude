@@ -23,6 +23,10 @@
 - 期別採 **ISO 週次**，涵蓋期間為該週的週一至週日；每週一 23:30 產出「剛結束的那一週」。
   例：2026-W36 涵蓋 2026-08-31 ~ 2026-09-06。**不得以執行日當週的週次命名剛結束的那一週。**
 - 禁止改寫 `modules/07-ai-model-watch/` 下的任何檔案。
+- 輔助腳本（都在 repo 根目錄執行）：
+  - `python3 scripts/period.py --json`：決定期別；非零退出＝停下來回報（昨天非週日／該期已存在／index 連號不上）。
+  - `python3 scripts/validate_report.py 2026-W36`：schema 與品質守則檢查，有 ERROR 不得 commit。
+  - `areas/watchlist.json`：六個 Watchlist 標的的現況與歷史，每期回寫；驗證器據此檢查【重點追蹤】項目是否齊全。
 
 ### `peer-odm` 區塊（同業觀測）
 - 由**獨立的 Routine**產出，寫入的是**同一份** `reports/<期別>.json` 的第 10 個 section

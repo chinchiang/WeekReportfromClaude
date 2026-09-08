@@ -143,14 +143,18 @@ Inventec 全球資安管理處內部技術情報，追蹤模型能力、AI 資�
 
 ## 每週更新流程（自動排程用）
 
-**發布頻率：每週一次，週日晚間 20:00（台北時間）。**
-週日是該 ISO 週的最後一天，因此每期涵蓋的正是剛結束的完整一週（週一～週日）。
+**發布頻率：每週一次，週一 23:30（台北時間）**，涵蓋剛結束的完整一週（上週一～昨天週日）。
+Routine prompt 的權威版本在 `prompts/weekly-routine.md`。
 
 每次執行以下步驟：
 
-1. 以網路搜尋彙整**本週（週一至週日）**上述各主題的重大事件、新聞、法令動態
-2. 依現有 schema 新增 `reports/YYYY-Www.json`（Www 為今天所屬的 ISO 週次；
-   `period` 寫本週一至週日，`publishedAt` 為當天）：
+0. 先跑 `python3 scripts/period.py --json` 取得期別、`period` 與 `publishedAt`；
+   它在「昨天不是週日」「該期檔案已存在且完整」「index 連號不上」時會以非零退出，此時停下來回報。
+   Watchlist 六個標的的最新基線在 `areas/watchlist.json`，同業觀測的去重帳本在 `areas/peer-odm-watch.md`，
+   兩者每期回寫。
+1. 以網路搜尋彙整**上週（上週一至昨天週日）**上述各主題的重大事件、新聞、法令動態
+2. 依現有 schema 新增 `reports/YYYY-Www.json`（Www 為**昨天（週日）**所屬的 ISO 週次；
+   `period` 寫上週一至昨天，`publishedAt` 為今天）：
    - **雙語內容**：`title`、`summary`、`highlights[]`、`sections[].name`、item 的
      `title`/`content`/`action` 及含中文的 `date`，一律使用 `{ "zh": "...", "en": "..." }`
      物件（純日期或英文專名可用字串，網站兩種語言都會直接顯示）
