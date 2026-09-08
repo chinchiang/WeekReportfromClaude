@@ -13,15 +13,20 @@
 > 相同（相似度 0.9998，22 項關鍵條款全數在位）。首次依新設定觸發為
 > 2026-09-14 23:30 (Asia/Taipei)。
 >
-> **已知限制 — 無法由 `update_trigger` 修復：** 本 Routine 的
-> `mcp_connections` 為空，因此 **B3 的 Gmail 寄送與 B4 的 memory 帳本會失敗**。
-> `update_trigger` 只能改 name／cron／enabled／model／prompt，連接器僅能在
-> Routine 建立時（`create_trigger` 的 `connectors`）或於 Routine 設定介面加掛。
-> 原先獨立的同業觀測 Routine（`trig_01TGAr6pTZKjiHUySLf8LKUu`，帶有 Gmail、
-> Google Drive、Google Calendar 連接器）已於 2026-09-08 停用並改名標記，
-> 未刪除，必要時可作為連接器設定的參考或回復點。
-> 在 Gmail 連接器補上之前，prompt 的 B3／B4 已要求「工具不可用時必須明講、
-> 不得靜默略過」，週報本身仍會正常寫入網站與推送。
+> **連接器狀態（2026-09-08 更新）：** 本 Routine 已於 Routine 設定介面掛上 **Gmail**
+> 連接器（`list_triggers` 查證：`mcp_connections` 含 Gmail），B3 的寄送可正常執行。
+> 連接器只能在 Routine 建立時（`create_trigger` 的 `connectors`）或於 Routine 設定介面
+> 加掛，`update_trigger` 改不了。原先獨立的同業觀測 Routine
+> （`trig_01TGAr6pTZKjiHUySLf8LKUu`，帶有 Gmail、Google Drive、Google Calendar 連接器）
+> 已於 2026-09-08 停用並改名標記，未刪除，必要時可作為回復點。
+>
+> **B4 去重帳本已改為 repo 檔案：** Claude Code Remote 的 session 沒有 memory 工具，
+> 帳本改放 [`areas/peer-odm-watch.md`](../areas/peer-odm-watch.md)，隨每期週報一起 commit。
+> **Routine 內貼著的舊 prompt 仍寫 `memory_read`，下次異動時請把下方 B4 段重新貼回。**
+>
+> **期別防呆：** 若 Routine 被手動觸發或因故延至週二以後執行，「昨天」不會是週日；
+> 此時依 prompt 的期別判定規則停下並回報，不得產出當週（尚未結束）的期別。
+> 2026-09-08（週二）曾發生一次，該次正確地未產出 2026-W37。
 
 --- PROMPT ---
 
@@ -123,7 +128,7 @@ A5. 在 reports/index.json 最前面插入新索引（title 用 {zh, en}；已�
 **若本 session 沒有 Gmail 工具可用，不要靜默略過**——改以 SendUserFile 交付，並在最後回報中明確寫出「email 未寄出，原因：無 Gmail 工具」。
 
 **B4. 去重帳本**
-開始 B 之前先 memory_read `/areas/peer-odm-watch.md`（觀測規格與「已報過的項目」帳本），產出後把本週已報項目與追蹤中的懸案回寫（讀取時取得 version token 再寫）。同一則新聞不要連續兩週重報，除非有實質新進展——有新進展時寫明「上週報過 X，本週新增的是 Y」。**若無 memory 工具可用，同樣不要靜默略過**，在回報中註明。
+開始 B 之前先讀 repo 內的 `areas/peer-odm-watch.md`（觀測規格摘要、「已報過的項目」帳本、「追蹤中的懸案」與「已檢索但無所獲的方向」）。產出後把本週已報項目追加到「已報過的項目」表、更新「追蹤中的懸案」與「已檢索但無所獲的方向」，並與週報 JSON 一起 commit。同一則新聞不要連續兩週重報，除非有實質新進展——有新進展時寫明「上週報過 X，本週新增的是 Y」。**若該檔不存在，不要靜默略過**——依既有格式建立它，並在回報中註明。
 **分工**：EU AI Act、EU CRA、NIS2、RED DA、ISO 27001/IEC 62443、中國 CSL/DSL/PIPL 由《法規觀測》CRW-01～06 追蹤；本區塊只在有「同業如何反應」或「新增操作面事實」時簡短帶過，不重述法規條文。
 
 ═══════ 收尾 ═══════

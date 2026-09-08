@@ -34,6 +34,9 @@
   `importance`、`sources`）。同業觀測自有的四級證據等級以 `〔已證實〕`／`〔廠商主張〕`／
   `〔第三方評論〕`／`〔尚未證實〕` 前綴寫在 `title` 內，不新增 schema 欄位。
 - `importance` 仍依 README 的評級規則判定，不與證據等級混用。
+- 去重帳本放在 repo 內的 [`areas/peer-odm-watch.md`](areas/peer-odm-watch.md)（不用 memory 工具）：
+  執行前先讀，產出後回寫「已報過的項目」「追蹤中的懸案」「已檢索但無所獲的方向」，
+  與該期 JSON 一起 commit。
 
 ## 模組 07 — 全球 AI 模型與產業動態觀測
 
