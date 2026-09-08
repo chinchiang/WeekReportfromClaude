@@ -426,6 +426,14 @@
       ]
     },
     {
+      "topic": "iec62443",
+      "name": {
+        "zh": "IEC 62443（工控與 OT 資安標準）",
+        "en": "IEC 62443 (Industrial & OT Security)"
+      },
+      "items": []
+    },
+    {
       "topic": "incidents",
       "name": {
         "zh": "重大資安事件與其他動態",
