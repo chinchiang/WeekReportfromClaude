@@ -16,6 +16,8 @@
 8. **IEC 62443** — 工業自動化與控制系統（IACS／OT）資安標準系列：
    4-1（安全開發流程）、4-2（元件要求）、3-2（風險評鑑）、3-3（系統要求）、2-1（IACS 資安管理）
 9. 其他重大資安事件與新聞
+10. **同業觀測（`peer-odm`）** — 全球電子代工業（ODM／OEM／EMS）資安動態，
+    由獨立 Routine 產出並寫入同一份週報檔的第 10 個 section（見下）
 
 ## 網站架構
 
@@ -111,6 +113,27 @@ Inventec 全球資安管理處內部技術情報，追蹤模型能力、AI 資�
 - CMMC 改革報告查詢角度：DoD／DoW CIO 辦公室公告與備忘錄、defensescoop／federalnewsnetwork 等國防媒體、法律事務所 client alert、Cyber-AB 與 C3PAO 生態圈反應
 - NIS2 訴訟案查詢角度：CJEU 案件查詢（curia.europa.eu）、執委會侵權程序資料庫（infringement decisions）與新聞稿、四國國內立法進度、法律事務所 client alert
 - AI Act 調和標準查詢角度：CEN-CENELEC JTC 21 公告與工作計畫、EUR-Lex／OJ、執委會 AI 標準化委託頁、artificialintelligenceact.eu 標準追蹤、法律事務所 client alert
+
+## 同業觀測（`peer-odm` 區塊）
+
+第 10 個區塊與前九個主題性質不同：前九個追蹤**法規與標準**，這一個追蹤**同業**——
+全球電子代工業的資安動態，收件人視角是英業達（Inventec）全球資安管理處。
+
+- **觀測對象**：ODM／EMS 同業（鴻海、廣達、緯創、和碩、仁寶、緯穎、Flex、Jabil、
+  Celestica、Sanmina、Benchmark、立訊、比亞迪電子、工業富聯）、品牌客戶的供應商資安
+  要求變化（HP、Dell、Lenovo、NVIDIA、Microsoft、Meta、Google、AWS、Cisco、Apple）、
+  台灣鄰接製造與零組件（台積電、日月光、聯電、台達、光寶、友達、群創、國巨、聯發科）。
+- **六大面向**（每則歸屬其一）：AI 安全／資料與 IP 保護／SOC 現代化／OT 安全／
+  供應鏈安全／產品安全期待。
+- **四級證據等級**：`已證實`（一手來源或兩家以上獨立可信媒體）／`廠商主張`（當事方單方
+  說法）／`第三方評論`（分析師、媒體評論、單一廠商遙測）／`尚未證實`（單一未證實報導、
+  勒索集團宣稱、傳聞）。勒索集團在洩密網站掛名而受害方未證實者一律列 `尚未證實`。
+  等級以 `〔…〕` 前綴寫在 item 的 `title` 內，**不新增 schema 欄位**，`importance`
+  仍依上表的評級規則獨立判定。
+- **與《法規觀測》CRW-01～06 的分工**：EU AI Act、EU CRA、NIS2、RED DA、
+  ISO 27001／IEC 62443、中國 CSL/DSL/PIPL 由該報告追蹤；本區塊只在有「**同業如何反應**」
+  或「**新增操作面事實**」時簡短帶過，不重述法規條文。
+- **寧可短而誠實，不要長而灌水**：沒事的一週就讓區塊只有一兩則，或明白寫出未發現。
 
 ## 來源引用政策
 

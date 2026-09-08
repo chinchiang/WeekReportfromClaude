@@ -4,7 +4,8 @@
 
 | 模組 | 路徑 | 資料 | 產出節奏 |
 |---|---|---|---|
-| 資安合規週報 | repo 根目錄 `index.html` | `reports/*.json` | 每週日 20:00 (Asia/Taipei) |
+| 資安合規週報 | repo 根目錄 `index.html` | `reports/*.json` | 每週一 23:30 (Asia/Taipei) |
+| └ 同業觀測（`peer-odm` 區塊） | 同上（共用 `index.html`） | 同一份 `reports/<期別>.json` 內的 `peer-odm` section | 每週一 23:30 之後（緊接合規週報） |
 | 模組 07 — 全球 AI 模型與產業動態觀測 | `modules/07-ai-model-watch/` | `modules/07-ai-model-watch/data/` | 每週一 08:00 (Asia/Taipei) |
 
 **兩個模組不共用 schema、不共用渲染器，也不得互相寫入。** 執行任一模組的週報流程時，
@@ -19,7 +20,20 @@
 - 追蹤主題、重要性評級規則、來源引用政策、Watchlist 與每週更新流程見 [`README.md`](README.md)。
 - 產出為 `reports/YYYY-Www.json`，並在 `reports/index.json` **最前面**插入新一期索引。
 - 雙語欄位一律用 `{ "zh": "...", "en": "..." }`。
+- 期別採 **ISO 週次**，涵蓋期間為該週的週一至週日；每週一 23:30 產出「剛結束的那一週」。
+  例：2026-W36 涵蓋 2026-08-31 ~ 2026-09-06。**不得以執行日當週的週次命名剛結束的那一週。**
 - 禁止改寫 `modules/07-ai-model-watch/` 下的任何檔案。
+
+### `peer-odm` 區塊（同業觀測）
+- 由**獨立的 Routine**產出，寫入的是**同一份** `reports/<期別>.json` 的第 10 個 section
+  （`topic: "peer-odm"`，排在 `incidents` 之後），不另開檔案、不動 `reports/index.json`。
+- **必須在合規週報寫完該期檔案之後才執行**：兩者寫同一個檔，同時跑會互相覆蓋。
+  執行前先 `git pull --rebase origin main`；若該期檔案尚不存在或九大主題 section 尚未齊備，
+  **不得自行建檔**，應回報並中止，等合規週報完成後再跑。
+- 該 section 的 items 沿用本站既有 schema（雙語 `title`／`content`／`action`、`date`、
+  `importance`、`sources`）。同業觀測自有的四級證據等級以 `〔已證實〕`／`〔廠商主張〕`／
+  `〔第三方評論〕`／`〔尚未證實〕` 前綴寫在 `title` 內，不新增 schema 欄位。
+- `importance` 仍依 README 的評級規則判定，不與證據等級混用。
 
 ## 模組 07 — 全球 AI 模型與產業動態觀測
 
