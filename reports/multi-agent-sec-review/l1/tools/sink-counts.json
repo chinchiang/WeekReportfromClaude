@@ -1,0 +1,64 @@
+{
+  "scanned_files": [
+    "index.html",
+    "modules/07-ai-model-watch/index.html",
+    "modules/07-ai-model-watch/archive.html"
+  ],
+  "counts": {
+    "index.html": {
+      "innerHTML_any": 12,
+      "innerHTML_assign": 11,
+      "eval": 0,
+      "document.write": 0,
+      "insertAdjacentHTML": 0,
+      "outerHTML": 0,
+      "localStorage.getItem": 1,
+      "localStorage.setItem": 1,
+      "sessionStorage.getItem": 0,
+      "sessionStorage.setItem": 0,
+      "fetch": 2
+    },
+    "modules/07-ai-model-watch/index.html": {
+      "innerHTML_any": 2,
+      "innerHTML_assign": 2,
+      "eval": 0,
+      "document.write": 0,
+      "insertAdjacentHTML": 0,
+      "outerHTML": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "fetch": 1
+    },
+    "modules/07-ai-model-watch/archive.html": {
+      "innerHTML_any": 2,
+      "innerHTML_assign": 2,
+      "eval": 0,
+      "document.write": 0,
+      "insertAdjacentHTML": 0,
+      "outerHTML": 0,
+      "localStorage": 0,
+      "sessionStorage": 0,
+      "fetch": 1
+    }
+  },
+  "totals": {
+    "innerHTML_any": 16,
+    "innerHTML_assign": 15,
+    "eval": 0,
+    "document.write": 0,
+    "insertAdjacentHTML": 0,
+    "outerHTML": 0,
+    "localStorage_getItem": 1,
+    "localStorage_setItem": 1,
+    "sessionStorage": 0
+  },
+  "special_focus_this_repo_html_js": {
+    "github_pat_": 0,
+    "ghp_": 0,
+    "ghpat_": 0,
+    "api.github.com": 0,
+    "Authorization": 0,
+    "Bearer": 0,
+    "gist_sync": 0
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "schema": "l1-mechanical-sec-review-v1",
+  "target": {
+    "repo": "https://github.com/chinchiang/WeekReportfromClaude",
+    "visibility": "public",
+    "default_branch": "claude/security-weekly-report-site-joles7",
+    "scanned_ref": "HEAD of default",
+    "commit": "a1051392e0b595eeb697c212eb55851eeeacbdb8",
+    "origin_main_commit": "a1051392e0b595eeb697c212eb55851eeeacbdb8",
+    "public_site": "https://chinchiang.github.io/WeekReportfromClaude",
+    "pages": {
+      "html_url": "https://chinchiang.github.io/WeekReportfromClaude/",
+      "build_type": "legacy",
+      "source_branch": "main",
+      "source_path": "/",
+      "https_enforced": true,
+      "latest_build_commit": "a1051392e0b595eeb697c212eb55851eeeacbdb8",
+      "status": "built"
+    }
+  },
+  "scan_utc": "2026-09-08T08:20:00Z",
+  "scope": "L1 mechanical only; no product fixes; no exploit PoC",
+  "findings": [
+    {
+      "id": "L1-F01",
+      "title": "Same github.io origin as WeeklySocialMediaIdea PAT-in-localStorage (F-web-gist-pat-localstorage class)",
+      "category": "web/same-origin-storage",
+      "location": "https://chinchiang.github.io/WeekReportfromClaude/ (origin https://chinchiang.github.io) + sibling https://chinchiang.github.io/WeeklySocialMediaIdea/assets/app.js",
+      "claim": "This project page shares the scheme/host/port origin https://chinchiang.github.io with WeeklySocialMediaIdea. Sibling live JS stores a GitHub token under localStorage key wsmi-gh-token and sends Authorization: Bearer to api.github.com for gist sync. This repo's own HTML/JS does not contain PAT/gist/api.github.com code, but any script executing on this origin (including XSS via this site's innerHTML sinks) can read sibling keys. This site also writes localStorage key lang.",
+      "severity": {
+        "score_0_to_5": 4,
+        "rationale": "Classic github.io project-page origin sharing. A gist-scoped PAT in localStorage is readable by every project under the same user Pages host. Combined with this site's 15 innerHTML assignments and absent CSP, an XSS in WeekReportfromClaude is a trampoline to the sibling token. Token is not hardcoded in either landing HTML; risk is runtime storage on a shared origin."
+      },
+      "confidence": 0.93,
+      "evidence_class": "tool/config + live",
+      "evidence": [
+        "THIS repo index.html:703 localStorage.getItem(\"lang\")",
+        "THIS repo index.html:884 localStorage.setItem(\"lang\", lang)",
+        "rg on *.html/*.js in this repo: 0 matches for github_pat_|ghp_|ghpat_|api.github.com|Authorization|Bearer",
+        "curl -sI sibling https://chinchiang.github.io/WeeklySocialMediaIdea/ -> HTTP/2 200",
+        "sibling index CSP connect-src https://api.github.com; UI button sync-cfg title 同步設定（設定/更換/移除 Token）",
+        "sibling assets/app.js: LS_TOKEN='wsmi-gh-token'; token(){return localStorage.getItem(LS_TOKEN)||''}; headers Authorization Bearer + token(); fetch('https://api.github.com'+path); gist create/search/PATCH; setupToken prompt for classic PAT with gist scope"
+      ],
+      "reachability": "Internet-facing. Requires (a) a user who previously stored a PAT on the sibling page in the same browser profile, and (b) attacker JS on this origin (XSS, malicious commit to this public Pages site, or another same-origin project). No PAT string is present in this repo tree.",
+      "blast_radius": "Disclosure of a GitHub classic PAT with gist scope from the visitor's browser; gist read/write as that user; possible token reuse if the user over-scoped the PAT. Does not by itself grant this repo's GitHub write access.",
+      "proposed_fix": "Do not store PATs in localStorage on github.io project pages. Move either site to a unique origin (user/org custom domain, or separate GitHub user/org Pages). Add a strict CSP on this site (default-src 'self'; no script-src unsafe-inline once scripts are extracted). Treat any XSS on this origin as credential theft of sibling keys.",
+      "promotion": "Promote to L2: confirm XSS reachability from committed JSON through innerHTML/href sinks; confirm sibling key names still live; do not emit a steal PoC.",
+      "human_triage": "Confirm whether any operator actually pastes a PAT into WeeklySocialMediaIdea on browsers that also open this weekly report. If yes, rotate those tokens. Decide whether github.io shared origin is acceptable for this pair of public sites."
+    },
+    {
+      "id": "L1-F02",
+      "title": "This repo uses localStorage only for UI language; no PAT/gist/auto-sync in tree",
+      "category": "web/storage",
+      "location": "index.html:703, index.html:884",
+      "claim": "Mechanical search of all HTML/JS in this repo found localStorage getItem/setItem solely for key lang. sessionStorage: none. No ghpat_/ghp_/github_pat_ literals. No api.github.com, gist sync, Authorization, or Bearer in HTML/JS. m07 pages do not touch Web Storage.",
+      "severity": {
+        "score_0_to_5": 1,
+        "rationale": "Own stored data is a language preference, not a secret. Severity is informational except as it participates in shared-origin key collision/read (see L1-F01). Key name lang is generic and could be overwritten by any same-origin page."
+      },
+      "confidence": 0.99,
+      "evidence_class": "tool",
+      "evidence": [
+        "index.html:703 let lang = localStorage.getItem(\"lang\") || \"zh\";",
+        "index.html:884 localStorage.setItem(\"lang\", lang);",
+        "modules/07-ai-model-watch/index.html and archive.html: 0 localStorage/sessionStorage",
+        "rg github_pat_|ghp_|ghpat_ across repo: 0 matches"
+      ],
+      "reachability": "Any same-origin script can read or overwrite lang. Impact is UI language flip, not credential theft from this key.",
+      "blast_radius": "Preference integrity only for this key.",
+      "proposed_fix": "Optional: namespace the key (e.g. wrfc-lang) to avoid sibling collisions. Not a substitute for L1-F01 origin isolation.",
+      "promotion": "Do not promote unless L2 is already reviewing origin sharing.",
+      "human_triage": "Record as clean for PAT-in-this-repo. Do not treat absence of token strings as absence of origin risk."
+    },
+    {
+      "id": "L1-F03",
+      "title": "Live Pages responses lack CSP and other browser isolation headers",
+      "category": "web/headers",
+      "location": "https://chinchiang.github.io/WeekReportfromClaude/ and module-07 URLs",
+      "claim": "Live HTML/JSON responses include access-control-allow-origin: * and GitHub/Fastly cache headers, but no Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, or Strict-Transport-Security on the captured HTTPS 200. HTML has no CSP meta. http:// redirects 301 to https://. GitHub API reports https_enforced=true. m07 pages load Google Fonts without a CSP allowlist.",
+      "severity": {
+        "score_0_to_5": 3,
+        "rationale": "Missing CSP is the control that would have contained XSS and blocked connect-src to api.github.com from this origin. ACAO * is GitHub Pages default and makes JSON readable cross-origin (data is already public). HSTS may still be set at the github.io apex on other paths; it was not present on these 200 responses."
+      },
+      "confidence": 0.95,
+      "evidence_class": "live",
+      "evidence": [
+        "curl -sI https://chinchiang.github.io/WeekReportfromClaude/ -> 200, ACAO *, no CSP/XFO/XCTO/HSTS/RP/PP",
+        "same header set on reports/index.json, m07/, m07/archive.html",
+        "index.html head: charset + viewport only",
+        "m07 index.html: robots noindex + fonts.googleapis.com / fonts.gstatic.com stylesheets",
+        "gh api pages: https_enforced=true, source main /"
+      ],
+      "reachability": "Every visitor of the public site. Header absence is unconditional.",
+      "blast_radius": "No containment if XSS or third-party script/CSS runs; JSON is fetchable from any origin via ACAO *.",
+      "proposed_fix": "GitHub Pages cannot set most security headers on project pages without a custom domain + extra config. Mitigate in HTML: CSP meta (will break inline scripts unless hashes/nonces are added), X-Content-Type-Options cannot be set from HTML. Consider custom domain with header controls, or move scripts out of inline and add CSP. Self-host fonts.",
+      "promotion": "L2 should assess whether a CSP-with-hashes is feasible for the three inline-script pages and whether Google Fonts CSS is an acceptable third party.",
+      "human_triage": "Accept as GitHub Pages platform limitation vs. treat as a reason to stop putting privileged-adjacent UI on this origin (L1-F01)."
+    },
+    {
+      "id": "L1-F04",
+      "title": "innerHTML-heavy renderers consume repo JSON; href URLs are HTML-escaped but not protocol-allowlisted",
+      "category": "web/dom-xss",
+      "location": "index.html (11 assigns), modules/07-ai-model-watch/index.html (2), archive.html (2); href sinks at index.html:849, m07 index.html:284,311",
+      "claim": "Three public HTML files assign innerHTML 15 times. Report fields generally pass through esc() (textContent or [&<>\"] replace). Gaps: (1) source URLs are interpolated into href after HTML-escape only — javascript: and data: survive; (2) loadFail(id) interpolates id unescaped if fetch fails; (3) week-list title fallback uses raw r.id when esc(title) is empty; (4) siteLogo and indexFail inject static HTML by design; (5) fetch(`reports/${id}.json`) has no YYYY-Www allowlist. eval/document.write/insertAdjacentHTML/outerHTML count is 0.",
+      "severity": {
+        "score_0_to_5": 3,
+        "rationale": "Not reflected XSS from the URL hash alone: loadIndex only loadReport()s an id that exists in reports/index.json. Stored XSS requires a malicious or compromised reports/*.json or m07 data/*.json commit (public repo, routine-written). Combined with L1-F01, that is a PAT-theft path, not just defacement."
+      },
+      "confidence": 0.88,
+      "evidence_class": "tool",
+      "evidence": [
+        "sink-counts: innerHTML_assign 15, eval 0, document.write 0",
+        "index.html:794-797 esc() via textContent/innerHTML",
+        "index.html:849 href=\"${esc(s.url)}\"",
+        "index.html:762 `${esc(L(r.title)) || r.id}` raw id fallback",
+        "index.html:787 loadFail(id) unescaped into innerHTML",
+        "index.html:783 fetch(`reports/${id}.json`)",
+        "m07 index.html:190 esc replace [&<>\"] ; :284/:311 href=esc(s.url)",
+        "m07 archive.html:110 same esc; highlight via RegExp on already-escaped text"
+      ],
+      "reachability": "Attacker needs write to committed JSON (direct push, accepted PR, or compromised routine). Hash-only visitors cannot inject id unless it already exists in the index.",
+      "blast_radius": "Arbitrary JS in visitor browsers on https://chinchiang.github.io — including localStorage of all project pages (L1-F01).",
+      "proposed_fix": "Allowlist http/https for href; escape id everywhere; never use raw r.id in innerHTML; constrain fetch id to /^\\d{4}-W\\d{2}$/; prefer textContent/DOM APIs over innerHTML for untrusted JSON.",
+      "promotion": "Promote to L2 for sink-by-sink reachability (javascript: URL, empty-title id, topic key in nav href). No PoC in L1.",
+      "human_triage": "Review who can push reports/*.json (humans vs Claude Routine). Treat JSON authors as HTML authors."
+    },
+    {
+      "id": "L1-F05",
+      "title": "Sole in-repo workflow uses mutable action tags; persist-credentials left at default; no custom secrets",
+      "category": "ci/gha",
+      "location": ".github/workflows/m07-validate.yml",
+      "claim": "Only in-repo workflow is 模組 07 資料稽核. permissions.contents: read at workflow level. Triggers: push (all branches, path-filtered), pull_request (path-filtered), workflow_dispatch. Steps: actions/checkout@v4 and actions/setup-python@v5 (tag, not commit SHA). persist-credentials not set (checkout default true). Run step is a static python3 scripts/generate_week.py --validate-only with no ${{ github.event.* }} interpolation. No secrets.* or ANTHROPIC_API_KEY references. No pull_request_target. Pages deploy is not this workflow — GitHub dynamic pages-build-deployment from branch main. generate_week.py uses only stdlib.",
+      "severity": {
+        "score_0_to_5": 2,
+        "rationale": "Unpinned tags are supply-chain mutability. Default persist-credentials leaves GITHUB_TOKEN on disk for later steps; here later steps are local Python with contents:read only and no network client. No secrets-on-PR issue. Event injection into shell not observed."
+      },
+      "confidence": 0.96,
+      "evidence_class": "config",
+      "evidence": [
+        "workflow permissions: contents: read",
+        "uses: actions/checkout@v4 ; actions/setup-python@v5",
+        "no persist-credentials: key",
+        "run: python3 scripts/generate_week.py --validate-only",
+        "concurrency group m07-validate-${{ github.ref }} only github.ref interpolation",
+        "gh workflows: this file + dynamic/pages/pages-build-deployment",
+        "generate_week.py imports: argparse, json, sys, datetime, pathlib only"
+      ],
+      "reachability": "Any push/PR touching modules/07-ai-model-watch/** runs on GitHub-hosted runners. Fork PRs get the restricted GITHUB_TOKEN, not custom secrets (none configured in YAML).",
+      "blast_radius": "Compromise of checkout@v4 or setup-python@v5 tags could run on this repo's CI with contents:read. Cannot deploy Pages from this workflow. Token persist is low impact given permission pin.",
+      "proposed_fix": "Pin actions to full commit SHAs with version comments. Set persist-credentials: false. Keep contents: read. Continue to avoid secrets and pull_request_target.",
+      "promotion": "L2 optional: inspect GitHub-managed pages-build-deployment permissions and environment protection. In-repo workflow is otherwise low risk.",
+      "human_triage": "Confirm no repo/org Actions secrets exist that YAML does not reference. Confirm Pages remains branch-deploy from main, not Actions."
+    },
+    {
+      "id": "L1-F06",
+      "title": "gitleaks tree+history: one generic-api-key hit is a CVE id false positive",
+      "category": "secrets/gitleaks",
+      "location": "reports/2026-W34.json:399",
+      "claim": "gitleaks detect on working tree and on 49-commit git history each reported 1 finding: RuleID generic-api-key, Secret 'CVE-2026-18577.', Match 'authentication bypass, CVE-2026-18577. '. No GitHub PAT, AWS, Slack, or PEM findings.",
+      "severity": {
+        "score_0_to_5": 0,
+        "rationale": "The matched string is a CVE identifier in a public weekly report, not a credential."
+      },
+      "confidence": 0.99,
+      "evidence_class": "tool",
+      "evidence": [
+        "gitleaks 8.24.2 detect --no-git: 1 finding, fingerprint reports/2026-W34.json:generic-api-key:399",
+        "gitleaks detect (history): same finding in commit aa3a6bd596d1190c40d727f69d6e58cbf240bc3d",
+        "49 commits scanned, ~1.25 MB history, ~708 KB tree"
+      ],
+      "reachability": "N/A — not a secret.",
+      "blast_radius": "None.",
+      "proposed_fix": "Optional gitleaks allowlist for CVE-\\d{4}-\\d+ if noise matters. No rotation.",
+      "promotion": "Do not promote.",
+      "human_triage": "Mark false positive. No token rotation."
+    },
+    {
+      "id": "L1-F07",
+      "title": "No package ecosystem for OSV/npm; Python tool is stdlib-only",
+      "category": "deps",
+      "location": "repository root (no package.json / lockfiles / requirements.txt / pyproject.toml)",
+      "claim": "osv-scanner v2.0.2 recursive scan: 'No package sources found'. No npm/yarn/pnpm/composer/go/cargo/gem manifests. generate_week.py imports only the Python standard library. No dependency CVEs to file.",
+      "severity": {
+        "score_0_to_5": 0,
+        "rationale": "Absence of third-party application dependencies. Residual supply chain is GitHub Actions tags (L1-F05) and Google Fonts CSS (L1-F03)."
+      },
+      "confidence": 0.99,
+      "evidence_class": "tool",
+      "evidence": [
+        "osv-scanner --format json -r /workspace -> No package sources found",
+        "glob package.json, requirements*.txt, pyproject.toml, go.mod, Cargo.toml, Gemfile, composer.json: 0",
+        "generate_week.py imports argparse/json/sys/datetime/pathlib"
+      ],
+      "reachability": "N/A",
+      "blast_radius": "None from application deps.",
+      "proposed_fix": "None. If npm is added later, re-run OSV.",
+      "promotion": "Do not promote.",
+      "human_triage": "Record clean. Do not confuse Actions/font third parties with application deps."
+    },
+    {
+      "id": "L1-F08",
+      "title": "Pages source is main (legacy branch deploy), currently identical to default HEAD",
+      "category": "config/pages",
+      "location": "GitHub Pages settings (API) vs default branch claude/security-weekly-report-site-joles7",
+      "claim": "Repo default branch is claude/security-weekly-report-site-joles7 (origin/HEAD). Pages source is main, path /. At scan time origin/main == default HEAD == a105139. README still tells operators to select branch main. Drift between default and Pages source is a future deploy/integrity risk, not an active mismatch.",
+      "severity": {
+        "score_0_to_5": 1,
+        "rationale": "No current content skew. Split-brain remains a process footgun if default keeps moving and main does not, or vice versa."
+      },
+      "confidence": 0.97,
+      "evidence_class": "config",
+      "evidence": [
+        "gh repo view defaultBranchRef.name = claude/security-weekly-report-site-joles7",
+        "gh api pages source.branch=main source.path=/ build_type=legacy",
+        "git rev-parse HEAD and origin/main both a1051392e0b595eeb697c212eb55851eeeacbdb8",
+        "pages builds[0].commit = a1051392e0b595eeb697c212eb55851eeeacbdb8"
+      ],
+      "reachability": "Operators pushing only to default would not update the live site if main diverges.",
+      "blast_radius": "Stale public content or surprise publish from main, not a vulnerability by itself.",
+      "proposed_fix": "Keep default and Pages source the same branch, or document that Pages tracks main only.",
+      "promotion": "Do not promote.",
+      "human_triage": "Confirm this dual-branch setup is intentional."
+    }
+  ],
+  "stats": {
+    "findings_total": 8,
+    "by_score": { "0": 2, "1": 2, "2": 1, "3": 2, "4": 1, "5": 0 },
+    "gitleaks_tree": 1,
+    "gitleaks_history": 1,
+    "gitleaks_true_secrets": 0,
+    "osv_package_sources": 0,
+    "npm_manifests": 0,
+    "workflows_in_repo": 1,
+    "workflows_github_managed_pages": 1,
+    "innerHTML_assign_total": 15,
+    "eval_total": 0,
+    "document_write_total": 0,
+    "localStorage_sites_this_repo": 1,
+    "pat_literals_this_repo": 0,
+    "api_github_this_repo_html_js": 0,
+    "live_pages_http_200": 5,
+    "sibling_same_origin_live": true,
+    "tools_run": [
+      "gitleaks 8.24.2 detect --no-git",
+      "gitleaks 8.24.2 detect (git history, 49 commits)",
+      "osv-scanner 2.0.2 -r",
+      "rg localStorage/sessionStorage/PAT/gist/Authorization/innerHTML/eval",
+      "curl -sI live Pages + sibling",
+      "gh repo/pages/actions/workflows",
+      "manual workflow YAML review"
+    ]
+  },
+  "l2_gaps": [
+    "XSS reachability through javascript: / data: in reports/*.json and m07 data/*.json source URLs (do not publish a PoC).",
+    "Whether empty-title || r.id and loadFail(id) are reachable with a committed malicious id.",
+    "Whether any operator browsers actually hold wsmi-gh-token while visiting this site (human/process, not code).",
+    "GitHub-managed pages-build-deployment job token permissions and environment protection rules (not in repo).",
+    "Whether org/repo Actions secrets exist outside YAML.",
+    "Google Fonts CSS as a third-party script-adjacent dependency on m07 (CSP/data-exfil class).",
+    "Confirm no other chinchiang.github.io projects besides WeeklySocialMediaIdea store credentials in localStorage.",
+    "HSTS at github.io apex vs per-path (header absent on captured project-page 200s)."
+  ]
+}
