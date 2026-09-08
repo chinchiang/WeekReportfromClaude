@@ -22,7 +22,9 @@
 >
 > **B4 去重帳本已改為 repo 檔案：** Claude Code Remote 的 session 沒有 memory 工具，
 > 帳本改放 [`areas/peer-odm-watch.md`](../areas/peer-odm-watch.md)，隨每期週報一起 commit。
-> **Routine 內貼著的舊 prompt 仍寫 `memory_read`，且尚未含下列三個腳本的呼叫，請把下方整段 prompt 重新貼回。**
+> **2026-09-08 13:27 UTC 已重新貼回並核對**：Routine 內 prompt 與本檔 PROMPT 段剝除 Markdown 後
+> 相似度 0.9989，18 項關鍵條款（period.py、驗證器、watchlist.json、peer-odm 帳本、六個標的 id、
+> 不開 PR、模組 07 禁改、Gmail 降級規則等）全數在位，`memory_read` 與寫死的基線已不存在。
 >
 > **腳本（2026-09-08 起）：** `scripts/period.py` 決定期別並在誤觸發時擋下；`scripts/validate_report.py`
 > 自動化 A4 自檢；`scripts/render_peer_watch.py` 渲染同業觀測。Watchlist 六標的的基線移到
