@@ -8,9 +8,20 @@
 > 其 prompt 無法由其他 session 以 `update_trigger` 修改；異動時請把下方
 > `--- PROMPT ---` 之間的內容整段貼回 Routine 設定，並同步更新本檔。
 >
-> **目前狀態（2026-09-08）：Routine 內的 prompt 仍是舊版（週日晚間語意），尚未貼上本檔內容。**
-> 未貼上前，週一 23:30 觸發會把「剛結束的那一週」誤標成執行日當週的週次，
-> 且不會產出 `peer-odm` 區塊。
+> **狀態（2026-09-08）：已貼上，並經逐項比對確認。** 貼上時 Markdown 標記
+> （粗體、反引號、清單符號）會被介面剝除，屬正常現象；剝除後的實質內容與本檔
+> 相同（相似度 0.9998，22 項關鍵條款全數在位）。首次依新設定觸發為
+> 2026-09-14 23:30 (Asia/Taipei)。
+>
+> **已知限制 — 無法由 `update_trigger` 修復：** 本 Routine 的
+> `mcp_connections` 為空，因此 **B3 的 Gmail 寄送與 B4 的 memory 帳本會失敗**。
+> `update_trigger` 只能改 name／cron／enabled／model／prompt，連接器僅能在
+> Routine 建立時（`create_trigger` 的 `connectors`）或於 Routine 設定介面加掛。
+> 原先獨立的同業觀測 Routine（`trig_01TGAr6pTZKjiHUySLf8LKUu`，帶有 Gmail、
+> Google Drive、Google Calendar 連接器）已於 2026-09-08 停用並改名標記，
+> 未刪除，必要時可作為連接器設定的參考或回復點。
+> 在 Gmail 連接器補上之前，prompt 的 B3／B4 已要求「工具不可用時必須明講、
+> 不得靜默略過」，週報本身仍會正常寫入網站與推送。
 
 --- PROMPT ---
 
