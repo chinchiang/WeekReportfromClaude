@@ -1,0 +1,23 @@
+[
+ {
+  "RuleID": "generic-api-key",
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 399,
+  "EndLine": 399,
+  "StartColumn": 291,
+  "EndColumn": 329,
+  "Match": "authentication bypass, CVE-2026-18577. ",
+  "Secret": "CVE-2026-18577.",
+  "File": "reports/2026-W34.json",
+  "SymlinkFile": "",
+  "Commit": "aa3a6bd596d1190c40d727f69d6e58cbf240bc3d",
+  "Link": "https://github.com/chinchiang/WeekReportfromClaude/blob/aa3a6bd596d1190c40d727f69d6e58cbf240bc3d/reports/2026-W34.json#L399",
+  "Entropy": 3.5068905,
+  "Author": "Claude",
+  "Email": "noreply@anthropic.com",
+  "Date": "2026-08-23T12:14:10Z",
+  "Message": "2026 第 34 週週報（08/17~08/23）\n\nWatchlist 五個標的全數查證：\n- AI Act 調和標準【更正】：EN 18286:2026 已於 7/12 正式發布，為首個支援\n  AI Act 的歐洲標準（Article 17 QMS，10 條款+5 附錄）；上期依 6 月資料\n  誤述為「進入核准階段」，本期更正。惟尚未刊登 OJ，合規推定仍不可用\n- SRP：距 9/11 生效 19 天仍未上線；新釐清 CSIRT 驗證非通報前提、\n  跨境分享為人工步驟；ENISA 規劃上線前兩週辦說明會\n- CRA 調和標準：本期無進展，Type A 原訂 8 月交付已逾期未刊登\n- CMMC：報告日期精確化為 9/13 前後\n- NIS2 訴訟案：荷蘭法已生效但撤案待正式通知；法國仍卡在國民議會\n\n其他重點：\n- CISA 8/17 新增三個 KEV，Langflow 免認證 RCE（CVSS 9.8）自 7/6 起\n  逾 650 次攻擊嘗試、來自 41 國 244 個 IP\n- Tomcat 漏洞利用被歸因於「AI 驅動的自主攻擊行動」\n- TISAX：ISA 6 初次評鑑最後開案期限 2027 年 3 月\n- IEC 62443：ISASecure 將為美國政府採購商用元件開發認證方案\n\n品質檢查：10 則、high 2（20%）、Watchlist 5/5、空章節 1、\n首頁弱引用 0（自我檢查抓到 1 處並修正）、官方一手來源 12/28（42%）\n\nCo-Authored-By: Claude Opus 5 \u003cnoreply@anthropic.com\u003e\nClaude-Session: https://claude.ai/code/session_016Jhu4SG333xnrU6Z2Wse5b",
+  "Tags": [],
+  "Fingerprint": "aa3a6bd596d1190c40d727f69d6e58cbf240bc3d:reports/2026-W34.json:generic-api-key:399"
+ }
+]
