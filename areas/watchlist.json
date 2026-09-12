@@ -6,32 +6,93 @@
     {
       "id": "enisa-srp",
       "topic": "eu-cra",
-      "title": { "zh": "ENISA Single Reporting Platform（SRP）", "en": "ENISA Single Reporting Platform (SRP)" },
-      "question": { "zh": "何時正式完工、啟用？", "en": "When is it completed and live?" },
-      "keywords": ["SRP", "Single Reporting Platform", "單一通報平台"],
-      "checks": ["是否已上線", "公開網址是否公布", "國家 CSIRT 協調員名單是否公布", "是否提供通報 API", "ENISA 指引／onboarding 更新", "（上線後）實際運作狀況與問題"],
-      "keyDates": [{ "date": "2026-09-11", "what": "CRA Article 14 通報義務生效；SRP 規劃同步啟用" }],
-      "milestone": { "reached": false, "date": null, "reportedIn": null, "definition": "SRP 正式上線且公開網址公布" },
+      "title": {
+        "zh": "ENISA Single Reporting Platform（SRP）",
+        "en": "ENISA Single Reporting Platform (SRP)"
+      },
+      "question": {
+        "zh": "何時正式完工、啟用？",
+        "en": "When is it completed and live?"
+      },
+      "keywords": [
+        "SRP",
+        "Single Reporting Platform",
+        "單一通報平台"
+      ],
+      "checks": [
+        "是否已上線",
+        "公開網址是否公布",
+        "國家 CSIRT 協調員名單是否公布",
+        "是否提供通報 API",
+        "ENISA 指引／onboarding 更新",
+        "（上線後）實際運作狀況與問題"
+      ],
+      "keyDates": [
+        {
+          "date": "2026-09-11",
+          "what": "CRA Article 14 通報義務生效；SRP 規劃同步啟用"
+        }
+      ],
+      "milestone": {
+        "reached": false,
+        "date": null,
+        "reportedIn": null,
+        "definition": "SRP 正式上線且公開網址公布"
+      },
       "baseline": {
         "asOf": "2026-09-06",
         "status": {
-          "zh": "仍未上線，網址與 CSIRT 名單未公布，現階段不提供 API；規劃與 9/11 通報義務同步啟用；上線首日只開放 Article 14／24 法定通報。ENISA 建議 9/11 前完成帳號開通與角色指派，至少兩名具存取權人員並備妥非上班時間程序。",
-          "en": "Not live; URL and CSIRT coordinator list unpublished; no API at this stage. Planned to launch with the September 11 reporting obligations; day one accepts only Article 14/24 mandatory reports. ENISA advises provisioning accounts and roles beforehand with at least two named users and an out-of-hours process."
+          "zh": "仍未上線，公開網址未公布；協調 CSIRT 名單已於 2026-09-04 公布（W36 更正補入），現階段不提供 API；規劃與 9/11 通報義務同步啟用；上線首日只開放 Article 14／24 法定通報。ENISA 建議 9/11 前完成帳號開通與角色指派，至少兩名具存取權人員並備妥非上班時間程序。",
+          "en": "Not live; URL unpublished; the coordinating CSIRT list was published on 2026-09-04 (added by W36 correction); no API at this stage. Planned to launch with the September 11 reporting obligations; day one accepts only Article 14/24 mandatory reports. ENISA advises provisioning accounts and roles beforehand with at least two named users and an out-of-hours process."
         }
       },
       "history": [
-        { "week": "2026-W36", "asOf": "2026-09-06", "summary": "未上線；新增首日僅開放 Art.14/24 與兩名存取人員建議。" }
+        {
+          "week": "2026-W36",
+          "asOf": "2026-09-06",
+          "summary": "未上線；新增首日僅開放 Art.14/24 與兩名存取人員建議。"
+        },
+        {
+          "week": "2026-W36",
+          "asOf": "2026-09-12",
+          "summary": "【更正】ENISA 9/4 已公布 27 國協調 CSIRT 名單，W36 初版漏報。另：外部報導稱 SRP 已於 9/11 上線（initial operating capability），待 W37 正式查證回報。"
+        }
       ]
     },
     {
       "id": "cra-hen-oj",
       "topic": "eu-cra",
-      "title": { "zh": "CRA 調和標準刊登 OJ", "en": "First CRA harmonised standard in the OJ" },
-      "question": { "zh": "第一個 CRA 調和標準何時刊登 OJ？（刊登之日起 Article 27 合規推定才可用）", "en": "When is the first CRA harmonised standard cited in the OJ? (Article 27 presumption of conformity starts then)" },
-      "keywords": ["調和標準", "harmonised standard", "OJ", "EN 304"],
-      "checks": ["OJ 是否刊登（哪些標準、對應哪些產品類別）", "CEN／CENELEC／ETSI 草案進度", "Type A 與通用要求標準時程"],
-      "keyDates": [{ "date": "2026-11-15", "what": "ETSI 17 項產品標準公眾意見徵詢陸續截止（9 月中～11 月中）" }],
-      "milestone": { "reached": false, "date": null, "reportedIn": null, "definition": "任一 CRA 調和標準的引用刊登於 OJ" },
+      "title": {
+        "zh": "CRA 調和標準刊登 OJ",
+        "en": "First CRA harmonised standard in the OJ"
+      },
+      "question": {
+        "zh": "第一個 CRA 調和標準何時刊登 OJ？（刊登之日起 Article 27 合規推定才可用）",
+        "en": "When is the first CRA harmonised standard cited in the OJ? (Article 27 presumption of conformity starts then)"
+      },
+      "keywords": [
+        "調和標準",
+        "harmonised standard",
+        "OJ",
+        "EN 304"
+      ],
+      "checks": [
+        "OJ 是否刊登（哪些標準、對應哪些產品類別）",
+        "CEN／CENELEC／ETSI 草案進度",
+        "Type A 與通用要求標準時程"
+      ],
+      "keyDates": [
+        {
+          "date": "2026-11-15",
+          "what": "ETSI 17 項產品標準公眾意見徵詢陸續截止（9 月中～11 月中）"
+        }
+      ],
+      "milestone": {
+        "reached": false,
+        "date": null,
+        "reportedIn": null,
+        "definition": "任一 CRA 調和標準的引用刊登於 OJ"
+      },
       "baseline": {
         "asOf": "2026-09-06",
         "status": {
@@ -40,24 +101,62 @@
         }
       },
       "history": [
-        { "week": "2026-W36", "asOf": "2026-09-06", "summary": "無變化。" }
+        {
+          "week": "2026-W36",
+          "asOf": "2026-09-06",
+          "summary": "無變化。"
+        }
       ]
     },
     {
       "id": "m606-deadline",
       "topic": "eu-cra",
-      "title": { "zh": "CRA 標準化委託 M/606 交付期限延後兩個月", "en": "CRA standardisation request M/606 deadlines pushed two months" },
-      "question": { "zh": "修訂案是否正式通過？新期限是否再度跳票？", "en": "Has the amendment been formally adopted? Do the new deadlines slip again?" },
-      "keywords": ["M/606", "標準化委託", "standardisation request"],
-      "checks": ["修訂案是否正式通過／刊登", "A 類與 B 類是否如期 2026-10-31 交付", "C 類是否如期 2026-12-31 交付"],
-      "keyDates": [
-        { "date": "2026-10-31", "what": "A 類（horizontal）與漏洞管理 B 類新交付期限（原 2026-08-30）" },
-        { "date": "2026-12-31", "what": "產品專屬 C 類新交付期限（原 2026-10-30）" },
-        { "date": "2026-09-11", "what": "CRA 通報義務適用日（不受標準延後影響）" },
-        { "date": "2027-12-11", "what": "CRA 主要義務適用日（不受標準延後影響）" }
+      "title": {
+        "zh": "CRA 標準化委託 M/606 交付期限延後兩個月",
+        "en": "CRA standardisation request M/606 deadlines pushed two months"
+      },
+      "question": {
+        "zh": "修訂案是否正式通過？新期限是否再度跳票？",
+        "en": "Has the amendment been formally adopted? Do the new deadlines slip again?"
+      },
+      "keywords": [
+        "M/606",
+        "標準化委託",
+        "standardisation request"
       ],
-      "writingRules": ["嚴格區分「交付執委會 ≠ 核准為 EN ≠ 刊登 OJ」", "每期重申法規義務與適用日並未隨之變動——延後的只有標準，壓縮的是刊登到義務日之間的緩衝"],
-      "milestone": { "reached": false, "date": null, "reportedIn": null, "definition": "修訂案正式通過，或任一新期限跳票" },
+      "checks": [
+        "修訂案是否正式通過／刊登",
+        "A 類與 B 類是否如期 2026-10-31 交付",
+        "C 類是否如期 2026-12-31 交付"
+      ],
+      "keyDates": [
+        {
+          "date": "2026-10-31",
+          "what": "A 類（horizontal）與漏洞管理 B 類新交付期限（原 2026-08-30）"
+        },
+        {
+          "date": "2026-12-31",
+          "what": "產品專屬 C 類新交付期限（原 2026-10-30）"
+        },
+        {
+          "date": "2026-09-11",
+          "what": "CRA 通報義務適用日（不受標準延後影響）"
+        },
+        {
+          "date": "2027-12-11",
+          "what": "CRA 主要義務適用日（不受標準延後影響）"
+        }
+      ],
+      "writingRules": [
+        "嚴格區分「交付執委會 ≠ 核准為 EN ≠ 刊登 OJ」",
+        "每期重申法規義務與適用日並未隨之變動——延後的只有標準，壓縮的是刊登到義務日之間的緩衝"
+      ],
+      "milestone": {
+        "reached": false,
+        "date": null,
+        "reportedIn": null,
+        "definition": "修訂案正式通過，或任一新期限跳票"
+      },
       "baseline": {
         "asOf": "2026-09-06",
         "status": {
@@ -66,18 +165,49 @@
         }
       },
       "history": [
-        { "week": "2026-W36", "asOf": "2026-09-06", "summary": "無正式通過公告。" }
+        {
+          "week": "2026-W36",
+          "asOf": "2026-09-06",
+          "summary": "無正式通過公告。"
+        }
       ]
     },
     {
       "id": "ai-act-hen-oj",
       "topic": "eu-ai-act",
-      "title": { "zh": "EU AI Act 調和標準進度", "en": "EU AI Act harmonised standards" },
-      "question": { "zh": "第一個 AI Act 調和標準何時刊登 OJ？（高風險義務已延至 2027-12-02）", "en": "When is the first AI Act harmonised standard cited in the OJ? (high-risk obligations deferred to 2027-12-02)" },
-      "keywords": ["調和標準", "harmonised standard", "JTC 21", "EN 18286", "prEN 18228"],
-      "checks": ["JTC 21 各草案進度", "OJ 是否刊登", "標準化委託時程調整", "ISO 42001 是否被採認"],
-      "keyDates": [{ "date": "2027-12-02", "what": "高風險 AI 系統義務適用日" }],
-      "milestone": { "reached": false, "date": null, "reportedIn": null, "definition": "任一 AI Act 調和標準的引用刊登於 OJ" },
+      "title": {
+        "zh": "EU AI Act 調和標準進度",
+        "en": "EU AI Act harmonised standards"
+      },
+      "question": {
+        "zh": "第一個 AI Act 調和標準何時刊登 OJ？（高風險義務已延至 2027-12-02）",
+        "en": "When is the first AI Act harmonised standard cited in the OJ? (high-risk obligations deferred to 2027-12-02)"
+      },
+      "keywords": [
+        "調和標準",
+        "harmonised standard",
+        "JTC 21",
+        "EN 18286",
+        "prEN 18228"
+      ],
+      "checks": [
+        "JTC 21 各草案進度",
+        "OJ 是否刊登",
+        "標準化委託時程調整",
+        "ISO 42001 是否被採認"
+      ],
+      "keyDates": [
+        {
+          "date": "2027-12-02",
+          "what": "高風險 AI 系統義務適用日"
+        }
+      ],
+      "milestone": {
+        "reached": false,
+        "date": null,
+        "reportedIn": null,
+        "definition": "任一 AI Act 調和標準的引用刊登於 OJ"
+      },
       "baseline": {
         "asOf": "2026-09-06",
         "status": {
@@ -86,18 +216,48 @@
         }
       },
       "history": [
-        { "week": "2026-W36", "asOf": "2026-09-06", "summary": "無變化。" }
+        {
+          "week": "2026-W36",
+          "asOf": "2026-09-06",
+          "summary": "無變化。"
+        }
       ]
     },
     {
       "id": "cmmc-reform-report",
       "topic": "cmmc",
-      "title": { "zh": "CMMC 改革小組報告", "en": "CMMC reform task force report" },
-      "question": { "zh": "60 天改革小組報告何時發布、結論為何？", "en": "When is the 60-day reform task force report released, and what does it conclude?" },
-      "keywords": ["改革小組", "reform", "task force", "Phase 2"],
-      "checks": ["是否發布／送交", "關鍵結論（C3PAO 認證恢復或取代、Level 2/3 要求變化）", "是否啟動 DFARS／32 CFR 修訂", "Phase 2 暫停狀態變化"],
-      "keyDates": [{ "date": "2026-09-13", "what": "預計送交 DoW CIO" }],
-      "milestone": { "reached": false, "date": null, "reportedIn": null, "definition": "報告公開發布或其結論經官方確認" },
+      "title": {
+        "zh": "CMMC 改革小組報告",
+        "en": "CMMC reform task force report"
+      },
+      "question": {
+        "zh": "60 天改革小組報告何時發布、結論為何？",
+        "en": "When is the 60-day reform task force report released, and what does it conclude?"
+      },
+      "keywords": [
+        "改革小組",
+        "reform",
+        "task force",
+        "Phase 2"
+      ],
+      "checks": [
+        "是否發布／送交",
+        "關鍵結論（C3PAO 認證恢復或取代、Level 2/3 要求變化）",
+        "是否啟動 DFARS／32 CFR 修訂",
+        "Phase 2 暫停狀態變化"
+      ],
+      "keyDates": [
+        {
+          "date": "2026-09-13",
+          "what": "預計送交 DoW CIO"
+        }
+      ],
+      "milestone": {
+        "reached": false,
+        "date": null,
+        "reportedIn": null,
+        "definition": "報告公開發布或其結論經官方確認"
+      },
       "baseline": {
         "asOf": "2026-09-06",
         "status": {
@@ -106,18 +266,48 @@
         }
       },
       "history": [
-        { "week": "2026-W36", "asOf": "2026-09-06", "summary": "未發布。" }
+        {
+          "week": "2026-W36",
+          "asOf": "2026-09-06",
+          "summary": "未發布。"
+        }
       ]
     },
     {
       "id": "nis2-cjeu",
       "topic": "nis2",
-      "title": { "zh": "NIS2 四國訴訟案（CJEU）", "en": "NIS2 infringement cases at the CJEU (IE, ES, FR, NL)" },
-      "question": { "zh": "判決結果與罰款金額為何？", "en": "What are the judgments and penalties?" },
-      "keywords": ["CJEU", "四國", "訴訟", "infringement", "curia"],
-      "checks": ["CJEU 程序進度（案件登錄、言詞辯論、佐審官意見、判決）", "是否因完成轉換而撤回個案", "四國轉換立法進度"],
-      "keyDates": [{ "date": "2026-07-08", "what": "執委會將愛爾蘭、西班牙、法國、荷蘭移送 CJEU" }],
-      "milestone": { "reached": false, "date": null, "reportedIn": null, "definition": "CJEU 判決，或任一國因完成轉換而撤案" },
+      "title": {
+        "zh": "NIS2 四國訴訟案（CJEU）",
+        "en": "NIS2 infringement cases at the CJEU (IE, ES, FR, NL)"
+      },
+      "question": {
+        "zh": "判決結果與罰款金額為何？",
+        "en": "What are the judgments and penalties?"
+      },
+      "keywords": [
+        "CJEU",
+        "四國",
+        "訴訟",
+        "infringement",
+        "curia"
+      ],
+      "checks": [
+        "CJEU 程序進度（案件登錄、言詞辯論、佐審官意見、判決）",
+        "是否因完成轉換而撤回個案",
+        "四國轉換立法進度"
+      ],
+      "keyDates": [
+        {
+          "date": "2026-07-08",
+          "what": "執委會將愛爾蘭、西班牙、法國、荷蘭移送 CJEU"
+        }
+      ],
+      "milestone": {
+        "reached": false,
+        "date": null,
+        "reportedIn": null,
+        "definition": "CJEU 判決，或任一國因完成轉換而撤案"
+      },
       "baseline": {
         "asOf": "2026-09-06",
         "status": {
@@ -126,7 +316,11 @@
         }
       },
       "history": [
-        { "week": "2026-W36", "asOf": "2026-09-06", "summary": "無公開進展。" }
+        {
+          "week": "2026-W36",
+          "asOf": "2026-09-06",
+          "summary": "無公開進展。"
+        }
       ]
     }
   ]
