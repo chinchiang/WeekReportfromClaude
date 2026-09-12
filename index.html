@@ -6,7 +6,7 @@
 <!-- CSP：script-src 只放行本頁唯一一段 inline script 的 SHA-256；改動該段程式後執行
      python3 scripts/csp_hash.py --write 重算，CI 以 --check 驗證。connect-src 'self' 擋住
      任何被注入的程式碼對 api.github.com 等外部端點的呼叫。 -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-ktWP5TR7KY+LTOMIbIp+olaB6im1i2Rjtkr2iiBUu6w='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-Pb93zlttOQ2dfeMx8tYJJV+a6HqkKqfiubL2ITSPVig='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>資安合規週報 | Security &amp; Compliance Weekly</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
 <style>
@@ -368,6 +368,15 @@
   .badge.high { background: var(--high-soft); color: var(--high); }
   .badge.medium { background: var(--medium-soft); color: var(--medium); }
   .badge.low { background: var(--low-soft); color: var(--low); }
+  /* 同業觀測的四級證據等級（從 title 前綴解析出來），與 importance 徽章並列但不混用 */
+  .badge.grade { border: 1px solid currentColor; background: transparent; font-weight: 600; }
+  .badge.grade::before { display: none; }
+  .badge.grade-confirmed { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
+  .badge.grade-vendor { color: var(--text-2); }
+  .badge.grade-third { color: var(--text-2); border-style: dashed; }
+  .badge.grade-unconfirmed { color: var(--medium); background: var(--medium-soft); border-color: transparent; }
+  .badge.flag { color: var(--medium); background: transparent; border: 1px dashed var(--medium); font-weight: 600; }
+  .badge.flag::before { display: none; }
   .item-date {
     font-size: .76rem;
     color: var(--text-2);
@@ -811,6 +820,30 @@ function safeUrl(u) {
   return "#";
 }
 
+// 同業觀測（peer-odm）把四級證據等級與「窗口外」旗標寫在 title 前綴；
+// 這裡解析出來做成徽章，標題只留正文。非 peer-odm 章節不套用。
+const GRADES = [
+  { key: "confirmed",   zh: "〔已證實〕",   en: "[Confirmed]" },
+  { key: "vendor",      zh: "〔廠商主張〕", en: "[Vendor claim]" },
+  { key: "third",       zh: "〔第三方評論〕", en: "[Third-party]" },
+  { key: "unconfirmed", zh: "〔尚未證實〕", en: "[Unconfirmed]" },
+];
+const OUTSIDE = { zh: "【窗口外】", en: "[Outside window]" };
+function splitGrade(title) {
+  let rest = String(title || "").trim();
+  let grade = null, outside = null;
+  for (const g of GRADES) {
+    for (const lbl of [g.zh, g.en]) {
+      if (rest.startsWith(lbl)) { grade = { key: g.key, label: lbl }; rest = rest.slice(lbl.length).trim(); break; }
+    }
+    if (grade) break;
+  }
+  for (const lbl of [OUTSIDE.zh, OUTSIDE.en]) {
+    if (rest.startsWith(lbl)) { outside = lbl; rest = rest.slice(lbl.length).trim(); break; }
+  }
+  return { grade, outside, title: rest };
+}
+
 function renderReport(r) {
   const t = UI[lang];
   const main = document.getElementById("main");
@@ -850,13 +883,16 @@ function renderReport(r) {
     } else {
       for (const it of sec.items) {
         const imp = IMPORTANCE.zh[it.importance] ? it.importance : "low";
+        const tt = sec.topic === "peer-odm" ? splitGrade(L(it.title)) : { title: L(it.title) };
         html += `
         <article class="item imp-${imp}">
           <div class="item-meta">
             <span class="badge ${imp}">${IMPORTANCE[lang][imp]}</span>
+            ${tt.grade ? `<span class="badge grade grade-${tt.grade.key}">${esc(tt.grade.label)}</span>` : ""}
+            ${tt.outside ? `<span class="badge flag">${esc(tt.outside)}</span>` : ""}
             ${it.date ? `<span class="item-date">📅 ${esc(L(it.date))}</span>` : ""}
           </div>
-          <h3>${esc(L(it.title))}</h3>
+          <h3>${esc(tt.title)}</h3>
           <p class="content">${esc(L(it.content))}</p>
           ${it.action ? `<div class="action-box"><span class="icon">💡</span><div><strong>${t.action}</strong>${esc(L(it.action))}</div></div>` : ""}
           ${(it.sources && it.sources.length) ? `<div class="sources"><span class="label">${t.sources}</span>` +
