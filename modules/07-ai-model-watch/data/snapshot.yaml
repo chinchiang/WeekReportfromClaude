@@ -8,19 +8,19 @@ mode: delta
 targets:
   - id: anthropic-frontier-tier
     label: Anthropic 前沿模型世代
-    state: "Claude Fable 5.1（claude-fable-5-1，GA）與 Mythos 5.1（claude-mythos-5-1，Glasswing limited）；1M context、128k max output、always-on adaptive thinking；$10/$50 per MTok，cache reads $0.25"
+    state: "Fable 5.1／Mythos 5.1（2026-09-01）為現行前沿世代，兩者能力規格相同，1M context（預設即最大）、最大輸出 128k、adaptive thinking 恆開；claude-fable-5-1 為 Active、退役不早於 2027-09-01。Fable 5 與 Mythos 5 維持 Active（Fable 5 退役不早於 2027-06-09）。5.1 有三項破壞性 API 變更：不支援強制工具呼叫、thinking block 綁定產生它的模型、編輯較早輪次會使其後 thinking block 失效（2026-08-31 後建立的帳號強制執行）"
     evidence: 已證實
     source_date: "2026-09-01"
   - id: anthropic-pricing
     label: Anthropic 公開 API 定價與 deprecation 排程
-    state: "Fable 5.1／Mythos 5.1 $10/$50；Opus 5 $5/$25；Sonnet 5 永久 $2/$10；Haiku 4.5 $1/$5。Fable／Mythos 5.1 cache reads $0.25。本期無新 deprecation 公告"
+    state: "Fable 5.1／Mythos 5.1 與 Fable 5／Mythos 5 同為 $10／$50 per MTok，但 5.1 的 cache read 降為 $0.25／MTok（0.025x，其餘 Claude 模型為 0.1x）；5m cache write $12.50、1h cache write $20、batch $5／$25。Opus 5 $5／$25；Sonnet 5 $2／$10（introductory 已轉常態）；Haiku 4.5 $1／$5。4.7 以後模型使用新 tokenizer，相同文本約多 30% token。inference_geo 為 us 時 1.1x。最近一次退役公告仍為 2026-06-05 的 Opus 4.1（2026-08-05 退役），本期無新退役公告"
     evidence: 已證實
     source_date: "2026-09-01"
   - id: glasswing-scope
     label: Project Glasswing 夥伴規模
-    state: "約 50 家 + 再增約 150 家組織，分布 15 國以上（本期無更新）"
+    state: "約 50 家 + 再增約 150 家組織，分布 15 國以上；本期規模無更新，但供應內容有變 —— Mythos 5.1 自 2026-09-01 起僅提供給 Glasswing 核准客戶，且目前限一組美國組織"
     evidence: 已證實
-    source_date: "2026-06-02"
+    source_date: "2026-09-01"
   - id: glasswing-findings
     label: Glasswing 累計發現量
     state: "夥伴端逾 10,000 件高風險/重大；OSS 掃描 23,019 件、其中 6,202 件高風險/重大（本期無新的累計數據公布）"
@@ -28,7 +28,7 @@ targets:
     source_date: "2026-05-26"
   - id: glasswing-program
     label: Project Glasswing 存取模式
-    state: "封閉夥伴計畫；Mythos 5.1 為現行 Glasswing 模型；Bedrock 仍為 gated research preview（本期無更新）"
+    state: "封閉夥伴計畫，非一般商業銷售；Bedrock 為 gated research preview。存取管道為 Cyber Verification Program（CVP）與 2026-09-01 新設的 Life Sciences Verification Program（LSVP，與美國政府合作）"
     evidence: 已證實
     source_date: "2026-09-01"
   - id: glasswing-field-results
@@ -38,61 +38,76 @@ targets:
     source_date: "2026-05-18"
   - id: anthropic-enterprise-security
     label: Claude Security 產品線狀態
-    state: "public beta，對 Claude Enterprise 客戶開放；掃描可由前沿模型驅動。Enterprise Frontier Safeguards（EFS）於 2026-09-01 宣布，過渡期對 Fable 提供 ZDR"
+    state: "public beta，對 Claude Enterprise 客戶開放，掃描已由 Mythos 5 驅動，輸出含 CWE 分類、信心度與嚴重度、建議修補，修補須人工核可；依標準 token 計費、無額外 add-on。另設 $35M Defender Advantage Fund（0xDAF）；Cyber Verification Program 擴大至 Opus／Sonnet 更廣的 dual-use 能力。本期無新公告；Anthropic 稱 Fable 5.1 在資安場景的誤報較前代少 60%（廠商主張）"
     evidence: 已證實
     source_date: "2026-09-01"
   - id: openai-cyber-model
     label: OpenAI 資安導向模型
-    state: "GPT-5.6-Cyber 經 Daybreak Red 提供；GPT-6 Astra 官方宣稱 cybersecurity SOTA 並優先向 Daybreak 組織開放。存取須身分驗證、監控、用途限制"
-    evidence: 已證實
+    state: "GPT-6 Astra（2026-09-03）為首個在廣泛部署時即達 Preparedness Framework 資安 Critical 等級的模型；企業租戶預設關閉、須管理員手動啟用，公開版拒絕產生 exploit PoC。緩解措施含完整 trajectory（含 CoT）普遍性監控、內部使用前阻斷式 alignment 評估、checkpoint 加密、外部 misalignment 監控。生物與資安敏感能力走 trusted access。負面結果：CoT 可監控性較 GPT-5.6 Sol 下降。GPT-5.6-Cyber 續由 Daybreak Red 提供、Sol 由 Daybreak Blue 提供，兩層已於 Amazon Bedrock 對合格客戶上線"
+    evidence: 已證實（廠商自評 benchmark 仍屬廠商主張）
     source_date: "2026-09-03"
   - id: openai-frontier-tier
     label: OpenAI 前沿模型世代與定價
-    state: "GPT-6 Astra（gpt-6-astra）為現行旗艦，2026-09-03 起分階段開放；API $10/$50 per MTok；GPT-5.6 Sol／Terra／Luna 仍可用。o3 已於 2026-08-26 自 ChatGPT 退役"
+    state: "GPT-6 Astra（2026-09-03）為現行旗艦，1,050,000 token context、最大輸出 128,000 token；短 context $10／$1 cached／$50，長 context $20／$2／$75。GPT-5.6 分軌經官方文件覆核：Sol $4／$0.40／$20（促銷價至少至 2026-11-21）、Terra $2／$0.20／$12、Luna $0.20／$0.02／$1.20。逐步鋪開至 ChatGPT Plus／Pro／Business／Enterprise、OpenAI API、Microsoft Azure 與 AWS Bedrock。o3 已於 2026-08-26 自 ChatGPT 退役。取證註記：openai.com/index/ 之下的發布頁本期回覆 HTTP 403，一手證據改採 OpenAI Deployment Safety Hub 與 developers.openai.com"
     evidence: 已證實
     source_date: "2026-09-03"
   - id: google-frontier-tier
     label: Google DeepMind 前沿模型世代與定價
-    state: "Gemini 3.8 Flash（gemini-3.8-flash）2026-09-02 GA，$0.75/$3.75 intro 至 2026-12-31；3.8 Flash Cyber 僅 Fairwind。3.7／3.6／3.5 Flash 系列仍可用"
+    state: "Gemini 3.8 Flash（2026-09-02）為現行 Flash 線最新版，距 3.7 Flash（2026-08-13）僅三週。定價經官方一手覆核：促銷價 $0.75／MTok 輸入、$3.75／MTok 輸出至 2026-12-31，2027-01-01 起調為 $1.50／$7.50。官方自評 HLE-Verified 54.9%（廠商主張）。3.6 Flash 與 3.5 Flash-Lite 已 GA；gemini-robotics-er-1.6-preview 於 2026-08-31 停用"
+    evidence: 已證實（benchmark 屬廠商主張）
+    source_date: "2026-09-02"
+  - id: google-cyber-model
+    label: Google 資安導向模型與 Fairwind 受管存取計畫
+    state: "Gemini 3.8 Flash Cyber（2026-09-02）僅經 Fairwind Program 提供，對象限政府與國家級資安主管機關、關鍵基礎設施營運者（醫療、電信、能源、金融）與核心技術平台，全球逾 650 家夥伴；搭配 CodeMender harness 自動找出、驗證並修補漏洞。存取條件：申請須通過倫理營運紀錄審查、限內部資安／事件應變／滲透測試團隊員工、須抗釣魚 MFA 與存取追蹤、禁止分享轉售或再散布；經 Gemini Enterprise Agent Platform 存取時提供零資料留存。官方自評（未經第三方復現）：Chrome 正確修補數為最佳商用模型的 2.6 倍、CWE-Bench pass@1 47.2%、2 小時內找出通常需數月的關鍵漏洞"
+    evidence: 已證實（效能數據屬廠商主張）
+    source_date: "2026-09-02"
+  - id: ai-enabled-attack-evidence
+    label: AI 被用於攻擊端的公開事證
+    state: "2026-09-02 Unit 42 公開一起經證實的 agentic 企業入侵：攻擊者以前沿模型加攻擊專用 agentic 框架，將約兩週的人工入侵流程壓縮至 10 小時內，涵蓋逾 50 項 MITRE ATT&CK 技術。攻擊鏈含內部架構測繪、儲存庫硬編碼憑證擷取、secrets 系統主憑證取得、CI/CD pipeline 劫持外洩雲端金鑰，並將受害者 AI 端點轉為入侵後基礎設施。AI 操作跡證：對多個前沿模型的平行 LLM 呼叫、以結構化 Markdown 在代理間傳遞狀態、AI 生成痕跡的自訂腳本、代理彙整的 80 頁弱點技術報告。09-03 更新澄清本案為入侵而非 ransomware，部分媒體標題仍誤用 ransomware"
     evidence: 已證實
     source_date: "2026-09-02"
   - id: data-retention-terms
     label: 主要廠商企業版資料留存與訓練使用條款
-    state: "Anthropic：EFS 宣布（客戶自管雲 + 自動化監測），過渡期 Fable 5/5.1 ZDR；covered models 預設 30 日留存。OpenAI：ZDR 相容 Private Safety Processing 仍 early testing／preview，預計 2026-09 擴大"
+    state: "Anthropic：Enterprise Frontier Safeguards（EFS，2026-09-01 公告）取代 covered model 的 30 天留存要求 —— 活動資料可存於客戶自有 S3／Azure Blob／GCS，使用客戶自管金鑰與稽核紀錄，告警直送客戶審查團隊；符合資格客戶於過渡期對 Fable 5 與 Fable 5.1 取得 ZDR；不另收費，客戶自付雲端儲存費；分階段推出自 2026 年秋季起。與逾 100 家客戶共同開發。邊界條件：Fable 5.1／Mythos 5.1 文件上仍標 30 天留存且非經明示授權不提供 ZDR，兩者均為 Covered Model；一般商用 API 客戶維持 30 天；監控滾動視窗長度未公開。OpenAI：ZDR 相容的 Private Safety Processing（PSP）為 early testing，2026-09 起分階段擴大"
     evidence: 已證實
+    source_date: "2026-09-01"
+  - id: foundry-data-zone-pricing
+    label: Microsoft Foundry 資料落地區域溢價
+    state: "自 2026-09-01 生效：EU Data Zone 較 Global 貴 9%，美國以外 Regional 部署貴 7～16%，新設 APAC Data Zone 貴 20%。Standard（隨用隨付）的新溢價僅適用於 2026-09-01 及以後發布的模型（含 Claude Fable 5.1 與 GPT-6 Astra），留在既有模型不漲價；PTU 則對所有持有 EU Data Zone 或美國以外 Regional PTU 的客戶全面適用。第三方報導另稱採 EU 資料落地的 API 專案無法使用 Astra 的 fast／priority 級距，且 Astra 預計 2026 Q4 才進行 EU Data Zone 審查 —— 此段未取得一手確認，待覆核"
+    evidence: 已證實（EU 相關細節部分待覆核）
     source_date: "2026-09-01"
   - id: onprem-options
     label: 可地端／VPC 部署的模型選項
-    state: "查無公開資料：本期未取得主要廠商在地端或 VPC 部署條件上的新變更。最接近者為雲端區域端點與客戶自管儲存（EFS／PSP）"
+    state: "查無公開資料：本期仍未取得主要廠商在地端或 VPC 部署條件上的新變更。最接近者為 Anthropic 的 EFS（活動資料存於客戶自有雲，屬資料落地而非模型落地）、Google Fairwind 稱可在組織自有安全雲環境中產生修補、以及 Bedrock／Google Cloud 區域端點（10% 溢價）、Microsoft Foundry Data Zone 溢價與 Anthropic inference_geo 的 1.1x 溢價"
     evidence: 尚未證實
     source_date: "2026-09-07"
   - id: model-access-geopolitics
     label: 模型存取的地緣政治風險
-    state: "曾於 2026-06-12 因美國出口管制暫停，06-30 解除、07-01 恢復；本期無經 Tier 1 證實的新變更"
+    state: "曾於 2026-06-12 因美國出口管制暫停，06-30 解除、07-01 恢復。本期新增一項不同性質的限制：Mythos 5.1 自 2026-09-01 發布起即限「一組美國組織」，Anthropic 表示正與美國政府協調擴大。Fable 5.1 無地域限制，於 Claude API、Amazon Bedrock、Claude Platform on AWS、Google Cloud 與 Microsoft Foundry 全面提供。三家受管存取計畫（Glasswing／Daybreak／Fairwind）均禁止分享、轉售或再散布存取權，跨法人共用不可行"
     evidence: 已證實
-    source_date: "2026-06-30"
+    source_date: "2026-09-01"
   - id: china-models-observation
     label: 中國廠商模型（情報觀察區）
-    state: "依 9SISMIP-AI-TRiSM-001 不納入採用評估；本期觀測窗內查無經 Tier 1 證實的重大新發布"
-    evidence: 尚未證實
+    state: "依 9SISMIP-AI-TRiSM-001 不納入採用評估；僅追蹤能力與供應鏈訊號。2026-08-31 至 09-07 期間查無新的模型發布或開放權重釋出（以兩個第三方追蹤站交叉查核，未取得一手廠商公告）。既有狀態：DeepSeek V4 checkpoint 採 MIT 授權；Qwen3.8 提供 27B 多模態 Apache-2.0 checkpoint 與 2.4T 稀疏模型（Qwen3.8-Max License）；Kimi K3 原生多模態、1M context；GLM-5.3 為現行編碼取向 checkpoint。上期記錄的 GLM-5.3-Flash 與 Qwen3.8-Flash-Next 開放權重（2026-08-26）未見後續動作"
+    evidence: 第三方評論
     source_date: "2026-09-07"
   - id: mhs-standard
     label: Model Hardware Standard（AI agent 操作實體設備規格）
-    state: "查無公開資料（本期無更新）"
-    evidence: 尚未證實
-    source_date: "2026-09-07"
-  - id: ai-agent-browser-surface
-    label: AI agent 瀏覽器操作介面
-    state: "Anthropic browser use toolset（browser_toolset_20260801）已於 2026-08 出 beta；OpenAI GPT-6 Astra 官方強調 computer／browser use SOTA"
+    state: "research preview，限定科研實驗室與先進製造夥伴；規劃日後開源。安全設計含 driver 層裝置安全上限、標準化裝置特性與限制描述檔、即時監控與錯誤偵測、高風險決策人工核可。產業支持者含 AWS、Danaher、Doosan Robotics、Universal Robots、QIAGEN、Tecan、Hugging Face、Raspberry Pi（本期無更新）"
     evidence: 已證實
-    source_date: "2026-09-03"
+    source_date: "2026-08-27"
+  - id: ai-agent-browser-surface
+    label: AI agent 的瀏覽器與端點曝險面
+    state: "Claude in Chrome 於 Pro／Max／Team／Enterprise GA，支援不逐步核可的自主操作，每個動作由安全分類器驗證，沿用使用者既有登入狀態；免費方案不含。Cowork 桌面版另內建瀏覽器（本期無更新）"
+    evidence: 已證實
+    source_date: "2026-08-26"
   - id: compliance-api-coverage
     label: Anthropic 企業治理與稽核介面覆蓋範圍
-    state: "Compliance API 對 Cowork 與 Claude Code GA；M365 add-ins 與 Claude Science 為 beta；inference hooks 為 Enterprise beta（本期無重大變更）"
+    state: "Compliance API 對 Cowork（桌面／網頁／行動）與 Claude Code（CLI／桌面）GA，沿用既有 Compliance Access Key；M365 add-ins 與 Claude Science 為 beta；inference hooks（prompt 與 tool call 送達模型前檢查的即時 DLP）為 Enterprise beta（本期無更新）"
     evidence: 廠商主張
     source_date: "2026-08-26"
-  - id: google-fairwind
-    label: Google Fairwind 資安防禦計畫
-    state: "2026-09-02 啟動；提供 Gemini 3.8 Flash Cyber + CodeMender 給 governments and trusted partners，用於漏洞發現與自動修補"
+  - id: content-provenance-watermark
+    label: 模型輸出的內容溯源標記
+    state: "Claude Fable 5.1 與 Mythos 5.1 產生的文字在所有可用平台預設帶 Anthropic 統計式文字浮水印；經 Files API 取得的圖片、影片、音訊檔帶簽章 C2PA Content Credentials。浮水印不增加 token、不插入隱藏字元、不改變語意，且不攜帶使用者或組織識別資訊。偵測 API 為 private preview，開放對象為 EU 法規要求的合資格組織（主管機關、執法、媒體、事實查核）與需驗證法遵的企業。法規連動：EU AI Act 第 50 條透明度義務自 2026-08-02 適用，2026-08-02 前已上市的生成式系統依 AI Omnibus 臨時協議可至 2026-12-02 符合機器可讀標示要求"
     evidence: 已證實
-    source_date: "2026-09-02"
+    source_date: "2026-09-01"

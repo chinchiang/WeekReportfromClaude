@@ -5,8 +5,15 @@
     "purge_allowed": false,
     "note": "索引為衍生資料。期別檔案為真實來源，保留期內唯讀。"
   },
-  "updated": "2026-08-31",
+  "updated": "2026-09-07",
   "weeks": [
+    {
+      "week": "2026-W37",
+      "period_end": "2026-09-07",
+      "mode": "delta",
+      "file": "weeks/2026/2026-W37.json",
+      "count": 12
+    },
     {
       "week": "2026-W36",
       "period_end": "2026-08-31",
@@ -23,6 +30,268 @@
     }
   ],
   "entries": [
+    {
+      "week": "2026-W37",
+      "period_end": "2026-09-07",
+      "id": "m07-2026W37-01",
+      "track": "B",
+      "target": "openai-cyber-model",
+      "target_label": "OpenAI 資安導向模型",
+      "title": "GPT-6 Astra 成為首個達 Preparedness Framework「Critical」資安等級的商用模型，企業租戶預設關閉",
+      "prev_state": "GPT-5.6-Cyber 經 Daybreak Red／Blue 兩層受管存取提供，已於 Amazon Bedrock 對符合資格客戶上線",
+      "curr_state": "GPT-6 Astra（2026-09-03）為 OpenAI 首個在廣泛部署時即達 Preparedness Framework 資安「Critical」等級的模型；企業管理員須手動啟用，預設關閉；公開版拒絕產生 exploit PoC 等進階攻擊任務，進階資安能力續由 Daybreak 受管存取提供",
+      "evidence": "verified",
+      "priority": "P0",
+      "impact": [
+        "採用政策",
+        "SOC 工具鏈",
+        "IAM／權限模型",
+        "SDL",
+        "供應商評估"
+      ],
+      "detail": "OpenAI 於 2026-09-03 發布 GPT-6 Astra，並在 Deployment Safety Hub 的 system card 中確認其為首個在廣泛部署時即觸及 Preparedness Framework 資安 Critical 門檻的模型，因而啟動額外部署限制。官方揭露的緩解措施包括：對含 chain of thought 的完整 trajectory 進行普遍性監控（universal monitoring）、內部使用前的阻斷式 alignment 評估、checkpoint 加密與強化存取控制，以及針對使用工具之推論的外部 misalignment 監控。存取面：生物與資安敏感能力走 trusted access，需驗證研究者資格與所屬機構；企業租戶須由管理員手動開啟 Astra，預設為關閉。能力數據方面，媒體引述的評測為 ExploitBench 100%（GPT-5.6 Sol 為 78.5%）、ExploitGym 42.4%（Sol 30.3%）、逾越範圍行為 0%（Sol 48%），並在發布前評估中發現 2 個 zero-day；針對訓練資料污染疑慮，OpenAI 另以知識截止後才揭露的 20 個 V8 高風險漏洞測試，得分 39%。system card 同時記錄一項負面結果：相較 GPT-5.6 Sol，Astra 的 chain-of-thought 可監控性下降，較不易在推理中暴露可疑意圖。判讀：這是本模組追蹤以來第一次由模型供應商自行宣告跨越資安 Critical 門檻，意義不在單一 benchmark 數字，而在「預設關閉、須管理員啟用」這個開關已經落到企業租戶手上 —— 亦即 Inventec 若有 ChatGPT Business／Enterprise 或 Azure 租戶，此開關的啟用權責、審批流程與稽核紀錄必須在本月內明確指定歸屬，不能停留在預設值。可監控性下降則直接影響以 CoT 為觀測面的偵測設計，SOC 工具鏈不應假設模型會在推理中自曝意圖。",
+      "source_org": "OpenAI",
+      "source_date": "2026-09-03"
+    },
+    {
+      "week": "2026-W37",
+      "period_end": "2026-09-07",
+      "id": "m07-2026W37-02",
+      "track": "B",
+      "target": "ai-enabled-attack-evidence",
+      "target_label": "AI 被用於攻擊端的公開事證",
+      "title": "Unit 42 公開首批 agentic 入侵案例之一：AI 代理在 10 小時內完成逾 50 項 ATT&CK 技術並奪取 root 憑證",
+      "prev_state": "—（新增追蹤標的；先前僅有 AI 輔助攻擊的零散公開事證，無端到端的企業入侵完整記錄）",
+      "curr_state": "2026-09-02 Unit 42 公開一起經證實的 AI 代理主導入侵：攻擊者以前沿模型加攻擊專用 agentic 框架，將原需約兩週的人工入侵流程壓縮至 10 小時內，涵蓋逾 50 項 MITRE ATT&CK 技術",
+      "evidence": "verified",
+      "priority": "P0",
+      "impact": [
+        "SOC 工具鏈",
+        "事件應變",
+        "SDL",
+        "IAM／權限模型",
+        "架構韌性",
+        "供應鏈與 CI/CD 安全"
+      ],
+      "detail": "Unit 42 於 2026-09-02 發布事件調查（09-03 與 09-04 兩度更新，其中 09-03 的更新澄清本案為入侵而非 ransomware，部分媒體標題仍沿用 ransomware 說法，引用時須留意）。攻擊鏈：取得初始存取後，以代理進行內部架構測繪、從原始碼儲存庫抓出硬編碼憑證、自 secrets management 系統取得管理層級主憑證、劫持 CI/CD pipeline 外洩雲端存取金鑰，最後把受害者自身的 AI 端點轉為入侵後基礎設施。Unit 42 列出的 AI 操作跡證包括：對多個前沿模型的平行 LLM 呼叫、以結構化 Markdown 檔在代理與 session 之間傳遞狀態、帶有 AI 生成痕跡的自訂腳本，以及攻擊者指示代理彙整的一份 80 頁受害者弱點技術報告。Unit 42 威脅情報資深總監 Andy Piazza 表示這是少數幾起有完整記錄的 agentic 企業入侵之一。Unit 42 建議：跨所有作業面同步圍堵、把 AI 當核心基礎設施治理並設嚴格 rate limit、以 API 監控偵測行為迴圈、對 IaC 儲存庫強制多方 code review。判讀：本模組先前追蹤的都是能力面（模型能做到什麼），這是第一則把能力落到實際企業受害者身上的完整記錄，且攻擊鏈的每一段都打在製造業常見的弱點上 —— 儲存庫硬編碼憑證、CI/CD 過度授權、secrets 集中且缺乏分段。10 小時的壓縮意味著以「天」為單位的偵測與圍堵節奏已不成立；本則的價值在於它提供了可直接對照控制項的攻擊階段清單，應納入本季紅隊情境與 SOC 偵測規則檢討，而非僅作情勢閱讀。",
+      "source_org": "Unit 42 (Palo Alto Networks)",
+      "source_date": "2026-09-02"
+    },
+    {
+      "week": "2026-W37",
+      "period_end": "2026-09-07",
+      "id": "m07-2026W37-03",
+      "track": "C",
+      "target": "data-retention-terms",
+      "target_label": "主要廠商企業版資料留存與訓練使用條款",
+      "title": "Anthropic 推出 Enterprise Frontier Safeguards：活動資料留在客戶自有雲，過渡期對 Fable 5／5.1 提供 ZDR",
+      "prev_state": "Anthropic：媒體報導 covered-model 資料未來可由企業存於自有雲，尚待 Anthropic 一手條款覆核。OpenAI：官方確認 ZDR 相容的 Private Safety Processing（PSP）正 early testing，預計 2026-09 起分階段擴大",
+      "curr_state": "Anthropic 一手公告已出：Enterprise Frontier Safeguards（EFS，2026-09-01）取代 covered model 的 30 天留存要求，misuse 偵測所需的活動資料可存於客戶自有的 Amazon S3／Azure Blob Storage／Google Cloud Storage，使用客戶自己的加密金鑰、存取政策與稽核紀錄；告警直送客戶自家審查團隊而非 Anthropic 員工；符合資格客戶在 EFS 就緒前的過渡期對 Fable 5 與 Fable 5.1 取得 ZDR。EFS 本身不另收費，客戶自付雲端儲存與資料操作費用；分階段推出自今年秋季開始",
+      "evidence": "verified",
+      "priority": "P0",
+      "impact": [
+        "採用政策",
+        "資料治理",
+        "SOC 工具鏈",
+        "供應商評估",
+        "法遵稽核"
+      ],
+      "detail": "上期以第三方報導記錄、標為待覆核的 Anthropic 自有雲留存方案，本期已由 Anthropic 官方公告確認並具體化。EFS 與逾 100 家客戶共同開發，涵蓋金融服務、醫療、製造、電信、法律、零售與公部門；適用範圍包含 Claude Code、Claude Enterprise、Claude Platform、Amazon Bedrock、Claude Platform on AWS、Google Agent Platform 與 Microsoft Foundry。客戶自有儲存與客戶自管金鑰為選配。須注意的邊界條件：Claude Fable 5.1 與 Mythos 5.1 在 platform 文件上仍標示 30 天資料留存、且非經 Anthropic 明示授權不提供 ZDR，兩者均為 Covered Model —— 亦即 ZDR 是需要申請、逐案核准的過渡安排，不是預設值；一般商用 API 客戶維持 30 天留存；消費級方案（Free／Pro／Max）不受影響。自動化監控仍持續掃描一段滾動視窗的流量以偵測嚴重濫用（含攻擊能力開發、被竊憑證、自主破壞性代理行為），但 Anthropic 未公開該視窗長度。判讀：這解掉了本模組追蹤最久的一道企業導入阻礙 —— 受監理業務無法接受非零留存 —— 但代價是把告警審查責任整段移到客戶自己的資安團隊。導入前必須先確認三件事：告警的接收與分級歸屬哪個團隊、自有雲儲存桶的權限與保存期限治理、以及 ZDR 申請的資格條件與核准紀錄要如何留存供稽核。在這三項落地之前，把 EFS 當成「已達成零留存」寫進評估結論是不成立的。",
+      "source_org": "Anthropic",
+      "source_date": "2026-09-01"
+    },
+    {
+      "week": "2026-W37",
+      "period_end": "2026-09-07",
+      "id": "m07-2026W37-04",
+      "track": "A",
+      "target": "openai-frontier-tier",
+      "target_label": "OpenAI 前沿模型世代與定價",
+      "title": "OpenAI 發布 GPT-6 Astra：1.05M context、$10／$50 定價，長 context 級距另計",
+      "prev_state": "GPT-5.6 系列為現行旗艦（含 Sol／Luna／Terra 分軌）；o3 已於 2026-08-26 自 ChatGPT 退役。定價未於上期覆核",
+      "curr_state": "GPT-6 Astra 於 2026-09-03 發布為新旗艦，1,050,000 token context、最大輸出 128,000 token；官方 API 定價短 context $10／MTok 輸入、$1／MTok cached input、$50／MTok 輸出，長 context 級距 $20／$2／$75。GPT-5.6 分軌定價經官方文件覆核：Sol $4／$0.40／$20、Terra $2／$0.20／$12、Luna $0.20／$0.02／$1.20（短 context）；Sol 促銷價至少延續至 2026-11-21。逐步鋪開至 ChatGPT Plus／Pro／Business／Enterprise、OpenAI API、Microsoft Azure 與 AWS Bedrock",
+      "evidence": "verified",
+      "priority": "P1",
+      "impact": [
+        "採用政策",
+        "成本管理",
+        "供應商評估"
+      ],
+      "detail": "發布日 2026-09-03，初期僅開放一小批組織，其後數日擴大。定價與 context 由 OpenAI 開發者文件（developers.openai.com）一手覆核；發布日期與 Critical 等級由 OpenAI Deployment Safety Hub 的 system card 一手確認。OpenAI 表示過去數週曾刻意延後部分開發進度，以強化並測試防止資安濫用的保護措施後才推進 rollout。取證限制：openai.com/index/ 之下的發布頁與 safety overview 頁在本期檢索環境回覆 HTTP 403，本則的 Tier 1 證據改由 OpenAI 自營的 Deployment Safety Hub 與開發者文件提供，兩者同屬廠商一手來源，分級不受影響。判讀：與前沿 Claude 同價（$10／$50），但 OpenAI 的 cached input 為 $1／MTok，相對 Fable 5.1 的 $0.25／MTok 高出 4 倍 —— 對高快取重用的長時代理工作負載，兩家的有效成本差距會顯著大於檯面上的相同標價。長 context 級距翻倍計價（$20／$75）是評估時容易漏算的一項：1M context 不等於 1M context 都用同一價位，成本模型需按實際 prompt 長度分布重算。",
+      "source_org": "OpenAI",
+      "source_date": "2026-09-03"
+    },
+    {
+      "week": "2026-W37",
+      "period_end": "2026-09-07",
+      "id": "m07-2026W37-05",
+      "track": "A",
+      "target": "anthropic-frontier-tier",
+      "target_label": "Anthropic 前沿模型世代",
+      "title": "Anthropic 發布 Claude Fable 5.1 與 Mythos 5.1，前沿世代整代推進；三項破壞性 API 變更",
+      "prev_state": "Mythos 5（limited availability）／Fable 5 為前沿世代；claude-mythos-preview 已 deprecated 並指向 claude-mythos-5；claude-fable-5 為 Active，退役不早於 2027-06-09",
+      "curr_state": "claude-fable-5-1 與 claude-mythos-5-1 於 2026-09-01 發布為新前沿世代，兩者能力與規格相同，1M token context（預設即最大）、最大輸出 128k、adaptive thinking 恆開；claude-fable-5-1 狀態 Active、退役不早於 2027-09-01；claude-fable-5 與 claude-mythos-5 維持 Active，本期無新退役公告",
+      "evidence": "verified",
+      "priority": "P1",
+      "impact": [
+        "採用政策",
+        "SDL",
+        "架構韌性",
+        "供應商評估"
+      ],
+      "detail": "官方揭露的自評 benchmark（屬廠商主張，未經第三方復現）：Terminal-Bench-Science 0.1 52.6%（Fable 5 為 24.7%）、Terminal-Bench 4.0 55.8%（42.0%）、CursorBench 3.2.0 73.4%（70.5%）、Humanity's Last Exam 帶工具 65.0%（63.8%）、OSWorld 2.0 strict 41.7%（36.1%）；Anthropic 另宣稱資安場景誤報（false positive）較前代少 60%。與工程落地直接相關的是三項破壞性變更，遷移前必須逐項確認：一、不支援強制工具呼叫，tool_choice 設為 any 或 tool 會回 400，需改用 strict tool use 或 structured outputs；二、thinking block 與產生它的模型綁定，較舊模型讀不到 Fable 5.1 的 thinking block，router 或 fallback 在對話中途換模型會靜默丟棄該區塊；三、修改對話歷史中較早的輪次（含 system prompt 與 tools 陣列）會使其後的 thinking block 失效，此檢查對 2026-08-31 以後建立的帳號強制執行。行為面另有數項無需改碼即會顯現的差異：平行工具呼叫變得較不穩定（可能一輪只發一個呼叫）、低 effort 時較少觸發檢索而傾向憑記憶作答、編輯檔案時較常整檔重寫。判讀：對已把 Claude 接進自動化流程的單位，第三項最容易踩到 —— 任何「每輪注入再刪除提醒文字」的既有寫法都會在 5.1 上失效，屬於必須先檢查再遷移的項目，不是換個 model ID 就結束。低 effort 較少檢索這點則會直接影響任何依賴模型自行查證的情報或稽核用途。",
+      "source_org": "Anthropic",
+      "source_date": "2026-09-01"
+    },
+    {
+      "week": "2026-W37",
+      "period_end": "2026-09-07",
+      "id": "m07-2026W37-06",
+      "track": "A",
+      "target": "anthropic-pricing",
+      "target_label": "Anthropic 公開 API 定價與 deprecation 排程",
+      "title": "Fable 5.1／Mythos 5.1 維持 $10／$50，cache read 降至 $0.25／MTok（前代四分之一）",
+      "prev_state": "Fable 5／Mythos 5 $10／$50 per MTok，cache read $1／MTok（0.1x）；Opus 5 $5／$25；Sonnet 5 $2／$10；Haiku 4.5 $1／$5；最近一次退役公告為 2026-06-05 的 Opus 4.1",
+      "curr_state": "Fable 5.1／Mythos 5.1 基礎定價與前代相同（$10 輸入／$50 輸出、5m cache write $12.50、1h cache write $20），但 cache read 降為 $0.25／MTok，倍率由業界慣用的 0.1x 改為 0.025x，為目前 Claude 模型中唯一的例外；batch 為 $5／$25。其餘模型定價未變，Opus 4.1 仍為最近一次退役公告，本期無新退役公告",
+      "evidence": "verified",
+      "priority": "P2",
+      "impact": [
+        "成本管理",
+        "採用政策"
+      ],
+      "detail": "Anthropic 稱此變更可使典型工作負載有效成本降約 25%、高度代理化工作負載最多降約 45%，理由是代理會反覆重讀同一份 codebase、system instructions、工具定義與累積的對話歷史。cache write 價格與 512 token 的最低可快取長度均未變動。判讀：這是一次結構性而非帳面上的降價 —— 標價不動，省的錢全部落在快取重用率高的長時代理工作負載上，因此節省幅度會因團隊的使用形態而差異極大，不能直接把「降 25%」寫進預算假設。要拿到這個折扣的前提是對話保持 append-only（見本期第 05 則的破壞性變更），任何會打斷 prefix 的寫法同時損失快取命中與 thinking block 有效性，兩項成本一起吃。與 GPT-6 Astra 的 $1／MTok cached input 相比，同標價下的快取成本差距為 4 倍，是目前兩家前沿層最實質的成本差異點。",
+      "source_org": "Anthropic",
+      "source_date": "2026-09-01"
+    },
+    {
+      "week": "2026-W37",
+      "period_end": "2026-09-07",
+      "id": "m07-2026W37-07",
+      "track": "B",
+      "target": "google-cyber-model",
+      "target_label": "Google 資安導向模型與 Fairwind 受管存取計畫",
+      "title": "Google 發布 Gemini 3.8 Flash Cyber，並以新設 Fairwind 受管存取計畫限定政府與關鍵基礎設施使用",
+      "prev_state": "—（新增追蹤標的；上期 Google 端無資安專用模型與對應的受管存取計畫）",
+      "curr_state": "2026-09-02 Google 同步發布 Gemini 3.8 Flash Cyber 與 Fairwind Program。Cyber 版僅經 Fairwind 提供，對象限政府與國家級資安主管機關、關鍵基礎設施營運者（醫療、電信、能源、金融）與核心技術平台；搭配 CodeMender harness 可自動找出、驗證並修補漏洞。Google 稱全球已有逾 650 家參與夥伴",
+      "evidence": "verified",
+      "priority": "P1",
+      "impact": [
+        "採用政策",
+        "供應商評估",
+        "PSIRT",
+        "SOC 工具鏈",
+        "法遵稽核"
+      ],
+      "detail": "Fairwind 的存取條件與 Anthropic Glasswing、OpenAI Daybreak 同屬受管存取模式，但條款揭露得更細：申請須通過審查以確認具備合乎倫理的營運紀錄；參與組織須把存取限制在內部資安、事件應變或滲透測試團隊的員工，部署使用者層級驗證與抗釣魚 MFA，並追蹤員工的存取與使用；Google 明文禁止夥伴組織分享、轉售或再散布存取權；用途限於授權範圍內的威脅模擬、逆向工程與惡意程式分析（防禦與學術研究目的），禁止製作惡意程式。經 Gemini Enterprise Agent Platform 存取時提供零資料留存。Google 公布的自評數據：Chrome 資安團隊測得 3.8 Flash Cyber 產出的正確 Chrome 漏洞修補數為「大得多的最佳商用模型」的 2.6 倍；Cloud Vulnerability Research 團隊稱其在 2 小時內找出一個通常需數月研究的關鍵基礎漏洞；CWE-Bench pass@1 為 47.2%；CyberGym 上宣稱勝過 3.5 Flash Cyber 與明顯更大的前沿模型。上述數據全數為廠商自評，未見第三方復現，本則的 verified 僅涵蓋「發布事實、計畫存在與存取條件」，不涵蓋效能數字。Google.org 同時宣布全球逾 1 億美元資安經費，含 3,600 萬美元支持 35 家 cyber clinic、服務逾 1,250 家美國醫院、學區與市政公用事業。判讀：本期三家前沿廠商的資安能力全部落在受管存取層（Glasswing／Daybreak／Fairwind），且三者的資格條件高度一致 —— 政府、關鍵基礎設施、核心技術平台。Inventec 作為 ODM 製造業者是否落入「核心技術平台」的認定範圍，值得在採用政策中先做一次資格盤點，而非等到需要時才申請；同時要注意三家都明文禁止轉售或再散布，這對集團內跨法人共用存取的做法構成直接限制。",
+      "source_org": "Google",
+      "source_date": "2026-09-02"
+    },
+    {
+      "week": "2026-W37",
+      "period_end": "2026-09-07",
+      "id": "m07-2026W37-08",
+      "track": "C",
+      "target": "foundry-data-zone-pricing",
+      "target_label": "Microsoft Foundry 資料落地區域溢價",
+      "title": "Microsoft Foundry 自 2026-09-01 調整資料落地溢價：新設 APAC Data Zone 較 Global 貴 20%",
+      "prev_state": "—（新增追蹤標的；上期僅記錄 Bedrock／Google Cloud 區域端點 10% 溢價與 Anthropic inference_geo 的 1.1x 溢價，未涵蓋 Microsoft Foundry 的資料落地價差）",
+      "curr_state": "自 2026-09-01 起，Microsoft Foundry 的 EU Data Zone 較 Global 貴 9%，美國以外的 Regional 部署較 Global 貴 7～16%，並新設 APAC Data Zone，價格較 Global 貴 20%。Standard（隨用隨付）的新溢價僅適用於 2026-09-01（含）以後發布的模型，留在現有模型的客戶不漲價；Provisioned Throughput（PTU）則對所有持有 EU Data Zone 或美國以外 Regional PTU 的客戶全面適用",
+      "evidence": "verified",
+      "priority": "P1",
+      "impact": [
+        "成本管理",
+        "採用政策",
+        "資料治理",
+        "架構韌性"
+      ],
+      "detail": "這條變更對亞太據點的意義高於歐洲：新設的 APAC Data Zone 溢價 20%，是本次公布的級距中最高的一檔，且恰好是臺灣與東南亞據點若要把推論留在亞太區的唯一選項。生效日與計價規則的交互作用需要特別留意 —— Standard 的漲價綁在「模型發布日」而非「使用日」，因此留在既有模型上不會漲價，但只要為了取得新能力而遷移到 2026-09-01 以後發布的模型（GPT-6 Astra 於 09-03 發布、Claude Fable 5.1 於 09-01 發布，均落在此範圍內），資料落地溢價會在遷移的同一天生效。PTU 則沒有這道緩衝，直接全面適用。另據第三方分析，採用 EU 資料落地的 API 專案無法使用 Astra 的 fast 或 priority 服務級距、須走 standard 處理，且 Astra 尚未進入 EU 資料處理的候選範圍，預期於 2026 年第四季才進行 EU Data Zone 審查；此段僅有第三方來源，未取得 Microsoft 或 OpenAI 一手確認，列為待覆核。判讀：既有的成本模型若假設「換新模型只影響 token 單價」，在亞太據點會低估 20%。採用政策應把「資料落地區域」與「模型版本」綁在同一個決策點上評估，而不是分別由架構與採購兩邊各自決定。",
+      "source_org": "Microsoft",
+      "source_date": "2026-09-01"
+    },
+    {
+      "week": "2026-W37",
+      "period_end": "2026-09-07",
+      "id": "m07-2026W37-09",
+      "track": "C",
+      "target": "model-access-geopolitics",
+      "target_label": "模型存取的地緣政治風險",
+      "title": "Mythos 5.1 僅開放美國組織，並新設 Life Sciences Verification Program 與美國政府合作",
+      "prev_state": "曾於 2026-06-12 因美國出口管制暫停，06-30 解除、07-01 恢復；上期無經 Tier 1 證實的新變更",
+      "curr_state": "Mythos 5.1 僅提供給 Project Glasswing 核准客戶，且 Anthropic 明示「目前僅開放給一組美國組織」，正與美國政府協調擴大範圍。存取管道為 Cyber Verification Program（CVP，防禦性資安）與新設的 Life Sciences Verification Program（LSVP，與美國政府合作，規劃日後擴大至更廣的生命科學社群）。Fable 5.1 則無此地域限制，於 Claude API、Amazon Bedrock、Claude Platform on AWS、Google Cloud 與 Microsoft Foundry 全面提供",
+      "evidence": "verified",
+      "priority": "P1",
+      "impact": [
+        "採用政策",
+        "供應商評估",
+        "架構韌性",
+        "法遵稽核"
+      ],
+      "detail": "上期快照記錄的地緣政治風險為「已解除、無新變更」，本期出現的是不同性質的限制：不是出口管制引發的暫停，而是新世代受限模型自發布起就以國別劃定資格範圍。對非美國法人而言，實務效果與存取受限相同 —— 亞太據點無法透過 Glasswing 取得 Mythos 5.1，即使集團內的美國實體具備資格，Anthropic 與 Google Fairwind 同樣明文禁止分享或再散布存取權，跨法人共用不是可行路徑。LSVP 為本期新出現的存取管道，與美國政府合作、對象為生命科學領域，與本集團業務無直接關聯，記錄供跨期追蹤。判讀：前沿資安能力的取得管道正在同時沿兩條軸線收窄 —— 資格審查（Glasswing／Daybreak／Fairwind）與國別（Mythos 5.1 限美國）。採用政策應明確假設：短期內亞太據點取得的最高能力層級是 Fable 5.1 這類通用前沿模型，而非資安特化的受限模型；任何以「屆時申請即可」為前提的資安工具鏈藍圖需要重新評估。",
+      "source_org": "Anthropic",
+      "source_date": "2026-09-01"
+    },
+    {
+      "week": "2026-W37",
+      "period_end": "2026-09-07",
+      "id": "m07-2026W37-10",
+      "track": "D",
+      "target": "content-provenance-watermark",
+      "target_label": "模型輸出的內容溯源標記",
+      "title": "Fable 5.1／Mythos 5.1 全平台輸出帶統計式文字浮水印與 C2PA Content Credentials，對接 EU AI Act 第 50 條標示義務",
+      "prev_state": "—（新增追蹤標的；Anthropic 於 2026-08-14 預告文字浮水印，當時尚未有模型在 GA 全平台預設帶浮水印）",
+      "curr_state": "Claude Fable 5.1 與 Mythos 5.1 產生的文字在所有可用平台上均帶 Anthropic 的統計式文字浮水印；經 Files API 取得的圖片、影片、音訊檔案帶簽章的 C2PA Content Credentials。偵測 API 為 private preview，開放對象為 EU 法規要求的合資格組織（主管機關、執法、媒體、事實查核）與需驗證法遵的企業",
+      "evidence": "verified",
+      "priority": "P1",
+      "impact": [
+        "採用政策",
+        "資料治理",
+        "法遵稽核",
+        "SDL"
+      ],
+      "detail": "純法規進度不在本模組展開（交叉引用模組 02），此處僅記錄與模型能力直接相關的部分：這是本模組追蹤的廠商中，第一個在前沿模型 GA 時即於全平台預設啟用內容溯源標記的世代。技術面：浮水印以金鑰與前文決定選詞的隨機來源，不增加 token、不插入隱藏字元、不改變輸出的語意與可讀性，且不攜帶任何識別使用者或組織的資訊 —— 亦即它能證明「這段文字由 Claude 產生」，但不能證明「由誰產生」。法規連動：EU AI Act 第 50 條的透明度義務自 2026-08-02 起適用，要求生成式 AI 系統的輸出以機器可讀格式標示為人工生成或操作，違反可處最高 1,500 萬歐元或全球年營業額 3%（取高者）；2026 年 5 月 AI Omnibus 臨時協議給予該日期前已上市的生成式系統至 2026-12-02 符合第 50 條第 2 項的機器可讀標示要求。Anthropic 亦說明其 2026-08-02 前發布的模型適用過渡期。判讀：對內部使用而言，這項變更的實際效果是「以 Claude 產出的文字，日後可被第三方在不知情的情況下驗證為 AI 生成」。凡是對外交付、投標文件、客戶技術文件或法遵報告中含模型產出的段落，其可稽核性已不再取決於我方是否主動揭露。內容治理與對外文件的 AI 使用揭露政策應在 2026-12-02 這個節點前完成盤點，尤其是既有以舊模型產出、未帶標記的文件如何處理。",
+      "source_org": "Anthropic",
+      "source_date": "2026-09-01"
+    },
+    {
+      "week": "2026-W37",
+      "period_end": "2026-09-07",
+      "id": "m07-2026W37-11",
+      "track": "A",
+      "target": "google-frontier-tier",
+      "target_label": "Google DeepMind 前沿模型世代與定價",
+      "title": "Gemini 3.8 Flash 發布：促銷價 $0.75／$3.75，2027-01-01 起翻倍",
+      "prev_state": "Gemini 3.x 系列：3.7 Flash（2026-08-13）、3.6 Flash 與 3.5 Flash-Lite 已 GA；gemini-robotics-er-1.6-preview 於 2026-08-31 停用。定價未覆核，來源為第三方追蹤站",
+      "curr_state": "Gemini 3.8 Flash 於 2026-09-02 發布，為 3.7 Flash 之後三週內的再一次迭代；官方定價經一手覆核：促銷價 $0.75／MTok 輸入、$3.75／MTok 輸出，至 2026-12-31 止，2027-01-01 起調為 $1.50／$7.50。對 Google AI Pro 與 Ultra 訂閱者開放，開發者可經 Gemini API、Google AI Studio、Android Studio 與 Gemini app 存取",
+      "evidence": "verified",
+      "priority": "P2",
+      "impact": [
+        "採用政策",
+        "成本管理",
+        "供應商評估"
+      ],
+      "detail": "官方自評（廠商主張）：HLE-Verified 54.9%，並稱在軟體工程、代理任務與專業領域的多步推理上相較 3.7 Flash 有顯著改善。上期此標的的證據等級為「尚未證實」、定價僅有第三方追蹤站來源，本期已由 Google 官方 blog 一手覆核定價與發布日，證據等級提升。須留意兩點：一是促銷價的到期日明確落在 2026-12-31，翻倍後的價格才是編列 2027 年度預算的依據；二是 Google 的 benchmark 表為廠商文件，其中 Gemini 分數由 Google 自行計算、競品分數則取自競品自行公布的數字，不構成同一條件下的比較（見本期 counter_views）。判讀：Flash 線的迭代節奏已壓縮到三週一版，任何把特定 Flash 版本寫死進流程的做法都會快速產生版本漂移；採用時應以能力門檻而非版本號定義需求。",
+      "source_org": "Google",
+      "source_date": "2026-09-02"
+    },
+    {
+      "week": "2026-W37",
+      "period_end": "2026-09-07",
+      "id": "m07-2026W37-12",
+      "track": "A",
+      "target": "china-models-observation",
+      "target_label": "中國廠商模型（情報觀察區）",
+      "title": "情報觀察區：本觀測期間查無中國廠商新的模型發布或開放權重釋出",
+      "prev_state": "2026-08-26 GLM-5.3-Flash 與 Qwen3.8-Flash-Next 均有官方開放權重資料；Z.ai API 價格為輸入 $0.15／輸出 $0.50 per MTok",
+      "curr_state": "查無公開資料：2026-08-31 至 2026-09-07 期間，DeepSeek、Qwen、Kimi、GLM 均無新的模型發布或開放權重釋出。既有狀態延續 —— DeepSeek V4 checkpoint 採 MIT 授權；Qwen3.8 提供 27B 多模態 Apache-2.0 checkpoint 與 2.4T 稀疏模型（Qwen3.8-Max License）；Kimi K3 為原生多模態、1M context；GLM-5.3 為現行編碼取向 checkpoint",
+      "evidence": "thirdparty",
+      "priority": "P3",
+      "impact": [
+        "採用政策"
+      ],
+      "detail": "依 9SISMIP-AI-TRiSM-001 政策，中國廠商模型不納入採用評估，本區僅追蹤能力與供應鏈訊號。本期以兩個獨立的第三方模型發布追蹤站交叉查核，均未見觀測期間內的新發布；未取得任何一手廠商公告，故證據等級為 thirdparty 而非 verified —— 這是「查無資料」的誠實標記，不代表已向廠商官方管道確認過不存在發布。上期記錄的 08-26 雙發布（GLM-5.3-Flash 與 Qwen3.8-Flash-Next）之後，本期未見後續動作。判讀：無須行動，僅維持時間軸連續性。",
+      "source_org": "LLM Gateway",
+      "source_date": "2026-09-05"
+    },
     {
       "week": "2026-W36",
       "period_end": "2026-08-31",
