@@ -7,6 +7,10 @@ This script exists because the wrong week has been produced before.
     python3 scripts/period.py            # human-readable brief, exit 0 when OK
     python3 scripts/period.py --json     # machine-readable brief
     python3 scripts/period.py --today 2026-09-14
+
+"Today" is always read in Asia/Taipei, because the schedule is defined there
+(CRON_TZ=Asia/Taipei) while the runner's clock is UTC. Taiwan has not observed
+DST since 1979, so a fixed UTC+8 offset is exact and needs no tzdata.
     python3 scripts/period.py --allow-existing   # OK to update an existing file for that week
 
 Exit codes:
@@ -22,6 +26,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+TAIPEI = dt.timezone(dt.timedelta(hours=8))
 TOPICS = ["eu-ai-act", "eu-cra", "nis2", "cmmc", "iso27000", "iso42001", "tisax", "iec62443", "incidents"]
 
 
@@ -37,7 +42,10 @@ def main():
     ap.add_argument("--json", action="store_true", help="print a JSON brief")
     args = ap.parse_args()
 
-    today = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
+    # dt.date.today() would read the runner's UTC clock: between 00:00 and 08:00
+    # Taipei that is still the previous day, so a Monday-morning run would see
+    # "yesterday = Saturday" and stop with exit 2.
+    today = dt.date.fromisoformat(args.today) if args.today else dt.datetime.now(TAIPEI).date()
     yesterday = today - dt.timedelta(days=1)
     problems = []
     code = 0
