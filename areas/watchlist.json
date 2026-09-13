@@ -1,7 +1,7 @@
 {
   "_note": "資安合規週報的 Watchlist 現況檔。Routine 每期先讀本檔取得基線，查證後回寫 baseline 與 history；里程碑達成時把 milestone.reached 設為 true 並填 date／reportedIn。標的定義（追蹤問題、查證點、查詢角度）以 prompts/weekly-routine.md 為權威，本檔只存現況。scripts/validate_report.py 會用 keywords 檢查每個標的在該期是否有【重點追蹤】項目。",
-  "asOf": "2026-09-06",
-  "updatedIn": "2026-W36",
+  "asOf": "2026-09-13",
+  "updatedIn": "2026-W37",
   "targets": [
     {
       "id": "enisa-srp",
@@ -34,16 +34,16 @@
         }
       ],
       "milestone": {
-        "reached": false,
-        "date": null,
-        "reportedIn": null,
+        "reached": true,
+        "date": "2026-09-11",
+        "reportedIn": "2026-W37",
         "definition": "SRP 正式上線且公開網址公布"
       },
       "baseline": {
-        "asOf": "2026-09-06",
+        "asOf": "2026-09-13",
         "status": {
-          "zh": "仍未上線，公開網址未公布；協調 CSIRT 名單已於 2026-09-04 公布（W36 更正補入），現階段不提供 API；規劃與 9/11 通報義務同步啟用；上線首日只開放 Article 14／24 法定通報。ENISA 建議 9/11 前完成帳號開通與角色指派，至少兩名具存取權人員並備妥非上班時間程序。",
-          "en": "Not live; URL unpublished; the coordinating CSIRT list was published on 2026-09-04 (added by W36 correction); no API at this stage. Planned to launch with the September 11 reporting obligations; day one accepts only Article 14/24 mandatory reports. ENISA advises provisioning accounts and roles beforehand with at least two named users and an out-of-hours process."
+          "zh": "**里程碑達成**：ENISA 已於 2026-09-11 部署 SRP 的初始運作能力，與 CRA Article 14 通報義務適用日同日啟用，公開網址為 https://portal.cra-srp.enisa.europa.eu 。屬初始運作能力而非完整平台：首日僅收 Article 14／24 法定通報，現階段仍不提供通報 API。ENISA 同步發布 AR 使用者註冊指引與使用者手冊，並明確要求製造商「確有通報要提交時」才啟動註冊與驗證，以免壓垮各國 CSIRT 驗證量能；使用者邀請函 7 天內未完成註冊即失效（狀態轉為 Invitation Expired）。27 國協調 CSIRT 名單已於 2026-09-04 公布。通報時鐘依 Regulation (EEC, Euratom) No 1182/71 於週末與假日不停。",
+          "en": "**Milestone reached**: ENISA deployed the SRP's initial operating capability on 2026-09-11, the same day the CRA Article 14 reporting obligations applied, at https://portal.cra-srp.enisa.europa.eu . It is an initial capability, not the full platform: day one accepts only the mandatory Article 14/24 notifications and no reporting API is offered at this stage. ENISA published AR user registration guidance and a user manual alongside it, and explicitly asks manufacturers to begin registration and validation only when they actually have a notification to submit, to avoid overwhelming national CSIRT validation capacity; a user invitation expires if registration is not completed within seven days (status becomes \"Invitation Expired\"). The list of coordinating CSIRTs for all 27 Member States was published on 2026-09-04. Under Regulation (EEC, Euratom) No 1182/71 the reporting clock does not stop at weekends or public holidays."
         }
       },
       "history": [
@@ -56,6 +56,11 @@
           "week": "2026-W36",
           "asOf": "2026-09-12",
           "summary": "【更正】ENISA 9/4 已公布 27 國協調 CSIRT 名單，W36 初版漏報。另：外部報導稱 SRP 已於 9/11 上線（initial operating capability），待 W37 正式查證回報。"
+        },
+        {
+          "week": "2026-W37",
+          "asOf": "2026-09-13",
+          "summary": "【里程碑達成】SRP 於 9/11 正式上線（portal.cra-srp.enisa.europa.eu），屬初始運作能力；首日僅收 Art.14/24、仍無 API；ENISA 要求勿預先註冊演練；邀請函 7 天失效。"
         }
       ]
     },
@@ -94,10 +99,10 @@
         "definition": "任一 CRA 調和標準的引用刊登於 OJ"
       },
       "baseline": {
-        "asOf": "2026-09-06",
+        "asOf": "2026-09-13",
         "status": {
-          "zh": "OJ 仍無任何 CRA 調和標準；ETSI 17 項產品標準（EN 304 617–627、631–636）公眾意見徵詢跑到 2026-09 中～11 月中。",
-          "en": "No CRA harmonised standard in the OJ yet; public enquiry on ETSI's 17 product standards (EN 304 617-627, 631-636) runs from mid-September to mid-November 2026."
+          "zh": "OJ 仍無任何 CRA 調和標準，Article 27 合規推定對所有產品類別皆不可用。M/606 的 41 項標準（15 橫向、26 垂直）無一完成「核准為 EN → 交付 → 評估 → 刊登 OJ」全程。ETSI 17 項垂直產品標準（EN 304 617–627、631–636）的公眾意見徵詢自 2026-09 中起陸續截止，最晚至 11 月中；執委會未公布任何預計刊登日期。",
+          "en": "No CRA harmonised standard is cited in the OJ, so the Article 27 presumption of conformity is unavailable for every product category. None of the 41 standards under M/606 (15 horizontal, 26 vertical) has completed approval as an EN, delivery, assessment and citation. Public enquiry on ETSI's 17 vertical product standards (EN 304 617-627, 631-636) begins closing in mid-September 2026 and runs to mid-November; the Commission has published no expected citation date."
         }
       },
       "history": [
@@ -105,6 +110,11 @@
           "week": "2026-W36",
           "asOf": "2026-09-06",
           "summary": "無變化。"
+        },
+        {
+          "week": "2026-W37",
+          "asOf": "2026-09-13",
+          "summary": "無變化；ETSI 17 項標準的意見徵詢自本期起陸續截止，OJ 仍為零。"
         }
       ]
     },
@@ -158,10 +168,10 @@
         "definition": "修訂案正式通過，或任一新期限跳票"
       },
       "baseline": {
-        "asOf": "2026-09-06",
+        "asOf": "2026-09-13",
         "status": {
-          "zh": "仍為草案、未刊 OJ；A/B 類新期限 10 月 31 日已進入倒數。",
-          "en": "Still a draft, not in the OJ; the new Type A/B date of October 31 is now on the clock."
+          "zh": "修訂案仍未正式通過、未刊登 OJ，對應的執行決定亦未刊登；A/B 類 2026-10-31 與 C 類 2026-12-31 在法律上仍屬「提議」而非已定期限。原 A/B 類期限 2026-08-30 已屆期未交付。距提議期限不到七週而修訂案未生效，第二次滑動的可能性不能排除。CRA 義務與適用日未變（2026-09-11 通報已上路、2027-12-11 主要義務）。",
+          "en": "The amendment is still not formally adopted and not in the OJ, and no corresponding implementing decision has been published; 2026-10-31 (Type A/B) and 2026-12-31 (Type C) remain proposed rather than fixed. The original Type A/B date of 2026-08-30 passed without delivery. With under seven weeks to the proposed date and the amendment not in force, a second slip cannot be ruled out. The CRA's obligations and application dates are unchanged (reporting live since 2026-09-11; main obligations 2027-12-11)."
         }
       },
       "history": [
@@ -169,6 +179,11 @@
           "week": "2026-W36",
           "asOf": "2026-09-06",
           "summary": "無正式通過公告。"
+        },
+        {
+          "week": "2026-W37",
+          "asOf": "2026-09-13",
+          "summary": "仍未刊登 OJ；A/B 類提議期限 10/31 剩不到七週，第二次滑動風險升高。"
         }
       ]
     },
@@ -209,10 +224,10 @@
         "definition": "任一 AI Act 調和標準的引用刊登於 OJ"
       },
       "baseline": {
-        "asOf": "2026-09-06",
+        "asOf": "2026-09-13",
         "status": {
-          "zh": "OJ 尚無任何 AI Act 調和標準；EN 18286（Article 17 QMS）已核准發布但待刊登；ISO 42001 非調和標準。",
-          "en": "No AI Act harmonised standard in the OJ; EN 18286 (Article 17 QMS) approved and published but not yet cited; ISO 42001 is not a harmonised standard."
+          "zh": "OJ 仍無任何 AI Act 調和標準。EN 18286（Article 17 QMS）已通過正式投票並發布，文本已定，只剩刊登 OJ 引用一步；prEN 18228（風險管理）、prEN 18229-1、prEN 18282 仍在 Enquiry；其餘 prEN 18xxx 在起草。CEN-CENELEC 可用性目標仍為 2026 Q4，修訂後的標準化委託期程至 2027-02-28。ISO 42001 仍非調和標準（EN ISO/IEC 42001:2026 為歐洲採認，不等於調和）。",
+          "en": "No AI Act harmonised standard is cited in the OJ. EN 18286 (Article 17 QMS) has passed Formal Vote and is published, with only the citation left; prEN 18228 (risk management), prEN 18229-1 and prEN 18282 are at Enquiry, and the remaining prEN 18xxx drafts are in drafting. CEN-CENELEC's availability target remains Q4 2026, with the amended standardisation request running to 2027-02-28. ISO 42001 is still not a harmonised standard (EN ISO/IEC 42001:2026 is European adoption, which is not harmonisation)."
         }
       },
       "history": [
@@ -220,6 +235,11 @@
           "week": "2026-W36",
           "asOf": "2026-09-06",
           "summary": "無變化。"
+        },
+        {
+          "week": "2026-W37",
+          "asOf": "2026-09-13",
+          "summary": "無變化；EN 18286 已核准發布、只差 OJ 引用，OJ 仍為零。"
         }
       ]
     },
@@ -259,10 +279,10 @@
         "definition": "報告公開發布或其結論經官方確認"
       },
       "baseline": {
-        "asOf": "2026-09-06",
+        "asOf": "2026-09-13",
         "status": {
-          "zh": "預計 2026-09-13 前後送交 DoW CIO；Phase 2 維持暫停；Phase 1 自評／SPRS／DFARS 252.204-7012 不變。",
-          "en": "Expected to reach the DoW CIO around 2026-09-13; Phase 2 remains paused; Phase 1 self-assessment, SPRS and DFARS 252.204-7012 unchanged."
+          "zh": "預計送交日 2026-09-13 已至，DoW CIO 辦公室未公開發布報告、亦無官方公告確認已送交；公開版與建議事項普遍預期落在 2026-09 底至 10 月初。里程碑本期未達成。相關但獨立的實質進展：DFARS Class Deviation 2026-O0025 Revision 3 已於 2026-09-03 簽署，把 Phase 2 暫停寫進 DFARS Part 240、允許 L1／L2 自評（Conditional 180 天、Final 3 年）、自動適用日推至 2028-11-10；DFARS 252.204-7012 與 SP 800-171 全 110 項控制維持有效，DCMA 評鑑結果覆蓋自評分數。",
+          "en": "The expected delivery date of 2026-09-13 has arrived with no public release by the DoW CIO's office and no official confirmation of delivery; a public version and recommendations are widely expected between late September and early October 2026. The milestone was not reached this period. A related but separate substantive development: DFARS Class Deviation 2026-O0025 Revision 3 was signed on 2026-09-03, writing the Phase 2 pause into DFARS Part 240, allowing self-assessment at Levels 1 and 2 (Conditional valid 180 days, Final three years) and moving universal application to 2028-11-10; DFARS 252.204-7012 and all 110 SP 800-171 controls remain in force, and a DCMA assessment overrides a self-assessed score."
         }
       },
       "history": [
@@ -270,6 +290,11 @@
           "week": "2026-W36",
           "asOf": "2026-09-06",
           "summary": "未發布。"
+        },
+        {
+          "week": "2026-W37",
+          "asOf": "2026-09-13",
+          "summary": "9/13 預計送交日已至但未公開發布；另 9/3 簽署的 Class Deviation Rev 3 已把 Phase 2 暫停寫入 DFARS Part 240。"
         }
       ]
     },
@@ -309,10 +334,10 @@
         "definition": "CJEU 判決，或任一國因完成轉換而撤案"
       },
       "baseline": {
-        "asOf": "2026-09-06",
+        "asOf": "2026-09-13",
         "status": {
-          "zh": "CJEU 無公開進展；荷蘭 8/15 生效且登記已強制（觀察是否撤案）；愛爾蘭稱 2026 年底前完成、西班牙未刊 BOE、法國無明確時程。",
-          "en": "No public CJEU progress; the Netherlands' law took effect August 15 with mandatory registration (watch for withdrawal); Ireland says by end-2026, Spain not yet in the BOE, France no clear timeline."
+          "zh": "CJEU 四案仍無公開程序進展（無案件登錄編號、言詞辯論期日或佐審官意見的公開紀錄）；執委會亦未公告因完成轉換而撤回任一案。荷蘭 Cbw 已於 2026-08-15 生效、登記強制，被訴基礎理論上消失但未見撤案公告；愛爾蘭稱 2026 年底前完成、西班牙未刊 BOE、法國無明確時程。德國 BSI 已由登記階段轉入實質稽核，自 2025 年底起對未登記者發出 Anordnungen，惟迄今無對具名企業的行政罰鍰經主管機關公告。",
+          "en": "The four CJEU cases show no public procedural progress (no case registration number, hearing date or Advocate General opinion on the public record), and the Commission has announced no withdrawal on grounds of completed transposition. The Dutch Cbw took effect on 2026-08-15 with mandatory registration, so the basis for that case has in principle fallen away, but no withdrawal has been announced; Ireland says by end-2026, Spain is not yet in the BOE, France has no clear timeline. Germany's BSI has moved from registration into active supervision, issuing Anordnungen since late 2025, but no administrative fine against a named entity has been announced by a competent authority."
         }
       },
       "history": [
@@ -320,6 +345,11 @@
           "week": "2026-W36",
           "asOf": "2026-09-06",
           "summary": "無公開進展。"
+        },
+        {
+          "week": "2026-W37",
+          "asOf": "2026-09-13",
+          "summary": "本期 CJEU 無公開進展，亦無撤案公告；德國 BSI 已轉入實質稽核但無具名罰鍰公告。"
         }
       ]
     }
